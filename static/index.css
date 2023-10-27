@@ -92,6 +92,8 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-bottom: 0.5rem;
+    min-height: calc(37px + 0.5rem);
   }
   .neopleThk > div {
     width: 10%;
@@ -103,9 +105,6 @@ html {
     font-family: 'DNFForgedBlade', sans-serif;
     font-weight: 500;
     color:#000000
-  }
-  .neopleThk a:hover {
-    color:#fabe00
   }
   .neopleThk > .footer-donate a {
     font-family: 'DNFBitBitv2', sans-serif;
