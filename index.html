@@ -54,11 +54,6 @@
         display: flex;
         align-items: center;
       }
-      #apiKey {
-        display: none;
-        width:22rem;
-        margin:0.5rem 0.5rem 0.5rem 0 !important
-      }
       #btn_epicList {
         margin:0.5rem 0 !important;
         display: none;
@@ -83,9 +78,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-      .neopleThk > a:first-child {
-        margin-right: 1rem;
       }
       .neopleThk > a {
         color:#000000
@@ -112,7 +104,6 @@
         <button id="btn_search" class="btn btn-primary">조회</button>
       </div>
       <div id="apiDiv">
-        <input id="apiKey" type="text" class="form-control" name="apikey" placeholder="APIKEY" autocomplete="off">
         <button id="btn_epicList" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">상세보기</button>
       </div>      
       <div class="row d-flex justify-content-center" style="margin-top: 0.5rem;">
@@ -123,7 +114,6 @@
       </div>
     </div>
     <div class="neopleThk">
-      <a href="https://cors-anywhere.herokuapp.com/corsdemo" target="_blank">CORS helped by herokuapp</a>
       <a href="http://developers.neople.co.kr" target="_blank">Powered by Neople OpenAPI</a>
     </div>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
