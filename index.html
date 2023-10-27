@@ -138,226 +138,159 @@
 
     <script>
       let apioff=false;
-      let timeLineList = [];
-      let nowDate = moment().format("YYYYMMDDTHHmm");
-			let API="";
-      $(document).ready(function() {
-        try{
-          if(location.search.length>1){
-            API = new URLSearchParams(location.search).get('key');
-            if(API.length>3){
-              $("#apiKey").val(API);    
-            }
-          }          
-        } catch(e){
-          API="";
-        }
-        $("#characterName").keyup(function () {
-            if (window.event.keyCode == 13) {
-              Search();
-            }
-        });
-        $(document).on("click", "#btn_search", function() {
-          Search();
-        });
-        $(document).on("click", "#btn_epicList", function() {
-          let html = "";
-          if(timeLineList.length>1){
-            timeLineList.forEach(element => {
-              html += `<div>${element.date} | ${element.mistGear ? "*" : ""} ${element.itemName} | ${element.channel}</div>`
-            });
-          }
-          $('.offcanvas-body').html(html);
-        })
-      });
-      function Search(){
-          if(apioff){
-            return alert("DNF점검");
-          }
-          var serverId = $("select[name='server']").val();
-          var characterName = $("input[name='name']").val();
-          if(characterName.length<1){
-            alert("캐릭터명을 입력해주세요");
-            return $("#characterName").focus();
-          }
-          if($("#apiKey").val().length>1){
-            API =  $("#apiKey").val();    
-          } else if(API==="INPUT" && $("#apiKey").val().length<1){
-            alert("apiKey를 입력해주세요");
-            return $("#apiKey").focus();
-          }
-          nowDate = moment().subtract(1,"m").format("YYYYMMDDTHHmm");
-          loadingToggle();
-          $(".results").html("");
-          searchcharacterId(serverId,characterName,function(characterInfo, err_ch){
-            try{
-              timeLineList = [];
-              if(err_ch){
-                loadingToggle(false);
-                $("#btn_epicList").removeClass("show");
-                if(characterInfo.responseText && characterInfo.responseText.indexOf("cors") > -1){
-                  API="INPUT";
-                  $("#apiKey").css('display','block');
-                  return alert("CORS에러_화면하단 CORS링크로 들어가 demo server 버튼을 눌러주세요");
-                } else if(characterInfo.responseText && characterInfo.responseText.indexOf("APIKEY") > -1){
-                  API="INPUT";
-                  $("#apiKey").css('display','block');
-                  return alert("에러 발생_APIKEY오류");
-                } else {
-                  API="INPUT";
-                  $("#apiKey").css('display','block');
-                  console.log(err_ch);
-                  console.log(characterInfo);
-                  return alert("에러 발생");
-                }              
-              } else {
-                if(characterInfo.error){
-                  loadingToggle(false);
-                  $("#btn_epicList").removeClass("show");
-                  if(characterInfo.error.message=="APIKEY_AUTH_ERROR"){
-                    API="INPUT";
-                    $("#apiKey").css('display','block');
-                    return alert("에러 발생_APIKEY오류");
-                  } else if(characterInfo.error.message=="SYSTEM_INSPECT"){
-                    apioff=true;
-                    return alert("DNF점검");
-                  } else {
-                    console.log(characterInfo);
-                    return alert("에러 발생_캐릭터정보오류");
-                  }
-                } else if(characterInfo.rows.length>0){
-                  var characterId = characterInfo.rows[0].characterId;
-                  searchTimeLineEpic(serverId, characterId,"", function(timeLineInfo, err_tl){
-                    try{
-                      if(err_tl){
-                        loadingToggle(false);
-                        $("#btn_epicList").removeClass("show");
-                        console.log(timeLineInfo);
-                        return alert("에러 발생_타임라인오류, 다시 시도해주세요");
-                      } else {
-                        data_List(timeLineList);
-                      }
-                    }catch(timeErr){
-                      console.log(timeErr);
-                      loadingToggle(false);
-                      return alert("에러 발생");
-                    }
-                  })
-                } else {
-                  loadingToggle(false);
-                  $("#btn_epicList").removeClass("show");
-                  return alert("일치하는 캐릭터 정보가 없습니다");
-                }
-              }
-            } catch(chinfoErr){
-              console.log(chinfoErr);
-              loadingToggle(false);
-              return alert("에러 발생");
-            }
-          })
-      }
-      function loadingToggle(toe=true) {
-        if(toe){
-          $("#loading").css("display","block");
-          $("#btn_search").addClass("disabled");
-        } else {
-          $("#loading").css("display","");
-          $("#btn_search").removeClass("disabled");
-        }
-      }
-			function data_List(Array) {
-				let newArray=[];
-				let mistGear=[];
-				let mistGearCount=1;
-				let html=``;
-				Array = Array.sort((a, b) => {
-          return new Date(a.date) - new Date(b.date)
-        })
-				Array.forEach(element => {
-					if(element.data.dungeonName ==="균형의 중재자"){
-						newArray.push({ code:element.code, date:element.date, itemName:element.data.itemName, mistGear:element.data.mistGear, count: mistGearCount, channel:`${element.data.channelName}_${element.data.channelNo}` });
-						if(!element.data.mistGear){
-							mistGearCount++;
+let timeLineList = [];
+let nowDate = moment().format("YYYYMMDDTHHmm");
+
+$(document).ready(function() {
+	$("#characterName").keyup(function () {
+			if (window.event.keyCode == 13) {
+				Search();
+			}
+	});
+	$(document).on("click", "#btn_search", function() {
+		Search();
+	});
+	$(document).on("click", "#btn_epicList", function() {
+		let html = "";
+		if(timeLineList.length>1){
+			timeLineList.forEach(element => {
+				html += `<div>${element.date} | ${element.mistGear ? "*" : ""} ${element.itemName} | ${element.channel}</div>`
+			});
+		}
+		$('.offcanvas-body').html(html);
+	})
+});
+function Search(){
+		if(apioff){
+			return alert("DNF점검");
+		}
+		var serverId = $("select[name='server']").val();
+		var characterName = $("input[name='name']").val();
+		if(characterName.length<1){
+			alert("캐릭터명을 입력해주세요");
+			return $("#characterName").focus();
+		}
+		nowDate = moment().subtract(1,"m").format("YYYYMMDDTHHmm");
+		loadingToggle();
+		$(".results").html("");
+		searchCharacterTimeline(serverId,characterName,nowDate, function(result, err){
+			try{
+				timeLineList = [];
+				if(err){
+					loadingToggle(false);
+					$("#btn_epicList").removeClass("show");
+					if(result.responseText && result.responseText.indexOf("cors") > -1){
+						return alert("CORS에러_화면하단 CORS링크로 들어가 demo server 버튼을 눌러주세요");
+					} else if(result.responseText && result.responseText.indexOf("APIKEY") > -1){
+						return alert("에러 발생_APIKEY 오류");
+					} else if(result.responseText && result.responseText.indexOf("MISSING_PARAMETER") > -1){
+						return alert("에러 발생_입력값 오류");
+					} else if(result.responseText && result.responseText.indexOf("NO_CHARACTER") > -1){
+						return alert("일치하는 캐릭터 정보가 없습니다");
+					} else {
+						console.log(err); console.log(result);
+						return alert("에러 발생");
+					}              
+				} else {
+					if(result.error){
+						loadingToggle(false);
+						$("#btn_epicList").removeClass("show");
+						if(result.error.message=="APIKEY_AUTH_ERROR"){
+							return alert("에러 발생_APIKEY오류");
+						} else if(result.error.message=="SYSTEM_INSPECT"){
+							apioff=true;
+							return alert("DNF점검");
 						} else {
-							mistGear.push({code:element.code, missCount : mistGearCount, count:newArray.length, itemName:element.data.itemName });
-							mistGearCount = 1;
+							console.log(result);
+							return alert("에러 발생_캐릭터정보오류");
 						}
-					} else if(element.data.mistGear) {
-						newArray.push({ code:element.code, date:element.date, itemName: `${element.data.itemName} (${element.data.dungeonName})`, mistGear:element.data.mistGear, count: mistGearCount, channel:`` });
-						mistGear.push({ code:element.code, missCount : mistGearCount, count:newArray.length, itemName: `${element.data.itemName}_${element.data.dungeonName}` });
-						mistGearCount = 1;
+					} else if(result.rows.length>0){
+						data_List(result.timeline);
+					} else {
+						loadingToggle(false);
+						$("#btn_epicList").removeClass("show");
+						return alert("일치하는 캐릭터 정보가 없습니다");
 					}
-				});
-				timeLineList = newArray;
-				console.log(newArray);
-				html +=`<div> 중재자 획득 에픽 수 : ${newArray.length}</div><div style="font-weight: bold;">미스트기어 리스트</div><div id="mistList">`;
-        if(mistGear.length>0){
-          mistGear.forEach(e => {
-            html +=`<div> 미기 ${e.code==505 ? "드랍" : "카드"} : ${e.count}번째 에픽, ${e.itemName} </div>`;
-          })
-        } else {
-          html +=`<div>where is Mist Gear`;
-        }
-        html += `</div>`;
-				$(".results").html(html);
-        loadingToggle(false);
-        $("#btn_epicList").addClass("show");
-      }
-      function searchcharacterId(serverId,characterName, callback){
-        try{
-          let url = "https://api.neople.co.kr/df/servers/";
-          if(API===""){
-            url = `https://lq9sk4l959.execute-api.ap-northeast-2.amazonaws.com/beta/mistgearAPI?cmd=character&serverId=${serverId}&characterName=${encodeURIComponent(characterName)}`;
-          } else {
-            url = `https://cors-anywhere.herokuapp.com/https://api.neople.co.kr/df/servers/${serverId}/characters?characterName=${encodeURIComponent(characterName)}&apikey=${API}`;
-          }
-          $.ajax({
-              url: url,
-              type: 'get',
-              timeout: 60000,
-              success: function(result, textStatus, jqXHR){
-                  callback(result,null);
-              },
-              error: function(jqXHR, error) {
-                  callback(jqXHR,error);
-              }
-          });
-        } catch(e){
-          console.log(e);
-        }
-      }
-      function searchTimeLineEpic(serverId, characterId, next="", callback){
-        try{
-          if(!serverId || !characterId){
-            return callback(null,"nameError");
-          }
-          let url = "https://api.neople.co.kr/df/servers/";
-          if(API===""){
-            url = `https://lq9sk4l959.execute-api.ap-northeast-2.amazonaws.com/beta/mistgearAPI?cmd=timeline&serverId=${serverId}&characterId=${characterId}&endDate=${nowDate}&next=${next}`;
-          } else {
-            url = `https://cors-anywhere.herokuapp.com/https://api.neople.co.kr/df/servers/${serverId}/characters/${characterId}/timeline?limit=100&code=505&startDate=20230914&endDate=${nowDate}&next=${next}&apikey=${API}`;
-          }
-          $.ajax({
-              url: url,
-              type: 'get',
-              success: function(result, textStatus, jqXHR){
-                timeLineList.unshift(...result.timeline.rows);
-                if(result.timeline.next == null){
-                  callback("complete",null);
-                } else {                  
-                  searchTimeLineEpic(serverId, characterId, result.timeline.next,(res,err)=>{
-										callback("complete",null);
-									})
-                }
-              },
-              error: function(jqXHR, error) {
-                callback(jqXHR,error);
-              }
-          });
-        } catch(e){
-          console.log(e);
-        }
-      }
+				}
+			} catch(chinfoErr){
+				console.log(chinfoErr);
+				loadingToggle(false);
+				if(chinfoErr==="NO_CHARACTER"){
+					return alert("일치하는 캐릭터 정보가 없습니다");
+				} 
+				return alert("에러 발생");				
+			}
+		})
+}
+function loadingToggle(toe=true) {
+	if(toe){
+		$("#loading").css("display","block");
+		$("#btn_search").addClass("disabled");
+	} else {
+		$("#loading").css("display","");
+		$("#btn_search").removeClass("disabled");
+	}
+}
+function data_List(Array) {
+	let newArray=[];
+	let mistGear=[];
+	let mistGearCount=1;
+	let html=``;
+	Array = Array.sort((a, b) => {
+		return new Date(a.date) - new Date(b.date)
+	})
+	Array.forEach(element => {
+		if(element.data.dungeonName ==="균형의 중재자"){
+			newArray.push({ code:element.code, date:element.date, itemName:element.data.itemName, mistGear:element.data.mistGear, count: mistGearCount, channel:`${element.data.channelName}_${element.data.channelNo}` });
+			if(!element.data.mistGear){
+				mistGearCount++;
+			} else {
+				mistGear.push({code:element.code, missCount : mistGearCount, count:newArray.length, itemName:element.data.itemName });
+				mistGearCount = 1;
+			}
+		} else if(element.data.mistGear) {
+			newArray.push({ code:element.code, date:element.date, itemName: `${element.data.itemName} (${element.data.dungeonName})`, mistGear:element.data.mistGear, count: mistGearCount, channel:`` });
+			mistGear.push({ code:element.code, missCount : mistGearCount, count:newArray.length, itemName: `${element.data.itemName}_${element.data.dungeonName}` });
+			mistGearCount = 1;
+		}
+	});
+	timeLineList = newArray;
+	html +=`<div> 중재자 획득 에픽 수 : ${newArray.length}</div><div style="font-weight: bold;">미스트기어 리스트</div><div id="mistList">`;
+	if(mistGear.length>0){
+		mistGear.forEach(e => {
+			html +=`<div> 미기 ${e.code==505 ? "드랍" : "카드"} : ${e.count}번째 에픽, ${e.itemName} </div>`;
+		})
+	} else {
+		html +=`<div>where is Mist Gear`;
+	}
+	html += `</div>`;
+	$(".results").html(html);
+	loadingToggle(false);
+	$("#btn_epicList").addClass("show");
+}
+function searchCharacterTimeline(serverId, characterName, endDate, callback){
+	try{
+		let data = { serverId: serverId, characterName: encodeURIComponent(characterName), endDate: endDate };
+		$.ajax({
+				url: 'https://api.dfgear.xyz/characterTimeline',
+				type: 'get',
+				timeout: 30000,
+				processData:true,
+				beforeSend: function (xhr) {
+					xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
+				},
+				data: data,
+				success: function(result, textStatus, jqXHR){
+						callback(result,null);
+				},
+				error: function(jqXHR, error) {
+						callback(jqXHR,error);
+				}
+		});
+	} catch(e){
+		console.log(e);
+	}
+}
     </script>
   </body>
 </html>
