@@ -41,9 +41,8 @@ html {
     align-items: center;
     width: 100%;
     max-width: 48rem;
-    height: 90%;
-    max-height: calc(100vh - 37px - 0.5rem);
-    min-height: calc(75px + 100px + 2rem + 5vh);
+    min-height: 90vh;
+    /* max-height: calc(100vh - 37px - 0.5rem); */
     flex-direction: column;
     align-content: center;
     margin-left: auto;
@@ -64,7 +63,6 @@ html {
   .container > .row {
     margin:0.5rem 0;
     justify-content: center;
-
   }
   .row > #serverId {
     width: 8rem !important;
@@ -77,26 +75,38 @@ html {
   .row > #btn_search {
     width: 4rem !important;
   }
-  #apiDiv {
+  .row > .resultData {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+  }
+  .container > .row.result {
+    height: auto !important;
   }
   #btn_epicList {
     margin:0.5rem 0 !important;
+  }
+  .resultData{
     display: none;
   }
-  #btn_epicList.show {
-    display: block;
-  }
-  #mistList {
-    overflow-y: auto;
-    max-height: calc(100vh - 5rem - 200px);
+  .row.resultData.show {
+    display: flex;
+    flex-direction: column;
   }
   #loading {
     display: none;
   }
   .offcanvas.show {
-    width: 50vw !important;
+    width: 48rem !important;
+    min-width: 465px;
+  }
+  .offcanvas::-webkit-scrollbar {
+    width: 10px;
+  }
+  .offcanvas::-webkit-scrollbar-thumb {
+      background-color: lightgrey;
+      border-radius: 10px;
+      background-clip: padding-box;
+      border: 2px solid transparent;
   }
   .neopleThk {
     text-align: center;

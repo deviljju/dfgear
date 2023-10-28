@@ -33,7 +33,8 @@ function Search(){
   }
   nowDate = moment().subtract(1,"m").format("YYYYMMDDTHHmm");
   loadingToggle();
-  $(".results").html("");
+  $('.resultData').removeClass("show");
+  $("#mistList").html("");
   searchCharacterTimeline(serverId,characterName,nowDate, function(result, err){
       try{
           timeLineList = [];
@@ -116,7 +117,7 @@ Array.forEach(element => {
   }
 });
 timeLineList = newArray;
-html +=`<div> 중재자 획득 에픽 수 : ${newArray.length}</div><div style="font-weight: bold;">미스트기어 리스트</div><div id="mistList">`;
+  $('.resultData #count').html(`중재자 획득 에픽 수 : ${newArray.length}`);
 if(mistGear.length>0){
   mistGear.forEach(e => {
       html +=`<div> 미기 ${e.code==505 ? "드랍" : "카드"} : ${e.count}번째 에픽, ${e.itemName} </div>`;
@@ -125,30 +126,30 @@ if(mistGear.length>0){
   html +=`<div>where is Mist Gear`;
 }
 html += `</div>`;
-$(".results").html(html);
+  $("#mistList").html(html);
 loadingToggle(false);
-$("#btn_epicList").addClass("show");
+  $(".resultData").addClass("show");
 }
 function searchCharacterTimeline(serverId, characterName, endDate, callback){
-try{
-  let data = { serverId: serverId, characterName: encodeURIComponent(characterName), endDate: endDate };
-  $.ajax({
-          url: 'https://api.dfgear.xyz/characterTimeline',
-          type: 'get',
-          timeout: 30000,
-          processData:true,
-          beforeSend: function (xhr) {
-              xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
-          },
-          data: data,
-          success: function(result, textStatus, jqXHR){
-                  callback(result,null);
-          },
-          error: function(jqXHR, error) {
-                  callback(jqXHR,error);
-          }
-  });
-} catch(e){
-  console.log(e);
-}
+  try{
+    let data = { serverId: serverId, characterName: encodeURIComponent(characterName), endDate: endDate };
+    $.ajax({
+      url: 'https://api.dfgear.xyz/characterTimeline',
+      type: 'get',
+      timeout: 30000,
+      processData:true,
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
+      },
+      data: data,
+      success: function(result, textStatus, jqXHR){
+        callback(result,null);
+      },
+      error: function(jqXHR, error) {
+        callback(jqXHR,error);
+      }
+    });
+  } catch(e){
+    console.log(e);
+  }
 }
