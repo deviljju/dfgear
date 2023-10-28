@@ -141,7 +141,7 @@ function searchCharacterTimeline(serverId, characterName, endDate, callback){
   try{
     let data = { serverId: serverId, characterName: encodeURIComponent(characterName), endDate: endDate };
     $.ajax({
-      url: '/characterTimeline',
+      url: 'https://api.dfgear.xyz/characterTimeline',
       type: 'get',
       timeout: 30000,
       processData:true,
