@@ -3,23 +3,30 @@ let timeLineList = [];
 let nowDate = moment().format("YYYYMMDDTHHmm");
 
 $(document).ready(function() {
-$("#characterName").keyup(function () {
+  $("#characterName").keyup(function () {
       if (window.event.keyCode == 13) {
           Search();
       }
-});
-$(document).on("click", "#btn_search", function() {
-  Search();
-});
-$(document).on("click", "#btn_epicList", function() {
-  let html = "";
-  if(timeLineList.length>1){
-      timeLineList.forEach(element => {
-          html += `<div>${element.date} | ${element.mistGear ? "*" : ""} ${element.itemName} | ${element.channel}</div>`
-      });
-  }
-  $('.offcanvas-body').html(html);
-})
+  });
+  $(document).on("click", "#btn_search", function() {
+    Search();
+  });
+  $(document).on("click", ".row.title", function() {
+    $("select[name='server']").val('prey');
+    $("input[name='name']").val('');
+    loadingToggle(false);
+    $('.resultData').removeClass("show");
+    $("#mistList").html("");
+  })
+  $(document).on("click", "#btn_epicList", function() {
+    let html = "";
+    if(timeLineList.length>1){
+        timeLineList.forEach(element => {
+            html += `<div>${element.date} | ${element.mistGear ? "*" : ""} ${element.itemName} | ${element.channel}</div>`
+        });
+    }
+    $('.offcanvas-body').html(html);
+  })
 });
 function Search(){
   if(apioff){
@@ -134,7 +141,7 @@ function searchCharacterTimeline(serverId, characterName, endDate, callback){
   try{
     let data = { serverId: serverId, characterName: encodeURIComponent(characterName), endDate: endDate };
     $.ajax({
-      url: 'https://api.dfgear.xyz/characterTimeline',
+      url: '/characterTimeline',
       type: 'get',
       timeout: 30000,
       processData:true,
