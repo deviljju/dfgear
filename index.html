@@ -30,6 +30,20 @@
         <input id="characterName" type="text" class="form-control" name="name" placeholder="캐릭터명을 입력하세요" autocomplete="off">
         <button id="btn_search" class="btn btn-primary">조회</button>
       </div>
+      <div class="row resultData">
+        <div style="width: auto !important;">
+          <div id="count">중재자 획득 에픽 수 : </div>
+          <div style="font-weight: bold;">미스트기어 리스트</div>
+        </div>
+        <div>
+          <button id="btn_epicList" class="btn btn-primary show" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">상세보기</button>
+        </div>
+        <div></div>
+      </div>
+      <div class="row d-flex justify-content-center result" style="margin-top: 0.5rem;">
+        <div id="loading" class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>        
+        <div id="mistList"></div>
+      </div>
       <div class="row aggregate">
         <div class="card">
           <div class="card-body">
@@ -45,20 +59,6 @@
             <li class="list-group-item"><h5 class="card-title">한 캐릭터로 미스트기어를 가장</h5><h5 class="card-title">많이 먹은 수</h5><h6 id="maxCount" class="card-subtitle mb-2 text-muted">- 개</h6></li>
           </ul>
         </div>
-      </div>
-      <div class="row resultData">
-        <div style="width: auto !important;">
-          <div id="count">중재자 획득 에픽 수 : </div>
-          <div style="font-weight: bold;">미스트기어 리스트</div>
-        </div>
-        <div>
-          <button id="btn_epicList" class="btn btn-primary show" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">상세보기</button>
-        </div>
-        <div></div>
-      </div>
-      <div class="row d-flex justify-content-center result" style="margin-top: 0.5rem;">
-        <div id="loading" class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>        
-        <div id="mistList"></div>
       </div>
     </div>
     <div class="neopleThk">
