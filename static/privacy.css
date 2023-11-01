@@ -1,0 +1,7 @@
+div.infoArea {
+  display: flex;
+  justify-content: flex-end;
+}
+span.card-text {
+  display: block;
+}

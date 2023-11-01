@@ -3,6 +3,7 @@ let timeLineList = [];
 let nowDate = moment().format("YYYYMMDDTHHmm");
 
 $(document).ready(function() {
+  nowDate = moment().format("YYYYMMDDTHHmm");
   $("#characterName").keyup(function () {
       if (window.event.keyCode == 13) {
           Search();
@@ -27,6 +28,32 @@ $(document).ready(function() {
     }
     $('.offcanvas-body').html(html);
   })
+  // 집계 불러오기
+  $.ajax({
+    url: 'https://api.dfgear.xyz/mistGearAggregate',
+    type: 'get',
+    timeout: 30000,
+    processData:true,
+    beforeSend: function (xhr) {
+      xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
+    },
+    success: function(result, textStatus, jqXHR){
+      $('#maxChannel').html(result.channelName);
+      $('#dailyCount').html(`${result.dailyCount}개`);
+      $('#maxCount').html(`${result.maxCount}개`);
+    },
+    error: function(jqXHR, error) {
+      alert("통계를 불러오는데 실패했습니다.");
+    }
+  });
+  // 미기 정가 계산
+  let init = new Date('2023-09-14');
+  let now = new Date(moment().format("YYYY-MM-DD"));
+  let btwDay = (now - init) / (1000 * 3600 * 24);
+  let week = btwDay== 0 ? 1 : Math.floor(btwDay/7) + 1;
+  $('#remainVal').html(`${week*40}/1000`);
+  $('#remainWeek').html(`${25 - week}주`);
+  
 });
 function Search(){
   if(apioff){
