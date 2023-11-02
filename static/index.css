@@ -202,7 +202,7 @@ span.card-text.small {
   justify-content: center;
 }
 #characterList {
-  width: 100% !important;
+  width: auto !important;
   height: auto !important;
   display: flex;
   flex-wrap: wrap;
