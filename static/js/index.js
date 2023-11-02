@@ -21,7 +21,7 @@ $(document).ready(function() {
   })
   // 집계 불러오기
   $.ajax({
-    url: 'http://localhost:3000/mistGearAggregate',
+    url: 'https://api.dfgear.xyz/mistGearAggregate',
     type: 'get',
     timeout: 30000,
     processData:true,
@@ -127,7 +127,7 @@ function searchAdventure(adventureName, callback){
   try{
     let data = { adventureName: encodeURIComponent(adventureName)};
     $.ajax({
-      url: 'http://localhost:3000/adventure', // https://api.dfgear.xyz/adventure
+      url: 'https://api.dfgear.xyz/adventure',
       type: 'get',
       timeout: 60000,
       processData:true,
