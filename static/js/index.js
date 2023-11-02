@@ -3,7 +3,18 @@ let timeLineList = [];
 let nowDate = moment().format("YYYYMMDDTHHmm");
 
 $(document).ready(function() {
-  nowDate = moment().format("YYYYMMDDTHHmm");
+  nowDate = moment().format("YYYYMMDDTHHmm");  
+  try{
+    serverId = new URLSearchParams(location.search).get('sId');
+    characterName = new URLSearchParams(location.search).get('cName');
+    if(characterName != null && serverId != null){
+      $("select[name='server']").val(serverId)
+      $("input[name='name']").val(characterName);
+      Search();
+    }
+  } catch(e){
+    console.log(e);
+  }
   $("#characterName").keyup(function () {
       if (window.event.keyCode == 13) {
           Search();
@@ -89,7 +100,7 @@ function Search(){
       }
     })
   } else {
-    return location.href=`./character.html?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
+    return location.href=`./character?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
   }
 }
 function loadingToggle(toe=true) {
@@ -113,7 +124,7 @@ function makeCardView(characters){
             <span class="card-text">중재자 에픽 : ${character.total}</span>
             <p class="card-text">미스터 기어 획득 : ${character.mist}</p>
             <span class="card-text small">최근 업데이트</span>
-            <span class="card-text small">${character.uptime}</span>
+            <span class="card-text small">${character.uptime==null ? '-' : character.uptime}</span>
           </div>
         </div>`;
         total += parseInt(character.total);

@@ -89,6 +89,9 @@ function Search(){
     $("#searchBar").addClass('show');
     return $("#characterName").focus();
   }
+  if(serverId==='adventure'){
+    return location.href=`./?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
+  }
   nowDate = moment().subtract(1,"m").format("YYYYMMDDTHHmm");
   loadingToggle();
   $('.resultData').removeClass("show");
@@ -171,7 +174,7 @@ function makeCardView(character){
           <span class="card-text">중재자 에픽 : ${character.total}</span>
           <p class="card-text">미스터 기어 획득 : ${character.mist}</p>
           <span class="card-text small">최근 업데이트</span>
-          <span class="card-text small">${moment().format("YYYY-MM-DD HH:mm:ss")}</span>
+          <span class="card-text small">${character.uptime==null ? moment().format("YYYY-MM-DD HH:mm:ss") : character.uptime}</span>
         </div>`;
       $(".characterView").append(html);
     } catch (e) {
