@@ -111,7 +111,7 @@ function makeCardView(characters){
           <img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
           <div class="card-body"> <p class="card-text">${character.characterName}</p>
             <span class="card-text">중재자 에픽 : ${character.total}</span>
-            <p class="card-text">총 미기 획득 : ${character.mist}</p>
+            <p class="card-text">미스터 기어 획득 : ${character.mist}</p>
             <span class="card-text small">최근 업데이트</span>
             <span class="card-text small">${character.uptime}</span>
           </div>

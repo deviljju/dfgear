@@ -39,18 +39,14 @@
         <button id="btn_search" class="btn btn-primary">조회</button>
       </div>
       <div class="row resultData">
-        <div style="width: auto !important;">
-          <div id="count">중재자 획득 에픽 수 : </div>
-          <div style="font-weight: bold;">미스트기어 리스트</div>
-        </div>
-        <div>
+        <div id="characterList" style="width: max-content !important">
+          <div class="card characterView"></div>
           <button id="btn_epicList" class="btn btn-primary show" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">상세보기</button>
         </div>
-        <div></div>
-      </div>
-      <div class="row d-flex justify-content-center result" style="margin-top: 0.5rem;">
-        <div id="loading" class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>        
-        <div id="mistList"></div>
+        <div class="row d-flex justify-content-center result">
+          <div id="loading" class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>        
+          <div id="mistList"></div>
+        </div>
       </div>
     </div>
     <div class="neopleThk">

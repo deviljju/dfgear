@@ -80,18 +80,33 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: space-between;
 }
-.container > .row.result {
+.row.resultData.show > .row.result {
   height: auto !important;
+  width: max-content;
+  margin-top: 0.5rem;
 }
 #btn_epicList {
-  margin:0.5rem 0 !important;
+  margin:0.5rem 0.2rem !important;
 }
 .resultData{
   display: none;
 }
 .row.resultData.show {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  height: auto !important;
+}
+#characterList {
+  width: max-content !important;
+}
+.characterView{
+  min-width: 14rem;
+  width: calc(20% - 0.4rem);
+  margin: 0.2rem;
+}
+#mistList{
+  height: max-content;
+  margin: 0.3rem;
 }
 #loading {
   display: none;
@@ -166,6 +181,20 @@ body::-webkit-scrollbar-thumb {
 div.infoArea {
   display: flex;
   justify-content: flex-end;
+  height: max-content !important;
+}
+.infoArea ol.breadcrumb {
+  font-family: 'DNFBitBitv2', sans-serif;
+  font-weight: 400;
+  margin-bottom: 0.2rem !important;
+}
+.infoArea .breadcrumb-item > a{
+  text-decoration: none !important;
+  color: black;
+  cursor: pointer;
+}
+a:hover{
+  color: #62abfa !important;
 }
 span.card-text {
   display: block;

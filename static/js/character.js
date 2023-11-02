@@ -14,12 +14,11 @@ $(document).ready(function() {
     Search();
   });
   $(document).on("click", ".row.title", function() {
-    $("select[name='server']").val('prey');
-    $("input[name='name']").val('');
-    loadingToggle(false);
-    $("#searchBar").addClass('show');
-    $('.resultData').removeClass("show");
-    $("#mistList").html("");
+    try{
+      location.href='./';
+    } catch(e){
+      location.href='https://dfgear.xyz';
+    }
   })
   $(document).on("click", "#btn_epicList", function() {
     if(timeLineList.length>1){
@@ -63,6 +62,9 @@ $(document).ready(function() {
     if(characterName == '' || characterName===null || serverId=='' || serverId===null){
       $("#searchBar").addClass('show');
       return alert("조회할 캐릭터명을 입력해주세요");
+    } else {
+      $("select[name='server']").val(serverId)
+      $("input[name='name']").val(characterName);
     }
     characterName = decodeURIComponent(characterName)
     Search();
@@ -128,6 +130,7 @@ function Search(){
                   }
               } else if(result.rows.length>0){
                   data_List(result.timeline);
+                  makeCardView(result.rows[0]);
               } else {
                   loadingToggle(false);
                   $("#btn_epicList").removeClass("show");
@@ -160,6 +163,21 @@ function loadingToggle(toe=true) {
     $("#btn_search").removeClass("disabled");
   }
 }
+function makeCardView(character){
+    try{
+      $(".characterView").html("");
+      let html =`<img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
+        <div class="card-body"> <p class="card-text">${character.characterName}</p>
+          <span class="card-text">중재자 에픽 : ${character.total}</span>
+          <p class="card-text">미스터 기어 획득 : ${character.mist}</p>
+          <span class="card-text small">최근 업데이트</span>
+          <span class="card-text small">${moment().format("YYYY-MM-DD HH:mm:ss")}</span>
+        </div>`;
+      $(".characterView").append(html);
+    } catch (e) {
+      console.log(e);
+    }
+}
 function data_List(Array) {
   let newArray=[];
   let mistGear=[];
@@ -170,7 +188,7 @@ function data_List(Array) {
   })
   Array.forEach(element => {
     if(element.data.dungeonName ==="균형의 중재자"){
-        newArray.push({ code:element.code, date:element.date, itemName:element.data.itemName, mistGear:element.data.mistGear, count: mistGearCount, channel:`${element.data.channelName}_${element.data.channelNo}` });
+        newArray.push({ code:element.code, date:element.date, itemName:element.data.itemName, mistGear:element.data.mistGear, count: newArray.length+1, channel:`${element.data.channelName}_${element.data.channelNo}` });
         if(!element.data.mistGear){
             mistGearCount++;
         } else {
@@ -184,19 +202,20 @@ function data_List(Array) {
     }
   });
   timeLineList = newArray;
-    $('.resultData #count').html(`중재자 획득 에픽 수 : ${newArray.length}`);
+    $('#mistList').html(`<div style="font-weight: bold;">미스트기어 리스트</div>`);
   if(mistGear.length>0){
     mistGear.forEach(e => {
         html +=`<div> 미기 ${e.code==505 ? "드랍" : "카드"} : ${e.count}번째 에픽, ${e.itemName} </div>`;
     })
   } else {
-    html +=`<div>where is Mist Gear`;
+    html +=`<div>where is Mist Gear</div>`;
   }
-  html += `</div>`;
-    $("#mistList").html(html);
+  $("#mistList").append(html);
   loadingToggle(false);
   $(".resultData").addClass("show");
   $("#searchBar").addClass('show');
+  $("select[name='server']").val("prey");
+  $("input[name='name']").val("");
 }
 function searchCharacterTimeline(serverId, characterName, endDate, characterId='', callback){
   try{
