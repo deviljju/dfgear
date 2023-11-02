@@ -97,6 +97,9 @@ function Search(){
           if(err){
               loadingToggle(false);
               $("#btn_epicList").removeClass("show");
+              $("#searchBar").addClass('show');
+              $('.resultData').removeClass("show");
+              $("#mistList").html("");
               if(result.responseText && result.responseText.indexOf("APIKEY") > -1){
                   return alert("에러 발생_APIKEY 오류");
               } else if(result.responseText && result.responseText.indexOf("MISSING_PARAMETER") > -1){
@@ -111,6 +114,9 @@ function Search(){
               if(result.error){
                   loadingToggle(false);
                   $("#btn_epicList").removeClass("show");
+                  $("#searchBar").addClass('show');
+                  $('.resultData').removeClass("show");
+                  $("#mistList").html("");
                   if(result.error.message=="APIKEY_AUTH_ERROR"){
                       return alert("에러 발생_APIKEY오류");
                   } else if(result.error.message=="SYSTEM_INSPECT"){
@@ -125,12 +131,19 @@ function Search(){
               } else {
                   loadingToggle(false);
                   $("#btn_epicList").removeClass("show");
+                  $("#searchBar").addClass('show');
+                  $('.resultData').removeClass("show");
+                  $("#mistList").html("");
                   return alert("일치하는 캐릭터 정보가 없습니다");
               }
           }
       } catch(chinfoErr){
           console.log(chinfoErr);
           loadingToggle(false);
+          $("#btn_epicList").removeClass("show");
+          $("#searchBar").addClass('show');
+          $('.resultData').removeClass("show");
+          $("#mistList").html("");
           if(chinfoErr==="NO_CHARACTER"){
               return alert("일치하는 캐릭터 정보가 없습니다");
           } 

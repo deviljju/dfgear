@@ -177,7 +177,8 @@ body::-webkit-scrollbar-thumb {
   font-size: 0.8rem;
 }
 .card.characterView {
-  width: 14rem;
+  min-width: 14rem;
+  width:calc(20% - 0.4rem);
   margin: 0.2rem;
   cursor: pointer;
 }
