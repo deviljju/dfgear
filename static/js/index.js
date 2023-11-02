@@ -17,20 +17,11 @@ $(document).ready(function() {
     $("input[name='name']").val('');
     loadingToggle(false);
     $('.resultData').removeClass("show");
-    $("#mistList").html("");
-  })
-  $(document).on("click", "#btn_epicList", function() {
-    let html = "";
-    if(timeLineList.length>1){
-        timeLineList.forEach(element => {
-            html += `<div>${element.date} | ${element.mistGear ? "*" : ""} ${element.itemName} | ${element.channel}</div>`
-        });
-    }
-    $('.offcanvas-body').html(html);
+    $("#characterList").html("");
   })
   // 집계 불러오기
   $.ajax({
-    url: 'https://api.dfgear.xyz/mistGearAggregate',
+    url: 'http://localhost:3000/mistGearAggregate',
     type: 'get',
     timeout: 30000,
     processData:true,
@@ -38,9 +29,9 @@ $(document).ready(function() {
       xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
     },
     success: function(result, textStatus, jqXHR){
-      $('#maxChannel').html(result.channelName);
-      $('#dailyCount').html(`${result.dailyCount}개`);
-      $('#maxCount').html(`${result.maxCount}개`);
+      $('#maxChannel').html(`오늘은 ${result.channelName}`);
+      $('#dailyCount').html(`오늘은 ${result.dailyCount}개`);
+      $('#maxCount').html(`${result.maxCount}개 가지고 있습니다.`);
     },
     error: function(jqXHR, error) {
       alert("통계를 불러오는데 실패했습니다.");
@@ -53,7 +44,6 @@ $(document).ready(function() {
   let week = btwDay== 0 ? 1 : Math.floor(btwDay/7) + 1;
   $('#remainVal').html(`${week*40}/1000`);
   $('#remainWeek').html(`${25 - week}주`);
-  
 });
 function Search(){
   if(apioff){
@@ -68,55 +58,37 @@ function Search(){
   nowDate = moment().subtract(1,"m").format("YYYYMMDDTHHmm");
   loadingToggle();
   $('.resultData').removeClass("show");
-  $("#mistList").html("");
-  searchCharacterTimeline(serverId,characterName,nowDate, function(result, err){
+  $("#characterList").html("");
+  if(serverId==='adventure'){
+    searchAdventure(characterName, function(result, err){
       try{
-          timeLineList = [];
-          if(err){
-              loadingToggle(false);
-              $("#btn_epicList").removeClass("show");
-              if(result.responseText && result.responseText.indexOf("cors") > -1){
-                  return alert("CORS에러_화면하단 CORS링크로 들어가 demo server 버튼을 눌러주세요");
-              } else if(result.responseText && result.responseText.indexOf("APIKEY") > -1){
-                  return alert("에러 발생_APIKEY 오류");
-              } else if(result.responseText && result.responseText.indexOf("MISSING_PARAMETER") > -1){
-                  return alert("에러 발생_입력값 오류");
-              } else if(result.responseText && result.responseText.indexOf("NO_CHARACTER") > -1){
-                  return alert("일치하는 캐릭터 정보가 없습니다");
-              } else {
-                  console.log(err); console.log(result);
-                  return alert("에러 발생");
-              }              
-          } else {
-              if(result.error){
-                  loadingToggle(false);
-                  $("#btn_epicList").removeClass("show");
-                  if(result.error.message=="APIKEY_AUTH_ERROR"){
-                      return alert("에러 발생_APIKEY오류");
-                  } else if(result.error.message=="SYSTEM_INSPECT"){
-                      apioff=true;
-                      return alert("DNF점검");
-                  } else {
-                      console.log(result);
-                      return alert("에러 발생_캐릭터정보오류");
-                  }
-              } else if(result.rows.length>0){
-                  data_List(result.timeline);
-              } else {
-                  loadingToggle(false);
-                  $("#btn_epicList").removeClass("show");
-                  return alert("일치하는 캐릭터 정보가 없습니다");
-              }
-          }
-      } catch(chinfoErr){
-          console.log(chinfoErr);
+        if(err){
           loadingToggle(false);
-          if(chinfoErr==="NO_CHARACTER"){
-              return alert("일치하는 캐릭터 정보가 없습니다");
-          } 
-          return alert("에러 발생");				
+          if(result.responseText && result.responseText.indexOf("MISSING_PARAMETER") > -1){
+            return alert("에러 발생_입력값 오류");
+          } else if(result.responseText && result.responseText.indexOf("NO_CHARACTER") > -1){
+            return alert("모험단에 소속된 캐릭터 정보가 없습니다");
+          } else {
+            console.log(err); console.log(result);
+            return alert("에러 발생");
+          }
+        } else if(result.length>0){
+          makeCardView(result);
+        } else {
+          loadingToggle(false);
+          return alert("모험단에 소속된 캐릭터 정보가 없습니다");
+        }
+      } catch(e){
+        loadingToggle(false);
+        if(e==="NO_CHARACTER"){
+          return alert("일치하는 캐릭터 정보가 없습니다");
+        } 
+        return alert("에러 발생");
       }
-  })
+    })
+  } else {
+    return location.href=`./character.html?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
+  }
 }
 function loadingToggle(toe=true) {
 if(toe){
@@ -127,50 +99,37 @@ if(toe){
   $("#btn_search").removeClass("disabled");
 }
 }
-function data_List(Array) {
-let newArray=[];
-let mistGear=[];
-let mistGearCount=1;
-let html=``;
-Array = Array.sort((a, b) => {
-  return new Date(a.date) - new Date(b.date)
-})
-Array.forEach(element => {
-  if(element.data.dungeonName ==="균형의 중재자"){
-      newArray.push({ code:element.code, date:element.date, itemName:element.data.itemName, mistGear:element.data.mistGear, count: mistGearCount, channel:`${element.data.channelName}_${element.data.channelNo}` });
-      if(!element.data.mistGear){
-          mistGearCount++;
-      } else {
-          mistGear.push({code:element.code, missCount : mistGearCount, count:newArray.length, itemName:element.data.itemName });
-          mistGearCount = 1;
-      }
-  } else if(element.data.mistGear) {
-      newArray.push({ code:element.code, date:element.date, itemName: `${element.data.itemName} (${element.data.dungeonName})`, mistGear:element.data.mistGear, count: mistGearCount, channel:`` });
-      mistGear.push({ code:element.code, missCount : mistGearCount, count:newArray.length, itemName: `${element.data.itemName}_${element.data.dungeonName}` });
-      mistGearCount = 1;
-  }
-});
-timeLineList = newArray;
-  $('.resultData #count').html(`중재자 획득 에픽 수 : ${newArray.length}`);
-if(mistGear.length>0){
-  mistGear.forEach(e => {
-      html +=`<div> 미기 ${e.code==505 ? "드랍" : "카드"} : ${e.count}번째 에픽, ${e.itemName} </div>`;
-  })
-} else {
-  html +=`<div>where is Mist Gear`;
-}
-html += `</div>`;
-  $("#mistList").html(html);
-loadingToggle(false);
-  $(".resultData").addClass("show");
-}
-function searchCharacterTimeline(serverId, characterName, endDate, callback){
+function makeCardView(characters){
   try{
-    let data = { serverId: serverId, characterName: encodeURIComponent(characterName), endDate: endDate };
+    characters.forEach(character => {
+      try{
+        let html =`<div class="card characterView" data-cId="${character.characterId}" data-sId="${character.serverId}" onclick="location.href='/character?sId=${character.serverId}&cId=${character.characterId}&cName=${encodeURIComponent(character.characterName)}';">
+          <img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
+          <div class="card-body"> <p class="card-text">${character.characterName}</p>
+            <span class="card-text">중재자 에픽 : ${character.total}</span>
+            <p class="card-text">총 미기 획득 : ${character.mist}</p>
+            <span class="card-text small">최근 업데이트</span>
+            <span class="card-text small">${character.uptime}</span>
+          </div>
+        </div>`;
+        $("#characterList").append(html);
+      } catch (e) {
+        console.log(e);
+      }
+    })
+    loadingToggle(false);
+  } catch(e){
+    loadingToggle(false);
+    console.log(e);
+  }
+}
+function searchAdventure(adventureName, callback){
+  try{
+    let data = { adventureName: encodeURIComponent(adventureName)};
     $.ajax({
-      url: 'https://api.dfgear.xyz/characterTimeline',
+      url: 'http://localhost:3000/adventure', // https://api.dfgear.xyz/adventure
       type: 'get',
-      timeout: 30000,
+      timeout: 60000,
       processData:true,
       beforeSend: function (xhr) {
         xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
