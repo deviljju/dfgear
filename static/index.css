@@ -61,7 +61,8 @@ body::-webkit-scrollbar-thumb {
   margin-right: auto;
 }
 .container > div {
-  width: calc(500px - 1.5rem);
+  width: 100%;
+  /* width:calc(500px - 1.5rem); */
   height: 50px;
 }
 .container > div.title {
@@ -187,6 +188,9 @@ span.card-text {
 }
 span.card-text.small {
   font-size: 0.6rem;
+}
+#advenTotal {
+  font-weight: bold;
 }
 #advenResult{
   width: 100% !important;

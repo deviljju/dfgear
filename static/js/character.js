@@ -196,6 +196,7 @@ function data_List(Array) {
     $("#mistList").html(html);
   loadingToggle(false);
   $(".resultData").addClass("show");
+  $("#searchBar").addClass('show');
 }
 function searchCharacterTimeline(serverId, characterName, endDate, characterId='', callback){
   try{

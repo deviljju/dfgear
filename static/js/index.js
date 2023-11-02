@@ -18,6 +18,7 @@ $(document).ready(function() {
     loadingToggle(false);
     $('.resultData').removeClass("show");
     $("#characterList").html("");
+    $("#advenTotal").html("");
   })
   // 집계 불러오기
   $.ajax({
@@ -59,6 +60,7 @@ function Search(){
   loadingToggle();
   $('.resultData').removeClass("show");
   $("#characterList").html("");
+  $("#advenTotal").html("");
   if(serverId==='adventure'){
     searchAdventure(characterName, function(result, err){
       try{
@@ -101,6 +103,8 @@ if(toe){
 }
 function makeCardView(characters){
   try{
+    let total=0;
+    let mist=0;
     characters.forEach(character => {
       try{
         let html =`<div class="card characterView" data-cId="${character.characterId}" data-sId="${character.serverId}" onclick="location.href='/character?sId=${character.serverId}&cId=${character.characterId}&cName=${encodeURIComponent(character.characterName)}';">
@@ -112,11 +116,14 @@ function makeCardView(characters){
             <span class="card-text small">${character.uptime}</span>
           </div>
         </div>`;
+        total += parseInt(character.total);
+        mist += parseInt(character.mist);
         $("#characterList").append(html);
       } catch (e) {
         console.log(e);
       }
     })
+    $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist}`);
     loadingToggle(false);
   } catch(e){
     loadingToggle(false);

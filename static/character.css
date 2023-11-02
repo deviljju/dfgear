@@ -43,7 +43,7 @@ body::-webkit-scrollbar-thumb {
   margin-right: auto;
 }
 .container > div {
-  width: calc(500px - 1.5rem);
+  width: 100%;
   height: 50px;
 }
 .container > div.title {
