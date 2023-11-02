@@ -217,7 +217,6 @@ function data_List(Array) {
   loadingToggle(false);
   $(".resultData").addClass("show");
   $("#searchBar").addClass('show');
-  $("select[name='server']").val("prey");
   $("input[name='name']").val("");
 }
 function searchCharacterTimeline(serverId, characterName, endDate, characterId='', callback){

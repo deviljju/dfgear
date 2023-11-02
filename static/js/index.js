@@ -24,7 +24,6 @@ $(document).ready(function() {
     Search();
   });
   $(document).on("click", ".row.title", function() {
-    $("select[name='server']").val('prey');
     $("input[name='name']").val('');
     loadingToggle(false);
     $('.resultData').removeClass("show");
