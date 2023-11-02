@@ -83,6 +83,7 @@ function Search(){
   if($("#searchBar").hasClass('show')){
     serverId = $("select[name='server']").val();
     characterName = $("input[name='name']").val();
+    characterId = '';
   }
   if(characterName.length<1){
     alert("캐릭터명을 입력해주세요");
@@ -98,11 +99,11 @@ function Search(){
   $("#mistList").html("");
   searchCharacterTimeline(serverId, characterName, nowDate, characterId, function(result, err){
       try{
+          $("#searchBar").addClass('show');
           timeLineList = [];
           if(err){
               loadingToggle(false);
               $("#btn_epicList").removeClass("show");
-              $("#searchBar").addClass('show');
               $('.resultData').removeClass("show");
               $("#mistList").html("");
               if(result.responseText && result.responseText.indexOf("APIKEY") > -1){
@@ -119,7 +120,6 @@ function Search(){
               if(result.error){
                   loadingToggle(false);
                   $("#btn_epicList").removeClass("show");
-                  $("#searchBar").addClass('show');
                   $('.resultData').removeClass("show");
                   $("#mistList").html("");
                   if(result.error.message=="APIKEY_AUTH_ERROR"){
@@ -137,7 +137,6 @@ function Search(){
               } else {
                   loadingToggle(false);
                   $("#btn_epicList").removeClass("show");
-                  $("#searchBar").addClass('show');
                   $('.resultData').removeClass("show");
                   $("#mistList").html("");
                   return alert("일치하는 캐릭터 정보가 없습니다");
