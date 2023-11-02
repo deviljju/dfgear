@@ -191,6 +191,8 @@ span.card-text.small {
 }
 #advenTotal {
   font-weight: bold;
+  text-align: center;
+  width: 100%;
 }
 #advenResult{
   width: 100% !important;
