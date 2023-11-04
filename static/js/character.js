@@ -181,30 +181,37 @@ function makeCardView(character){
     }
 }
 function data_List(Array) {
-  let newArray=[];
+  // let newArray=[];
   let mistGear=[];
   let mistGearCount=1;
   let html=``;
-  Array = Array.sort((a, b) => {
-    return new Date(a.date) - new Date(b.date)
-  })
-  Array.forEach(element => {
-    if(element.data.dungeonName ==="균형의 중재자"){
-        newArray.push({ code:element.code, date:element.date, itemName:element.data.itemName, mistGear:element.data.mistGear, count: newArray.length+1, channel:`${element.data.channelName}_${element.data.channelNo}` });
-        if(!element.data.mistGear){
-            mistGearCount++;
-        } else {
-            mistGear.push({code:element.code, missCount : mistGearCount, count:newArray.length, itemName:element.data.itemName });
-            mistGearCount = 1;
-        }
-    } else if(element.data.mistGear) {
-        newArray.push({ code:element.code, date:element.date, itemName: `${element.data.itemName} (${element.data.dungeonName})`, mistGear:element.data.mistGear, count: mistGearCount, channel:`` });
-        mistGear.push({ code:element.code, missCount : mistGearCount, count:newArray.length, itemName: `${element.data.itemName}_${element.data.dungeonName}` });
-        mistGearCount = 1;
+  // Array = Array.sort((a, b) => {
+  //   return new Date(a.date) - new Date(b.date)
+  // })
+  Array.forEach((element,i) => {
+    if(element.mistGear){
+      mistGear.push({code:element.code, missCount : mistGearCount, count:i, itemName:element.itemName });
+      mistGearCount = 1;
+    } else {
+      mistGearCount++;
     }
-  });
-  timeLineList = newArray;
-    $('#mistList').html(`<div style="font-weight: bold;">미스트기어 리스트</div>`);
+    // if(element.data.dungeonName ==="균형의 중재자"){
+    //     newArray.push({ code:element.code, date:element.date, itemName:element.data.itemName, mistGear:element.data.mistGear, count: newArray.length+1, channel:`${element.data.channelName}_${element.data.channelNo}` });
+    //     if(!element.data.mistGear){
+    //         mistGearCount++;
+    //     } else {
+    //         mistGear.push({code:element.code, missCount : mistGearCount, count:newArray.length, itemName:element.data.itemName });
+    //         mistGearCount = 1;
+    //     }
+    // } else if(element.data.mistGear) {
+    //     newArray.push({ code:element.code, date:element.date, itemName: `${element.data.itemName} (${element.data.dungeonName})`, mistGear:element.data.mistGear, count: mistGearCount, channel:`` });
+    //     mistGear.push({ code:element.code, missCount : mistGearCount, count:newArray.length, itemName: `${element.data.itemName}_${element.data.dungeonName}` });
+    //     mistGearCount = 1;
+    // }
+    });
+  timeLineList = Array
+  // timeLineList = newArray;
+  $('#mistList').html(`<div style="font-weight: bold;">미스트기어 리스트</div>`);
   if(mistGear.length>0){
     mistGear.forEach(e => {
         html +=`<div> 미기 ${e.code==505 ? "드랍" : "카드"} : ${e.count}번째 에픽, ${e.itemName} </div>`;
