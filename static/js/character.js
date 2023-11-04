@@ -11,7 +11,18 @@ $(document).ready(function() {
     }
   });
   $(document).on("click", "#btn_search", function() {
-    Search();
+    // Search();
+    serverId = $("select[name='server']").val();
+    characterName = $("input[name='name']").val();
+    if(characterName.length<1){
+      alert("캐릭터명을 입력해주세요");
+      $("#searchBar").addClass('show');
+      return $("#characterName").focus();
+    }
+    if(serverId==='adventure'){
+      return location.href=`./?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
+    }
+    return location.href=`./character?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
   });
   $(document).on("click", ".row.title", function() {
     try{
@@ -181,13 +192,9 @@ function makeCardView(character){
     }
 }
 function data_List(Array) {
-  // let newArray=[];
   let mistGear=[];
   let mistGearCount=1;
   let html=``;
-  // Array = Array.sort((a, b) => {
-  //   return new Date(a.date) - new Date(b.date)
-  // })
   Array.forEach((element,i) => {
     if(element.mistGear){
       mistGear.push({code:element.code, missCount : mistGearCount, count:i, itemName:element.itemName });
@@ -195,20 +202,7 @@ function data_List(Array) {
     } else {
       mistGearCount++;
     }
-    // if(element.data.dungeonName ==="균형의 중재자"){
-    //     newArray.push({ code:element.code, date:element.date, itemName:element.data.itemName, mistGear:element.data.mistGear, count: newArray.length+1, channel:`${element.data.channelName}_${element.data.channelNo}` });
-    //     if(!element.data.mistGear){
-    //         mistGearCount++;
-    //     } else {
-    //         mistGear.push({code:element.code, missCount : mistGearCount, count:newArray.length, itemName:element.data.itemName });
-    //         mistGearCount = 1;
-    //     }
-    // } else if(element.data.mistGear) {
-    //     newArray.push({ code:element.code, date:element.date, itemName: `${element.data.itemName} (${element.data.dungeonName})`, mistGear:element.data.mistGear, count: mistGearCount, channel:`` });
-    //     mistGear.push({ code:element.code, missCount : mistGearCount, count:newArray.length, itemName: `${element.data.itemName}_${element.data.dungeonName}` });
-    //     mistGearCount = 1;
-    // }
-    });
+  });
   timeLineList = Array
   // timeLineList = newArray;
   $('#mistList').html(`<div style="font-weight: bold;">미스트기어 리스트</div>`);
