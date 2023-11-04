@@ -7,22 +7,11 @@ let apioff=false;
 $(document).ready(function() {
   $("#characterName").keyup(function () {
     if (window.event.keyCode == 13) {
-        Search();
+      redirectSearch();
     }
   });
   $(document).on("click", "#btn_search", function() {
-    // Search();
-    serverId = $("select[name='server']").val();
-    characterName = $("input[name='name']").val();
-    if(characterName.length<1){
-      alert("캐릭터명을 입력해주세요");
-      $("#searchBar").addClass('show');
-      return $("#characterName").focus();
-    }
-    if(serverId==='adventure'){
-      return location.href=`./?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
-    }
-    return location.href=`./character?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
+    redirectSearch();
   });
   $(document).on("click", ".row.title", function() {
     try{
@@ -87,6 +76,23 @@ $(document).ready(function() {
     return $("#searchBar").addClass('show');
   }
 });
+function redirectSearch(){
+  try{
+    serverId = $("select[name='server']").val();
+    characterName = $("input[name='name']").val();
+    if(characterName.length<1){
+      alert("캐릭터명을 입력해주세요");
+      $("#searchBar").addClass('show');
+      return $("#characterName").focus();
+    }
+    if(serverId==='adventure'){
+      return location.href=`./?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
+    }
+    return location.href=`./character?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
+  } catch(e){
+    Search();
+  }
+}
 function Search(){
   if(apioff){
       return alert("DNF점검");
