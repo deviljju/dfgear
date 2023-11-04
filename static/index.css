@@ -73,6 +73,7 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  width: max-content;
 }
 .container > .row {
   margin:0.5rem 0;

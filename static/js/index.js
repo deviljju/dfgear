@@ -55,6 +55,10 @@ $(document).ready(function() {
   let week = btwDay== 0 ? 1 : Math.floor(btwDay/7) + 1;
   $('#remainVal').html(`${week*40}/1000`);
   $('#remainWeek').html(`${25 - week}주`);
+  let percent = parseInt((week*40) / 10);
+  $(".card .progress").attr("aria-valuenow",percent);
+  $(".card .progress-bar").css("width",`${percent}%`);
+  $(".card .progress-bar").html(`${percent}%`);
 });
 function Search(){
   if(apioff){
@@ -121,7 +125,7 @@ function makeCardView(characters){
           <img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
           <div class="card-body"> <p class="card-text">${character.characterName}</p>
             <span class="card-text">중재자 에픽 : ${character.total}</span>
-            <p class="card-text">미스터 기어 획득 : ${character.mist}</p>
+            <p class="card-text">미스트 기어 획득 : ${character.mist}</p>
             <span class="card-text small">최근 업데이트</span>
             <span class="card-text small">${character.uptime==null ? '-' : character.uptime}</span>
           </div>
