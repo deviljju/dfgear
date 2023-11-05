@@ -108,7 +108,7 @@ body::-webkit-scrollbar-thumb {
 .row.resultData.show > .row.result {
   height: auto !important;
   width: max-content;
-  margin-top: 0.5rem;
+  /* margin-top: 0.5rem; */
 }
 #btn_epicList {
   margin:0.5rem 0.2rem !important;

@@ -232,7 +232,7 @@ body::-webkit-scrollbar-thumb {
   margin: 0.2rem;
   cursor: pointer;
 }
-.card {
+.aggregate .card {
   box-shadow: 3px 3px 13px rgba(17, 17, 17, 0.2);
 }
 span.card-text {
