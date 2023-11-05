@@ -32,7 +32,7 @@ $(document).ready(function() {
   })
   // 집계 불러오기
   $.ajax({
-    url: apiServer+'mistGearAggregate',
+    url: 'https://api.dfgear.xyz/mistGearAggregate',
     type: 'get',
     timeout: 30000,
     processData:true,
