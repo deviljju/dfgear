@@ -66,7 +66,7 @@ $(document).ready(function() {
       $("select[name='server']").val(serverId)
       $("input[name='name']").val(characterName);
     }
-    characterName = decodeURIComponent(characterName)
+    characterName = decodeURIComponent(characterName);
     Search();
   } catch(e){
     $(document).on("click", "#btn_search", function() {
@@ -203,7 +203,7 @@ function data_List(Array) {
   let html=``;
   Array.forEach((element,i) => {
     if(element.mistGear){
-      mistGear.push({code:element.code, missCount : mistGearCount, count:i, itemName:element.itemName });
+      mistGear.push({code:element.code, missCount : mistGearCount, count:i, itemName:element.itemName, get:element.channel });
       mistGearCount = 1;
     } else {
       mistGearCount++;
@@ -211,13 +211,14 @@ function data_List(Array) {
   });
   timeLineList = Array
   // timeLineList = newArray;
-  $('#mistList').html(`<div style="font-weight: bold;">미스트기어 리스트</div>`);
+  $('#mistList').html(`<div class="card-header">미스트기어 리스트</div><ul class="list-group list-group-flush">`);
   if(mistGear.length>0){
     mistGear.forEach(e => {
-        html +=`<div> 미기 ${e.code==505 ? "드랍" : "카드"} : ${e.count}번째 에픽, ${e.itemName} </div>`;
+      html +=`<li class="list-group-item"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.itemName}, ${e.code==505 ? e.count+"번째 에픽":e.get}</div><span class="badge bg-warning rounded-pill">${e.code==505 ? "드랍" : "카드"}</span></li>`
     })
+    html += `</ul></div>`;
   } else {
-    html +=`<div>where is Mist Gear</div>`;
+    html +=`where is Mist Gear</ul></div>`;
   }
   $("#mistList").append(html);
   loadingToggle(false);
@@ -232,6 +233,7 @@ function searchCharacterTimeline(serverId, characterName, endDate, characterId='
       url: 'https://api.dfgear.xyz/character/Timeline',
       type: 'get',
       timeout: 30000,
+      async:false,
       processData:true,
       beforeSend: function (xhr) {
         xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");

@@ -12,7 +12,23 @@ src:url('./fonts/DNFForgedBlade-Bold.ttf')format('truetype')}
 @font-face{
 font-family:'DNFBitBitv2';
 src:url('./fonts/DNFBitBitv2.ttf')format('truetype')}
-  
+
+@media all and (max-width: 320px) {
+  html { font-size: 12px; } 
+  :root { font-size: 12px;}
+}
+@media all and (min-width: 320px) and (max-width: 410px){
+  html { font-size: 12.5px; }
+  :root { font-size: 12.5px;} 
+}
+@media all and (min-width: 410px) and (max-width: 768px){
+  html { font-size: 13px; }
+  :root { font-size: 13px;} 
+}
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  html { font-size: 14px; }
+  :root { font-size: 14px;} 
+}
 body {
   width: 100%;
   user-select: none;
@@ -56,6 +72,11 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
   width: max-content;
 }
+/* .container > div.title:hover {
+  background: linear-gradient(to left bottom,#000000,#f9c41bc9,#f9c41bc9,#000000);
+  color: transparent;
+  -webkit-background-clip: text;
+} */
 .container > .row {
   margin:0.5rem 0;
   justify-content: center;
@@ -67,15 +88,18 @@ body::-webkit-scrollbar-thumb {
   display: flex;
 }
 .row > #serverId {
-  width: 8rem !important;
+  max-width: 8rem;
+  width: calc(25% - 0.3rem) !important;
   margin-right: 0.3rem;
 }
 .row > #characterName {
-  width: 16rem !important;
+  max-width: 16rem;
+  width: calc(60% - 0.3rem) !important;
   margin-right: 0.3rem;
 }
 .row > #btn_search {
-  width: 4rem !important;
+  max-width: 4rem !important;
+  width: 15%;
 }
 .row > .resultData {
   display: flex;
@@ -172,12 +196,16 @@ body::-webkit-scrollbar-thumb {
 }
 .privacy {
   text-align: center;
+  margin-bottom: 0.5rem;
 }
 .privacy > a {
   color:black;
   cursor: pointer;
   text-decoration: none !important;
   font-size: 0.8rem;
+}
+.privacy > a:hover {
+  color:#0b5ed7;
 }
 div.infoArea {
   display: flex;
@@ -199,4 +227,22 @@ a:hover{
 }
 span.card-text {
   display: block;
+}
+#mistList.card {
+  height: min-content;
+  padding: 0;
+}
+#mistList.card > .card-header {
+  background-color: #fff3cd5c;
+  font-family: 'DNFBitBitv2';
+}
+#mistList.card img{
+  margin-right: 0.5rem;
+}
+.list-group-item > span {
+  color:black !important;
+  margin-left: 0.3rem;
+}
+.card {
+  box-shadow: 3px 3px 13px rgba(17, 17, 17, 0.2);
 }

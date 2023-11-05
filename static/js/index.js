@@ -32,7 +32,7 @@ $(document).ready(function() {
   })
   // 집계 불러오기
   $.ajax({
-    url: 'https://api.dfgear.xyz/mistGearAggregate',
+    url: apiServer+'mistGearAggregate',
     type: 'get',
     timeout: 30000,
     processData:true,
@@ -43,6 +43,13 @@ $(document).ready(function() {
       $('#maxChannel').html(`오늘은 ${result.channelName}`);
       $('#dailyCount').html(`오늘은 ${result.dailyCount}개`);
       $('#maxCount').html(`${result.maxCount}개 가지고 있습니다.`);
+      try {
+        $('#top1').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[0].itemName]}">${result.topMist[0].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[0].cnt}</span>`);
+        $('#top2').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[1].itemName]}">${result.topMist[1].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[1].cnt}</span>`);
+        $('#top3').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[2].itemName]}">${result.topMist[2].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[2].cnt}</span>`);
+      } catch {
+        $('#topThreeMist').remove();
+      }
     },
     error: function(jqXHR, error) {
       alert("통계를 불러오는데 실패했습니다.");

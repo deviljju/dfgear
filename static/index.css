@@ -29,8 +29,23 @@ src:url('./fonts/DNFForgedBlade-Bold.ttf')format('truetype')}
 font-family:'DNFBitBitv2';
 src:url('./fonts/DNFBitBitv2.ttf')format('truetype')}
 
+@media all and (max-width: 320px) {
+  html { font-size: 12px; } 
+  :root { font-size: 12px;}
+}
+@media all and (min-width: 320px) and (max-width: 410px){
+  html { font-size: 12.5px; }
+  :root { font-size: 12.5px;} 
+}
+@media all and (min-width: 410px) and (max-width: 768px){
+  html { font-size: 13px; }
+  :root { font-size: 13px;} 
+}
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  html { font-size: 14px; }
+  :root { font-size: 14px;} 
+}
 
-  
 body {
   width: 100%;
   user-select: none;
@@ -75,20 +90,28 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
   width: max-content;
 }
+/* .container > div.title:hover {
+  background: linear-gradient(to right,#000000, #000000,#f9c41bc9, #f9c41bc9,#f9c41bc9,#f9c41bc9,#000000);
+  color: transparent;
+  -webkit-background-clip: text;
+} */
 .container > .row {
   margin:0.5rem 0;
   justify-content: center;
 }
 .row > #serverId {
-  width: 8rem !important;
+  max-width: 8rem;
+  width: calc(25% - 0.3rem) !important;
   margin-right: 0.3rem;
 }
 .row > #characterName {
-  width: 16rem !important;
+  max-width: 16rem;
+  width: calc(60% - 0.3rem) !important;
   margin-right: 0.3rem;
 }
 .row > #btn_search {
-  width: 4rem !important;
+  max-width: 4rem !important;
+  width: 15%;
 }
 .row > .resultData {
   display: flex;
@@ -153,6 +176,9 @@ body::-webkit-scrollbar-thumb {
 .neopleThk > .footer-donate a:hover {
   color:#62abfa !important
 }
+.neopleThk > .footer-donate a:hover {
+  color:#62abfa !important
+}
 .aggregate {
   width: 100% !important;
   height: auto !important;
@@ -160,17 +186,36 @@ body::-webkit-scrollbar-thumb {
 .aggregate .text-muted {
   float: right;
 }
-.aggregate > .card:nth-child(1) {
-  width: 20rem;
-  margin-right: 1rem;
+.aggregate > div {
+  width: 24rem;
   margin-bottom: 1rem;
   height: min-content;
+  padding: 0;
 }
-.aggregate > .card:nth-child(2) {
-  width: 24rem;
+.card > .card-header {
+  background-color: #fff3cd5c;
+  font-family: 'DNFBitBitv2';
+  /* background-color: rgb(70 255 4 / 3%); */
 }
+.aggregate > .card:nth-child(1) {
+  width: 20rem !important;
+  margin-right: 1rem;
+}
+.aggregate > div > .card:nth-child(2) {
+  margin-top:1rem;
+}
+.aggregate > div > .card img{
+  margin-right: 0.5rem;
+}
+
+.list-group-item > span {
+  color:black !important;
+  margin-left: 0.3rem;
+}
+
 .privacy {
   text-align: center;
+  margin-bottom: 0.5rem;
 }
 .privacy > a {
   color:black;
@@ -178,11 +223,17 @@ body::-webkit-scrollbar-thumb {
   text-decoration: none !important;
   font-size: 0.8rem;
 }
+.privacy > a:hover {
+  color:#0b5ed7;
+}
 .card.characterView {
   min-width: 14rem;
   width:calc(20% - 0.4rem);
   margin: 0.2rem;
   cursor: pointer;
+}
+.card {
+  box-shadow: 3px 3px 13px rgba(17, 17, 17, 0.2);
 }
 span.card-text {
   display: block;
