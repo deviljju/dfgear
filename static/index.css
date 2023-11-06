@@ -133,19 +133,6 @@ body::-webkit-scrollbar-thumb {
 #loading {
   display: none;
 }
-.offcanvas.show {
-  width: 50vw !important;
-  min-width: 465px;
-}
-.offcanvas-body::-webkit-scrollbar {
-  width: 15px;
-}
-.offcanvas-body::-webkit-scrollbar-thumb {
-    background-color: lightgrey;
-    border-radius: 5px;
-    background-clip: padding-box;
-    border: 1px solid transparent;
-}
 .neopleThk {
   text-align: center;
   width: 100%;

@@ -200,7 +200,7 @@ function makeCardView(character){
 function data_List(Array) {
   let mistGear=[];
   let mistGearCount=1;
-  let html=``;
+  let html=`<div class="card-header">미스트기어 리스트</div><ul class="list-group list-group-flush">`;
   Array.forEach((element,i) => {
     if(element.mistGear){
       mistGear.push({code:element.code, missCount : mistGearCount, count:i, itemName:element.itemName, get:element.channel });
@@ -211,14 +211,13 @@ function data_List(Array) {
   });
   timeLineList = Array
   // timeLineList = newArray;
-  $('#mistList').html(`<div class="card-header">미스트기어 리스트</div><ul class="list-group list-group-flush">`);
   if(mistGear.length>0){
     mistGear.forEach(e => {
       html +=`<li class="list-group-item"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.itemName}, ${e.code==505 ? e.count+"번째 에픽":e.get}</div><span class="badge bg-warning rounded-pill">${e.code==505 ? "드랍" : "카드"}</span></li>`
     })
     html += `</ul></div>`;
   } else {
-    html +=`where is Mist Gear</ul></div>`;
+    html +=`<li class="list-group-item"> where is Mist Gear</li></ul></div>`;
   }
   $("#mistList").append(html);
   loadingToggle(false);

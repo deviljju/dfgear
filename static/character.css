@@ -137,8 +137,8 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 .offcanvas.show {
-  width: 50vw !important;
-  min-width: 465px;
+  width: 30rem !important;
+  min-width: 50vw;
 }
 .offcanvas-body::-webkit-scrollbar {
   width: 15px;
