@@ -194,7 +194,15 @@ body::-webkit-scrollbar-thumb {
 .aggregate > div > .card img{
   margin-right: 0.5rem;
 }
-
+.aggregate > div .card-title{
+  font-family: 'DNFBitBitv2';
+}
+#remainWeek {
+  font-family: 'DNFBitBitv2';
+}
+#maxCount {
+  font-family: 'DNFBitBitv2';
+}
 .list-group-item > span {
   color:black !important;
   margin-left: 0.3rem;

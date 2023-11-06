@@ -1,3 +1,4 @@
+const api = 'https://api.dfgear.xyz';
 let apioff=false;
 let timeLineList = [];
 let nowDate = moment().format("YYYYMMDDTHHmm");
@@ -5,8 +6,8 @@ let nowDate = moment().format("YYYYMMDDTHHmm");
 $(document).ready(function() {
   nowDate = moment().format("YYYYMMDDTHHmm");  
   try{
-    serverId = new URLSearchParams(location.search).get('sId');
-    characterName = new URLSearchParams(location.search).get('cName');
+    serverId = sessionStorage.getItem("sId") ? sessionStorage.getItem("sId") : new URLSearchParams(location.search).get('sId');
+    characterName = sessionStorage.getItem("cName") ? sessionStorage.getItem("cName") : new URLSearchParams(location.search).get('cName');
     if(characterName != null && serverId != null){
       $("select[name='server']").val(serverId)
       $("input[name='name']").val(characterName);
@@ -14,6 +15,9 @@ $(document).ready(function() {
     }
   } catch(e){
     console.log(e);
+    $("select[name='server']").val('')
+    $("input[name='name']").val('');
+    sessionStorage.clear();
   }
   $("#characterName").keyup(function () {
       if (window.event.keyCode == 13) {
@@ -32,7 +36,7 @@ $(document).ready(function() {
   })
   // 집계 불러오기
   $.ajax({
-    url: 'https://api.dfgear.xyz/mistGearAggregate',
+    url: api+'/mistGearAggregate',
     type: 'get',
     timeout: 30000,
     processData:true,
@@ -84,6 +88,7 @@ function Search(){
   $("#advenTotal").html("");
   if(serverId==='adventure'){
     searchAdventure(characterName, function(result, err){
+      sessionStorage.clear();
       try{
         if(err){
           loadingToggle(false);
@@ -102,6 +107,7 @@ function Search(){
           return alert("모험단에 소속된 캐릭터 정보가 없습니다");
         }
       } catch(e){
+        sessionStorage.clear();
         loadingToggle(false);
         if(e==="NO_CHARACTER"){
           return alert("일치하는 캐릭터 정보가 없습니다");
@@ -110,7 +116,9 @@ function Search(){
       }
     })
   } else {
-    return location.href=`./character?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
+    sessionStorage.setItem('sId',serverId);
+    sessionStorage.setItem('cName',characterName);
+    return location.href="./character"; //?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
   }
 }
 function loadingToggle(toe=true) {
@@ -155,7 +163,7 @@ function searchAdventure(adventureName, callback){
   try{
     let data = { adventureName: encodeURIComponent(adventureName)};
     $.ajax({
-      url: 'https://api.dfgear.xyz/adventure',
+      url: api+'/adventure',
       type: 'get',
       timeout: 60000,
       processData:true,
@@ -171,6 +179,7 @@ function searchAdventure(adventureName, callback){
       }
     });
   } catch(e){
+    sessionStorage.clear();
     console.log(e);
   }
 }

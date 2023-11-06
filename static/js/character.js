@@ -1,3 +1,4 @@
+const api = 'https://api.dfgear.xyz';
 let timeLineList = [];
 let nowDate = moment().format("YYYYMMDDTHHmm");
 let serverId='';
@@ -7,16 +8,17 @@ let apioff=false;
 $(document).ready(function() {
   $("#characterName").keyup(function () {
     if (window.event.keyCode == 13) {
-      redirectSearch();
+      Search();
     }
   });
   $(document).on("click", "#btn_search", function() {
-    redirectSearch();
+    Search();
   });
   $(document).on("click", ".row.title", function() {
     try{
       location.href='./';
     } catch(e){
+      sessionStorage.clear();
       location.href='https://dfgear.xyz';
     }
   })
@@ -55,28 +57,29 @@ $(document).ready(function() {
         $('.offcanvas-body').prepend(`<h5>${prevDate} | ${dateCnt}개`);
     }
   })
-  try{ 
-    serverId = new URLSearchParams(location.search).get('sId');
-    characterName = new URLSearchParams(location.search).get('cName');
-    characterId = new URLSearchParams(location.search).get('cId');
+  try{
+    serverId = sessionStorage.getItem("sId") ? sessionStorage.getItem("sId") : new URLSearchParams(location.search).get('sId');
+    characterName = sessionStorage.getItem("cName") ? sessionStorage.getItem("cName") : new URLSearchParams(location.search).get('cName');
+    characterId = sessionStorage.getItem("cId") ? sessionStorage.getItem("cId") : new URLSearchParams(location.search).get('cId');
     if(characterName == '' || characterName===null || serverId=='' || serverId===null){
       $("#searchBar").addClass('show');
-      return alert("조회할 캐릭터명을 입력해주세요");
+      $("select[name='server']").val('prey');
+      $("input[name='name']").val('');
     } else {
       $("select[name='server']").val(serverId)
       $("input[name='name']").val(characterName);
-    }
-    characterName = decodeURIComponent(characterName);
-    Search();
-  } catch(e){
-    $(document).on("click", "#btn_search", function() {
+      characterName = decodeURIComponent(characterName);
       Search();
-    });
+    }
+  } catch(e){
     alert("캐릭터명을 다시 입력해주세요");
+    sessionStorage.clear();
     return $("#searchBar").addClass('show');
   }
 });
+
 function redirectSearch(){
+  return;
   try{
     serverId = $("select[name='server']").val();
     characterName = $("input[name='name']").val();
@@ -108,7 +111,9 @@ function Search(){
     return $("#characterName").focus();
   }
   if(serverId==='adventure'){
-    return location.href=`./?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
+    sessionStorage.setItem('sId',serverId);
+    sessionStorage.setItem('cName',characterName);
+    return location.href="./"; //?sId=${serverId}&cName=${encodeURIComponent(characterName)}
   }
   nowDate = moment().subtract(1,"m").format("YYYYMMDDTHHmm");
   loadingToggle();
@@ -116,6 +121,7 @@ function Search(){
   $("#mistList").html("");
   searchCharacterTimeline(serverId, characterName, nowDate, characterId, function(result, err){
       try{
+          sessionStorage.clear();
           $("#searchBar").addClass('show');
           timeLineList = [];
           if(err){
@@ -160,6 +166,7 @@ function Search(){
               }
           }
       } catch(chinfoErr){
+          sessionStorage.clear();
           console.log(chinfoErr);
           loadingToggle(false);
           $("#btn_epicList").removeClass("show");
@@ -186,7 +193,7 @@ function makeCardView(character){
     try{
       $(".characterView").html("");
       let html =`<img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
-        <div class="card-body"> <p class="card-text">${character.characterName}</p>
+        <div class="card-body"> <p id="cName" class="card-text">${character.characterName}</p>
           <span class="card-text">중재자 에픽 : ${character.total}</span>
           <p class="card-text">미스트 기어 획득 : ${character.mist}</p>
           <span class="card-text small">최근 업데이트</span>
@@ -229,7 +236,7 @@ function searchCharacterTimeline(serverId, characterName, endDate, characterId='
   try{
     let data = { serverId: serverId, characterName: encodeURIComponent(characterName), endDate: endDate, characterId:characterId };
     $.ajax({
-      url: 'https://api.dfgear.xyz/character/Timeline',
+      url: api+'/character/Timeline',
       type: 'get',
       timeout: 30000,
       async:false,
@@ -246,6 +253,7 @@ function searchCharacterTimeline(serverId, characterName, endDate, characterId='
       }
     });
   } catch(e){
+    sessionStorage.clear();
     console.log(e);
   }
 }

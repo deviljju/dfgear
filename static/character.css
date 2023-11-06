@@ -246,3 +246,19 @@ span.card-text {
 .card {
   box-shadow: 3px 3px 13px rgba(17, 17, 17, 0.2);
 }
+#cName {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.resultData.show > div {
+  max-height: 32.5rem;
+  overflow-y: auto;
+  overflow-x: none;
+}
+.resultData.show > div::-webkit-scrollbar {
+  width: 0px;
+}
+.resultData.show > div::-webkit-scrollbar-thumb {
+  display:none;
+}
