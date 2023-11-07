@@ -276,6 +276,7 @@ span.card-text.small {
 display: flex;
 }
 #characterList {
+  margin-top:0.5rem;
   width: auto !important;
   height: auto !important;
   display: flex;
