@@ -210,7 +210,7 @@ function data_List(Array) {
   let html=`<div class="card-header">미스트기어 리스트</div><ul class="list-group list-group-flush">`;
   Array.forEach((element,i) => {
     if(element.mistGear){
-      mistGear.push({code:element.code, missCount : mistGearCount, count:i, itemName:element.itemName, get:element.channel });
+      mistGear.push({code:element.code, missCount : mistGearCount, count:element.count ? element.count : i+1, itemName:element.itemName, get:element.channel });
       mistGearCount = 1;
     } else {
       mistGearCount++;
