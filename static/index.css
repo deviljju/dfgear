@@ -33,11 +33,13 @@ src:url('./fonts/DNFBitBitv2.ttf')format('truetype')}
   html { font-size: 12px; } 
   :root { font-size: 12px;}
   #characterList { justify-content: center; }
+  .card.characterView { min-width: 10.5rem; }
 }
 @media all and (min-width: 320px) and (max-width: 410px){
   html { font-size: 12.5px; }
   :root { font-size: 12.5px;} 
   #characterList { justify-content: center; }
+  .card.characterView { min-width: 11rem; }
 }
 @media all and (min-width: 410px) and (max-width: 768px){
   html { font-size: 13px; }
@@ -47,6 +49,13 @@ src:url('./fonts/DNFBitBitv2.ttf')format('truetype')}
 @media all and (min-width: 768px) and (max-width: 1024px) {
   html { font-size: 14px; }
   :root { font-size: 14px;} 
+}
+
+@media all and (min-width: 353px) and (max-width: 353px){
+  .card.characterView { min-width: 12rem !important; }
+}
+@media all and (min-width: 354px) and (max-width: 379px){
+  .card.characterView { min-width: 13rem !important; }
 }
 
 body {
@@ -112,9 +121,13 @@ body::-webkit-scrollbar-thumb {
   width: calc(60% - 0.3rem) !important;
   margin-right: 0.3rem;
 }
-.row > #btn_search {
+.row > #btn_search,#btn_share {
   max-width: 4rem !important;
   width: 15%;
+}
+#btn_share.extend {
+  max-width: 6rem !important;
+  width: max-content;
 }
 .row > .resultData {
   display: flex;
@@ -242,16 +255,25 @@ span.card-text.small {
 #advenTotal {
   font-weight: bold;
   text-align: center;
+  width: max-content;
+  margin-bottom: 0;
+}
+.row.adventure {
   width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 #advenResult{
   width: 100% !important;
   height: auto !important;
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
   justify-content: center;
+}
+#advenResult.show{
+display: flex;
 }
 #characterList {
   width: auto !important;
@@ -260,4 +282,10 @@ span.card-text.small {
   flex-wrap: wrap;
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
+}
+.dfToast{
+  width: max-content !important;
+  height: auto !important;
+  position: absolute;
+  top: 1rem;
 }

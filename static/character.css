@@ -262,3 +262,9 @@ span.card-text {
 .resultData.show > div::-webkit-scrollbar-thumb {
   display:none;
 }
+.dfToast{
+  width: max-content !important;
+  height: auto !important;
+  position: absolute;
+  top: 1rem;
+}

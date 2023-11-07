@@ -2,16 +2,19 @@ const api = 'https://api.dfgear.xyz';
 let apioff=false;
 let timeLineList = [];
 let nowDate = moment().format("YYYYMMDDTHHmm");
-
+let serverId;
+let characterName;
 $(document).ready(function() {
   nowDate = moment().format("YYYYMMDDTHHmm");  
   try{
     serverId = sessionStorage.getItem("sId") ? sessionStorage.getItem("sId") : new URLSearchParams(location.search).get('sId');
     characterName = sessionStorage.getItem("cName") ? sessionStorage.getItem("cName") : new URLSearchParams(location.search).get('cName');
-    if(characterName != null && serverId != null){
+    if(characterName != null && characterName !== '' && serverId != null){
       $("select[name='server']").val(serverId)
       $("input[name='name']").val(characterName);
-      Search();
+      if(serverId=='adventure'){
+        Search();
+      }
     }
   } catch(e){
     console.log(e);
@@ -27,12 +30,28 @@ $(document).ready(function() {
   $(document).on("click", "#btn_search", function() {
     Search();
   });
+  $(document).on("click", "#btn_share", function() {
+    var cName = $("input[name='name']").val();
+    let content = `https://dfgear.xyz/?sId=adventure&cName=${encodeURIComponent(cName)}`;
+    navigator.clipboard.writeText(content)
+    .then(() => {
+      $("#btn_share").text('복사됨');
+      $("#btn_share").addClass('extend');
+      setTimeout(() => {
+          $("#btn_share").text('공유');
+          $("#btn_share").removeClass('extend');
+      }, 2000);
+    })
+    .catch(err => {
+      console.log('Something went wrong', err);
+    }) 
+  });  
   $(document).on("click", ".row.title", function() {
     $("input[name='name']").val('');
     loadingToggle(false);
     $('.resultData').removeClass("show");
     $("#characterList").html("");
-    $("#advenTotal").html("");
+    $("#advenResult").removeClass("show");
   })
   // 집계 불러오기
   $.ajax({
@@ -56,7 +75,7 @@ $(document).ready(function() {
       }
     },
     error: function(jqXHR, error) {
-      alert("통계를 불러오는데 실패했습니다.");
+      toast("danger","통계를 불러오는데 실패했습니다.");
     }
   });
   // 미기 정가 계산
@@ -73,19 +92,19 @@ $(document).ready(function() {
 });
 function Search(){
   if(apioff){
-      return alert("DNF점검");
+      return toast("warning","DNF 점검");
   }
   var serverId = $("select[name='server']").val();
   var characterName = $("input[name='name']").val();
   if(characterName.length<1){
-      alert("캐릭터명을 입력해주세요");
+      toast("danger","캐릭터명을 입력해주세요.");
       return $("#characterName").focus();
   }
   nowDate = moment().subtract(1,"m").format("YYYYMMDDTHHmm");
   loadingToggle();
   $('.resultData').removeClass("show");
   $("#characterList").html("");
-  $("#advenTotal").html("");
+  $("#advenResult").removeClass("show");
   if(serverId==='adventure'){
     searchAdventure(characterName, function(result, err){
       sessionStorage.clear();
@@ -93,26 +112,27 @@ function Search(){
         if(err){
           loadingToggle(false);
           if(result.responseText && result.responseText.indexOf("MISSING_PARAMETER") > -1){
-            return alert("에러 발생_입력값 오류");
+            return toast("danger","에러 발생_입력값 오류");
           } else if(result.responseText && result.responseText.indexOf("NO_CHARACTER") > -1){
-            return alert("모험단에 소속된 캐릭터 정보가 없습니다");
+            return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다");
           } else {
             console.log(err); console.log(result);
-            return alert("에러 발생");
+            return toast("danger","에러 발생");
           }
         } else if(result.length>0){
           makeCardView(result);
         } else {
           loadingToggle(false);
-          return alert("모험단에 소속된 캐릭터 정보가 없습니다");
+          $("#advenResult").removeClass("show");
+          return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다.");
         }
       } catch(e){
         sessionStorage.clear();
         loadingToggle(false);
         if(e==="NO_CHARACTER"){
-          return alert("일치하는 캐릭터 정보가 없습니다");
+          return toast("danger","일치하는 캐릭터 정보가 없습니다");
         } 
-        return alert("에러 발생");
+        return toast("danger","에러 발생");
       }
     })
   } else {
@@ -142,7 +162,7 @@ function makeCardView(characters){
             <span class="card-text">중재자 에픽 : ${character.total}</span>
             <p class="card-text">미스트 기어 획득 : ${character.mist}</p>
             <span class="card-text small">최근 업데이트</span>
-            <span class="card-text small">${character.uptime==null ? '-' : character.uptime}</span>
+            <span class="card-text small">${character.uptime==null ? '-' : character.uptimadvenResult}</span>
           </div>
         </div>`;
         total += parseInt(character.total);
@@ -153,6 +173,7 @@ function makeCardView(characters){
       }
     })
     $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist}`);
+    $("#advenResult").addClass("show");
     loadingToggle(false);
   } catch(e){
     loadingToggle(false);

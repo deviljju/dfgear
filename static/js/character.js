@@ -72,7 +72,7 @@ $(document).ready(function() {
       Search();
     }
   } catch(e){
-    alert("캐릭터명을 다시 입력해주세요");
+    toast("danger","캐릭터명을 다시 입력해주세요");
     sessionStorage.clear();
     return $("#searchBar").addClass('show');
   }
@@ -98,7 +98,7 @@ function redirectSearch(){
 }
 function Search(){
   if(apioff){
-      return alert("DNF점검");
+      return toast("warning","DNF점검");
   }
   if($("#searchBar").hasClass('show')){
     serverId = $("select[name='server']").val();
@@ -106,7 +106,7 @@ function Search(){
     characterId = '';
   }
   if(characterName.length<1){
-    alert("캐릭터명을 입력해주세요");
+    toast("danger","캐릭터명을 입력해주세요");
     $("#searchBar").addClass('show');
     return $("#characterName").focus();
   }
@@ -130,14 +130,14 @@ function Search(){
               $('.resultData').removeClass("show");
               $("#mistList").html("");
               if(result.responseText && result.responseText.indexOf("APIKEY") > -1){
-                  return alert("에러 발생_APIKEY 오류");
+                  return toast("danger","에러 발생_APIKEY 오류");
               } else if(result.responseText && result.responseText.indexOf("MISSING_PARAMETER") > -1){
-                  return alert("에러 발생_입력값 오류");
+                  return toast("danger","에러 발생_입력값 오류");
               } else if(result.responseText && result.responseText.indexOf("NO_CHARACTER") > -1){
-                  return alert("일치하는 캐릭터 정보가 없습니다");
+                  return toast("danger","일치하는 캐릭터 정보가 없습니다");
               } else {
                   console.log(err); console.log(result);
-                  return alert("에러 발생");
+                  return toast("danger","에러 발생");
               }              
           } else {
               if(result.error){
@@ -146,13 +146,13 @@ function Search(){
                   $('.resultData').removeClass("show");
                   $("#mistList").html("");
                   if(result.error.message=="APIKEY_AUTH_ERROR"){
-                      return alert("에러 발생_APIKEY오류");
+                      return toast("danger","에러 발생_APIKEY오류");
                   } else if(result.error.message=="SYSTEM_INSPECT"){
                       apioff=true;
-                      return alert("DNF점검");
+                      return toast("danger","DNF점검");
                   } else {
                       console.log(result);
-                      return alert("에러 발생_캐릭터정보오류");
+                      return toast("danger","에러 발생_캐릭터정보오류");
                   }
               } else if(result.rows.length>0){
                   data_List(result.timeline);
@@ -162,7 +162,7 @@ function Search(){
                   $("#btn_epicList").removeClass("show");
                   $('.resultData').removeClass("show");
                   $("#mistList").html("");
-                  return alert("일치하는 캐릭터 정보가 없습니다");
+                  return toast("danger","일치하는 캐릭터 정보가 없습니다");
               }
           }
       } catch(chinfoErr){
@@ -174,9 +174,9 @@ function Search(){
           $('.resultData').removeClass("show");
           $("#mistList").html("");
           if(chinfoErr==="NO_CHARACTER"){
-              return alert("일치하는 캐릭터 정보가 없습니다");
+              return toast("danger","일치하는 캐릭터 정보가 없습니다");
           } 
-          return alert("에러 발생");				
+          return toast("danger","에러 발생");				
       }
   })
 }
