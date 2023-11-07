@@ -266,5 +266,6 @@ span.card-text {
   width: max-content !important;
   height: auto !important;
   position: absolute;
-  top: 1rem;
+  top: 5vh;
+  z-index: 2547483647 !important;
 }
