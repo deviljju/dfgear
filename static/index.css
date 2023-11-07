@@ -32,14 +32,17 @@ src:url('./fonts/DNFBitBitv2.ttf')format('truetype')}
 @media all and (max-width: 320px) {
   html { font-size: 12px; } 
   :root { font-size: 12px;}
+  #characterList { justify-content: center; }
 }
 @media all and (min-width: 320px) and (max-width: 410px){
   html { font-size: 12.5px; }
   :root { font-size: 12.5px;} 
+  #characterList { justify-content: center; }
 }
 @media all and (min-width: 410px) and (max-width: 768px){
   html { font-size: 13px; }
   :root { font-size: 13px;} 
+  #characterList { justify-content: center; }
 }
 @media all and (min-width: 768px) and (max-width: 1024px) {
   html { font-size: 14px; }
