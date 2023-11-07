@@ -48,6 +48,7 @@ body::-webkit-scrollbar-thumb {
 }
 .container {
   display: flex;
+  position: relative;
   align-items: center;
   width: 100%;
   max-width: 48rem;
@@ -266,6 +267,5 @@ span.card-text {
   width: max-content !important;
   height: auto !important;
   position: absolute;
-  top: 5vh;
-  z-index: 2547483647 !important;
+  top: 1rem;
 }
