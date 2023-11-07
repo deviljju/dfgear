@@ -158,11 +158,11 @@ function makeCardView(characters){
       try{
         let html =`<div class="card characterView" data-cId="${character.characterId}" data-sId="${character.serverId}" onclick="location.href='/character?sId=${character.serverId}&cId=${character.characterId}&cName=${encodeURIComponent(character.characterName)}';">
           <img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
-          <div class="card-body"> <p class="card-text">${character.characterName}</p>
+          <div class="card-body"> <p class="card-text cName">${character.characterName}</p>
             <span class="card-text">중재자 에픽 : ${character.total}</span>
             <p class="card-text">미스트 기어 획득 : ${character.mist}</p>
             <span class="card-text small">최근 업데이트</span>
-            <span class="card-text small">${character.uptime==null ? '-' : character.uptimadvenResult}</span>
+            <span class="card-text small">${character.uptime==null ? '-' : character.uptime}</span>
           </div>
         </div>`;
         total += parseInt(character.total);
