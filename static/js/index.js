@@ -94,8 +94,16 @@ $(document).ready(function() {
     var proofStone = (today.diff(proof,'months')+1)*45;
     own = own + proofStone;
   }
-  $('#remainVal').html(`${own}/1000`);
-  $('#remainWeek').html(`${16 - week}주`); // 1월 1일 기준
+  if(16-week > 0){
+    $('#remainVal').html(`${own}/1000`);
+    $('#remainWeek').html(`${16 - week}주`); // 1월 1일 기준
+  } else if(16-week == 0){
+    $('#remainWeek').html(`1월 1일 증명 클리어 시 정가!!`);
+    $('#remainVal').html(`${own}/1000`);
+  } else {
+    $('#remainWeek').html(`청해의 보은 습득 완료`);
+    $('#remainVal').html(`${own}/1000`);
+  }
   let percent = parseFloat(own / 10);
   $(".card .progress").attr("aria-valuenow",percent);
   $(".card .progress-bar").css("width",`${percent}%`);
