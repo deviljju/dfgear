@@ -189,6 +189,7 @@ body::-webkit-scrollbar-thumb {
 }
 .aggregate .text-muted {
   float: right;
+  margin: 0.5rem;
 }
 .aggregate > div {
   width: 24rem;
@@ -201,12 +202,28 @@ body::-webkit-scrollbar-thumb {
   font-family: 'DNFBitBitv2';
   /* background-color: rgb(70 255 4 / 3%); */
 }
-.aggregate > .card:nth-child(1) {
+.aggregate > div:nth-child(1) {
   width: 20rem !important;
   margin-right: 1rem;
 }
-.aggregate > div > .card:nth-child(2) {
+.aggregate > div > div:nth-child(2){
   margin-top:1rem;
+}
+
+/* .aggregate > div:nth-child(2) {
+} */
+.aggregate .card > .remain {
+  padding: 0 !important;
+}
+.remain > .card-header {
+  background-color: #ddffcd5c;
+  font-family: 'DNFBitBitv2';
+}
+.remain > p {
+  margin: 0.5rem 1rem;
+}
+.remain > .progress {
+  margin: 0.5rem 1rem;
 }
 .aggregate > div > .card img{
   margin-right: 0.5rem;
@@ -245,7 +262,7 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
 }
 .aggregate .card {
-  box-shadow: 3px 3px 13px rgba(17, 17, 17, 0.2);
+  box-shadow: 1px 1px 5px 0px rgba(17, 17, 17, 0.2);
 }
 span.card-text {
   display: block;

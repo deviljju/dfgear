@@ -53,14 +53,26 @@
         <div id="loading" class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>
       </div>
       <div class="row aggregate">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">정제된 미스트 기어 정가까지</h5>
-            <h6 id="remainVal" class="card-subtitle mb-2 text-muted">280/1000</h6>
-            <p id="remainWeek" class="card-text">18주</p>
-            <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">
-              <div class="progress-bar progress-bar-striped" style="width: 28%">28%</div>
+        <div class="card-g-2">
+          <div class="card">
+            <div class="card-body remain">
+              <div class="card-header">정제된 미스트 기어 정가까지</div>
+              <!-- <h5 class="card-title"></h5> -->
+              <h6 id="remainVal" class="card-subtitle mb-2 text-muted">280/1000</h6>
+              <p id="remainWeek" class="card-text">18주</p>
+              <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-striped" style="width: 28%">28%</div>
+              </div>
+              <span class="text-muted">(24.01.01 기준)</span>
             </div>
+          </div>
+          <div id="topThreeMist" class="card">
+            <div class="card-header">미스트 기어 획득량 TOP3</div>
+            <ul class="list-group list-group-flush">
+              <li id="top1" class="list-group-item"></li>
+              <li id="top2" class="list-group-item"></li>
+              <li id="top3" class="list-group-item"></li>
+            </ul>
           </div>
         </div>
         <div class="card-g-2">
@@ -69,14 +81,6 @@
               <li class="list-group-item"><h5 class="card-title">미스트 기어가 가장 많이 나온 채널</h5><h6 id="maxChannel" class="card-subtitle mb-2 text-muted"></h6></li>
               <li class="list-group-item"><h5 class="card-title">미스트기어 획득량</h5><h6 id="dailyCount" class="card-subtitle mb-2 text-muted">- 개</h6></li>
               <li class="list-group-item"><h5 class="card-title">어느 캐릭터는 미스트기어를</h5><h5 id="maxCount" class="card-subtitle mb-2">- 개가지고 있습니다.</h5></li>
-            </ul>
-          </div>
-          <div id="topThreeMist" class="card">
-            <div class="card-header">미스트 기어 획득량 TOP3</div>
-            <ul class="list-group list-group-flush">
-              <li id="top1" class="list-group-item"></li>
-              <li id="top2" class="list-group-item"></li>
-              <li id="top3" class="list-group-item"></li>
             </ul>
           </div>
         </div>

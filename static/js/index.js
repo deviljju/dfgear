@@ -80,12 +80,23 @@ $(document).ready(function() {
   });
   // 미기 정가 계산
   let init = new Date('2023-09-14');
-  let now = new Date(moment().format("YYYY-MM-DD"));
+  let today = moment();
+  let now = new Date(today.format("YYYY-MM-DD"));
   let btwDay = (now - init) / (1000 * 3600 * 24);
   let week = btwDay== 0 ? 1 : Math.floor(btwDay/7) + 1;
-  $('#remainVal').html(`${week*40}/1000`);
-  $('#remainWeek').html(`${25 - week}주`);
-  let percent = parseInt((week*40) / 10);
+  let own;
+  if(today.format("YYYY-MM-DD") < '2023-11-09'){
+    own = week*40;
+  } else {
+    own = (week-8)*70 + 320;
+    // 월 마다 45개
+    var proof = moment('2023-11-01 06:00:00');
+    var proofStone = (today.diff(proof,'months')+1)*45;
+    own = own + proofStone;
+  }
+  $('#remainVal').html(`${own}/1000`);
+  $('#remainWeek').html(`${16 - week}주`); // 1월 1일 기준
+  let percent = parseFloat(own / 10);
   $(".card .progress").attr("aria-valuenow",percent);
   $(".card .progress-bar").css("width",`${percent}%`);
   $(".card .progress-bar").html(`${percent}%`);
