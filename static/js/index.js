@@ -136,7 +136,7 @@ function Search(){
             return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다");
           } else {
             console.log(err); console.log(result);
-            return toast("danger","에러 발생");
+            return alert("에러 발생");
           }
         } else if(result.length>0){
           makeCardView(result);
@@ -151,7 +151,7 @@ function Search(){
         if(e==="NO_CHARACTER"){
           return toast("danger","일치하는 캐릭터 정보가 없습니다");
         } 
-        return toast("danger","에러 발생");
+        return alert("에러 발생");
       }
     })
   } else {

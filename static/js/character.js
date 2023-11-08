@@ -98,7 +98,7 @@ function redirectSearch(){
 }
 function Search(){
   if(apioff){
-      return toast("warning","DNF점검");
+    return alert("DNF점검");
   }
   if($("#searchBar").hasClass('show')){
     serverId = $("select[name='server']").val();
@@ -135,9 +135,12 @@ function Search(){
                   return toast("danger","에러 발생_입력값 오류");
               } else if(result.responseText && result.responseText.indexOf("NO_CHARACTER") > -1){
                   return toast("danger","일치하는 캐릭터 정보가 없습니다");
+              } else if(result.responseText && result.responseText.indexOf("SYSTEM_INSPECT") > -1){
+                apioff=true;
+                return alert("DNF점검");
               } else {
                   console.log(err); console.log(result);
-                  return toast("danger","에러 발생");
+                  return alert("에러 발생");
               }              
           } else {
               if(result.error){
@@ -176,7 +179,7 @@ function Search(){
           if(chinfoErr==="NO_CHARACTER"){
               return toast("danger","일치하는 캐릭터 정보가 없습니다");
           } 
-          return toast("danger","에러 발생");				
+          return alert("에러 발생");				
       }
   })
 }
