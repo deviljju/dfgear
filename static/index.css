@@ -223,7 +223,7 @@ body::-webkit-scrollbar-thumb {
 .aggregate .card > ul li.list-group-item {
   padding: 0 !important;
 }
-.aggregate .card > ul li.list-group-item.somebody {
+.aggregate .card > ul li.list-group-item.somepd {
  padding: 0.5rem 1rem !important;
 }
 .aggregate .card > ul li.list-group-item > .card-header {
