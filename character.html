@@ -53,7 +53,7 @@
       <div class="row resultData">
         <div id="characterList" style="width: max-content !important">
           <div class="card characterView"></div>
-          <button id="btn_epicList" class="btn btn-primary show" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">상세보기</button>
+          <button id="btn_epicList" class="btn btn-primary show" type="button" data-bs-toggle="modal" data-bs-target="#epicModal" aria-controls="epicModal">상세보기</button>
         </div>
         <div class="row d-flex justify-content-center result">
           <div id="loading" class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>        
@@ -69,13 +69,26 @@
       <div></div>
     </div>
     <div class="privacy"><a href="./privacy">개인정보 처리방침</a></div>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <!-- <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header">
         <h5 id="offcanvasRightLabel">에픽 획득 리스트</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         없음
+      </div>
+    </div> -->
+    <div class="modal fade" id="epicModal" tabindex="-1" aria-labelledby="epicModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="epicModalLabel">에픽 획득 리스트</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            없음
+          </div>
+        </div>
       </div>
     </div>
     <script src="./static/js/common.js"></script>

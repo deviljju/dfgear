@@ -23,8 +23,9 @@ $(document).ready(function() {
     }
   })
   $(document).on("click", "#btn_epicList", function() {
+    $('.modal-body').animate( { scrollTop : 0 }, 200 );
     if(timeLineList.length>1){
-      $('.offcanvas-body').html('');
+      $('.modal-body').html(''); //offcanvas-body epicModalLabel
       let prevDate = '';
       let dateCnt = 0;
         timeLineList.forEach(element => {
@@ -40,21 +41,21 @@ $(document).ready(function() {
             }
             if(prevDate != eDate){ // 날이 바꼈고
               if(daybtw > 1){
-                $('.offcanvas-body').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+                $('.modal-body').prepend(`<h5>${prevDate} | ${dateCnt}개`);
                 dateCnt=0;
                 prevDate = eDate;
               } else if(daybtw==1 && `${eDate} 06:00` <= `${eDate} ${eTime}`){
-                $('.offcanvas-body').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+                $('.modal-body').prepend(`<h5>${prevDate} | ${dateCnt}개`);
                 dateCnt=0;
                 prevDate = eDate;
               }            
             }
           }
           var html= `<div>${element.date} | ${element.mistGear ? "*" : ""} ${element.itemName} | ${element.channel}</div>`
-          $('.offcanvas-body').prepend(html);
+          $('.modal-body').prepend(html);
           dateCnt ++;
         });
-        $('.offcanvas-body').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+        $('.modal-body').prepend(`<h5>${prevDate} | ${dateCnt}개`);
     }
   })
   try{

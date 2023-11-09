@@ -45,7 +45,7 @@
       <div id="advenResult">
         <div class="row adventure">
           <h5 id="advenTotal"></h5>
-          <button id="btn_share" class="btn btn-primary">공유</button>
+          <!-- <button id="btn_share" class="btn btn-primary">공유</button> -->
         </div>
         <div id="characterList"></div>
       </div>
@@ -58,12 +58,12 @@
             <div class="card-body remain">
               <div class="card-header">정제된 미스트 기어 정가까지</div>
               <!-- <h5 class="card-title"></h5> -->
-              <h6 id="remainVal" class="card-subtitle mb-2 text-muted">280/1000</h6>
+              <h6 id="remainVal" class="card-subtitle mb-2 text-muted">320/1000</h6>
               <p id="remainWeek" class="card-text">18주</p>
               <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">
                 <div class="progress-bar progress-bar-striped" style="width: 28%">28%</div>
               </div>
-              <span class="text-muted">(24.01.01 기준)</span>
+              <span class="text-muted">(24.01.11 기준, 증명 : 01.01)</span>
             </div>
           </div>
           <div id="topThreeMist" class="card">
@@ -78,10 +78,25 @@
         <div class="card-g-2">
           <div class="card">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><h5 class="card-title">미스트 기어가 가장 많이 나온 채널</h5><h6 id="maxChannel" class="card-subtitle mb-2 text-muted"></h6></li>
-              <li class="list-group-item"><h5 class="card-title">미스트기어 획득량</h5><h6 id="dailyCount" class="card-subtitle mb-2 text-muted">- 개</h6></li>
-              <li class="list-group-item"><h5 class="card-title">어느 캐릭터는 미스트기어를</h5><h5 id="maxCount" class="card-subtitle mb-2">- 개가지고 있습니다.</h5></li>
+              <li class="list-group-item"><div class="card-header">미스트 기어가 가장 많이 나온 채널</div><h6 id="maxChannel" class="card-subtitle mb-2 text-muted">-</h6></li>
+              <li class="list-group-item"><div class="card-header">미스트기어 획득량</div><h6 id="dailyCount" class="card-subtitle mb-2 text-muted">- 개</h6></li>
+              <li class="list-group-item somebody"><h5 class="card-title">어느 캐릭터는 미스트기어를</h5><h5 id="maxCount" class="card-subtitle mb-2">- 개가지고 있습니다.</h5></li>
             </ul>
+          </div>
+        </div>
+      </div>
+      <div class="accordion" id="accordionNotice">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              2023.11.09 수정내역
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionNotice">
+            <div class="accordion-body">
+              <p>* 해방 단계의 난이도로 인해 기존 미기 정가 16주 (24.01.01 기준)에서 18주(24.01.11)로 날짜 수정</p>
+              <p>* 모험단 공유 기능 중재자픽, 미스트기어 획득 글자 클릭 시 클립보드에 복사되게 수정</p>
+            </div>
           </div>
         </div>
       </div>

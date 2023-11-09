@@ -87,6 +87,7 @@ body::-webkit-scrollbar-thumb {
   align-content: center;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 1rem;
 }
 .container > div {
   width: 100%;
@@ -122,14 +123,14 @@ body::-webkit-scrollbar-thumb {
   width: calc(60% - 0.3rem) !important;
   margin-right: 0.3rem;
 }
-.row > #btn_search,#btn_share {
+.row > #btn_search {
   max-width: 4rem !important;
   width: 15%;
 }
-#btn_share.extend {
+/* #btn_share.extend {
   max-width: 6rem !important;
   width: max-content;
-}
+} */
 .row > .resultData {
   display: flex;
   justify-content: space-between;
@@ -219,6 +220,16 @@ body::-webkit-scrollbar-thumb {
   background-color: #ddffcd5c;
   font-family: 'DNFBitBitv2';
 }
+.aggregate .card > ul li.list-group-item {
+  padding: 0 !important;
+}
+.aggregate .card > ul li.list-group-item.somebody {
+ padding: 0.5rem 1rem !important;
+}
+.aggregate .card > ul li.list-group-item > .card-header {
+  font-family: 'DNFBitBitv2';
+}
+
 .remain > p {
   margin: 0.5rem 1rem;
 }
@@ -236,6 +247,7 @@ body::-webkit-scrollbar-thumb {
 }
 #maxCount {
   font-family: 'DNFBitBitv2';
+  float: right;
 }
 .list-group-item > span {
   color:black !important;
@@ -312,4 +324,12 @@ display: flex;
   height: auto !important;
   position: absolute;
   top: 1rem;
+}
+
+.container > #accordionNotice {
+  max-width: 45rem;
+  height: max-content;
+}
+.container > #accordionNotice > div > h2 {
+  font-family: 'DNFBitBitv2';
 }

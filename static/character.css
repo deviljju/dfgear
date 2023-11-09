@@ -137,7 +137,7 @@ body::-webkit-scrollbar-thumb {
 #loading {
   display: none;
 }
-.offcanvas.show {
+/* .offcanvas.show {
   width: 30rem !important;
   min-width: 50vw;
 }
@@ -149,6 +149,19 @@ body::-webkit-scrollbar-thumb {
     border-radius: 5px;
     background-clip: padding-box;
     border: 1px solid transparent;
+} */
+.modal-body {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.modal-body::-webkit-scrollbar {
+  width: 15px;
+}
+.modal-body::-webkit-scrollbar-thumb {
+  background-color: lightgrey;
+  border-radius: 5px;
+  background-clip: padding-box;
+  border: 1px solid transparent;
 }
 .neopleThk {
   text-align: center;
@@ -268,4 +281,7 @@ span.card-text {
   height: auto !important;
   position: absolute;
   top: 1rem;
+}
+#advenTotal {
+  cursor: pointer;
 }

@@ -30,17 +30,18 @@ $(document).ready(function() {
   $(document).on("click", "#btn_search", function() {
     Search();
   });
-  $(document).on("click", "#btn_share", function() {
+  $(document).on("click", "#advenTotal", function() {
     var cName = $("input[name='name']").val();
     let content = `https://dfgear.xyz/?sId=adventure&cName=${encodeURIComponent(cName)}`;
     navigator.clipboard.writeText(content)
     .then(() => {
-      $("#btn_share").text('복사됨');
-      $("#btn_share").addClass('extend');
-      setTimeout(() => {
-          $("#btn_share").text('공유');
-          $("#btn_share").removeClass('extend');
-      }, 2000);
+      toast("light","링크 복사됨");
+      // $("#btn_share").text('복사됨');
+      // $("#btn_share").addClass('extend');
+      // setTimeout(() => {
+      //     $("#btn_share").text('공유');
+      //     $("#btn_share").removeClass('extend');
+      // }, 2000);
     })
     .catch(err => {
       console.log('Something went wrong', err);
@@ -71,10 +72,12 @@ $(document).ready(function() {
         $('#top2').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[1].itemName]}">${result.topMist[1].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[1].cnt}</span>`);
         $('#top3').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[2].itemName]}">${result.topMist[2].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[2].cnt}</span>`);
       } catch {
+        apioff=true;
         $('#topThreeMist').remove();
       }
     },
     error: function(jqXHR, error) {
+      apioff=true;
       toast("danger","통계를 불러오는데 실패했습니다.");
     }
   });
@@ -84,23 +87,20 @@ $(document).ready(function() {
   let now = new Date(today.format("YYYY-MM-DD"));
   let btwDay = (now - init) / (1000 * 3600 * 24);
   let week = btwDay== 0 ? 1 : Math.floor(btwDay/7) + 1;
-  let own;
-  if(today.format("YYYY-MM-DD") < '2023-11-09'){
-    own = week*40;
-  } else {
-    own = (week-8)*70 + 320;
-    // 월 마다 45개
-    var proof = moment('2023-11-01 06:00:00');
-    var proofStone = (today.diff(proof,'months')+1)*45;
-    own = own + proofStone;
-  }
-  if(16-week > 0){
+  let own = (week-8)*70 + 320;
+    // // 월 마다 45개 해방 허벌 되면 수정 예정
+    // var proof = moment('2023-11-01 06:00:00');
+    // var proofStone = (today.diff(proof,'months')+1)*45;
+    // own = own + proofStone;
+  if(18-week > 0){
     $('#remainVal').html(`${own}/1000`);
-    $('#remainWeek').html(`${16 - week}주`); // 1월 1일 기준
-  } else if(16-week == 0){
-    $('#remainWeek').html(`1월 1일 증명 클리어 시 정가!!`);
-    $('#remainVal').html(`${own}/1000`);
-  } else {
+    $('#remainWeek').html(`${18 - week}주`); // 1월 1일 기준 16, 1월 11일 기준 18
+  } 
+  // else if(16-week == 0){
+  //   $('#remainWeek').html(`1월 1일 증명 클리어 시 정가!!`);
+  //   $('#remainVal').html(`${own}/1000`);
+  // } 
+  else {
     $('#remainWeek').html(`청해의 보은 습득 완료`);
     $('#remainVal').html(`${own}/1000`);
   }
@@ -111,7 +111,7 @@ $(document).ready(function() {
 });
 function Search(){
   if(apioff){
-      return toast("warning","DNF 점검");
+      return toast("warning","DFGEAR 서버 점검");
   }
   var serverId = $("select[name='server']").val();
   var characterName = $("input[name='name']").val();
