@@ -88,26 +88,30 @@ $(document).ready(function() {
   let btwDay = (now - init) / (1000 * 3600 * 24);
   let week = btwDay== 0 ? 1 : Math.floor(btwDay/7) + 1;
   let own = (week-8)*70 + 320;
-    // // 월 마다 45개 해방 허벌 되면 수정 예정
-    // var proof = moment('2023-11-01 06:00:00');
-    // var proofStone = (today.diff(proof,'months')+1)*45;
-    // own = own + proofStone;
-  if(18-week > 0){
-    $('#remainVal').html(`${own}/1000`);
-    $('#remainWeek').html(`${18 - week}주`); // 1월 1일 기준 16, 1월 11일 기준 18
-  } 
-  // else if(16-week == 0){
-  //   $('#remainWeek').html(`1월 1일 증명 클리어 시 정가!!`);
-  //   $('#remainVal').html(`${own}/1000`);
-  // } 
-  else {
+  let prove =own;
+  // // 월 마다 45개 해방
+  var proof = moment('2023-11-01 06:00:00');
+  var proofStone = (today.diff(proof,'months')+1)*45;
+  prove = own + proofStone;
+  $('#remainVal').html(`${own} (${prove})/1000`);  
+  if(16-week == 0){
+    $('.remain > .card-header').html(`1월 1일 증명 클리어 시 미기 정가!!`);
+    $('#remainWeek').html(`${18 - week}주 (이번 주)`);
+  } else if(18-week > 0){
+    $('#remainWeek').html(`${18 - week}주 ${(16 - week)<0 ? '':'('+(16-week)+'주)'}`); // 1월 1일 기준 16, 1월 11일 기준 18
+  } else {
     $('#remainWeek').html(`청해의 보은 습득 완료`);
-    $('#remainVal').html(`${own}/1000`);
   }
   let percent = parseFloat(own / 10);
-  $(".card .progress").attr("aria-valuenow",percent);
-  $(".card .progress-bar").css("width",`${percent}%`);
-  $(".card .progress-bar").html(`${percent}%`);
+  let provPer = parseFloat(prove / 10);
+  $("#prg_own").attr("aria-valuenow",percent);
+  $("#prg_own").css("width",`${percent}%`);
+  $("#prg_own").html(`${percent}%`);
+  if(percent<100){
+    $("#prg_prove").attr("aria-valuenow",provPer-percent);
+    $("#prg_prove").css("width",`${provPer-percent}%`);
+    $("#prg_prove").html(`${provPer}%`);
+  }
 });
 function Search(){
   if(apioff){
