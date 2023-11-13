@@ -24,7 +24,7 @@ $(document).ready(function() {
   })
   $(document).on("click", "#btn_epicList", function() {
     $('.modal-body').animate( { scrollTop : 0 }, 200 );
-    if(timeLineList.length>1){
+    if(timeLineList.length>0){
       $('.modal-body').html(''); //offcanvas-body epicModalLabel
       let prevDate = '';
       let dateCnt = 0;
