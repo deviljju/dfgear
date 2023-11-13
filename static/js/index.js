@@ -198,6 +198,7 @@ function makeCardView(characters){
         </div>`;
         total += parseInt(character.total);
         mist += parseInt(character.mist);
+        card += parseInt(character.card);
         $("#characterList").append(html);
       } catch (e) {
         console.log(e);
