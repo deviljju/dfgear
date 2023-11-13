@@ -35,7 +35,7 @@ $(document).ready(function() {
     let content = `https://dfgear.xyz/?sId=adventure&cName=${encodeURIComponent(cName)}`;
     navigator.clipboard.writeText(content)
     .then(() => {
-      toast("light","링크 복사됨");
+      toast("info","링크 복사됨");
       // $("#btn_share").text('복사됨');
       // $("#btn_share").addClass('extend');
       // setTimeout(() => {
@@ -64,8 +64,13 @@ $(document).ready(function() {
       xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
     },
     success: function(result, textStatus, jqXHR){
+      localStorage.setItem('serverState', "1");
       $('#maxChannel').html(`오늘은 ${result.channelName}`);
       $('#dailyCount').html(`오늘은 ${result.dailyCount}개`);
+      let rate = parseFloat(result.dropRate.mist/result.dropRate.total);
+      let per = parseInt(1/rate);
+      let rateString = (rate*100).toFixed(2);
+      $('#dailyRate').html(`${per}에픽 당 1개 (${rateString}%)`);
       $('#maxCount').html(`${result.maxCount}개 가지고 있습니다.`);
       try {
         $('#top1').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[0].itemName]}">${result.topMist[0].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[0].cnt}</span>`);
@@ -78,6 +83,7 @@ $(document).ready(function() {
     },
     error: function(jqXHR, error) {
       apioff=true;
+      localStorage.setItem('serverState', "0");
       toast("danger","통계를 불러오는데 실패했습니다.");
     }
   });
@@ -114,8 +120,8 @@ $(document).ready(function() {
   }
 });
 function Search(){
-  if(apioff){
-      return toast("warning","DFGEAR 서버 점검");
+  if(apioff || localStorage.getItem('serverState')==="0"){
+    return toast("warning","DFGEAR 서버 점검");
   }
   var serverId = $("select[name='server']").val();
   var characterName = $("input[name='name']").val();
@@ -177,13 +183,15 @@ function makeCardView(characters){
   try{
     let total=0;
     let mist=0;
+    let card=0;
     characters.forEach(character => {
       try{
         let html =`<div class="card characterView" data-cId="${character.characterId}" data-sId="${character.serverId}" onclick="location.href='/character?sId=${character.serverId}&cId=${character.characterId}&cName=${encodeURIComponent(character.characterName)}';">
           <img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
           <div class="card-body"> <p class="card-text cName">${character.characterName}</p>
             <span class="card-text">중재자 에픽 : ${character.total}</span>
-            <p class="card-text">미스트 기어 획득 : ${character.mist}</p>
+            <span class="card-text">미스트 기어 획득 : ${character.mist}</span>
+            <p class="card-text">└ 카드 보상 : ${character.card}</p>
             <span class="card-text small">최근 업데이트</span>
             <span class="card-text small">${character.uptime==null ? '-' : character.uptime}</span>
           </div>
@@ -195,7 +203,7 @@ function makeCardView(characters){
         console.log(e);
       }
     })
-    $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist}`);
+    $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist} (카드 : ${card})`);
     $("#advenResult").addClass("show");
     loadingToggle(false);
   } catch(e){

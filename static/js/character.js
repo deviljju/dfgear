@@ -58,6 +58,12 @@ $(document).ready(function() {
         $('.modal-body').prepend(`<h5>${prevDate} | ${dateCnt}개`);
     }
   })
+  $(document).on("click", "#aName", function(ev) {
+    console.log(ev.target);
+    sessionStorage.setItem('sId','adventure');
+    sessionStorage.setItem('cName',$(ev.target).text());
+    return location.href="./";
+  })
   try{
     serverId = sessionStorage.getItem("sId") ? sessionStorage.getItem("sId") : new URLSearchParams(location.search).get('sId');
     characterName = sessionStorage.getItem("cName") ? sessionStorage.getItem("cName") : new URLSearchParams(location.search).get('cName');
@@ -98,8 +104,8 @@ function redirectSearch(){
   }
 }
 function Search(){
-  if(apioff){
-    return alert("DNF점검");
+  if(apioff || localStorage.getItem('serverState')==="0"){
+    return toast("warning","DFGEAR 서버 점검");
   }
   if($("#searchBar").hasClass('show')){
     serverId = $("select[name='server']").val();
@@ -197,9 +203,11 @@ function makeCardView(character){
     try{
       $(".characterView").html("");
       let html =`<img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
-        <div class="card-body"> <p id="cName" class="card-text">${character.characterName}</p>
+        <div class="card-body"> <span id="cName" class="card-text">${character.characterName}</span>
+          <p id="aName" class="card-text">${character.adventureName}</p>
           <span class="card-text">중재자 에픽 : ${character.total}</span>
-          <p class="card-text">미스트 기어 획득 : ${character.mist}</p>
+          <span class="card-text">미스트 기어 획득 : ${character.mist}</span>
+          <p class="card-text">└ 카드 보상 : ${character.card}</p>
           <span class="card-text small">최근 업데이트</span>
           <span class="card-text small">${character.uptime==null ? moment().format("YYYY-MM-DD HH:mm:ss") : character.uptime}</span>
         </div>`;
