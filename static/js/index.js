@@ -16,8 +16,10 @@ $(document).ready(function() {
         Search();
       }
     }
+    history.replaceState({}, null, location.pathname);
   } catch(e){
     console.log(e);
+    history.replaceState({}, null, location.pathname);
     $("select[name='server']").val('')
     $("input[name='name']").val('');
     sessionStorage.clear();
