@@ -206,7 +206,7 @@ function makeCardView(characters){
         console.log(e);
       }
     })
-    $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist} (카드 : ${card})`);
+    $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist} (카드 ${card})`);
     $("#advenResult").addClass("show");
     loadingToggle(false);
   } catch(e){
