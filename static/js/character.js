@@ -209,7 +209,7 @@ function makeCardView(character){
           <span class="card-text">미스트 기어 획득 : ${character.mist}</span>
           <p class="card-text">└ 카드 보상 : ${character.card}</p>
           <span class="card-text small">최근 업데이트</span>
-          <span class="card-text small">${character.uptime==null ? moment().format("YYYY-MM-DD HH:mm:ss") : character.uptime}</span>
+          <span class="card-text small">${moment().format("YYYY-MM-DD HH:mm:ss")}</span>
         </div>`;
       $(".characterView").append(html);
     } catch (e) {
