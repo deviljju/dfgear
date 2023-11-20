@@ -14,14 +14,18 @@
   src:url('./fonts/DNFBitBitv2.ttf')format('truetype')}
   
   @media all and (max-width: 320px) {
-    html { font-size: 12px; } 
-    :root { font-size: 12px;}
+    html { font-size: 11px; } 
+    :root { font-size: 11px;}
   }
-  @media all and (min-width: 320px) and (max-width: 410px){
+  @media all and (min-width: 320px) and (max-width: 380px){
+    html { font-size: 11.5px; }
+    :root { font-size: 11.5px;} 
+  }
+  @media all and (min-width: 380px) and (max-width: 415px){
     html { font-size: 12.5px; }
     :root { font-size: 12.5px;} 
   }
-  @media all and (min-width: 410px) and (max-width: 768px){
+  @media all and (min-width: 415px) and (max-width: 768px){
     html { font-size: 13px; }
     :root { font-size: 13px;} 
   }
