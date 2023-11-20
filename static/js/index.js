@@ -46,7 +46,7 @@ $(document).ready(function() {
   $(document).on("click", "#advenRefresh", function() {
     try{
       var cName = $("input[name='name']").val();
-      if(cName.length){
+      if(cName.length<1){
         toast("danger","모험단명을 입력해주세요.");
         return $("#characterName").focus();
       }
