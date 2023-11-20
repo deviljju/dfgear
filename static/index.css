@@ -148,8 +148,12 @@ body::-webkit-scrollbar-thumb {
 .container > .row.result {
   height: auto !important;
 }
-#btn_epicList {
-  margin:0.5rem 0 !important;
+#btn_mistList {
+  width: max-content;
+  display: none;
+}
+#btn_mistList.show {
+  display: block;
 }
 .resultData{
   display: none;
@@ -376,4 +380,35 @@ display: flex;
 }
 #loadingScreen.active > .center > img {
 	margin-top: 10px;
+}
+#mistList{
+  height: max-content;
+  margin: 0.3rem;
+}
+#mistList.card {
+  height: min-content;
+  padding: 0;
+}
+#mistList.card > .card-header {
+  background-color: #fff3cd5c;
+  font-family: 'DNFBitBitv2';
+}
+#mistList.card img{
+  margin-right: 0.5rem;
+}
+.modal-title{
+  font-family: 'DNFBitBitv2';
+}
+.modal-body {
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.modal-body::-webkit-scrollbar {
+  width: 10px;
+}
+.modal-body::-webkit-scrollbar-thumb {
+  background-color: lightgrey;
+  border-radius: 5px;
+  background-clip: padding-box;
+  border: 1px solid transparent;
 }

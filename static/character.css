@@ -160,7 +160,7 @@
     overflow-y: auto;
   }
   .modal-body::-webkit-scrollbar {
-    width: 15px;
+    width: 10px;
   }
   .modal-body::-webkit-scrollbar-thumb {
     background-color: lightgrey;

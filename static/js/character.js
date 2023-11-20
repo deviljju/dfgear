@@ -232,11 +232,11 @@ function data_List(Array) {
   // timeLineList = newArray;
   if(mistGear.length>0){
     mistGear.forEach(e => {
-      html +=`<li class="list-group-item"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.itemName}, ${e.code==505 ? e.count+"번째 에픽":e.get}</div><span class="badge bg-warning rounded-pill">${e.code==505 ? "드랍" : "카드"}</span></li>`
+      html +=`<li class="list-group-item"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.itemName}, ${e.code==505 ? e.count+"번째 에픽":e.get}<span class="badge bg-warning rounded-pill">${e.code==505 ? "드랍" : "카드"}</span></li>`
     })
-    html += `</ul></div>`;
+    html += `</ul>`;
   } else {
-    html +=`<li class="list-group-item"> where is Mist Gear</li></ul></div>`;
+    html +=`<li class="list-group-item"> where is Mist Gear</li></ul>`;
   }
   $("#mistList").append(html);
   loadingToggle(false);

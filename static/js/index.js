@@ -4,6 +4,7 @@ let timeLineList = [];
 let nowDate = moment().format("YYYYMMDDTHHmm");
 let serverId;
 let characterName;
+let mistCount=0;
 $(document).ready(function() {
   nowDate = moment().format("YYYYMMDDTHHmm");  
   try{
@@ -118,6 +119,10 @@ $(document).ready(function() {
     $('.resultData').removeClass("show");
     $("#characterList").html("");
     $("#advenResult").removeClass("show");
+    $('#btn_mistList').removeClass('show');
+  })
+  $(document).on("click", "#btn_mistList", function() {
+    $('.modal-body').animate( { scrollTop : 0 }, 200 );
   })
   // 집계 불러오기
   $.ajax({
@@ -199,6 +204,7 @@ function Search(){
   $('.resultData').removeClass("show");
   $("#characterList").html("");
   $("#advenResult").removeClass("show");
+  $('#btn_mistList').removeClass('show');
   if(serverId==='adventure'){
     searchAdventure(characterName, function(result, err){
       sessionStorage.clear();
@@ -213,11 +219,19 @@ function Search(){
             console.log(err); console.log(result);
             return alert("에러 발생");
           }
-        } else if(result.length>0){
-          makeCardView(result);
+        } else if(result.rows && result.rows.length>0){
+          makeCardView(result.rows);
+          if(result.mist && result.mist.length>0){  //미기리스트 모달
+            mistCount = result.mist.length;
+            $('#btn_mistList').addClass('show');
+            makeModalData(characterName, result.mist);
+          } else{
+            mistCount = 0;
+          }
         } else {
           loadingToggle(false);
           $("#advenResult").removeClass("show");
+          $('#btn_mistList').removeClass('show');
           return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다.");
         }
       } catch(e){
@@ -270,13 +284,30 @@ function makeCardView(characters){
         console.log(e);
       }
     })
-    $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist} (상던 카드 ${card})`);
+    if(mistCount != mist){
+      Search();
+    }
+    $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist} (카드 ${card})`);
     $("#advenResult").addClass("show");
     loadingToggle(false);
   } catch(e){
     loadingToggle(false);
     console.log(e);
   }
+}
+function makeModalData(aName, mistGear){
+  $("#mistList").html('');
+  $("#mistModalLabel").html(`"${aName}" 미스트기어 리스트`);
+  let html=`<div class="card-header">${$('#advenTotal').text()}</div><ul class="list-group list-group-flush">`;
+  if(mistGear.length>0){
+    mistGear.forEach(e => {
+      html +=`<li class="list-group-item"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.characterName} | ${e.itemName} | ${e.channelName} | ${e.date}</li>`
+    })
+    html += `</ul></div>`;
+  } else {
+    html +=`<li class="list-group-item"> where is Mist Gear</li></ul></div>`;
+  }
+  $("#mistList").append(html);
 }
 function searchAdventure(adventureName, callback){
   try{
