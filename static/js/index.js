@@ -124,6 +124,9 @@ $(document).ready(function() {
   $(document).on("click", "#btn_mistList", function() {
     $('.modal-body').animate( { scrollTop : 0 }, 200 );
   })
+  $(window).resize(function(){
+    $('#loadingScreen').css('height',$(document).height())
+  })
   // 집계 불러오기
   $.ajax({
     url: api+'/mistGearAggregate',
@@ -200,12 +203,12 @@ function Search(){
       return $("#characterName").focus();
   }
   nowDate = moment().subtract(1,"m").format("YYYYMMDDTHHmm");
-  loadingToggle();
   $('.resultData').removeClass("show");
   $("#characterList").html("");
   $("#advenResult").removeClass("show");
   $('#btn_mistList').removeClass('show');
   if(serverId==='adventure'){
+    loadingToggle();
     searchAdventure(characterName, function(result, err){
       sessionStorage.clear();
       try{
@@ -244,6 +247,7 @@ function Search(){
       }
     })
   } else {
+    loadingToggle(false);
     sessionStorage.setItem('sId',serverId);
     sessionStorage.setItem('cName',characterName);
     return location.href="./character"; //?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
@@ -251,6 +255,7 @@ function Search(){
 }
 function loadingToggle(toe=true) {
 if(toe){
+  $('#loadingScreen').css('height',$(document).height())
   $('#loadingScreen').addClass('active'); 
   $("#btn_search").addClass("disabled");
 } else {
