@@ -44,75 +44,75 @@ $(document).ready(function() {
       console.log('Something went wrong', err);
     }) 
   });
-  // $(document).on("click", "#advenRefresh", function() {
-  //   try{
-  //     var cName = $("input[name='name']").val();
-  //     if(cName.length<1){
-  //       toast("danger","모험단명을 입력해주세요.");
-  //       return $("#characterName").focus();
-  //     }
-  //     if(!confirm(`${cName} 모험단의 타임라인을 갱신하시겠습니까?`)){
-  //       return;
-  //     }
-  //     loadingToggle();
-  //     let data = { aName: encodeURIComponent(cName), endDate:moment().subtract(1,"m").format("YYYYMMDDTHHmm")};
-  //     $.ajax({
-  //       url: api+'/character/refreshAdventure',
-  //       type: 'get',
-  //       timeout: 60000,
-  //       processData:true,
-  //       beforeSend: function (xhr) {
-  //         xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
-  //       },
-  //       data: data,
-  //       success: function(result, textStatus, jqXHR){
-  //         try{
-  //           if(result.code && result.code =='Already Refresh'){
-  //             loadingToggle(false);
-  //             return toast("info","해당 모험단은 최근에 갱신되었습니다.");
-  //           } else if(result.error && result.error == "NO_CHARACTER"){
-  //             $("#characterList").html("");
-  //             loadingToggle(false);
-  //             return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다");
-  //           } else if(result.length>0){
-  //             makeCardView(result);
-  //           } else {
-  //             console.log(error); console.log(result);
-  //             loadingToggle(false);
-  //             return alert("에러 발생");
-  //           }
-  //         } catch(sErr){
-  //           console.log(sErr);
-  //           loadingToggle(false);
-  //           return alert("에러 발생");
-  //         }
-  //       },
-  //       error: function(jqXHR, error) {
-  //         try{
-  //           loadingToggle(false);
-  //           if(jqXHR.responseText && jqXHR.responseText.indexOf("MISSING_PARAMETER") > -1){
-  //             return toast("danger","에러 발생_입력값 오류");
-  //           } else if(jqXHR.responseText && jqXHR.responseText.indexOf("NO_CHARACTER") > -1){
-  //             return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다");
-  //           } else if(jqXHR.responseText && jqXHR.responseText.indexOf("TOO_MANY_REQ") > -1){
-  //             return toast("danger","동시에 너무 많은 요청을 하셨습니다. 10분 후 다시 요청해주세요.");
-  //           } else if(jqXHR.responseText && jqXHR.responseText.indexOf("Already Refresh") > -1){
-  //             return toast("info","해당 모험단은 최근에 갱신되었습니다.");
-  //           } else {
-  //             console.log(error); console.log(jqXHR);
-  //             return alert("에러 발생");
-  //           }
-  //         } catch(eErr){
-  //         console.log(eErr);
-  //         return alert("에러 발생");
-  //         }
-  //       }
-  //     });
-  //   } catch(e){
-  //     sessionStorage.clear();
-  //     console.log(e);
-  //   }
-  // });
+  $(document).on("click", "#advenRefresh", function() {
+    try{
+      var cName = $("input[name='name']").val();
+      if(cName.length<1){
+        toast("danger","모험단명을 입력해주세요.");
+        return $("#characterName").focus();
+      }
+      if(!confirm(`${cName} 모험단의 타임라인을 갱신하시겠습니까?`)){
+        return;
+      }
+      loadingToggle();
+      let data = { aName: encodeURIComponent(cName), endDate:moment().subtract(1,"m").format("YYYYMMDDTHHmm")};
+      $.ajax({
+        url: api+'/character/refreshAdventure',
+        type: 'get',
+        timeout: 60000,
+        processData:true,
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
+        },
+        data: data,
+        success: function(result, textStatus, jqXHR){
+          try{
+            if(result.code && result.code =='Already Refresh'){
+              loadingToggle(false);
+              return toast("info","해당 모험단은 최근에 갱신되었습니다.");
+            } else if(result.error && result.error == "NO_CHARACTER"){
+              $("#characterList").html("");
+              loadingToggle(false);
+              return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다");
+            } else if(result.length>0){
+              makeCardView(result);
+            } else {
+              console.log(error); console.log(result);
+              loadingToggle(false);
+              return alert("에러 발생");
+            }
+          } catch(sErr){
+            console.log(sErr);
+            loadingToggle(false);
+            return alert("에러 발생");
+          }
+        },
+        error: function(jqXHR, error) {
+          try{
+            loadingToggle(false);
+            if(jqXHR.responseText && jqXHR.responseText.indexOf("MISSING_PARAMETER") > -1){
+              return toast("danger","에러 발생_입력값 오류");
+            } else if(jqXHR.responseText && jqXHR.responseText.indexOf("NO_CHARACTER") > -1){
+              return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다");
+            } else if(jqXHR.responseText && jqXHR.responseText.indexOf("TOO_MANY_REQ") > -1){
+              return toast("danger","동시에 너무 많은 요청을 하셨습니다. 10분 후 다시 요청해주세요.");
+            } else if(jqXHR.responseText && jqXHR.responseText.indexOf("Already Refresh") > -1){
+              return toast("info","해당 모험단은 최근에 갱신되었습니다.");
+            } else {
+              console.log(error); console.log(jqXHR);
+              return alert("에러 발생");
+            }
+          } catch(eErr){
+          console.log(eErr);
+          return alert("에러 발생");
+          }
+        }
+      });
+    } catch(e){
+      sessionStorage.clear();
+      console.log(e);
+    }
+  });
   $(document).on("click", ".row.title", function() {
     $("input[name='name']").val('');
     loadingToggle(false);

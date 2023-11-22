@@ -30,6 +30,11 @@
     <link rel="stylesheet" href="./static/character.css">
   </head>
   <body>
+    <div id="loadingScreen">
+      <div class="center row d-flex justify-content-center result">
+        <div class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>
+      </div>
+    </div>
     <div class="container">
       <div class="row title">DFGEAR</div>
       <div class="infoArea">
@@ -61,7 +66,6 @@
           <button id="btn_epicList" class="btn btn-primary show" type="button" data-bs-toggle="modal" data-bs-target="#epicModal" aria-controls="epicModal">상세보기</button>
         </div>
         <div class="row d-flex justify-content-center result">
-          <div id="loading" class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>        
           <div id="mistList" class="card"></div>
         </div>
       </div>

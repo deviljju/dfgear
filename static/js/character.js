@@ -64,6 +64,9 @@ $(document).ready(function() {
     sessionStorage.setItem('cName',$(ev.target).text());
     return location.href="./";
   })
+  $(window).resize(function(){
+    $('#loadingScreen').css('height',$(document).height())
+  })
   try{
     serverId = sessionStorage.getItem("sId") ? sessionStorage.getItem("sId") : new URLSearchParams(location.search).get('sId');
     characterName = sessionStorage.getItem("cName") ? sessionStorage.getItem("cName") : new URLSearchParams(location.search).get('cName');
@@ -192,10 +195,11 @@ function Search(){
 }
 function loadingToggle(toe=true) {
   if(toe){
-    $("#loading").css("display","block");
+    $('#loadingScreen').css('height',$(document).height())
+    $('#loadingScreen').addClass('active'); 
     $("#btn_search").addClass("disabled");
   } else {
-    $("#loading").css("display","");
+    $('#loadingScreen').removeClass('active'); 
     $("#btn_search").removeClass("disabled");
   }
 }
@@ -238,10 +242,10 @@ function data_List(Array) {
   } else {
     html +=`<li class="list-group-item"> where is Mist Gear</li></ul>`;
   }
-  $("#mistList").append(html);
-  loadingToggle(false);
+  $("#mistList").append(html);  
   $(".resultData").addClass("show");
   $("#searchBar").addClass('show');
+  loadingToggle(false);
   $("input[name='name']").val("");
 }
 function searchCharacterTimeline(serverId, characterName, endDate, characterId='', callback){
@@ -251,7 +255,7 @@ function searchCharacterTimeline(serverId, characterName, endDate, characterId='
       url: api+'/character/Timeline',
       type: 'get',
       timeout: 30000,
-      async:false,
+      // async:false,
       processData:true,
       beforeSend: function (xhr) {
         xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
