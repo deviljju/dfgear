@@ -137,20 +137,29 @@ $(document).ready(function() {
       xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
     },
     success: function(result, textStatus, jqXHR){
+      try {
       localStorage.setItem('serverState', "1");
-      $('#maxChannel').html(`오늘은 ${result.channelName}`);
+      $('#top1c').text(result.topChannel[0].replace('_',' Ch.'));
+      $('#top2c').text(result.topChannel[1].replace('_',' Ch.'));
+      $('#top3c').text(result.topChannel[2].replace('_',' Ch.'));
       $('#dailyCount').html(`오늘은 ${result.dailyCount}개`);
       let rate = parseFloat(result.dropRate.mist/result.dropRate.total);
       let per = parseInt(1/rate);
       let rateString = (rate*100).toFixed(2);
       $('#dailyRate').html(`${per}에픽 당 1개 (${rateString}%)`);
       $('#maxCount').html(`${result.maxCount}개 가지고 있습니다.`);
-      try {
-        $('#top1').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[0].itemName]}">${result.topMist[0].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[0].cnt}</span>`);
-        $('#top2').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[1].itemName]}">${result.topMist[1].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[1].cnt}</span>`);
-        $('#top3').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[2].itemName]}">${result.topMist[2].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[2].cnt}</span>`);
+      $('#top1').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[0].itemName]}">${result.topMist[0].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[0].cnt}</span>`);
+      $('#top2').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[1].itemName]}">${result.topMist[1].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[1].cnt}</span>`);
+      $('#top3').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[2].itemName]}">${result.topMist[2].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[2].cnt}</span>`);
+      if(result.notice && result.notice.title !=''){
+        $("#noticeTitle").text(result.notice.title);
+        $("#noticeContent").html(result.notice.content ? result.notice.content : '');
+        if(result.notice.link !='' && result.notice.link != null){
+          $("#noticeContent").append(`<a href="${result.notice.link}" target="_blank">상세보기</a>`)
+        }
+        $("#notice").addClass('active');
+      }
       } catch {
-        apioff=true;
         $('#topThreeMist').remove();
       }
     },

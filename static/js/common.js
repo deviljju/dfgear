@@ -5,6 +5,6 @@ function toast(type,msg){
   </div>`;
   $('.container').append(toast);
   setTimeout(() => {
-    $('.dfToast').remove();
+    $('.dfToast').eq(0).remove();
   }, 2000);
 }

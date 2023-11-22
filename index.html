@@ -63,6 +63,21 @@
         </div>
         <div id="characterList"></div>
       </div>
+      <div class="accordion" id="notice">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button id="noticeTitle" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMt" aria-expanded="true" aria-controls="collapseMt">
+              11/23 점검 04:00 ~ 10:00
+            </button>
+          </h2>
+          <div id="collapseMt" class="accordion-collapse collapse" data-bs-parent="#accordionNotice">
+            <div id="noticeContent" class="accordion-body">
+              <p>* 종료되는 이벤트</p><dd></dd>
+              <a href="https://df.nexon.com">상세보기</a>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row aggregate">
         <div class="card-g-2">
           <div class="card">
@@ -90,7 +105,11 @@
         <div class="card-g-2">
           <div class="card">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><div class="card-header">미스트 기어가 가장 많이 나온 채널</div><h5 id="maxChannel" class="card-subtitle mb-2 text-muted">-</h5></li>
+              <li class="list-group-item"><div class="card-header">미스트 기어가 많이 나온 채널</div><ul class="list-group list-group-flush">
+                <li class="list-group-item side somepd chName">TOP 1 <h6 id="top1c">-</h6></li>
+                <li class="list-group-item side somepd chName">TOP 2 <h6 id="top2c">-</h6></li>
+                <li class="list-group-item side somepd chName">TOP 3 <h6 id="top3c">-</h6></li>
+              </ul></li>
               <li class="list-group-item"><div class="card-header">미스트기어 획득량</div><h5 id="dailyCount" class="card-subtitle mb-2 text-muted">- 개</h5></li>
               <li class="list-group-item"><div class="card-header">미스트기어 드랍률</div><h5 id="dailyRate" class="card-subtitle mb-2 text-muted">-%</h5></li>
               <li class="list-group-item somepd"><h5 class="card-title">어느 캐릭터는 미스트기어를</h5><h5 id="maxCount" class="card-subtitle mb-2">- 개가지고 있습니다.</h5></li>

@@ -67,6 +67,11 @@ src:url('./fonts/DNFBitBitv2.ttf')format('truetype')}
 @media all and (min-width: 354px) and (max-width: 379px){
   .card.characterView { min-width: 13rem !important; }
 }
+@media all and (min-width: 550px){
+  .aggregate > div:nth-child(1) {
+    margin-right: 1rem;
+  }
+}
 
 body {
   width: 100%;
@@ -207,7 +212,7 @@ body::-webkit-scrollbar-thumb {
   margin: 0.5rem;
 }
 .aggregate > div {
-  width: 24rem;
+  width: 20rem;
   margin-bottom: 1rem;
   height: min-content;
   padding: 0;
@@ -219,7 +224,7 @@ body::-webkit-scrollbar-thumb {
 }
 .aggregate > div:nth-child(1) {
   width: 20rem !important;
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
 }
 .aggregate > div > div:nth-child(2){
   margin-top:1rem;
@@ -243,7 +248,11 @@ body::-webkit-scrollbar-thumb {
 .aggregate .card > ul li.list-group-item > .card-header {
   font-family: 'DNFBitBitv2';
 }
-
+.aggregate .card > ul li.list-group-item.side{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .remain > p {
   margin: 0.5rem 1rem;
 }
@@ -255,6 +264,14 @@ body::-webkit-scrollbar-thumb {
 }
 .aggregate > div .card-title{
   font-family: 'DNFBitBitv2';
+}
+.chName {
+  font-family: 'DNFBitBitv2';
+}
+.chName > h6{
+  font-family: var(--bs-font-sans-serif);
+  margin:0;
+  color:#6c757d!important;
 }
 #remainWeek {
   font-family: 'DNFBitBitv2';
@@ -350,13 +367,23 @@ display: flex;
   position: absolute;
   top: 1rem;
 }
-
-.container > #accordionNotice {
+.container > .accordion {
   max-width: 45rem;
   height: max-content;
 }
-.container > #accordionNotice > div > h2 {
+.container > .accordion > div > h2 {
   font-family: 'DNFBitBitv2';
+}
+#notice {
+  display: none;
+  max-width: 20rem !important;
+  margin-right: 1rem;
+}
+#notice.active {
+  display: block;
+}
+#notice dd {
+  margin-bottom: 0.3rem;
 }
 #loadingScreen {
 	width: 100%;
