@@ -4,7 +4,7 @@ let timeLineList = [];
 let nowDate = moment().format("YYYYMMDDTHHmm");
 let serverId;
 let characterName;
-let mistCount=0;
+// let mistCount=0;
 $(document).ready(function() {
   nowDate = moment().format("YYYYMMDDTHHmm");  
   try{
@@ -251,13 +251,13 @@ function Search(){
           }
         } else if(result.rows && result.rows.length>0){
           makeCardView(result.rows);
-          if(result.mist && result.mist.length>0){  //미기리스트 모달
-            mistCount = result.mist.length;
-            $('#btn_mistList').addClass('show');
-            makeModalData(characterName, result.mist);
-          } else{
-            mistCount = 0;
-          }
+          // if(result.mist && result.mist.length>0){  //미기리스트 모달
+          //   mistCount = result.mist.length;
+          //   $('#btn_mistList').addClass('show');
+          //   makeModalData(characterName, result.mist);
+          // } else{
+          //   mistCount = 0;
+          // }
         } else {
           loadingToggle(false);
           $("#advenResult").removeClass("show");
@@ -316,9 +316,9 @@ function makeCardView(characters){
         console.log(e);
       }
     })
-    if(mistCount != mist){
-      Search();
-    }
+    // if(mistCount != mist){
+    //   Search();
+    // }
     $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist} (카드 ${card})`);
     $("#advenResult").addClass("show");
     loadingToggle(false);
@@ -327,20 +327,20 @@ function makeCardView(characters){
     console.log(e);
   }
 }
-function makeModalData(aName, mistGear){
-  $("#mistList").html('');
-  $("#mistModalLabel").html(`"${aName}" 미스트기어 리스트`);
-  let html=`<div class="card-header">${$('#advenTotal').text()}</div><ul class="list-group list-group-flush">`;
-  if(mistGear.length>0){
-    mistGear.forEach(e => {
-      html +=`<li class="list-group-item"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.characterName} | ${e.itemName} | ${e.channelName} | ${e.date}</li>`
-    })
-    html += `</ul></div>`;
-  } else {
-    html +=`<li class="list-group-item"> where is Mist Gear</li></ul></div>`;
-  }
-  $("#mistList").append(html);
-}
+// function makeModalData(aName, mistGear){
+//   $("#mistList").html('');
+//   $("#mistModalLabel").html(`"${aName}" 미스트기어 리스트`);
+//   let html=`<div class="card-header">${$('#advenTotal').text()}</div><ul class="list-group list-group-flush">`;
+//   if(mistGear.length>0){
+//     mistGear.forEach(e => {
+//       html +=`<li class="list-group-item"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.characterName} | ${e.itemName} | ${e.channelName} | ${e.date}</li>`
+//     })
+//     html += `</ul></div>`;
+//   } else {
+//     html +=`<li class="list-group-item"> where is Mist Gear</li></ul></div>`;
+//   }
+//   $("#mistList").append(html);
+// }
 function searchAdventure(adventureName, callback){
   try{
     let data = { adventureName: encodeURIComponent(adventureName)};

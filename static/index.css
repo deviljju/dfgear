@@ -377,7 +377,7 @@ display: flex;
 #notice {
   display: none;
   max-width: 20rem !important;
-  margin-right: 1rem;
+  margin: 0.8rem 1rem 0 0;
 }
 #notice.active {
   display: block;
