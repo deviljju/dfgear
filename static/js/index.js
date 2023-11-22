@@ -128,47 +128,65 @@ $(document).ready(function() {
     $('#loadingScreen').css('height',$(document).height())
   })
   // 집계 불러오기
-  $.ajax({
-    url: api+'/mistGearAggregate',
-    type: 'get',
-    timeout: 30000,
-    processData:true,
-    beforeSend: function (xhr) {
-      xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
-    },
-    success: function(result, textStatus, jqXHR){
-      try {
-      localStorage.setItem('serverState', "1");
-      $('#top1c').text(result.topChannel[0].replace('_',' Ch.'));
-      $('#top2c').text(result.topChannel[1].replace('_',' Ch.'));
-      $('#top3c').text(result.topChannel[2].replace('_',' Ch.'));
-      $('#dailyCount').html(`오늘은 ${result.dailyCount}개`);
-      let rate = parseFloat(result.dropRate.mist/result.dropRate.total);
-      let per = parseInt(1/rate);
-      let rateString = (rate*100).toFixed(2);
-      $('#dailyRate').html(`${per}에픽 당 1개 (${rateString}%)`);
-      $('#maxCount').html(`${result.maxCount}개 가지고 있습니다.`);
-      $('#top1').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[0].itemName]}">${result.topMist[0].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[0].cnt}</span>`);
-      $('#top2').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[1].itemName]}">${result.topMist[1].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[1].cnt}</span>`);
-      $('#top3').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[2].itemName]}">${result.topMist[2].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[2].cnt}</span>`);
-      if(result.notice && result.notice.title !=''){
-        $("#noticeTitle").text(result.notice.title);
-        $("#noticeContent").html(result.notice.content ? result.notice.content : '');
-        if(result.notice.link !='' && result.notice.link != null){
-          $("#noticeContent").append(`<a href="${result.notice.link}" target="_blank">상세보기</a>`)
-        }
-        $("#notice").addClass('active');
-      }
-      } catch {
-        $('#topThreeMist').remove();
-      }
-    },
-    error: function(jqXHR, error) {
-      apioff=true;
-      localStorage.setItem('serverState', "0");
-      toast("danger","통계를 불러오는데 실패했습니다.");
+  let aggregate = localStorage.getItem('aggregate');
+  if(aggregate != null){
+    try {
+      let result = JSON.parse(aggregate);
+      if(result.update <= moment().subtract(15,"m").format("YYYYMMDDTHHmm")){
+        $.ajax({
+          url: api+'/mistGearAggregate',
+          type: 'get',
+          timeout: 30000,
+          processData:true,
+          beforeSend: function (xhr) {
+            xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
+          },
+          success: function(result, textStatus, jqXHR){
+            try {
+              localStorage.setItem('serverState', "1");
+              setAggregate(result);
+              localStorage.setItem('aggregate',JSON.stringify(result));
+            } catch {
+              $('#topThreeMist').remove();
+            }
+          },
+          error: function(jqXHR, error) {
+            apioff=true;
+            localStorage.setItem('serverState', "0");
+            toast("danger","통계를 불러오는데 실패했습니다.");
+          }
+        });
+      } else {
+        setAggregate(result);
+      }      
+    } catch {
+      $('#topThreeMist').remove();
     }
-  });
+  } else {
+    $.ajax({
+      url: api+'/mistGearAggregate',
+      type: 'get',
+      timeout: 30000,
+      processData:true,
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
+      },
+      success: function(result, textStatus, jqXHR){
+        try {
+          localStorage.setItem('serverState', "1");
+          setAggregate(result);
+          localStorage.setItem('aggregate',JSON.stringify(result));
+        } catch {
+          $('#topThreeMist').remove();
+        }
+      },
+      error: function(jqXHR, error) {
+        apioff=true;
+        localStorage.setItem('serverState', "0");
+        toast("danger","통계를 불러오는데 실패했습니다.");
+      }
+    });
+  }
   // 미기 정가 계산
   let init = new Date('2023-09-14');
   let today = moment();
@@ -345,5 +363,31 @@ function searchAdventure(adventureName, callback){
   } catch(e){
     sessionStorage.clear();
     console.log(e);
+  }
+}
+function setAggregate(result){
+  try {
+    $('#top1c').text(result.topChannel[0].replace('_',' Ch.'));
+    $('#top2c').text(result.topChannel[1].replace('_',' Ch.'));
+    $('#top3c').text(result.topChannel[2].replace('_',' Ch.'));
+    $('#dailyCount').html(`오늘은 ${result.dailyCount}개`);
+    let rate = parseFloat(result.dropRate.mist/result.dropRate.total);
+    let per = parseInt(1/rate);
+    let rateString = (rate*100).toFixed(2);
+    $('#dailyRate').html(`${per}에픽 당 1개 (${rateString}%)`);
+    $('#maxCount').html(`${result.maxCount}개 가지고 있습니다.`);
+    $('#top1').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[0].itemName]}">${result.topMist[0].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[0].cnt}</span>`);
+    $('#top2').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[1].itemName]}">${result.topMist[1].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[1].cnt}</span>`);
+    $('#top3').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[2].itemName]}">${result.topMist[2].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[2].cnt}</span>`);
+    if(result.notice && result.notice.title !=undefined && result.notice.title !=''){
+      $("#noticeTitle").text(result.notice.title);
+      $("#noticeContent").html(result.notice.content ? result.notice.content : '');
+      if(result.notice.link !='' && result.notice.link != null){
+        $("#noticeContent").append(`<a href="${result.notice.link}" target="_blank">상세보기</a>`)
+      }
+      $("#notice").addClass('active');
+    }
+  } catch {
+    $('#topThreeMist').remove();
   }
 }
