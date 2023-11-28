@@ -245,6 +245,9 @@ body::-webkit-scrollbar-thumb {
 .aggregate .card > ul li.list-group-item.somepd {
  padding: 0.5rem 1rem !important;
 }
+.aggregate .card > ul li.list-group-item.pd7{
+  padding: 0.7rem !important;
+}
 .aggregate .card > ul li.list-group-item.somepd > div {
   height: max-content;
   min-height: 3.5rem;
