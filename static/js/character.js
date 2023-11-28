@@ -28,34 +28,37 @@ $(document).ready(function() {
       $('.modal-list').html(''); //offcanvas-body epicModalLabel
       let prevDate = '';
       let dateCnt = 0;
-        timeLineList.forEach(element => {
-          let eDate = moment(element.date).format('YYYY-MM-DD');
-          let eTime = moment(element.date).format('HH:mm');
-          if(prevDate == ''){
-            prevDate = eDate;
-          } else {
-            let daybtw = (new Date(eDate) - new Date(prevDate)) / (60*60*1000*24);
-            if(`${eDate} 06:00` > `${eDate} ${eTime}`){
-              eDate = moment(eDate).subtract(1,'d').format('YYYY-MM-DD');
-              daybtw == 1 ? 2 : daybtw;
-            }
-            if(prevDate != eDate){ // 날이 바꼈고
-              if(daybtw > 1){
-                $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
-                dateCnt=0;
-                prevDate = eDate;
-              } else if(daybtw==1 && `${eDate} 06:00` <= `${eDate} ${eTime}`){
-                $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
-                dateCnt=0;
-                prevDate = eDate;
-              }            
-            }
+      timeLineList.forEach(element => {
+        let eDate = moment(element.date).format('YYYY-MM-DD');
+        let eTime = moment(element.date).format('HH:mm');
+        if(prevDate == ''){
+          prevDate = eDate;
+        } else {
+          let daybtw = (new Date(eDate) - new Date(prevDate)) / (60*60*1000*24);
+          if(`${eDate} 06:00` > `${eDate} ${eTime}`){
+            eDate = moment(eDate).subtract(1,'d').format('YYYY-MM-DD');
+            daybtw == 1 ? 2 : daybtw;
           }
-          var html= `<div>${element.date} | ${element.mistGear ? "*" : ""} ${element.itemName} | ${element.channel}</div>`
-          $('.modal-list').prepend(html);
-          dateCnt ++;
-        });
-        $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+          if(prevDate != eDate){ // 날이 바꼈고
+            if(daybtw > 1){
+              $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+              dateCnt=0;
+              prevDate = eDate;
+            } else if(daybtw==1 && `${eDate} 06:00` <= `${eDate} ${eTime}`){
+              $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+              dateCnt=0;
+              prevDate = eDate;
+            }            
+          }
+        }
+        var html= `<div>${element.date} | ${element.mistGear ? "*" : ""} ${element.itemName} | ${element.channel}</div>`
+        $('.modal-list').prepend(html);
+        dateCnt ++;
+      });
+      $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+    } else {
+      $('.modal-list').html('데이터가 없습니다.');
+      $('#btn_timelineAll').attr('disabled',false);
     }
   })
   $(document).on("click", "#btn_timelineAll", function() {
@@ -76,35 +79,39 @@ $(document).ready(function() {
         $('.modal-body').animate( { scrollTop : 0 }, 200 );
         $('.modal-list').html('');
         timeLineList = result.timeline;
-        timeLineList.forEach(element => {
-          let eDate = moment(element.date).format('YYYY-MM-DD');
-          let eTime = moment(element.date).format('HH:mm');
-          if(prevDate == ''){
-            prevDate = eDate;
-          } else {
-            let daybtw = (new Date(eDate) - new Date(prevDate)) / (60*60*1000*24);
-            if(`${eDate} 06:00` > `${eDate} ${eTime}`){
-              eDate = moment(eDate).subtract(1,'d').format('YYYY-MM-DD');
-              daybtw == 1 ? 2 : daybtw;
+        if(timeLineList.length>0){
+          timeLineList.forEach(element => {
+            let eDate = moment(element.date).format('YYYY-MM-DD');
+            let eTime = moment(element.date).format('HH:mm');
+            if(prevDate == ''){
+              prevDate = eDate;
+            } else {
+              let daybtw = (new Date(eDate) - new Date(prevDate)) / (60*60*1000*24);
+              if(`${eDate} 06:00` > `${eDate} ${eTime}`){
+                eDate = moment(eDate).subtract(1,'d').format('YYYY-MM-DD');
+                daybtw == 1 ? 2 : daybtw;
+              }
+              if(prevDate != eDate){ // 날이 바꼈고
+                if(daybtw > 1){
+                  $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+                  dateCnt=0;
+                  prevDate = eDate;
+                } else if(daybtw==1 && `${eDate} 06:00` <= `${eDate} ${eTime}`){
+                  $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+                  dateCnt=0;
+                  prevDate = eDate;
+                }            
+              }
             }
-            if(prevDate != eDate){ // 날이 바꼈고
-              if(daybtw > 1){
-                $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
-                dateCnt=0;
-                prevDate = eDate;
-              } else if(daybtw==1 && `${eDate} 06:00` <= `${eDate} ${eTime}`){
-                $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
-                dateCnt=0;
-                prevDate = eDate;
-              }            
-            }
-          }
-          var html= `<div>${element.date} | ${element.mistGear ? "*" : ""} ${element.itemName} | ${element.channel}</div>`
-          $('.modal-list').prepend(html);
-          dateCnt ++;
-        });
-        $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
-        loadingToggle(false);
+            var html= `<div>${element.date} | ${element.mistGear ? "*" : ""} ${element.itemName} | ${element.channel}</div>`
+            $('.modal-list').prepend(html);
+            dateCnt ++;
+          });
+          $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+          loadingToggle(false);
+        } else {
+          $('.modal-list').html('데이터가 없습니다.');
+        }
         $('#btn_timelineAll').attr('disabled',true);
       },
       error: function(jqXHR, error) {
