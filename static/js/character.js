@@ -107,11 +107,11 @@ $(document).ready(function() {
             $('.modal-list').prepend(html);
             dateCnt ++;
           });
-          $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
-          loadingToggle(false);
+          $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);          
         } else {
           $('.modal-list').html('데이터가 없습니다.');
         }
+        loadingToggle(false);
         $('#btn_timelineAll').attr('disabled',true);
       },
       error: function(jqXHR, error) {
