@@ -178,6 +178,8 @@
   .modal-body {
     max-height: 60vh;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
   }
   .modal-body::-webkit-scrollbar {
     width: 10px;
@@ -187,6 +189,9 @@
     border-radius: 5px;
     background-clip: padding-box;
     border: 1px solid transparent;
+  }
+  .modal-list {
+    margin-bottom: 1rem;
   }
   .neopleThk {
     text-align: center;
@@ -277,6 +282,27 @@
   }
   #mistList.card img{
     margin-right: 0.5rem;
+  }
+  #mistList.card li {
+    display: flex;
+    align-items: center;
+  }
+  #rankingCard {
+    height: min-content;
+    margin: 0.3rem;
+    padding: 0;
+    min-width: calc(15rem + var(--bs-gutter-x));
+  }
+  #rankingCard > div {
+    font-family: 'DNFBitBitv2';
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  #rankingCard li {
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
   .list-group-item > span {
     color:black !important;

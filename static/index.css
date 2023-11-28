@@ -245,6 +245,20 @@ body::-webkit-scrollbar-thumb {
 .aggregate .card > ul li.list-group-item.somepd {
  padding: 0.5rem 1rem !important;
 }
+.aggregate .card > ul li.list-group-item.somepd > div {
+  height: max-content;
+  min-height: 3.5rem;
+}
+.rotate {
+  display: none;
+}
+.rotate.show{
+  display: block;
+}
+#minCount {
+  font-family:'DNFForgedBlade';
+  font-size: 1.015rem;
+}
 .aggregate .card > ul li.list-group-item > .card-header {
   font-family: 'DNFBitBitv2';
 }
@@ -278,7 +292,8 @@ body::-webkit-scrollbar-thumb {
 }
 #maxCount {
   font-family: 'DNFBitBitv2';
-  float: right;
+  /* float: right; */
+  text-align: right;
 }
 .list-group-item > span {
   color:black !important;

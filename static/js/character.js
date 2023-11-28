@@ -25,7 +25,7 @@ $(document).ready(function() {
   $(document).on("click", "#btn_epicList", function() {
     $('.modal-body').animate( { scrollTop : 0 }, 200 );
     if(timeLineList.length>0){
-      $('.modal-body').html(''); //offcanvas-body epicModalLabel
+      $('.modal-list').html(''); //offcanvas-body epicModalLabel
       let prevDate = '';
       let dateCnt = 0;
         timeLineList.forEach(element => {
@@ -41,22 +41,77 @@ $(document).ready(function() {
             }
             if(prevDate != eDate){ // 날이 바꼈고
               if(daybtw > 1){
-                $('.modal-body').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+                $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
                 dateCnt=0;
                 prevDate = eDate;
               } else if(daybtw==1 && `${eDate} 06:00` <= `${eDate} ${eTime}`){
-                $('.modal-body').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+                $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
                 dateCnt=0;
                 prevDate = eDate;
               }            
             }
           }
           var html= `<div>${element.date} | ${element.mistGear ? "*" : ""} ${element.itemName} | ${element.channel}</div>`
-          $('.modal-body').prepend(html);
+          $('.modal-list').prepend(html);
           dateCnt ++;
         });
-        $('.modal-body').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+        $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
     }
+  })
+  $(document).on("click", "#btn_timelineAll", function() {
+    let prevDate = '';
+    let dateCnt = 0;
+    let data = { sId: $(".characterView").attr('data-sId'), cId:$(".characterView").attr('data-cId') };
+    loadingToggle();
+    $.ajax({
+      url: api+'/character/TimelineAll',
+      type: 'get',
+      timeout: 30000,
+      processData:true,
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
+      },
+      data: data,
+      success: function(result, textStatus, jqXHR){
+        $('.modal-body').animate( { scrollTop : 0 }, 200 );
+        $('.modal-list').html('');
+        timeLineList = result.timeline;
+        timeLineList.forEach(element => {
+          let eDate = moment(element.date).format('YYYY-MM-DD');
+          let eTime = moment(element.date).format('HH:mm');
+          if(prevDate == ''){
+            prevDate = eDate;
+          } else {
+            let daybtw = (new Date(eDate) - new Date(prevDate)) / (60*60*1000*24);
+            if(`${eDate} 06:00` > `${eDate} ${eTime}`){
+              eDate = moment(eDate).subtract(1,'d').format('YYYY-MM-DD');
+              daybtw == 1 ? 2 : daybtw;
+            }
+            if(prevDate != eDate){ // 날이 바꼈고
+              if(daybtw > 1){
+                $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+                dateCnt=0;
+                prevDate = eDate;
+              } else if(daybtw==1 && `${eDate} 06:00` <= `${eDate} ${eTime}`){
+                $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+                dateCnt=0;
+                prevDate = eDate;
+              }            
+            }
+          }
+          var html= `<div>${element.date} | ${element.mistGear ? "*" : ""} ${element.itemName} | ${element.channel}</div>`
+          $('.modal-list').prepend(html);
+          dateCnt ++;
+        });
+        $('.modal-list').prepend(`<h5>${prevDate} | ${dateCnt}개`);
+        loadingToggle(false);
+        $('#btn_timelineAll').attr('disabled',true);
+      },
+      error: function(jqXHR, error) {
+        loadingToggle(false);
+        return alert("에러 발생");
+      }
+    });
   })
   $(document).on("click", "#aName", function(ev) {
     console.log(ev.target);
@@ -170,6 +225,7 @@ function Search(){
               } else if(result.rows.length>0){
                   data_List(result.timeline);
                   makeCardView(result.rows[0]);
+                  $('#btn_timelineAll').attr('disabled',false);
               } else {
                   loadingToggle(false);
                   $("#btn_epicList").removeClass("show");
@@ -206,10 +262,18 @@ function loadingToggle(toe=true) {
 function makeCardView(character){
     try{
       $(".characterView").html("");
+      $(".characterView").attr('data-cId',character.characterId);
+      $(".characterView").attr('data-sId',character.serverId);
       let html =`<img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
         <div class="card-body"> <span id="cName" class="card-text">${character.characterName}</span>
-          <p id="aName" class="card-text">${character.adventureName}</p>
-          <span class="card-text">중재자 에픽 : ${character.total}</span>
+          <p id="aName" class="card-text">${character.adventureName}</p>`;
+          if(character.ranking && character.ranking.ranking!=undefined){
+            $("#rankingCard").css('display','flex');
+            $("#ranking").text(`${character.ranking.ranking} / ${character.ranking.cnt} (상위 ${parseFloat(character.ranking.ranking/character.ranking.cnt*100).toFixed(1)}%)`);
+          } else {
+            $("#rankingCard").css('display','none');
+          }
+          html +=`<span class="card-text">중재자 에픽 : ${character.total}</span>
           <span class="card-text">미스트 기어 획득 : ${character.mist}</span>
           <p class="card-text">└ 카드 보상 : ${character.card}</p>
           <span class="card-text small">최근 업데이트</span>
@@ -250,12 +314,11 @@ function data_List(Array) {
 }
 function searchCharacterTimeline(serverId, characterName, endDate, characterId='', callback){
   try{
-    let data = { serverId: serverId, characterName: encodeURIComponent(characterName), endDate: endDate, characterId:characterId };
+    let data = { sId: serverId, cName: encodeURIComponent(characterName), endDate: endDate, cId:characterId };
     $.ajax({
       url: api+'/character/Timeline',
       type: 'get',
       timeout: 30000,
-      // async:false,
       processData:true,
       beforeSend: function (xhr) {
         xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
