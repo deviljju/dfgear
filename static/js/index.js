@@ -5,6 +5,7 @@ let nowDate = moment().format("YYYYMMDDTHHmm");
 let serverId;
 let characterName;
 let aggreInterval;
+let mistMapChart;
 $(document).ready(function() {
   nowDate = moment().format("YYYYMMDDTHHmm");  
   try{
@@ -318,7 +319,7 @@ function setAggregate(result){
     $('#dailyCount').html(`오늘은 ${result.dailyCount}개`);
     let rate = parseFloat(result.dropRate.mist/result.dropRate.total);
     let per = parseInt(1/rate);
-    let rateString = (rate*100).toFixed(2);
+    let rateString = (rate*100).toFixed(3);
     $('#dailyRate').html(`${per}에픽 당 1개 (${rateString}%)`);
     $('#maxCount').html(`${result.maxCount}개 가지고 있습니다.`);
     $('#minCount').html(`누군가는 중재자픽 ${result.minCount} 개를 획득하는 동안 미스트기어를 획득하지 못했습니다.`);
@@ -333,6 +334,16 @@ function setAggregate(result){
         $("#noticeContent").append(`<a href="${result.notice.link}" target="_blank">상세보기</a>`)
       }
       $("#notice").addClass('active');
+    }
+    if(result.mistMap && result.mistMap.length>0){
+      let colorPalet = ['#5EC273','#9ECD6B','#D5D670','#FFDD82','#C4A64E','#999999'];
+      let labels=[];
+      let data = [];
+      result.mistMap.forEach(e=> {
+        labels.push(e.mist==5 ? "5개 이상":`${e.mist}개`);
+        data.push(e.cnt);
+      })
+      makeChart("chart_mistMap","pie","미스트기어 획득분포",labels,data,colorPalet,mistMapChart);
     }
   } catch {
     $('#topThreeMist').remove();

@@ -254,9 +254,12 @@ body::-webkit-scrollbar-thumb {
 }
 .rotate {
   display: none;
+  min-height: 3.75rem;
 }
 .rotate.show{
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 #minCount {
   font-family:'DNFForgedBlade';
@@ -456,4 +459,16 @@ display: flex;
   border-radius: 5px;
   background-clip: padding-box;
   border: 1px solid transparent;
+}
+h6.rptz7{
+  float: right;
+  font-size: 0.7rem;
+  font-family: 'DNFForgedBlade';
+  padding-top: 0.7rem;
+}
+.chart {
+  max-height: 15rem;
+}
+.chart canvas {
+  max-height: 15rem;
 }
