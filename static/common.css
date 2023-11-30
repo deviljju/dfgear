@@ -1,0 +1,32 @@
+@font-face{
+  font-family:'DNFForgedBlade'; font-style:normal; font-weight:300;font-display:swap;
+  src:url('./fonts/DNFForgedBlade-Light.ttf')format('truetype')}
+  
+@font-face{
+  font-family:'DNFForgedBlade';font-style:normal;font-weight:500;font-display:swap;
+  src:url('./fonts/DNFForgedBlade-Medium.ttf')format('truetype')}
+@font-face{
+  font-family:'DNFForgedBlade';font-style:normal;font-weight:700;font-display:swap;
+  src:url('./fonts/DNFForgedBlade-Bold.ttf')format('truetype')}
+  
+@font-face{
+  font-family:'DNFBitBitv2';
+  src:url('./fonts/DNFBitBitv2.ttf')format('truetype')}
+  
+@font-face{
+  font-family:'NanumGothic'; font-style:normal; font-weight:300;font-display:swap;
+  src:url('./fonts/NanumGothicLight.ttf')format('truetype')}  
+@font-face{
+  font-family:'NanumGothic';font-style:normal;font-weight:400;font-display:swap;
+  src:url('./fonts/NanumGothic.ttf')format('truetype')}
+@font-face{
+  font-family:'NanumGothic';font-style:normal;font-weight:700;font-display:swap;
+  src:url('./fonts/NanumGothicBold.ttf')format('truetype')}
+@font-face{
+  font-family:'NanumGothic';font-style:normal;font-weight:800;font-display:swap;
+  src:url('./fonts/NanumGothicExtraBold.ttf')format('truetype')}
+
+  :root {
+    --bs-body-font-family: "Malgun Gothic", "맑은 고딕","NanumGothic",system-ui, -apple-system,"Noto Sans";
+    --bs-font-sans-serif: "Malgun Gothic", "맑은 고딕","NanumGothic",system-ui, -apple-system,"Noto Sans";
+  }
