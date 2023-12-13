@@ -322,7 +322,7 @@ function setAggregate(result){
     let rateString = (rate*100).toFixed(3);
     $('#dailyRate').html(`${per}에픽 당 1개 (${rateString}%)`);
     $('#maxCount').html(`${result.maxCount}개 가지고 있습니다.`);
-    $('#minCount').html(`누군가는 중재자픽 ${result.minCount} 개를 획득하는 동안 미스트기어를 획득하지 못했습니다.`);
+    $('#minCount').html(`어느 캐릭터는 중재자픽 ${result.minCount} 개를 획득하는 동안 미스트기어를 획득하지 못했습니다.`);
     
     $('#top1').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[0].itemName]}">${result.topMist[0].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[0].cnt}</span>`);
     $('#top2').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topMist[1].itemName]}">${result.topMist[1].itemName} <span class="badge bg-warning rounded-pill">${result.topMist[1].cnt}</span>`);
