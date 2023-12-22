@@ -1,4 +1,3 @@
-const api = 'https://api.dfgear.xyz';
 let timeLineList = [];
 let nowDate = moment().format("YYYYMMDDTHHmm");
 let serverId='';
@@ -282,7 +281,8 @@ function makeCardView(character){
           }
           html +=`<span class="card-text">중재자 에픽 : ${character.total}</span>
           <span class="card-text">미스트 기어 획득 : ${character.mist}</span>
-          <p class="card-text">└ 카드 보상 : ${character.card}</p>
+          <span class="card-text">└ 카드 보상 : ${character.card}</span>
+          <p class="card-text">항아리 : ${character.pot}</p>
           <span class="card-text small">최근 업데이트</span>
           <span class="card-text small">${moment().format("YYYY-MM-DD HH:mm:ss")}</span>
         </div>`;
@@ -297,7 +297,7 @@ function data_List(Array) {
   let html=`<div class="card-header">미스트기어 리스트</div><ul class="list-group list-group-flush">`;
   Array.forEach((element,i) => {
     if(element.mistGear){
-      mistGear.push({code:element.code, missCount : mistGearCount, count:element.count ? element.count : i+1, itemName:element.itemName, get:element.channel });
+      mistGear.push({code:element.code, missCount : mistGearCount, count:element.count ? element.count : i+1, itemName:element.itemName, get: element.code==504 ? "" : element.channel });
       mistGearCount = 1;
     } else {
       mistGearCount++;
@@ -307,7 +307,7 @@ function data_List(Array) {
   // timeLineList = newArray;
   if(mistGear.length>0){
     mistGear.forEach(e => {
-      html +=`<li class="list-group-item"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.itemName}, ${e.code==505 ? e.count+"번째 에픽":e.get}<span class="badge bg-warning rounded-pill">${e.code==505 ? "드랍" : "카드"}</span></li>`
+      html +=`<li class="list-group-item"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.itemName}${e.code==505 ? ", "+e.count+"번째 에픽":e.get}<span class="badge bg-warning rounded-pill">${e.code==505 ? "드랍" : e.code==504 ? "항아리" : "카드"}</span></li>`
     })
     html += `</ul>`;
   } else {

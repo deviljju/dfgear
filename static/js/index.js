@@ -1,4 +1,3 @@
-const api = 'https://api.dfgear.xyz';
 let apioff=false;
 let timeLineList = [];
 let nowDate = moment().format("YYYYMMDDTHHmm");
@@ -186,7 +185,8 @@ function makeCardView(characters){
           <div class="card-body"> <p class="card-text cName">${character.characterName}</p>
             <span class="card-text">중재자 에픽 : ${character.total}</span>
             <span class="card-text">미스트 기어 획득 : ${character.mist}</span>
-            <p class="card-text">└ 카드 보상 : ${character.card}</p>
+            <span class="card-text">└ 카드 보상 : ${character.card}</span>
+            <p class="card-text">항아리 : ${character.pot}</p>
             <span class="card-text small">최근 업데이트</span>
             <span class="card-text small">${character.uptime==null ? '-' : character.uptime}</span>
           </div>
