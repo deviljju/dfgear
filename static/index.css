@@ -305,6 +305,21 @@ display: flex;
   font-size: 1.2rem;
   text-align: center;
 }
+.jobserver{
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #898c92;
+}
+.jobserver > span {
+  display: inline-block;
+  vertical-align: middle;
+  margin: -2px 5px 0 5px;
+  width: 1px;
+  height: calc(0.8rem - 2px);
+  background: #898c9250;
+}
+
 .dfToast{
   width: max-content !important;
   height: auto !important;

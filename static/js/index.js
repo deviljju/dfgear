@@ -132,7 +132,7 @@ function Search(){
             return alert("에러 발생");
           }
         } else if(result.rows && result.rows.length>0){
-          makeCardView(result.rows);
+          makeCardView(result.rows,true);
           // if(result.mist && result.mist.length>0){  //미기리스트 모달
           //   mistCount = result.mist.length;
           //   $('#btn_mistList').addClass('show');
@@ -145,6 +145,38 @@ function Search(){
           $("#advenResult").removeClass("show");
           $('#btn_mistList').removeClass('show');
           return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다.");
+        }
+      } catch(e){
+        sessionStorage.clear();
+        loadingToggle(false);
+        if(e==="NO_CHARACTER"){
+          return toast("danger","일치하는 캐릭터 정보가 없습니다");
+        } 
+        return alert("에러 발생");
+      }
+    })
+  } else if(serverId==='all'){
+    loadingToggle();
+    searchAll(characterName, function(result, err){
+      sessionStorage.clear();
+      try{
+        if(err){
+          loadingToggle(false);
+          if(result.responseText && result.responseText.indexOf("MISSING_PARAMETER") > -1){
+            return toast("danger","에러 발생_입력값 오류");
+          } else if(result.responseText && result.responseText.indexOf("NO_CHARACTER") > -1){
+            return toast("danger","일치하는 캐릭터 정보가 없습니다");
+          } else {
+            console.log(err); console.log(result);
+            return alert("에러 발생");
+          }
+        } else if(result.rows && result.rows.length>0){
+          makeCardView(result.rows,false);
+        } else {
+          loadingToggle(false);
+          $("#advenResult").removeClass("show");
+          $('#btn_mistList').removeClass('show');
+          return toast("danger","일치하는 캐릭터 정보가 없습니다");
         }
       } catch(e){
         sessionStorage.clear();
@@ -172,7 +204,7 @@ if(toe){
   $("#btn_search").removeClass("disabled");
 }
 }
-function makeCardView(characters){
+function makeCardView(characters,adventure=true){
   try{
     let total=0;
     let mist=0;
@@ -182,8 +214,10 @@ function makeCardView(characters){
       try{
         let html =`<div class="card characterView" data-cId="${character.characterId}" data-sId="${character.serverId}" onclick="location.href='/character?sId=${character.serverId}&cId=${character.characterId}&cName=${encodeURIComponent(character.characterName)}';">
           <img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
-          <div class="card-body"> <p class="card-text cName">${character.characterName}</p>
-            <span class="card-text">중재자 에픽 : ${character.total}</span>
+          <div class="card-body">`;
+          html+=`<span class="card-text cName">${character.characterName}</span>            
+          <p class="card-text jobserver">${character.jobGrowName} <span></span> ${convertServer(character.serverId)}</p>`;
+          html +=`<span class="card-text">중재자 에픽 : ${character.total}</span>
             <span class="card-text">미스트 기어 획득 : ${character.mist}</span>
             <span class="card-text">└ 카드 보상 : ${character.card}</span>
             <p class="card-text">항아리 : ${character.pot}</p>
@@ -199,10 +233,11 @@ function makeCardView(characters){
         console.log(e);
       }
     })
-    // if(mistCount != mist){
-    //   Search();
-    // }
-    $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist} (카드 ${card})`);
+    if(adventure){
+      $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist} (카드 ${card})`);
+    } else {
+      $("#advenTotal").html(`${characters[0].characterName} 조회 결과`);
+    }
     $("#advenResult").addClass("show");
     loadingToggle(false);
   } catch(e){
@@ -229,6 +264,30 @@ function searchAdventure(adventureName, callback){
     let data = { adventureName: encodeURIComponent(adventureName)};
     $.ajax({
       url: api+'/adventure',
+      type: 'get',
+      timeout: 60000,
+      processData:true,
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
+      },
+      data: data,
+      success: function(result, textStatus, jqXHR){
+        callback(result,null);
+      },
+      error: function(jqXHR, error) {
+        callback(jqXHR,error);
+      }
+    });
+  } catch(e){
+    sessionStorage.clear();
+    console.log(e);
+  }
+}
+function searchAll(characterName, callback){
+  try{
+    let data = { cName: encodeURIComponent(characterName)};
+    $.ajax({
+      url: api+'/all',
       type: 'get',
       timeout: 60000,
       processData:true,

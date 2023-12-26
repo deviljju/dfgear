@@ -9,3 +9,18 @@ function toast(type,msg){
     $('.dfToast').eq(0).remove();
   }, 2000);
 }
+function convertServer(serverId){
+  switch(serverId) {
+    case "anton": return "안톤";
+    case "cain": return "카인";
+    case "anton": return "안톤";
+    case "bakal": return "바칼";
+    case "cain": return "카인";
+    case "casillas": return "카시야스";
+    case "diregie": return "디레지에";
+    case "hilder": return "힐더";
+    case "prey": return "프레이";
+    case "siroco": return "시로코";
+  }
+  return "서버에러";
+}
