@@ -34,6 +34,9 @@ $(document).ready(function() {
     Search();
   });
   $(document).on("click", "#advenTotal", function() {
+    if($("select[name='server']").val() != "adventure") {
+      return;
+    }
     var cName = $("input[name='name']").val();
     let content = `https://dfgear.xyz/?sId=adventure&cName=${encodeURIComponent(cName)}`;
     navigator.clipboard.writeText(content)
