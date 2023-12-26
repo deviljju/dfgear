@@ -273,12 +273,12 @@ function makeCardView(character){
       let html =`<img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
         <div class="card-body"> <span id="cName" class="card-text">${character.characterName}</span>
           <p id="aName" class="card-text">${character.adventureName}</p>`;
-          if(character.ranking && character.ranking.ranking!=undefined){
-            $("#rankingCard").css('display','flex');
-            $("#ranking").text(`${character.ranking.ranking} / ${character.ranking.cnt} (상위 ${parseFloat(character.ranking.ranking/character.ranking.cnt*100).toFixed(1)}%)`);
-          } else {
-            $("#rankingCard").css('display','none');
-          }
+          // if(character.ranking && character.ranking.ranking!=undefined){
+          //   $("#rankingCard").css('display','flex');
+          //   $("#ranking").text(`${character.ranking.ranking} / ${character.ranking.cnt} (상위 ${parseFloat(character.ranking.ranking/character.ranking.cnt*100).toFixed(1)}%)`);
+          // } else {
+          //   $("#rankingCard").css('display','none');
+          // }
           html +=`<span class="card-text">중재자 에픽 : ${character.total}</span>
           <span class="card-text">미스트 기어 획득 : ${character.mist}</span>
           <span class="card-text">└ 카드 보상 : ${character.card}</span>
@@ -307,7 +307,7 @@ function data_List(Array) {
   // timeLineList = newArray;
   if(mistGear.length>0){
     mistGear.forEach(e => {
-      html +=`<li class="list-group-item"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.itemName}${e.code==505 ? ", "+e.count+"번째 에픽":e.get}<span class="badge bg-warning rounded-pill">${e.code==505 ? "드랍" : e.code==504 ? "항아리" : "카드"}</span></li>`
+      html +=`<li class="list-group-item"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.itemName}${e.code==505 ? ", "+e.count+"번째 에픽":" "+e.get}<span class="badge bg-warning rounded-pill">${e.code==505 ? "드랍" : e.code==504 ? "항아리" : "카드"}</span></li>`
     })
     html += `</ul>`;
   } else {
