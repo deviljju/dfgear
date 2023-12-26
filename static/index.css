@@ -41,6 +41,9 @@
     margin-right: 1rem;
   }
 }
+@media all and (max-width: 552px){
+  #notice { max-width: 20rem !important; }
+}
 
 body {
   width: 100%;
@@ -160,14 +163,10 @@ body::-webkit-scrollbar-thumb {
 }
 .aggregate > div:nth-child(1) {
   width: 20rem !important;
-  /* margin-right: 1rem; */
 }
 .aggregate > div > div:nth-child(2){
   margin-top:1rem;
 }
-
-/* .aggregate > div:nth-child(2) {
-} */
 .aggregate .card > .remain {
   padding: 0 !important;
 }
@@ -335,7 +334,7 @@ display: flex;
 }
 #notice {
   display: none;
-  max-width: 20rem !important;
+  max-width: 41rem;
   margin-top: 0.8rem;
 }
 #notice.active {
