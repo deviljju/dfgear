@@ -181,7 +181,7 @@ function Search(){
     $("#searchBar").addClass('show');
     return $("#characterName").focus();
   }
-  if(serverId==='adventure'){
+  if(serverId==='adventure' || serverId==='all'){
     sessionStorage.setItem('sId',serverId);
     sessionStorage.setItem('cName',characterName);
     return location.href="./"; //?sId=${serverId}&cName=${encodeURIComponent(characterName)}

@@ -13,7 +13,7 @@ $(document).ready(function() {
     if(characterName != null && characterName !== '' && serverId != null){
       $("select[name='server']").val(serverId)
       $("input[name='name']").val(characterName);
-      if(serverId=='adventure'){
+      if(serverId=='adventure' || serverId =='all'){
         Search();
       }
     }
