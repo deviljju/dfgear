@@ -270,10 +270,6 @@ function searchAdventure(adventureName, callback){
       type: 'get',
       timeout: 60000,
       processData:true,
-      async : true,
-      xhrFields: { 
-        withCredentials: true
-      },
       beforeSend: function (xhr) {
         xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
         xhr.setRequestHeader("gear","dfgear");
@@ -299,10 +295,6 @@ function searchAll(characterName, callback){
       type: 'get',
       timeout: 60000,
       processData:true,
-      async : true,
-      xhrFields: { 
-        withCredentials: true
-      },
       beforeSend: function (xhr) {
         xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
         xhr.setRequestHeader("gear","dfgear");
@@ -331,10 +323,6 @@ function getAggregate(){
           type: 'get',
           timeout: 30000,
           processData:true,
-          async : true,
-          xhrFields: { 
-            withCredentials: true
-          },
           beforeSend: function (xhr) {
             xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
             xhr.setRequestHeader("gear","dfgear");
@@ -367,10 +355,6 @@ function getAggregate(){
       type: 'get',
       timeout: 30000,
       processData:true,
-      async : true,
-      xhrFields: { 
-        withCredentials: true
-      },
       beforeSend: function (xhr) {
         xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
         xhr.setRequestHeader("gear","dfgear");
