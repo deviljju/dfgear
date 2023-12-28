@@ -67,7 +67,7 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   align-items: center;
   width: 100%;
-  max-width: 80rem;
+  max-width: 50rem;
   min-height: calc(90vh - 1rem);
   /* max-height: calc(100vh - 37px - 0.5rem); */
   flex-direction: column;

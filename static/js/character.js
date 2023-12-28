@@ -70,8 +70,13 @@ $(document).ready(function() {
       type: 'get',
       timeout: 30000,
       processData:true,
+      async : true,
+      xhrFields: { 
+        withCredentials: true
+      },
       beforeSend: function (xhr) {
         xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
+        xhr.setRequestHeader("gear","dfgear");
       },
       data: data,
       success: function(result, textStatus, jqXHR){
@@ -332,8 +337,13 @@ function searchCharacterTimeline(serverId, characterName, endDate, characterId='
       type: 'get',
       timeout: 30000,
       processData:true,
+      async : true,
+      xhrFields: { 
+        withCredentials: true
+      },
       beforeSend: function (xhr) {
         xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");
+        xhr.setRequestHeader("gear","dfgear");
       },
       data: data,
       success: function(result, textStatus, jqXHR){
