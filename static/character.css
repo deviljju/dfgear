@@ -291,8 +291,10 @@
   #notice {
     height: auto;
     display: none;
+    padding: 0.5rem;
+    margin: 0.3rem;
   }
   #notice.show {
-    max-width: 39rem;
+    max-width: 28rem;
     display: block;
   }
