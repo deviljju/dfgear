@@ -26,6 +26,17 @@
   font-family:'NanumGothic';font-style:normal;font-weight:800;font-display:swap;
   src:url('./fonts/NanumGothicExtraBold.ttf')format('truetype')}
 
+@media (min-width: 992px){
+  .container {
+    min-width: 800px;
+  }
+}
+@media (min-width: 576px){
+  .container {
+    min-width: 500px;
+  }
+}
+
   :root {
     --bs-body-font-family: "Malgun Gothic", "맑은 고딕","NanumGothic",system-ui, -apple-system,"Noto Sans";
     --bs-font-sans-serif: "Malgun Gothic", "맑은 고딕","NanumGothic",system-ui, -apple-system,"Noto Sans";

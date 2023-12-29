@@ -288,3 +288,11 @@
   #advenTotal {
     cursor: pointer;
   }
+  #notice {
+    height: auto;
+    display: none;
+  }
+  #notice.show {
+    max-width: 39rem;
+    display: block;
+  }

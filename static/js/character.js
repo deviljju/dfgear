@@ -298,7 +298,7 @@ function data_List(Array) {
   let html=`<div class="card-header">미스트기어 리스트</div><ul class="list-group list-group-flush">`;
   Array.forEach((element,i) => {
     if(element.mistGear){
-      mistGear.push({code:element.code, missCount : mistGearCount, count:element.count ? element.count : i+1, itemName:element.itemName, get: element.code==504 ? "" : element.channel });
+      mistGear.push({code:element.code, missCount : mistGearCount, count:element.count ? element.count : i+1, itemName:element.itemName, get: element.code==504 || element.code==510 ? "" : element.channel });
       mistGearCount = 1;
     } else {
       mistGearCount++;
@@ -311,6 +311,8 @@ function data_List(Array) {
       html +=`<li class="list-group-item"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.itemName}`;
       if(e.code == 504){
         html +=` <span class="badge bg-warning rounded-pill">항아리</span></li>`
+      } else if(e.code == 510){
+        html +=` <span class="badge bg-warning rounded-pill">봉인된</span></li>`
       } else {
         html +=`, ${e.code==505 ? e.count+"번째 에픽": e.get}<span class="badge bg-warning rounded-pill">${e.code==505 ? "드랍" : "카드"}</span></li>`
       }
@@ -322,6 +324,7 @@ function data_List(Array) {
   $("#mistList").append(html);  
   $(".resultData").addClass("show");
   $("#searchBar").addClass('show');
+  $("#notice").addClass('show');
   loadingToggle(false);
   $("input[name='name']").val("");
 }
