@@ -312,7 +312,7 @@ function data_List(Array) {
       if(e.code == 504){
         html +=` <span class="badge bg-warning rounded-pill">항아리</span></li>`
       } else if(e.code == 510){        
-        html +=` <span class="badge bg-warning rounded-pill">${element.channel}</span></li>`
+        html +=` <span class="badge bg-warning rounded-pill">${e.count}</span></li>`
       } else {
         html +=`, ${e.code==505 ? e.count+"번째 에픽": e.get}<span class="badge bg-warning rounded-pill">${e.code==505 ? "드랍" : "카드"}</span></li>`
       }
