@@ -47,6 +47,7 @@
     align-content: center;
     margin-left: auto;
     margin-right: auto;
+    padding: 0;
   }
   .container > div {
     width: 100%;
@@ -269,7 +270,7 @@
     text-decoration: underline;
   }
   .resultData.show > div {
-    max-height: 40.5rem;
+    /* max-height: 40.5rem; */
     overflow-y: auto;
     overflow-x: none;
   }
