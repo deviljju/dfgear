@@ -107,6 +107,7 @@
     margin: 0 auto;
     background-color: #f3f4f7a6;
     text-align: center;
+    align-items: center;
   }
   #loadingScreen.active > .center > img {
     margin-top: 10px;
