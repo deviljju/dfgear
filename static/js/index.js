@@ -379,9 +379,9 @@ function getAggregate(){
 }
 function setAggregate(result){
   try {
-    $('#top1c').text(result.topChannel[0].replace('_',' Ch.'));
-    $('#top2c').text(result.topChannel[1].replace('_',' Ch.'));
-    $('#top3c').text(result.topChannel[2].replace('_',' Ch.'));
+    // $('#top1c').text(result.topChannel[0].replace('_',' Ch.'));
+    // $('#top2c').text(result.topChannel[1].replace('_',' Ch.'));
+    // $('#top3c').text(result.topChannel[2].replace('_',' Ch.'));
     $('#dailyCount').html(`오늘은 ${result.dailyCount}개`);
     let rate = parseFloat(result.dropRate.mist/result.dropRate.total);
     let per = parseInt(1/rate);
