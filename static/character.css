@@ -275,3 +275,11 @@
     max-width: 28rem;
     display: block;
   }
+  #loadingScreen.active > .center {
+    width: 50rem;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: #f3f4f7a6;
+    text-align: center;
+    align-items: center;
+  }

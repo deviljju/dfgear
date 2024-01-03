@@ -386,3 +386,11 @@ h6.rptz7{
 .chart canvas {
   max-height: 15rem;
 }
+#loadingScreen.active > .center {
+  width: 65rem;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #f3f4f7a6;
+  text-align: center;
+  align-items: center;
+}
