@@ -47,7 +47,6 @@
     align-content: center;
     margin-left: auto;
     margin-right: auto;
-    padding: 0;
   }
   .container > div {
     width: 100%;
@@ -124,29 +123,6 @@
     height: max-content;
     margin: 0.3rem;
     min-width: calc(15rem + var(--bs-gutter-x));
-  }
-  #loadingScreen {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: #f3f4f7a6;
-    border-radius: 12px;
-    z-index: 2000;
-    display: none;
-  }
-  #loadingScreen.active {
-    display: block;
-  }
-  #loadingScreen.active > .center {
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    top: calc(50% - 100px);
-    left: calc(50% - 100px);
-    text-align: center;
-  }
-  #loadingScreen.active > .center > img {
-    margin-top: 10px;
   }
   /* .offcanvas.show {
     width: 30rem !important;

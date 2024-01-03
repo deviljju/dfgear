@@ -26,14 +26,19 @@
   font-family:'NanumGothic';font-style:normal;font-weight:800;font-display:swap;
   src:url('./fonts/NanumGothicExtraBold.ttf')format('truetype')}
 
-@media (min-width: 992px){
-  .container {
-    min-width: 800px;
-  }
-}
 @media (min-width: 576px){
   .container {
     min-width: 500px;
+  }
+}
+@media (min-width: 992px){
+  .container {
+    min-width: 800px !important;
+    padding: 0;
+  }
+  .container > div {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 }
 
@@ -83,4 +88,26 @@
   }
   .privacy > a:hover {
     color:#0b5ed7;
+  }
+  #loadingScreen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #f3f4f7a6;
+    border-radius: 12px;
+    z-index: 2000;
+    display: none;
+  }
+  #loadingScreen.active {
+    display: block;
+  }
+  #loadingScreen.active > .center {
+    width: 50rem;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: #f3f4f7a6;
+    text-align: center;
+  }
+  #loadingScreen.active > .center > img {
+    margin-top: 10px;
   }
