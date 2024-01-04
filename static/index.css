@@ -45,23 +45,6 @@
   #notice { max-width: 20rem !important; }
 }
 
-body {
-  width: 100%;
-  user-select: none;
-  overflow-x: hidden;
-  height: 100%;
-  min-height: 180px;
-  overflow-y: auto;
-}
-body::-webkit-scrollbar {
-  width: 10px;
-}
-body::-webkit-scrollbar-thumb {
-    background-color: lightgrey;
-    border-radius: 10px;
-    background-clip: padding-box;
-    border: 2px solid transparent;
-}
 .container {
   display: flex;
   position: relative;
@@ -319,12 +302,6 @@ display: flex;
   background: #898c9250;
 }
 
-.dfToast{
-  width: max-content !important;
-  height: auto !important;
-  position: absolute;
-  top: 1rem;
-}
 .container > .accordion {
   max-width: 45rem;
   height: max-content;

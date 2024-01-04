@@ -18,23 +18,7 @@
     html { font-size: 14px; }
     :root { font-size: 14px;} 
   }
-  body {
-    width: 100%;
-    user-select: none;
-    overflow-x: hidden;
-    height: 100%;
-    min-height: 180px;
-    overflow-y: auto;
-  }
-  body::-webkit-scrollbar {
-    width: 10px;
-  }
-  body::-webkit-scrollbar-thumb {
-      background-color: lightgrey;
-      border-radius: 10px;
-      background-clip: padding-box;
-      border: 2px solid transparent;
-  }
+
   .container {
     display: flex;
     position: relative;
@@ -256,12 +240,6 @@
   .resultData.show > div::-webkit-scrollbar-thumb {
     display:none;
   }
-  .dfToast{
-    width: max-content !important;
-    height: auto !important;
-    position: absolute;
-    top: 1rem;
-  }
   #advenTotal {
     cursor: pointer;
   }
@@ -282,4 +260,7 @@
     margin: 0 auto;
     text-align: center;
     align-items: center;
+  }
+  .neopleThk > div.footer-main {
+    max-width: 50rem !important;
   }
