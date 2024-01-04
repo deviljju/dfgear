@@ -41,6 +41,7 @@
     padding-right: 0.75rem;
   }
 }
+/* grid thema
 @media (min-width: 1300px){
   body {
     display: grid;
@@ -70,7 +71,7 @@
   body {
     grid-template-columns: 400px calc(100% - 800px) 400px !important;
   }
-}
+} */
 
 :root {
   --bs-body-font-family: "Malgun Gothic", "맑은 고딕","NanumGothic",system-ui, -apple-system,"Noto Sans";
