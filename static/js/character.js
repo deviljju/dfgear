@@ -286,6 +286,7 @@ function makeCardView(character){
           <p class="card-text">항아리 : ${character.pot}</p>
           <span class="card-text small">최근 업데이트</span>
           <span class="card-text small">${moment().format("YYYY-MM-DD HH:mm:ss")}</span>
+          <button id="btn_epicList" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#epicModal" aria-controls="epicModal">상세보기</button>
         </div>`;
       $(".characterView").append(html);
     } catch (e) {
@@ -294,28 +295,31 @@ function makeCardView(character){
 }
 function data_List(Array) {
   let mistGear=[];
-  let mistGearCount=1;
   let html=`<div class="card-header">미스트기어 리스트</div><ul class="list-group list-group-flush">`;
   Array.forEach((element,i) => {
     if(element.mistGear){
-      mistGear.push({code:element.code, missCount : mistGearCount, count:element.count ? element.count : i+1, itemName:element.itemName, get: element.code==504 || element.code==510 ? "" : element.channel });
-      mistGearCount = 1;
-    } else {
-      mistGearCount++;
+      mistGear.push({code:element.code, count:element.count ? element.count : i+1, itemName:element.itemName, get: element.code==504 || element.code==510 ? "" : element.channel, date:element.date });
     }
   });
   timeLineList = Array
   // timeLineList = newArray;
   if(mistGear.length>0){
-    mistGear.forEach(e => {
-      html +=`<li class="list-group-item"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.itemName}`;
+    mistGear.forEach((e,i) => {
+      html +=`<li class="list-group-item"><dd>${i+1}</dd><p><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.itemName}`;
       if(e.code == 504){
-        html +=` <span class="badge bg-warning rounded-pill">항아리</span></li>`
-      } else if(e.code == 510){        
-        html +=` <span class="badge bg-warning rounded-pill">${e.count}</span></li>`
+        html +=` <span class="badge bg-warning rounded-pill">항아리</span>`
+      } else if(e.code == 510){
+        if(typeof(e.count)=='number'){
+          html +=`, ${e.count}번째 에픽`;
+        } else {
+          html +=` <span class="badge bg-warning rounded-pill">${e.count}</span>`;
+        }
+      } else if(e.code == 513){
+        html +=`, ${e.get}<span class="badge bg-warning rounded-pill">카드</span>`;
       } else {
-        html +=`, ${e.code==505 ? e.count+"번째 에픽": e.get}<span class="badge bg-warning rounded-pill">${e.code==505 ? "드랍" : "카드"}</span></li>`
+        html +=`, ${e.count}번째 에픽`;
       }
+      html += `</p></li>`;
     })
     html += `</ul>`;
   } else {
