@@ -272,7 +272,7 @@ function makeCardView(character){
       $(".characterView").attr('data-cId',character.characterId);
       $(".characterView").attr('data-sId',character.serverId);
       let html =`<img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
-        <div class="card-body"> <span id="cName" class="card-text">${character.characterName}</span>
+        <div class="card-body"> <span id="cName" class="card-text uselct">${character.characterName}</span>
           <p id="aName" class="card-text uselct">${character.adventureName}</p>`;
           // if(character.ranking && character.ranking.ranking!=undefined){
           //   $("#rankingCard").css('display','flex');
