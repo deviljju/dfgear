@@ -273,17 +273,17 @@ function makeCardView(character){
       $(".characterView").attr('data-sId',character.serverId);
       let html =`<img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
         <div class="card-body"> <span id="cName" class="card-text">${character.characterName}</span>
-          <p id="aName" class="card-text">${character.adventureName}</p>`;
+          <p id="aName" class="card-text uselct">${character.adventureName}</p>`;
           // if(character.ranking && character.ranking.ranking!=undefined){
           //   $("#rankingCard").css('display','flex');
           //   $("#ranking").text(`${character.ranking.ranking} / ${character.ranking.cnt} (상위 ${parseFloat(character.ranking.ranking/character.ranking.cnt*100).toFixed(1)}%)`);
           // } else {
           //   $("#rankingCard").css('display','none');
           // }
-          html +=`<span class="card-text">중재자 에픽 : ${character.total}</span>
-          <span class="card-text">미스트 기어 획득 : ${character.mist}</span>
-          <span class="card-text">└ 카드 보상 : ${character.card}</span>
-          <p class="card-text">항아리 : ${character.pot}</p>
+          html +=`<span class="card-text uselct">중재자 에픽 : ${character.total}</span>
+          <span class="card-text uselct">미스트 기어 획득 : ${character.mist}</span>
+          <span class="card-text uselct">└ 카드 보상 : ${character.card}</span>
+          <p class="card-text uselct">항아리 : ${character.pot}</p>
           <span class="card-text small">최근 업데이트</span>
           <span class="card-text small">${moment().format("YYYY-MM-DD HH:mm:ss")}</span>
           <button id="btn_epicList" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#epicModal" aria-controls="epicModal">상세보기</button>
@@ -298,21 +298,21 @@ function data_List(Array) {
   let html=`<div class="card-header">미스트기어 리스트</div><ul class="list-group list-group-flush">`;
   Array.forEach((element,i) => {
     if(element.mistGear){
-      mistGear.push({code:element.code, count:element.count ? element.count : i+1, itemName:element.itemName, get: element.code==504 || element.code==510 ? "" : element.channel, date:element.date });
+      mistGear.push({code:element.code, count:element.count, itemName:element.itemName, get: element.channel, date:element.date });
     }
   });
   timeLineList = Array
   // timeLineList = newArray;
   if(mistGear.length>0){
     mistGear.forEach((e,i) => {
-      html +=`<li class="list-group-item"><dd>${i+1}</dd><p><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.itemName}`;
+      html +=`<li class="list-group-item"><dd>${i+1}</dd><p title="${e.date}"><img src="https://img-api.neople.co.kr/df/items/${itemList[e.itemName]}">${e.itemName}`;
       if(e.code == 504){
         html +=` <span class="badge bg-warning rounded-pill">항아리</span>`
       } else if(e.code == 510){
-        if(typeof(e.count)=='number'){
+        if(typeof(e.count)=='number' && e.count > 0){
           html +=`, ${e.count}번째 에픽`;
         } else {
-          html +=` <span class="badge bg-warning rounded-pill">${e.count}</span>`;
+          html +=` <span class="badge bg-warning rounded-pill">${e.get}</span>`;
         }
       } else if(e.code == 513){
         html +=`, ${e.get}<span class="badge bg-warning rounded-pill">카드</span>`;

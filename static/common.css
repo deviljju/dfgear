@@ -160,3 +160,6 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   top: 1rem;
 }
+.uselct {
+  user-select: text;
+}

@@ -218,12 +218,12 @@ function makeCardView(characters,adventure=true){
         let html =`<div class="card characterView" data-cId="${character.characterId}" data-sId="${character.serverId}" onclick="location.href='/character?sId=${character.serverId}&cId=${character.characterId}&cName=${encodeURIComponent(character.characterName)}';">
           <img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
           <div class="card-body">`;
-          html+=`<span class="card-text cName">${character.characterName}</span>            
+          html+=`<span class="card-text cName uselct">${character.characterName}</span>            
           <p class="card-text jobserver">${character.jobGrowName} <span></span> ${convertServer(character.serverId)}</p>`;
-          html +=`<span class="card-text">중재자 에픽 : ${character.total}</span>
-            <span class="card-text">미스트 기어 획득 : ${character.mist}</span>
-            <span class="card-text">└ 카드 보상 : ${character.card}</span>
-            <p class="card-text">항아리 : ${character.pot}</p>
+          html +=`<span class="card-text uselct">중재자 에픽 : ${character.total}</span>
+            <span class="card-text uselct">미스트 기어 획득 : ${character.mist}</span>
+            <span class="card-text uselct">└ 카드 보상 : ${character.card}</span>
+            <p class="card-text uselct">항아리 : ${character.pot}</p>
             <span class="card-text small">최근 업데이트</span>
             <span class="card-text small">${character.uptime==null ? '-' : character.uptime}</span>
           </div>

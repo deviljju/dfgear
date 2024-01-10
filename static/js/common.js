@@ -12,8 +12,6 @@ function toast(type,msg){
 function convertServer(serverId){
   switch(serverId) {
     case "anton": return "안톤";
-    case "cain": return "카인";
-    case "anton": return "안톤";
     case "bakal": return "바칼";
     case "cain": return "카인";
     case "casillas": return "카시야스";
