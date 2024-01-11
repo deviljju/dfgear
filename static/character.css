@@ -262,6 +262,10 @@
     max-width: 28rem;
     display: block;
   }
+  #notice > p {
+    font-size: 0.85rem;
+    margin: 2px;
+  }
   #loadingScreen.active > .center {
     width: 50rem;
     max-width: 100%;

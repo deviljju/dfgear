@@ -73,28 +73,22 @@ $(document).ready(function() {
     });
   }, 15*1000);
   // 미기 정가 계산
-  let init = new Date('2023-09-14');
+  let init = new Date('2024-01-11'); // 950개
   let today = moment();
   let now = new Date(today.format("YYYY-MM-DD"));
   let btwDay = (now - init) / (1000 * 3600 * 24);
   let week = btwDay== 0 ? 1 : Math.floor(btwDay/7) + 1;
-  let own = (week-8)*70 + 320;
+  let own = week* 90 + 950; // 20 + 20 + 30 + 20
   let prove =own;
   // // 월 마다 45개 해방
   var proof = moment('2023-11-01 06:00:00');
   var proofStone = (today.diff(proof,'months')+1)*45;
   prove = own + proofStone;
-  $('#remainVal').html(`${own} (${prove})/1000`);  
-  if(16-week == 0){
-    $('.remain > .card-header').html(`1월 1일 증명 클리어 시 미기 정가!!`);
-    $('#remainWeek').html(`${18 - week}주 (이번 주)`);
-  } else if(18-week > 0){
-    $('#remainWeek').html(`${18 - week}주 ${(16 - week)<0 ? '':'('+(16-week)+'주)'}`); // 1월 1일 기준 16, 1월 11일 기준 18
-  } else {
-    $('#remainWeek').html(`청해의 보은 습득 완료`);
-  }
-  let percent = parseFloat(own / 10);
-  let provPer = parseFloat(prove / 10);
+  $('#remainVal').html(`${own} (${prove})/2000`);  
+  $('#remainWeek').html(`주간 부유석`);
+  
+  let percent = parseFloat(own / 20);
+  let provPer = parseFloat(prove / 20);
   $("#prg_own").attr("aria-valuenow",percent);
   $("#prg_own").css("width",`${percent}%`);
   $("#prg_own").html(`${percent}%`);
@@ -382,6 +376,13 @@ function setAggregate(result){
     // $('#top1c').text(result.topChannel[0].replace('_',' Ch.'));
     // $('#top2c').text(result.topChannel[1].replace('_',' Ch.'));
     // $('#top3c').text(result.topChannel[2].replace('_',' Ch.'));
+    //정미기
+    $('#top1r').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topRefined[0].itemName]}">${result.topRefined[0].itemName} <span class="badge bg-warning rounded-pill">${result.topRefined[0].cnt}</span>`);
+    $('#top2r').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topRefined[1].itemName]}">${result.topRefined[1].itemName} <span class="badge bg-warning rounded-pill">${result.topRefined[1].cnt}</span>`);
+    $('#top3r').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topRefined[2].itemName]}">${result.topRefined[2].itemName} <span class="badge bg-warning rounded-pill">${result.topRefined[2].cnt}</span>`);
+    $('#top4r').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topRefined[3].itemName]}">${result.topRefined[3].itemName} <span class="badge bg-warning rounded-pill">${result.topRefined[3].cnt}</span>`);
+    $('#top5r').html(`<img src="https://img-api.neople.co.kr/df/items/${itemList[result.topRefined[4].itemName]}">${result.topRefined[4].itemName} <span class="badge bg-warning rounded-pill">${result.topRefined[4].cnt}</span>`);
+    // 일일 미기획득량
     $('#dailyCount').html(`오늘은 ${result.dailyCount}개`);
     let rate = parseFloat(result.dropRate.mist/result.dropRate.total);
     let per = parseInt(1/rate);
