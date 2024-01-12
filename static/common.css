@@ -160,6 +160,9 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   top: 1rem;
 }
+.dfToast > div {
+  margin-right: 1.75rem;
+}
 .uselct {
   user-select: text;
 }
