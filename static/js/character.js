@@ -207,6 +207,8 @@ function Search(){
                   return toast("danger","에러 발생_입력값 오류");
               } else if(result.responseText && result.responseText.indexOf("NO_CHARACTER") > -1){
                   return toast("danger","일치하는 캐릭터 정보가 없습니다");
+              } else if(result.responseText && result.responseText.indexOf("DENY_CHARACTER") > -1){
+                return toast("danger","소유자의 요청으로 조회가 차단된 캐릭터 입니다");
               } else if(result.responseText && result.responseText.indexOf("SYSTEM_INSPECT") > -1){
                 apioff=true;
                 return alert("DNF점검");
@@ -280,7 +282,7 @@ function makeCardView(character){
           // } else {
           //   $("#rankingCard").css('display','none');
           // }
-          html +=`<span class="card-text uselct">중재자 에픽 : ${character.total}</span>
+          html +=`<span class="card-text uselct" title="일반 에픽: ${character.total - character.mist}">중재자 에픽 : ${character.total}</span>
           <span class="card-text uselct">미스트 기어 획득 : ${character.mist}</span>
           <span class="card-text uselct">└ 카드 보상 : ${character.card}</span>
           <p class="card-text uselct">항아리 : ${character.pot}</p>
