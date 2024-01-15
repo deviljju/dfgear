@@ -32,15 +32,17 @@
       grid-template-areas: "adAreaL container adAreaR" "neopleThk neopleThk neopleThk" "privacy privacy privacy";
     }
     .adAreaL {
-      width: 100%;
+      width: calc(100% - 1rem);
       height: 100%;
       display: block !important;
+      padding: 0.5rem;
       grid-area: adAreaL;
     }
     .adAreaR {
-      width: 100%;
+      width: calc(100% - 1rem);
       height: 100%;
       display: block !important;
+      padding: 0.5rem;
       grid-area: adAreaR;
     }
     .neopleThk{
