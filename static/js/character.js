@@ -274,7 +274,7 @@ function makeCardView(character,mistObj={}){
       $(".characterView").attr('data-sId',character.serverId);
       let html =`<img src="https://img-api.neople.co.kr/df/servers/${character.serverId}/characters/${character.characterId}/" class="card-img-top" alt="...">
         <div class="card-body"> <span id="cName" class="card-text uselct">${character.characterName}</span>
-          <p id="aName" class="card-text uselct">${character.adventureName}</p>`;
+          <div style="text-align: -webkit-center"><p id="aName" class="card-text uselct" style="width:max-content;margin-bottom: 1rem !important;">${character.adventureName}</p></div>`;
           // if(character.ranking && character.ranking.ranking!=undefined){
           //   $("#rankingCard").css('display','flex');
           //   $("#ranking").text(`${character.ranking.ranking} / ${character.ranking.cnt} (상위 ${parseFloat(character.ranking.ranking/character.ranking.cnt*100).toFixed(1)}%)`);
@@ -289,7 +289,7 @@ function makeCardView(character,mistObj={}){
               } else {
                 lucky = lucky.toFixed(2);
               }
-              html +=`<span class="card-text">기린 랭킹 : ${numberFmt(character.lucky)}위 (상위 ${lucky}%)</span><p class="card-text">획득 랭킹 : ${numberFmt(character.many)}위</p>`;
+              html +=`<span class="card-text uselct">기린 랭킹 : ${numberFmt(character.lucky)}위 (상위 ${lucky}%)</span><p class="card-text uselct">획득 랭킹 : ${numberFmt(character.many)}위</p>`;
             } catch(e){
               console.log(e);
             }
