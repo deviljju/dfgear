@@ -19,7 +19,7 @@
     :root { font-size: 14px;} 
   }
 
-  /* grid thema */
+  /* grid thema 
   @media (min-width: 1300px){
     body {
       display: grid;
@@ -60,7 +60,7 @@
   .adAreaR {
     display: none;
   }
-
+  */
   .container {
     display: flex;
     position: relative;
