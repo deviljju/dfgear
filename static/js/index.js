@@ -215,9 +215,7 @@ function makeCardView(characters,adventure=true){
           html+=`<span class="card-text cName uselct">${character.characterName}</span>            
           <p class="card-text jobserver">${character.jobGrowName} <span></span> ${convertServer(character.serverId)}</p>`;
           html +=`<span class="card-text uselct">중재자 에픽 : ${character.total}</span>
-            <span class="card-text uselct">미스트 기어 획득 : ${character.mist}</span>
-            <span class="card-text uselct">└ 카드 보상 : ${character.card}</span>
-            <p class="card-text uselct">항아리 : ${character.pot}</p>
+            <p class="card-text uselct">미스트 기어 획득 : ${character.mist+character.card+character.pot}</p>
             <span class="card-text small">최근 업데이트</span>
             <span class="card-text small">${character.uptime==null ? '-' : character.uptime}</span>
           </div>

@@ -24,7 +24,7 @@
     position: relative;
     align-items: center;
     width: 100%;
-    max-width: 50rem;
+    max-width: 55rem;
     min-height: calc(90vh - 1rem);
     /* max-height: calc(100vh - 37px - 0.5rem); */
     flex-direction: column;

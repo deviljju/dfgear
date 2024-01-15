@@ -9,6 +9,10 @@ function toast(type,msg){
     $('.dfToast').eq(0).remove();
   }, 2000);
 }
+function numberFmt(number){
+  let fmt = parseFloat(number).toLocaleString("ko-KR");
+  return fmt;
+}
 function convertServer(serverId){
   switch(serverId) {
     case "anton": return "안톤";
