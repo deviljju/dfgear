@@ -24,7 +24,7 @@
     position: relative;
     align-items: center;
     width: 100%;
-    max-width: 53rem;
+    max-width: 50rem;
     min-height: calc(90vh - 1rem);
     /* max-height: calc(100vh - 37px - 0.5rem); */
     flex-direction: column;
@@ -276,4 +276,7 @@
   }
   .neopleThk > div.footer-main {
     max-width: 50rem !important;
+  }
+  .rank {
+    font-size: 0.85rem;
   }

@@ -289,7 +289,7 @@ function makeCardView(character,mistObj={}){
               } else {
                 lucky = lucky.toFixed(2);
               }
-              html +=`<span class="card-text uselct">기린 랭킹 : ${numberFmt(character.lucky)}위 (상위 ${lucky}%)</span><p class="card-text uselct">획득 랭킹 : ${numberFmt(character.many)}위</p>`;
+              html +=`<span class="card-text uselct rank">기린 랭킹 : ${numberFmt(character.lucky)}위 (상위 ${lucky}%)</span><p class="card-text uselct rank">획득 랭킹 : ${numberFmt(character.many)}위</p>`;
             } catch(e){
               console.log(e);
             }
