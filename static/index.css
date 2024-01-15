@@ -309,6 +309,10 @@ display: flex;
 .container > .accordion > div > h2 {
   font-family: 'DNFBitBitv2';
 }
+.accordion-body > span {
+  display: block;
+}
+
 #notice {
   display: none;
   max-width: 41rem;
