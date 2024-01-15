@@ -24,7 +24,7 @@
     position: relative;
     align-items: center;
     width: 100%;
-    max-width: 55rem;
+    max-width: 53rem;
     min-height: calc(90vh - 1rem);
     /* max-height: calc(100vh - 37px - 0.5rem); */
     flex-direction: column;
@@ -241,7 +241,7 @@
   .resultData.show > div {
     /* max-height: 40.5rem; */
     overflow-y: auto;
-    overflow-x: none;
+    overflow-x: hidden;
   }
   .resultData.show > div::-webkit-scrollbar {
     width: 0px;
