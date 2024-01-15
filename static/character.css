@@ -34,13 +34,11 @@
     .adAreaL {
       width: 100%;
       display: block !important;
-      padding: 0.5rem;
       grid-area: adAreaL;
     }
     .adAreaR {
       width: 100%;
       display: block !important;
-      padding: 0.5rem;
       grid-area: adAreaR;
     }
     .neopleThk{
