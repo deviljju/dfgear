@@ -72,9 +72,101 @@
   }
 } */
 
+@media (prefers-color-scheme: dark) {
+  .element {
+    color: var(--bs-dk-input-tc);
+    background-color: var(--bs-dk-bg);
+  }
+}
+[data-bs-theme=dark] body {
+  color: var(--bs-dk-text-emphasis);
+  background-color: var(--bs-dk-bg);
+}
+[data-bs-theme=dark] select {
+  color: var(--bs-dk-input-tc);
+  background-color: var(--bs-dk-input-bg);
+}
+[data-bs-theme=dark] input {
+  color: var(--bs-dk-input-tc) !important;
+  background-color: var(--bs-dk-input-bg) !important;
+}
+[data-bs-theme=dark] .card-header {
+  background-color: var(--bs-dk-l2) !important;
+}
+[data-bs-theme=dark] .card-body {
+  background-color: var(--bs-dk-l1) !important;
+}
+[data-bs-theme=dark] .list-group-item {
+  background-color: var(--bs-dk-l1) !important;
+  color: var(--bs-dk-text-emphasis);
+}
+[data-bs-theme=dark] .accordion-button {
+  background-color: var(--bs-dk-l2) !important;
+  color: var(--bs-dk-text-emphasis) !important;
+}
+[data-bs-theme=dark] .accordion-body {
+  background-color: var(--bs-dk-l1) !important;
+  color: var(--bs-dk-text-emphasis) !important;
+}
+[data-bs-theme=dark] .characterView {
+  background-color: var(--bs-dk-l1) !important;
+}
+
+[data-bs-theme=dark] .r-header {
+  background-color: #51455e !important;
+  color: var(--bs-dk-input-tc) !important;
+}
+
+[data-bs-theme=dark] .r-list{
+  background-color: var(--bs-dk-l1) !important;
+  color: var(--bs-dk-input-tc) !important;
+}
+
+[data-bs-theme=dark] .r-list > .r-element > div{
+  color: var(--bs-dk-input-tc) !important;
+}
+
+[data-bs-theme=dark] .modal-content {
+  background-color: var(--bs-dk-l2) !important;
+  color: var(--bs-dk-text-emphasis) !important;
+}
+[data-bs-theme=dark] .btn-close {
+  filter: invert(100%) hue-rotate(180deg);
+  transition: 0.4s;
+}
+
+[data-bs-theme=dark] .infoArea .breadcrumb-item > a {
+  color: var(--bs-dk-text-emphasis) !important;
+}
+[data-bs-theme=dark] .infoArea .breadcrumb-item > a:hover {
+  color: #a772e7 !important;
+}
+
+[data-bs-theme=dark] .btn-primary {
+  color: #000000;
+  background-color: #BB86FC;
+  border-color: #a772e7;
+}
+[data-bs-theme=dark] .btn-primary:hover {
+  color: #000000;
+  background-color: #a772e7;
+  border-color: #a772e7;
+}
+
+
 :root {
   --bs-body-font-family: "Malgun Gothic", "맑은 고딕","NanumGothic",system-ui, -apple-system,"Noto Sans";
   --bs-font-sans-serif: "Malgun Gothic", "맑은 고딕","NanumGothic",system-ui, -apple-system,"Noto Sans";
+  
+  --bs-dk-bg:#121214;
+  --bs-dk-l1:#1d1d1d;
+  --bs-dk-l2:#2d2d2d;
+
+  --bs-dk-input-bg:#1f1f1f;
+
+  --bs-dk-text-emphasis:#e2e2e2;
+  
+  --bs-dk-input-tc:#e5e5e5;
 }
 body {
   width: 100%;
