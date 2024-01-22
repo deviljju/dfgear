@@ -31,17 +31,17 @@ function recentApply(serverId,characterName,cId=""){
   try{
     let rArr = localStorage.getItem('recent');    
     if(rArr != undefined && rArr != null){
-      rArr = JSON.parse(rArr);
-      if(rArr.indexOf(`"sId":"${serverId}","cName":"${characterName}"`)>-1){
+      if(rArr.indexOf(`"cName":"${characterName}","sId":"${serverId}"`)>-1){
         return;
       }
+      rArr = JSON.parse(rArr);      
     } else {
       rArr = [];
     }
     if(rArr.length>=6){
       rArr.shift();
     }
-    rArr.push({sId:serverId,cName:characterName,cId:cId});
+    rArr.push({cId:cId,cName:characterName,sId:serverId});
     localStorage.setItem("recent",JSON.stringify(rArr));
   } catch(e){
     console.log(e);
