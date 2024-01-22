@@ -1,4 +1,4 @@
-const api = 'http://localhost:3001';
+const api = 'https://api.dfgear.xyz';
 function toast(type,msg){
   let toast = `<div class="dfToast alert alert-${type} alert-dismissible fade show" role="alert">
     <div>${msg}</div>
