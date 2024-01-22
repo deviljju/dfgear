@@ -29,12 +29,12 @@ function convertServer(serverId){
 }
 function recentApply(serverId,characterName,cId=""){
   try{
-    let rArr = localStorage.getItem('recent');
-    if(rArr.indexOf(`"sId":"${serverId}","cName":"${characterName}"`)>-1){
-      return;
-    }
-    if(rArr != undefined){
+    let rArr = localStorage.getItem('recent');    
+    if(rArr != undefined && rArr != null){
       rArr = JSON.parse(rArr);
+      if(rArr.indexOf(`"sId":"${serverId}","cName":"${characterName}"`)>-1){
+        return;
+      }
     } else {
       rArr = [];
     }
