@@ -375,3 +375,89 @@ h6.rptz7{
   text-align: center;
   align-items: center;
 }
+
+.recentBox {
+  display: none;
+  max-width: 28.6rem;
+  height: 100%;
+  margin-bottom: 1rem;
+  z-index: 6;
+  background-color: rgb(255, 255, 255);
+  top: 36px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgb(204, 204, 204);
+  
+  font-size: 14px;
+  color: rgb(0, 0, 0);
+  /* box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 3px 2px; */
+  box-shadow: 1px 1px 5px 0px rgba(17, 17, 17, 0.2);
+}
+.recentBox.active {
+  display: block;
+  padding: 0 !important;
+  height: 100% !important;
+}
+.r-header {
+  color: rgb(85, 85, 85);
+  padding: 8px 12px;
+  text-align: center;
+  background-color: #e4ecf9;
+}
+.r-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  height: 100%;  
+}
+.r-element {
+  display: flex;
+  width: 50%;
+  height: 30px;
+  padding: 0px 16px;
+  cursor: pointer;
+}
+.r-element > div {
+  flex: 1 1 0%;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  height: 100%;
+  color: rgb(51, 51, 51);
+}
+.r-element > div > span {
+  border-radius: 50rem!important;
+  background-color: #5d5d5dbf!important;
+  display: inline-block;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  margin-right: 0.25rem;
+}
+.r-element > label {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  padding-left: 4px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.ndrag {
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

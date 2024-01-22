@@ -1,9 +1,10 @@
 let apioff=false;
 let timeLineList = [];
 let nowDate = moment().format("YYYYMMDDTHHmm");
-let serverId;
-let characterName;
+let serverId='';
+let characterName='';
 let aggreInterval;
+let characterId='';
 let mistMapChart;
 $(document).ready(function() {
   nowDate = moment().format("YYYYMMDDTHHmm");  
@@ -25,10 +26,39 @@ $(document).ready(function() {
     $("input[name='name']").val('');
     sessionStorage.clear();
   }
+  try{
+    let rArr = localStorage.getItem('recent');
+    if(rArr != undefined){
+      rArr = JSON.parse(rArr);
+    } else {
+      rArr = [];
+    }
+    if(rArr.length>0){
+      $('.recentBox').addClass('active');
+      recentView(rArr);
+    }    
+  } catch(er){
+    $('.recentBox').removeClass('active');
+  }
   $("#characterName").keyup(function () {
       if (window.event.keyCode == 13) {
           Search();
       }
+  });
+  $("#characterName").focus(function (ev) {
+    if($(".recentBox").hasClass('active')){
+      return;
+    }
+    let rArr = localStorage.getItem('recent');
+    if(rArr != undefined){
+      rArr = JSON.parse(rArr);
+    } else {
+      rArr = [];
+    }
+    if(rArr.length>0){
+      $('.recentBox').addClass('active');
+      recentView(rArr);
+    } 
   });
   $(document).on("click", "#btn_search", function() {
     Search();
@@ -57,6 +87,11 @@ $(document).ready(function() {
   })
   $(document).on("click", "#btn_mistList", function() {
     $('.modal-body').animate( { scrollTop : 0 }, 200 );
+  })
+  $(document).on("click", ".r-list > div > label", function(e) {
+    console.log(e);
+    let index = $(e.target).attr('data-num');
+    recentDelete(parseInt(index));
   })
   $(window).resize(function(){
     $('#loadingScreen').css('height',$(document).height())
@@ -130,6 +165,8 @@ function Search(){
           }
         } else if(result.rows && result.rows.length>0){
           makeCardView(result.rows,true);
+          recentApply(serverId,characterName,cId="");
+          $('.recentBox').removeClass('active'); // 최근검색 숨김처리
           // if(result.mist && result.mist.length>0){  //미기리스트 모달
           //   mistCount = result.mist.length;
           //   $('#btn_mistList').addClass('show');
@@ -169,6 +206,7 @@ function Search(){
           }
         } else if(result.rows && result.rows.length>0){
           makeCardView(result.rows,false);
+          $('.recentBox').removeClass('active'); // 최근검색 숨김처리
         } else {
           loadingToggle(false);
           $("#advenResult").removeClass("show");
@@ -345,7 +383,7 @@ function getAggregate(){
     $.ajax({
       url: api+'/mistGearAggregate',
       type: 'get',
-      timeout: 30000,
+      timeout: 15000,
       processData:true,
       beforeSend: function (xhr) {
         xhr.setRequestHeader("Content-type","application/json;charset=UTF-8");

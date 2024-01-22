@@ -59,6 +59,11 @@
         <input id="characterName" type="text" class="form-control" name="name" placeholder="캐릭터명을 입력하세요" autocomplete="off">
         <button id="btn_search" class="btn btn-primary">조회</button>
       </div>
+      <div class="recentBox">
+        <div class="r-header ndrag">최근 검색 기록</div>
+        <div class="r-list">
+        </div>
+      </div>
       <div id="advenResult">
         <div class="row adventure">
           <h5 id="advenTotal" class="uselct"></h5>
@@ -87,12 +92,12 @@
               <div class="card-header">정제된 미스트 기어 정가까지</div>
               <!-- <h5 class="card-title"></h5> -->
               <h6 id="remainVal" class="card-subtitle mb-2 text-muted">320/1000</h6>
-              <p id="remainWeek" class="card-text">18주</p>
+              <p id="remainWeek" class="card-text"></p>
               <div class="progress">
                 <div id="prg_own"class="progress-bar progress-bar-striped" role="progressbar" aria-label="Segment one" style="width: 32%" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
                 <div id="prg_prove" class="progress-bar bg-warning progress-bar-striped" role="progressbar" aria-label="Segment two"aria-valuenow="0" aria-valuemin="0" aria-valuemax="30"></div>
               </div>
-              <span class="text-muted">24.01.11 기준 (증명, 24.01.01)</span>
+              <span class="text-muted">24.04.04 기준 (증명, 24.03.14)</span>
             </div>
           </div>
           <div id="topThreeMist" class="card">
@@ -101,12 +106,6 @@
               <li id="top1" class="list-group-item somepd"></li>
               <li id="top2" class="list-group-item somepd"></li>
               <li id="top3" class="list-group-item somepd"></li>
-            </ul>
-          </div>
-        </div>
-        <div class="card-g-2">
-          <div class="card">
-            <ul class="list-group list-group-flush">
               <li class="list-group-item"><div class="card-header">정제된 미스트 기어 변환 TOP5</div><ul class="list-group list-group-flush">
                 <li id="top1r" class="list-group-item somepd"></li>
                 <li id="top2r" class="list-group-item somepd"></li>
@@ -114,6 +113,12 @@
                 <li id="top4r" class="list-group-item somepd"></li>
                 <li id="top5r" class="list-group-item somepd"></li>
               </ul></li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-g-2">
+          <div class="card">
+            <ul class="list-group list-group-flush">
               <!-- <li class="list-group-item"><div class="card-header">미스트 기어가 많이 나온 채널</div><ul class="list-group list-group-flush">
                 <li class="list-group-item side somepd chName">TOP 1 <h6 id="top1c">-</h6></li>
                 <li class="list-group-item side somepd chName">TOP 2 <h6 id="top2c">-</h6></li>

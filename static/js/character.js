@@ -233,6 +233,7 @@ function Search(){
                   }
               } else if(result.rows.length>0){
                   data_List(result);
+                  recentApply(serverId,characterName,result.rows[0].characterId);
                   $('#btn_timelineAll').attr('disabled',false);
               } else {
                   loadingToggle(false);
