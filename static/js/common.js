@@ -86,7 +86,7 @@ function recentSearch(obj){
 function recentView(rArr){
   $('.r-list > *').remove();
   rArr.forEach((element,i) => {
-    $('.r-list').append(`<div class="r-element"><div class="ndrag" onclick="recentSearch({'sId':'${element.sId}','cId':'${element.cId}','cName':'${element.cName}'})"><span>${convertServer(element.sId)}</span>${element.cName}</div><label data-num="${i}">x</label></div>`);
+    $('.r-list').append(`<div class="r-element"><div class="ndrag"><span>${convertServer(element.sId)}</span><div onclick="recentSearch({'sId':'${element.sId}','cId':'${element.cId}','cName':'${element.cName}'})">${element.cName}</div></div><label data-num="${i}">x</label></div>`);
   });
 }
 (() => {

@@ -153,6 +153,15 @@
   border-color: #a772e7;
 }
 
+[data-bs-theme=dark] .neopleThk {
+  background-color: var(--bs-dk-l2);
+}
+[data-bs-theme=dark] .privacy {
+  background-color: var(--bs-dk-l2);
+}
+[data-bs-theme=dark] .privacy > a {
+  color: var(--bs-dk-text-emphasis);
+}
 
 :root {
   --bs-body-font-family: "Malgun Gothic", "맑은 고딕","NanumGothic",system-ui, -apple-system,"Noto Sans";

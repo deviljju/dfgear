@@ -415,8 +415,7 @@ h6.rptz7{
   display: flex;
   width: 50%;
   height: 30px;
-  padding: 0px 16px;
-  cursor: pointer;
+  padding: 0 0.8rem;
 }
 .r-element > div {
   flex: 1 1 0%;
@@ -443,11 +442,15 @@ h6.rptz7{
   border-radius: 0.25rem;
   margin-right: 0.25rem;
 }
+.r-element > div > div {
+  cursor: pointer;
+}
 .r-element > label {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
-  padding-left: 4px;
+  justify-content: center;
+  width: 1.5rem;
   font-weight: 700;
   cursor: pointer;
 }
