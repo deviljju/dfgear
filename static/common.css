@@ -152,11 +152,7 @@
   background-color: #a772e7;
   border-color: #a772e7;
 }
-
 [data-bs-theme=dark] .neopleThk {
-  background-color: var(--bs-dk-l2);
-}
-[data-bs-theme=dark] .privacy {
   background-color: var(--bs-dk-l2);
 }
 [data-bs-theme=dark] .privacy > a {
