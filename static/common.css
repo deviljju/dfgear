@@ -135,6 +135,10 @@
   transition: 0.4s;
 }
 
+[data-bs-theme=dark] .accordion-button::after {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
 [data-bs-theme=dark] .infoArea .breadcrumb-item > a {
   color: var(--bs-dk-text-emphasis) !important;
 }
