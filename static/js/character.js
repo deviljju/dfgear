@@ -181,6 +181,10 @@ function Search(){
     toast("danger","캐릭터명을 입력해주세요");
     $("#searchBar").addClass('show');
     return $("#characterName").focus();
+  } else if(characterName.length>12){
+    toast("danger","캐릭터명은 12자리 이하로 입력해주세요");
+    $("#searchBar").addClass('show');
+    return $("#characterName").focus();
   }
   if(serverId==='adventure' || serverId==='all'){
     sessionStorage.setItem('sId',serverId);
@@ -201,17 +205,25 @@ function Search(){
               $("#btn_epicList").removeClass("show");
               $('.resultData').removeClass("show");
               $("#mistList").html("");
-              if(result.responseText && result.responseText.indexOf("APIKEY") > -1){
+              if(result.responseText){
+                if(result.responseText.indexOf("APIKEY") > -1){
                   return toast("danger","에러 발생_APIKEY 오류");
-              } else if(result.responseText && result.responseText.indexOf("MISSING_PARAMETER") > -1){
+                } else if(result.responseText.indexOf("MISSING_PARAMETER") > -1){
                   return toast("danger","에러 발생_입력값 오류");
-              } else if(result.responseText && result.responseText.indexOf("NO_CHARACTER") > -1){
+                } else if(result.responseText.indexOf("MISSING_SERVER") > -1){
+                  return toast("danger","서버아이디가 잘못 입력되었습니다");
+                } else if(result.responseText.indexOf("TOO_LONG_NAME") > -1){
+                  return toast("danger","이름은 12자리 이내로 검색해주세요");
+                } else if(result.responseText.indexOf("NO_CHARACTER") > -1){
                   return toast("danger","일치하는 캐릭터 정보가 없습니다");
-              } else if(result.responseText && result.responseText.indexOf("DENY_CHARACTER") > -1){
-                return toast("danger","소유자의 요청으로 조회가 차단된 캐릭터 입니다");
-              } else if(result.responseText && result.responseText.indexOf("SYSTEM_INSPECT") > -1){
-                apioff=true;
-                return alert("DNF점검");
+                } else if(result.responseText.indexOf("DENY_CHARACTER") > -1){
+                  return toast("danger","소유자의 요청으로 조회가 차단된 캐릭터 입니다");
+                } else if(result.responseText.indexOf("SYSTEM_INSPECT") > -1){
+                  apioff=true;
+                  return alert("DNF점검");
+                } else {
+                  return alert("관리자에게 문의");
+                }
               } else {
                   console.log(err); console.log(result);
                   return alert("에러 발생");

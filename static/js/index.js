@@ -142,6 +142,10 @@ function Search(){
   if(characterName.length<1){
       toast("danger","캐릭터명을 입력해주세요.");
       return $("#characterName").focus();
+  } else if(characterName.length>12){
+    toast("danger","캐릭터명은 12자리 이하로 입력해주세요");
+    $("#searchBar").addClass('show');
+    return $("#characterName").focus();
   }
   nowDate = moment().subtract(1,"m").format("YYYYMMDDTHHmm");
   $('.resultData').removeClass("show");
@@ -159,6 +163,8 @@ function Search(){
             return toast("danger","에러 발생_입력값 오류");
           } else if(result.responseText && result.responseText.indexOf("NO_CHARACTER") > -1){
             return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다");
+          } else if(result.responseText && result.responseText.indexOf("TOO_LONG_NAME") > -1){
+            return toast("danger","이름은 12자리 이내로 검색해주세요");
           } else {
             console.log(err); console.log(result);
             return alert("에러 발생");
@@ -184,7 +190,7 @@ function Search(){
         sessionStorage.clear();
         loadingToggle(false);
         if(e==="NO_CHARACTER"){
-          return toast("danger","일치하는 캐릭터 정보가 없습니다");
+          return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다.");
         } 
         return alert("에러 발생");
       }
@@ -196,10 +202,16 @@ function Search(){
       try{
         if(err){
           loadingToggle(false);
-          if(result.responseText && result.responseText.indexOf("MISSING_PARAMETER") > -1){
-            return toast("danger","에러 발생_입력값 오류");
-          } else if(result.responseText && result.responseText.indexOf("NO_CHARACTER") > -1){
-            return toast("danger","일치하는 캐릭터 정보가 없습니다");
+          if(result.responseText){
+            if(result.responseText.indexOf("MISSING_PARAMETER") > -1){
+              return toast("danger","에러 발생_입력값 오류");
+            } else if(result.responseText.indexOf("TOO_LONG_NAME") > -1){
+              return toast("danger","이름은 12자리 이내로 검색해주세요");
+            } else if(result.responseText.indexOf("NO_CHARACTER") > -1){
+              return toast("danger","일치하는 캐릭터 정보가 없습니다");
+            } else {
+              return alert("관리자에게 문의");
+            }
           } else {
             console.log(err); console.log(result);
             return alert("에러 발생");
