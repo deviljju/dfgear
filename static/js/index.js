@@ -142,10 +142,6 @@ function Search(){
   if(characterName.length<1){
       toast("danger","캐릭터명을 입력해주세요.");
       return $("#characterName").focus();
-  } else if(characterName.length>12){
-    toast("danger","캐릭터명은 12자리 이하로 입력해주세요");
-    $("#searchBar").addClass('show');
-    return $("#characterName").focus();
   }
   nowDate = moment().subtract(1,"m").format("YYYYMMDDTHHmm");
   $('.resultData').removeClass("show");
@@ -153,6 +149,11 @@ function Search(){
   $("#advenResult").removeClass("show");
   $('#btn_mistList').removeClass('show');
   if(serverId==='adventure'){
+    if(characterName.length>29){
+      toast("danger","모험단명은 30자리 이내로 입력해주세요");
+      $("#searchBar").addClass('show');
+      return $("#characterName").focus();
+    }
     loadingToggle();
     searchAdventure(characterName, function(result, err){
       sessionStorage.clear();
@@ -164,7 +165,7 @@ function Search(){
           } else if(result.responseText && result.responseText.indexOf("NO_CHARACTER") > -1){
             return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다");
           } else if(result.responseText && result.responseText.indexOf("TOO_LONG_NAME") > -1){
-            return toast("danger","이름은 12자리 이내로 검색해주세요");
+            return toast("danger","이름은 30자리 이내로 검색해주세요");
           } else {
             console.log(err); console.log(result);
             return alert("에러 발생");
@@ -196,6 +197,11 @@ function Search(){
       }
     })
   } else if(serverId==='all'){
+    if(characterName.length>20){
+      toast("danger","캐릭터명은 20자리 이내로 입력해주세요");
+      $("#searchBar").addClass('show');
+      return $("#characterName").focus();
+    }
     loadingToggle();
     searchAll(characterName, function(result, err){
       sessionStorage.clear();
@@ -206,7 +212,7 @@ function Search(){
             if(result.responseText.indexOf("MISSING_PARAMETER") > -1){
               return toast("danger","에러 발생_입력값 오류");
             } else if(result.responseText.indexOf("TOO_LONG_NAME") > -1){
-              return toast("danger","이름은 12자리 이내로 검색해주세요");
+              return toast("danger","이름은 20자리 이내로 검색해주세요");
             } else if(result.responseText.indexOf("NO_CHARACTER") > -1){
               return toast("danger","일치하는 캐릭터 정보가 없습니다");
             } else {
@@ -235,6 +241,11 @@ function Search(){
       }
     })
   } else {
+    if(characterName.length>20){
+      toast("danger","캐릭터명은 20자리 이내로 입력해주세요");
+      $("#searchBar").addClass('show');
+      return $("#characterName").focus();
+    }
     loadingToggle(false);
     sessionStorage.setItem('sId',serverId);
     sessionStorage.setItem('cName',characterName);

@@ -181,15 +181,16 @@ function Search(){
     toast("danger","캐릭터명을 입력해주세요");
     $("#searchBar").addClass('show');
     return $("#characterName").focus();
-  } else if(characterName.length>12){
-    toast("danger","캐릭터명은 12자리 이하로 입력해주세요");
-    $("#searchBar").addClass('show');
-    return $("#characterName").focus();
   }
   if(serverId==='adventure' || serverId==='all'){
     sessionStorage.setItem('sId',serverId);
     sessionStorage.setItem('cName',characterName);
     return location.href="./"; //?sId=${serverId}&cName=${encodeURIComponent(characterName)}
+  }
+  if(characterName.length>20){
+    toast("danger","캐릭터명은 20자리 이내로 입력해주세요");
+    $("#searchBar").addClass('show');
+    return $("#characterName").focus();
   }
   nowDate = moment().subtract(1,"m").format("YYYYMMDDTHHmm");
   loadingToggle();
@@ -213,7 +214,7 @@ function Search(){
                 } else if(result.responseText.indexOf("MISSING_SERVER") > -1){
                   return toast("danger","서버아이디가 잘못 입력되었습니다");
                 } else if(result.responseText.indexOf("TOO_LONG_NAME") > -1){
-                  return toast("danger","이름은 12자리 이내로 검색해주세요");
+                  return toast("danger","이름은 20자리 이내로 검색해주세요");
                 } else if(result.responseText.indexOf("NO_CHARACTER") > -1){
                   return toast("danger","일치하는 캐릭터 정보가 없습니다");
                 } else if(result.responseText.indexOf("DENY_CHARACTER") > -1){
