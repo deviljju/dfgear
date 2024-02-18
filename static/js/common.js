@@ -75,8 +75,7 @@ function recentSearch(obj){
     if(serverId==='adventure'){
       sessionStorage.setItem('sId',serverId);
       sessionStorage.setItem('cName',characterName);
-      return location.href="./";
-      // return location.href=`./?sId=${serverId}&cName=${encodeURIComponent(characterName)}`;
+      return location.href=`https://dfgear.xyz/adventure?cName=${encodeURIComponent(characterName)}`;
     }
     return location.href=`./character?sId=${serverId}&cName=${encodeURIComponent(characterName)}&cId=${characterId}`;
   } catch(e){

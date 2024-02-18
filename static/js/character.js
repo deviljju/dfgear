@@ -124,10 +124,9 @@ $(document).ready(function() {
     });
   })
   $(document).on("click", "#aName", function(ev) {
-    console.log(ev.target);
     sessionStorage.setItem('sId','adventure');
     sessionStorage.setItem('cName',$(ev.target).text());
-    return location.href="./";
+    return location.href=`https://dfgear.xyz/adventure?cName=${encodeURIComponent($(ev.target).text())}`;
   })
   $(window).resize(function(){
     $('#loadingScreen').css('height',$(document).height())
