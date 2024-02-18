@@ -230,6 +230,9 @@ body::-webkit-scrollbar-thumb {
   /* grid-area: privacy; */
   text-align: center;
   margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .privacy > a {
   color:black;
@@ -266,4 +269,17 @@ body::-webkit-scrollbar-thumb {
 }
 .uselct {
   user-select: text;
+}
+#btn_lightmode {
+  font-size: 0.75rem;
+  padding: 0.2rem;
+  margin: 0.2rem 0 0 1rem;
+}
+.adshorizonfixed {
+  margin: 0.625rem auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 760px;
+  height: auto !important;
 }

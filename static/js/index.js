@@ -9,8 +9,17 @@ let mistMapChart;
 $(document).ready(function() {
   nowDate = moment().format("YYYYMMDDTHHmm");  
   try{
-    serverId = sessionStorage.getItem("sId") ? sessionStorage.getItem("sId") : new URLSearchParams(location.search).get('sId');
-    characterName = sessionStorage.getItem("cName") ? sessionStorage.getItem("cName") : new URLSearchParams(location.search).get('cName');
+    if(new URLSearchParams(location.search).get('sId')){
+      serverId = new URLSearchParams(location.search).get('sId');
+    } else {
+      serverId = sessionStorage.getItem("sId")
+    }
+    if(new URLSearchParams(location.search).get('cName')){
+      characterName = new URLSearchParams(location.search).get('cName');
+    } else {
+      characterName = sessionStorage.getItem("cName")
+    }
+    // characterName = sessionStorage.getItem("cName") ? sessionStorage.getItem("cName") : new URLSearchParams(location.search).get('cName');
     if(characterName != null && characterName !== '' && serverId != null){
       $("select[name='server']").val(serverId)
       $("input[name='name']").val(characterName);
@@ -63,6 +72,10 @@ $(document).ready(function() {
   $(document).on("click", "#btn_search", function() {
     Search();
   });
+  $(document).on("click", "#btn_lightmode", function(ev) {
+    ligthModeChange(ev.target);
+  })
+
   $(document).on("click", "#advenTotal", function() {
     if($("select[name='server']").val() != "adventure") {
       return;
@@ -154,48 +167,8 @@ function Search(){
       $("#searchBar").addClass('show');
       return $("#characterName").focus();
     }
-    loadingToggle();
-    searchAdventure(characterName, function(result, err){
-      sessionStorage.clear();
-      try{
-        if(err){
-          loadingToggle(false);
-          if(result.responseText && result.responseText.indexOf("MISSING_PARAMETER") > -1){
-            return toast("danger","에러 발생_입력값 오류");
-          } else if(result.responseText && result.responseText.indexOf("NO_CHARACTER") > -1){
-            return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다");
-          } else if(result.responseText && result.responseText.indexOf("TOO_LONG_NAME") > -1){
-            return toast("danger","이름은 30자리 이내로 검색해주세요");
-          } else {
-            console.log(err); console.log(result);
-            return alert("에러 발생");
-          }
-        } else if(result.rows && result.rows.length>0){
-          makeCardView(result.rows,true);
-          recentApply(serverId,characterName,cId="");
-          $('.recentBox').removeClass('active'); // 최근검색 숨김처리
-          // if(result.mist && result.mist.length>0){  //미기리스트 모달
-          //   mistCount = result.mist.length;
-          //   $('#btn_mistList').addClass('show');
-          //   makeModalData(characterName, result.mist);
-          // } else{
-          //   mistCount = 0;
-          // }
-        } else {
-          loadingToggle(false);
-          $("#advenResult").removeClass("show");
-          $('#btn_mistList').removeClass('show');
-          return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다.");
-        }
-      } catch(e){
-        sessionStorage.clear();
-        loadingToggle(false);
-        if(e==="NO_CHARACTER"){
-          return toast("danger","모험단에 소속된 캐릭터 정보가 없습니다.");
-        } 
-        return alert("에러 발생");
-      }
-    })
+    sessionStorage.setItem('cName',characterName);
+    return location.href=`./adventure?cName=${encodeURIComponent(characterName)}`;
   } else if(serverId==='all'){
     if(characterName.length>20){
       toast("danger","캐릭터명은 20자리 이내로 입력해주세요");
@@ -266,7 +239,6 @@ function makeCardView(characters,adventure=true){
   try{
     let total=0;
     let mist=0;
-    let card=0;
     $("#characterList").html("");
     characters.forEach(character => {
       try{
@@ -282,15 +254,14 @@ function makeCardView(characters,adventure=true){
           </div>
         </div>`;
         total += parseInt(character.total);
-        mist += parseInt(character.mist);
-        card += parseInt(character.card);
+        mist += parseInt(character.mist) + parseInt(character.pot);
         $("#characterList").append(html);
       } catch (e) {
         console.log(e);
       }
     })
     if(adventure){
-      $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist} (카드 ${card})`);
+      $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist}`);
     } else {
       $("#advenTotal").html(`${characters[0].characterName} 조회 결과`);
     }

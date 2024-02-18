@@ -83,6 +83,21 @@ function recentSearch(obj){
     Search();
   }
 }
+function ligthModeChange(btn){
+  let theme = localStorage.getItem('theme');
+  if(theme == undefined || theme===''){
+    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  if(theme ==='dark'){
+    theme = 'light';
+  } else {
+    theme = 'dark';
+  }
+  localStorage.setItem('theme',theme);
+  document.documentElement.setAttribute('data-bs-theme', theme);
+  btn.className = `btn btn-${theme=='light' ? 'secondary' : 'light'}`;
+  btn.innerHTML = theme === 'dark' ? '라이트모드' : '다크모드';
+}
 function recentView(rArr){
   $('.r-list > *').remove();
   rArr.forEach((element,i) => {
@@ -107,9 +122,13 @@ function recentView(rArr){
   const setTheme = theme => {
     if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       document.documentElement.setAttribute('data-bs-theme', 'dark')
+      theme = 'dark';
     } else {
       document.documentElement.setAttribute('data-bs-theme', theme)
     }
+    let btn =  document.getElementById("btn_lightmode");
+    btn.className = `btn btn-${theme=='light' ? 'secondary' : theme}`;
+    btn.innerHTML = theme === 'dark' ? '라이트모드' : '다크모드';
   }
 
   setTheme(getPreferredTheme())

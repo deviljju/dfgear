@@ -10,6 +10,9 @@ $(document).ready(function() {
       Search();
     }
   });
+  $(document).on("click", "#btn_lightmode", function(ev) {
+    ligthModeChange(ev.target);
+  })
   $(document).on("click", "#btn_search", function() {
     Search();
   });
@@ -182,7 +185,15 @@ function Search(){
     $("#searchBar").addClass('show');
     return $("#characterName").focus();
   }
-  if(serverId==='adventure' || serverId==='all'){
+  if(serverId==='adventure'){
+    if(characterName.length>29){
+      toast("danger","모험단명은 30자리 이내로 입력해주세요");
+      $("#searchBar").addClass('show');
+      return $("#characterName").focus();
+    }
+    sessionStorage.setItem('cName',characterName);
+    return location.href=`./adventure?cName=${encodeURIComponent(characterName)}`;
+  } else if(serverId==='all'){
     sessionStorage.setItem('sId',serverId);
     sessionStorage.setItem('cName',characterName);
     return location.href="./"; //?sId=${serverId}&cName=${encodeURIComponent(characterName)}
