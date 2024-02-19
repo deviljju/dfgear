@@ -178,10 +178,12 @@ function Search(){
     loadingToggle();
     searchAll(characterName, function(result, err){
       sessionStorage.clear();
+      $("#searchError").removeClass('show');
       try{
         if(err){
           loadingToggle(false);
           if(result.responseText){
+            $("#searchError").text(`"${characterName}" 검색 결과`).addClass('show');
             if(result.responseText.indexOf("MISSING_PARAMETER") > -1){
               return toast("danger","에러 발생_입력값 오류");
             } else if(result.responseText.indexOf("TOO_LONG_NAME") > -1){
@@ -189,6 +191,7 @@ function Search(){
             } else if(result.responseText.indexOf("NO_CHARACTER") > -1){
               return toast("danger","일치하는 캐릭터 정보가 없습니다");
             } else {
+              $("#searchError").removeClass('show');
               return alert("관리자에게 문의");
             }
           } else {
@@ -202,6 +205,7 @@ function Search(){
           loadingToggle(false);
           $("#advenResult").removeClass("show");
           $('#btn_mistList').removeClass('show');
+          $("#searchError").text(`"${characterName}" 검색 결과`).addClass('show');
           return toast("danger","일치하는 캐릭터 정보가 없습니다");
         }
       } catch(e){

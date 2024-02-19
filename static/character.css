@@ -148,6 +148,7 @@
   #mistList{
     height: max-content;
     margin: 0.3rem;
+    max-width: 28.6rem;
     min-width: calc(15rem + var(--bs-gutter-x));
   }
   /* .offcanvas.show {
@@ -301,7 +302,7 @@
     margin: 0.3rem;
   }
   #notice.show {
-    max-width: 28rem;
+    max-width: 28.6rem;
     display: block;
   }
   #notice > p {

@@ -130,7 +130,7 @@
   background-color: var(--bs-dk-l2) !important;
   color: var(--bs-dk-text-emphasis) !important;
 }
-[data-bs-theme=dark] .btn-close {
+[data-bs-theme=dark] .modal-header .btn-close {
   filter: invert(100%) hue-rotate(180deg);
   transition: 0.4s;
 }
@@ -269,6 +269,12 @@ body::-webkit-scrollbar-thumb {
 }
 .uselct {
   user-select: text;
+}
+#searchError {
+  display: none;
+}
+#searchError.show {
+  display: block;
 }
 #btn_lightmode {
   font-size: 0.75rem;

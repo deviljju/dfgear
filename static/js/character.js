@@ -210,6 +210,7 @@ function Search(){
       try{
           sessionStorage.clear();
           $("#searchBar").addClass('show');
+          $("#searchError").removeClass('show');
           timeLineList = [];
           if(err){
               loadingToggle(false);
@@ -217,6 +218,7 @@ function Search(){
               $('.resultData').removeClass("show");
               $("#mistList").html("");
               if(result.responseText){
+                $("#searchError").text(`"${characterName}" 검색 결과`).addClass('show');
                 if(result.responseText.indexOf("APIKEY") > -1){
                   return toast("danger","에러 발생_APIKEY 오류");
                 } else if(result.responseText.indexOf("MISSING_PARAMETER") > -1){
@@ -233,6 +235,7 @@ function Search(){
                   apioff=true;
                   return alert("DNF점검");
                 } else {
+                  $("#searchError").removeClass('show');
                   return alert("관리자에게 문의");
                 }
               } else {
@@ -245,6 +248,7 @@ function Search(){
                   $("#btn_epicList").removeClass("show");
                   $('.resultData').removeClass("show");
                   $("#mistList").html("");
+                  $("#searchError").text(`"${characterName}" 검색 결과`).addClass('show');
                   if(result.error.message=="APIKEY_AUTH_ERROR"){
                       return toast("danger","에러 발생_APIKEY오류");
                   } else if(result.error.message=="SYSTEM_INSPECT"){
@@ -263,6 +267,7 @@ function Search(){
                   $("#btn_epicList").removeClass("show");
                   $('.resultData').removeClass("show");
                   $("#mistList").html("");
+                  $("#searchError").text(`"${characterName}" 검색 결과`).addClass('show');
                   return toast("danger","일치하는 캐릭터 정보가 없습니다");
               }
           }
@@ -274,6 +279,7 @@ function Search(){
           $("#searchBar").addClass('show');
           $('.resultData').removeClass("show");
           $("#mistList").html("");
+          $("#searchError").text(`"${characterName}" 검색 결과`).addClass('show');
           if(chinfoErr==="NO_CHARACTER"){
               return toast("danger","일치하는 캐릭터 정보가 없습니다");
           } 
