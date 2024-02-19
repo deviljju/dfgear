@@ -152,6 +152,7 @@ function Search(){
   }
   var serverId = $("select[name='server']").val();
   var characterName = $("input[name='name']").val();
+  characterName = characterName.trim();
   if(characterName.length<1){
       toast("danger","캐릭터명을 입력해주세요.");
       return $("#characterName").focus();

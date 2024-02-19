@@ -163,6 +163,7 @@ function Search(){
   }
   var serverId = $("select[name='server']").val();
   var characterName = $("input[name='name']").val();
+  characterName = characterName.trim();
   if(characterName.length<1){
       toast("danger","캐릭터명을 입력해주세요.");
       return $("#characterName").focus();
@@ -172,7 +173,7 @@ function Search(){
   $("#characterList").html("");
   $("#advenResult").removeClass("show");
   $('#btn_mistList').removeClass('show');
-  if(serverId==='adventure'){
+  if(serverId==='adventure'){    
     if(characterName.length>29){
       toast("danger","모험단명은 30자리 이내로 입력해주세요");
       $("#searchBar").addClass('show');

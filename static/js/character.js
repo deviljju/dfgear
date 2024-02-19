@@ -177,6 +177,7 @@ function Search(){
   if($("#searchBar").hasClass('show')){
     serverId = $("select[name='server']").val();
     characterName = $("input[name='name']").val();
+    characterName = characterName.trim();
     characterId = '';
   }
   if(characterName.length<1){
