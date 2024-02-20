@@ -114,6 +114,8 @@ $(document).ready(function() {
       async function refresh(){
         try{
           let i=0;
+          let total=0;
+          let mist=0;
           for (let character of characterList){
             let sId=$(character).attr('data-sid');
             let cId=$(character).attr('data-cid');
@@ -129,6 +131,8 @@ $(document).ready(function() {
                 $(character).children('div').children('.mi').text(`미스트 기어 획득 : ${info.mist+info.pot}`);
                 $(character).children('div').children('.to').text(`중재자 에픽 : ${info.total}`);
                 $(character).children('div').children('.da').text(info.uptime);
+                total += parseInt(info.total);
+                mist += parseInt(info.mist) + parseInt(info.pot);
               }
             }).catch(err=>{console.log(err);
               if(err.responseJSON.code && err.responseJSON.code =='Already Refresh'){
@@ -141,6 +145,7 @@ $(document).ready(function() {
             })
             i++;
           }
+          $("#advenTotal").html(`중재자 에픽 : ${total}, 미스트 기어 : ${mist}`);
         } catch(e){
           loadingToggle(false);
         }
