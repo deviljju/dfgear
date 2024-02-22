@@ -121,12 +121,12 @@ $(document).ready(function() {
     });
   }, 15*1000);
   // 미기 정가 계산
-  let init = new Date('2024-01-11'); // 950개
+  let init = new Date('2024-02-22'); // 24.01.11: 950개(이면), 23.09.14: 0개
   let today = moment();
   let now = new Date(today.format("YYYY-MM-DD"));
   let btwDay = (now - init) / (1000 * 3600 * 24);
   let week = btwDay== 0 ? 1 : Math.floor(btwDay/7) + 1;
-  let own = week* 90 + 950; // 20 + 20 + 30 + 20
+  let own = week* 120 + 1490; // 40 + 30 + 20 + 30
   let prove =own;
   // // 월 마다 45개 해방
   var proof = moment('2023-11-01 06:00:00');
