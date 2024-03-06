@@ -306,7 +306,7 @@ display: flex;
   max-width: 45rem;
   height: max-content;
 }
-.container > .accordion > div > h2 {
+.accordion > div > h2 {
   font-family: 'DNFBitBitv2';
 }
 .accordion-body > span {
@@ -463,4 +463,19 @@ h6.rptz7{
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+#stoneCalc .accordion-button{
+  border-radius: 0 !important;
+  padding: 0.5rem 1rem !important;
+}
+#stoneCalc .accordion-item{
+  border-radius: 0 !important;
+  border: 0 !important;
+}
+#expectedDate {
+  display: none;
+  margin: 0.5rem 0;
+}
+#expectedDate.show {
+  display: block !important;
 }
