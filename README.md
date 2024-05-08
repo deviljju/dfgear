@@ -1,4 +1,4 @@
-# DNF_DFGEAR - 던전앤파이터 미스트기어 탐색기
+# DNF_DFGEAR - 던전앤파이터 태초, 미스트기어 탐색기
 
 작성자 : deviljju
 

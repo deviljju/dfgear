@@ -151,6 +151,10 @@
     max-width: 28.6rem;
     min-width: calc(15rem + var(--bs-gutter-x));
   }
+  #mistList > ul {
+    max-height: 55vh;
+    overflow-y: auto;
+  }
   /* .offcanvas.show {
     width: 30rem !important;
     min-width: 50vw;
@@ -225,6 +229,9 @@
   #mistList.card > .card-header {
     background-color: #fff3cd5c;
     font-family: 'DNFBitBitv2';
+  }
+  #mistList.card > .card-header.begin {
+    background-color: #4eef565c;
   }
   #mistList.card img{
     margin-right: 0.5rem;

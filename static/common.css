@@ -289,3 +289,20 @@ body::-webkit-scrollbar-thumb {
   width: 760px;
   height: auto !important;
 }
+.adsmallhorizonfixed {
+  margin: 0.2rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 230px !important;
+  height: calc(160px + 0.4rem) !important;
+}
+.card > ul::-webkit-scrollbar {
+  width: 10px;
+}
+.card > ul::-webkit-scrollbar-thumb {
+    background-color: lightgrey;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+}
