@@ -467,14 +467,15 @@ h6.rptz7{
   -ms-user-select: none;
   user-select: none;
 }
+/*
 #stoneCalc .accordion-button{
   border-radius: 0 !important;
   padding: 0.5rem 1rem !important;
 }
-#stoneCalc .accordion-item{
+ #stoneCalc .accordion-item{
   border-radius: 0 !important;
   border: 0 !important;
-}
+} */
 #expectedDate {
   display: none;
   margin: 0.5rem 0;
