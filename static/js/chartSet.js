@@ -11,6 +11,7 @@ function makeChart(chartId,type,label,labels,data,backgroundColor,chart=undefine
   if(chart) {
     chart.data = chartSet;
     chart.update();
+    return chart;
   } else {
     chart = new Chart(document.getElementById(chartId), {
       type: type,
@@ -30,5 +31,6 @@ function makeChart(chartId,type,label,labels,data,backgroundColor,chart=undefine
         },
       }
     });
+    return chart;
   }
 }
