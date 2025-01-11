@@ -348,9 +348,12 @@
     color:#6fc2ac
   }
   #equipList {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
+  }
+  #equipList.show {
+    display: flex !important;
   }
   #equipment {
     width: 164px;
