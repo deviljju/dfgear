@@ -148,7 +148,7 @@
   background-color: #4eef565c;
 }
 .aggregate > div:nth-child(1) {
-  width: 20rem !important;
+  width: 25rem !important;
 }
 .aggregate > div > div:nth-child(2){
   margin-top:1rem;
@@ -306,7 +306,7 @@ display: flex;
 }
 
 .container > .accordion {
-  max-width: 45rem;
+  max-width: 47.5rem;
   height: max-content;
 }
 .accordion > div > h2 {
