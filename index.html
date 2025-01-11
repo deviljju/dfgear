@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DFGEAR - 던파기어 던전앤파이터 태초, 미스트기어 탐색기</title>
+    <title>DFGEAR - 던파기어 던전앤파이터 중천 태초 탐색기</title>
     <link rel="icon" href="./static/images/favicon.ico" type="image/x-icon">
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -21,18 +21,18 @@
     <link rel="canonical" href="https://dfgear.xyz">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="DFGEAR">
-    <meta name="keyword" content="던파기어 던전앤파이터 던파 미스트기어 미기사이트 타임라인 에픽 미기 던기어 dfgear">
-    <meta name="description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 미스트 기어에 대한 정보를 알 수 있습니다.">
+    <meta name="keyword" content="던파기어 던전앤파이터 던파 중천 태초사이트 타임라인 에픽 미기 던기어 dfgear">
+    <meta name="description" content="던파기어 Dungeon & Fighters TimeLine App. 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.">
     <meta property="og:url" content="https://dfgear.xyz">
     <meta property="al:web:url" content="https://dfgear.xyz">
     <meta property="og:type" content="website">
     <meta property="og:title" content="DFGEAR - 던파기어">
     <meta property="og:site_name" content="DFGEAR - 던파기어">
-    <meta property="og:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 미스트 기어에 대한 정보를 알 수 있습니다.">
+    <meta property="og:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.">
     <meta property="og:image" content="https://dfgear.xyz/static/images/banner.png">
     <meta property="og:locale" content="ko_KR">
     <meta property="twitter:title" content="DFGEAR - 던파기어">
-    <meta property="twitter:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 미스트 기어에 대한 정보를 알 수 있습니다.">
+    <meta property="twitter:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.">
     <meta property="twitter:image" content="https://dfgear.xyz/static/images/banner.png">
     <link rel="stylesheet" href="./static/common.css">
     <link rel="stylesheet" href="./static/index.css">
@@ -75,52 +75,14 @@
       </div>
       <div class="row aggregate">
         <div class="card-g-2">
-          <div class="accordion" id="stoneCalc">
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCalc" aria-expanded="true" aria-controls="collapseCalc">
-                  부유석 예상 계산기
-                </button>
-              </h2>
-              <div id="collapseCalc" class="accordion-collapse collapse" data-bs-parent="#stoneCalc">
-                <div class="accordion-body">
-                  <div class="input-group">
-                    <input id="nowStone" type="text" class="form-control" placeholder="현재 부유석 개수" name="stone" aria-label="현재 부유석 개수" autocomplete="off">
-                    <button id="btn_calc" class="btn btn-outline-secondary" type="button">계산</button>
-                    <button id="btn_init" class="btn btn-outline-secondary" type="button">초기화</button>
-                  </div>
-                  <h5 id="expectedDate" class="uselct"></h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- <div class="card">
-            <div class="card-body remain">
-              <div class="card-header">다음 안개의 빛무리까지</div>
-              <h6 id="remainVal" class="card-subtitle mb-2 text-muted">1730/2000</h6>
-              <p id="remainWeek" class="card-text"></p>
-              <div class="progress">
-                <div id="prg_own"class="progress-bar progress-bar-striped" role="progressbar" aria-label="Segment one" style="width: 73%" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100"></div>
-                <div id="prg_prove" class="progress-bar bg-warning progress-bar-striped" role="progressbar" aria-label="Segment two"aria-valuenow="0" aria-valuemin="0" aria-valuemax="30"></div>
-              </div>
-              <span class="text-muted">24.06.20 예정</span>
-            </div>
-          </div> -->
           <div id="topThreeMist" class="card">
-            <div class="card-header begin">태초 융합석 획득량 TOP5</div>
+            <div class="card-header begin">태초 획득량 TOP5</div>
             <ul class="list-group list-group-flush">
               <li id="top1" class="list-group-item somepd"></li>
               <li id="top2" class="list-group-item somepd"></li>
               <li id="top3" class="list-group-item somepd"></li>
               <li id="top4" class="list-group-item somepd"></li>
               <li id="top5" class="list-group-item somepd"></li>
-              <li class="list-group-item"><div class="card-header">정제된 미스트 기어 변환 TOP5</div><ul class="list-group list-group-flush">
-                <li id="top1r" class="list-group-item somepd"></li>
-                <li id="top2r" class="list-group-item somepd"></li>
-                <li id="top3r" class="list-group-item somepd"></li>
-                <li id="top4r" class="list-group-item somepd"></li>
-                <li id="top5r" class="list-group-item somepd"></li>
-              </ul></li>
             </ul>
           </div>
         </div>
@@ -132,20 +94,14 @@
                 <li class="list-group-item side somepd chName">TOP 2 <h6 id="top2c">-</h6></li>
                 <li class="list-group-item side somepd chName">TOP 3 <h6 id="top3c">-</h6></li>
               </ul></li>
-              <li class="list-group-item"><div class="card-header">오늘의 등급</div><h5 id="dailyGrade" class="card-subtitle mb-2 text-muted">- 개</h5></li>
               <li class="list-group-item"><div class="card-header">태초 획득량</div><h5 id="dailyCount" class="card-subtitle mb-2 text-muted">- 개</h5></li>
               <li class="list-group-item"><div class="card-header">태초 획득분포<h6 class="rptz7">(단위:캐릭터)</h6></div>
                 <div class="chart">
                   <canvas id="chart_beginMap"></canvas>
                 </div>
               </li>
-              <li class="list-group-item"><div class="card-header">미스트기어 획득분포<h6 class="rptz7">(단위:캐릭터)</h6></div>
-                <div class="chart">
-                  <canvas id="chart_mistMap"></canvas>
-                </div>
-              </li>
               <li class="list-group-item pd7">
-                <div ><h5 class="card-title">어느 캐릭터는 태초를</h5><h5 id="maxCount" class="card-subtitle mb-2">- 개가지고 있습니다.</h5></div>                
+                <div ><h5 class="card-title">어느 캐릭터는 태초를</h5><h5 id="maxCount" class="card-subtitle mb-2">- 개 획득했습니다.</h5></div>                
               </li>
             </ul>
           </div>
@@ -160,20 +116,9 @@
           </h2>
           <div id="collapseQnA" class="accordion-collapse collapse" data-bs-parent="#accordionNotice">
             <div class="accordion-body">
-              <span>Q. 태초를 먹었는데 표시 되지 않아요</span>
-              <p>A. 문의 주세요</p>
-              <span>Q. 미스트 기어 천장이 표시 되지 않아요</span>
-              <p>A. 던파에서 제공해주지 않습니다. (저는 707에픽에 획득)</p>
-              <span>Q. 미스트 기어를 먹었는데 목록에 안뜹니다.</span>
-              <p>A. 12.28 패치 후 미스트 기어가 봉인된 미기 (소모품)으로 변경되어 획득처를 알 수 없습니다. 안개의 빛무리(소모품)을 사용하셔야 타임라인에 기록이 되며 사용한 시점의 데이터를 표시합니다.</p>
-              <span>Q. 파편 항아리를 깠는데 리스트에 없어요</span>
-              <p>A. 12.14 패치 이전에 사용한 항아리 데이터는 타임라인에서 제공하지 않아 데이터를 가져올 수 없습니다, 28일 이후는 항아리도 봉미기로 나와 소모품을 사용해야 기록됩니다.</p>
-              <span>Q. 조회를 해도 캐릭터가 안나와요</span>
-              <p>A. 던파 기어의 전체 조회 기능은 최초 서버-캐릭터명으로 조회를 해서 서버에 데이터가 저장되어야 조회할 수 있습니다.</p>
-              <span>Q. 갱신을 했는데 에픽 개수가 줄었습니다.</span>
-              <p>A. 12.02 API에서 제공하는 값인 캐릭터고유값이 각 서버별 고유값인 것을 늦게 인지하였습니다. 동일한 캐릭터ID값을 가지는 캐릭터는 에픽 개수가 중첩되는 이슈가 있었습니다.</p>
-              <p>12.14 패치 후 일시적으로 9월 14일 부터 100개의 획득 데이터를 중복으로 카운팅하는 오류가 있었습니다. 해당 오류가 수정되면서 개수가 줄었을 수 있으나 <strong>공식 홈페이지의 중재자 획득 수와 던파기어의 숫자가 다를 경우</strong> 문의 주시기 바랍니다.</p>
-              <p>이 외 오류를 발견하셨다면 꼭 문의 부탁드립니다!!</p>
+              <span>Q. 이상해요</span>
+              <p>A. 105, 110 시즌 아이템을 필터링 하는 작업 진행 중중</p>
+              <p>던파 기어의 전체 조회 기능은 최초 서버-캐릭터명으로 조회를 해서 서버에 데이터가 저장되어야 조회할 수 있습니다.</p>
               <p>- 던파기어</p>
             </div>
           </div>
@@ -181,25 +126,12 @@
         <div class="accordion-item">
           <h2 class="accordion-header">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              2024.06.20 수정내역
+              2025.01.11 수정내역
             </button>
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionNotice">
             <div class="accordion-body">
-              <p>* 1000개 도달 프로그레스바 제거</p>
-              <p>* 태초 관련 추가</p>
-              <p>* 부유석 천개 도달 예상 날짜 계산기 추가</p>
-              <p>* 모험단 전체 갱신 추가, 부하 방지 2시간 제한</p>
-              <p>* 미스트 기어 획득날짜에 중복이 없을 거라 생각했는데 같은 시간에 항아리에서 연속으로 같은 미기를 뽑은 데이터가 있어 수정중입니다. 중복데이터가 있을 경우 문의에 캐릭터명 남겨주시면 감사하겠습니다.</p>
-              <span>* 태초 획득랭킹 추가 </span>
-              <span>6시간 간격으로 랭킹을 집계합니다. 랭킹이 표시되지 않을 경우 양해 바랍니다.</span>
-              <span>(기준: 태초 획득 수 1개 이상 획득한 캐릭터 단위)</span>
-              <p>* 캐릭터 조회 시 던담 바로가기 버튼 추가</p>
-              <p>* 봉인된 미스트 기어 소모품 사용 시 미스트기어 획득으로 카운팅</p>
-              <span>* 전체 검색 기능 관련</span>
-              <p style="color: red;">전체로 검색 시 던파기어에 등록된 캐릭터명을 검색합니다. 등록되지 않은 캐릭터는 서버를 선택해 조회해주세요</p>
-              <p>획득 에픽 수(중재자 일반 에픽 + 봉미기 + 드랍 미스트기어+서고 에픽)가 이상하다면 공홈 확인(중재자로 검색 + 봉인된으로 검색) 후 캐릭터 갱신 또는 문의로 모험단명 보내주세요.</p>
-              <p>* 메인화면 우측 하단 통계는 한 캐릭터 기준입니다. 계정 기준이 아닙니다.</p>
+              <p>* 110 시즌 준비</p>
               <p>* 오류 발생 시 하단에 문의 오픈카카오톡으로 문의 부탁드립니다.</p>
               <p>- 던파기어</p>
             </div>
@@ -216,7 +148,6 @@
     </div>
     <div class="privacy"><a href="https://open.kakao.com/o/shxSboVf" target="_blank" title="오류/건의사항 문의" style="margin-right: 1rem;">오류/건의사항 문의</a><a href="./privacy">개인정보 처리방침</a><button id="btn_lightmode" class="btn btn-light">조회</button></div>
     <script src="./static/js/common.js"></script>
-    <script src="./static/js/calc.js"></script>
     <script src="./static/js/item.js"></script>
     <script src="./static/js/chart.min.js"></script>
     <script src="./static/js/chartSet.js"></script>
