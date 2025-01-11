@@ -347,3 +347,58 @@
   .r_begin {
     color:#6fc2ac
   }
+  #equipList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #equipment {
+    width: 164px;
+    height: 142px;
+    display: flex;
+    background-image: url(https://bbscdn.df.nexon.com/data7/showroom/static/img/bg3.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding: 0.5rem;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+  }
+  #equipment > .l1 {
+    width: 60px;
+    position: relative;
+  }
+  #equipment > .l2 {
+    width: 60px;
+  }
+  #equipment > .l2 > .rightEquip {
+    position: relative;
+    margin-top: 4px;
+  }
+  #equipment > div img {
+    width: 28px;
+    height: 28px;
+  }
+  img.p0_1 {
+    position: absolute;
+    left: 32px;
+  }
+  img.p1_0 {
+    position: absolute;
+    top: 32px;
+    left: 0;
+  }
+  img.p1_1 {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+  }
+  img.p2_0 {
+    position: absolute;
+    top: 64px;
+    left: 0;
+  }
+  img.p2_1 {
+    position: absolute;
+    top: 64px;
+    left: 32px;
+  }
