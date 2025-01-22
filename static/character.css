@@ -380,6 +380,10 @@
   #equipment > div img {
     width: 28px;
     height: 28px;
+    background-color: black;
+  }
+  #equipment > div img[src=""] {
+    background-color: black;
   }
   img.p0_1 {
     position: absolute;
