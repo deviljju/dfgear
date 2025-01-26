@@ -49,7 +49,7 @@
     <div class="container">
       <div class="row title">DFGEAR</div>
       <div class="recentBox active">
-        <div class="r-header ndrag">집계 기간 : 2025.01.09 12:00 ~ 01.26 15:00<hr>이후 데이터는 갱신되지 않습니다</div>
+        <div class="r-header ndrag">집계 기간 : 2025.01.09 12:00 ~ 01.26 15:45<hr>이후 데이터는 갱신되지 않습니다</div>
       </div>
       <div id="advenResult" class="show">
         <div class="row adventure">
@@ -62,7 +62,21 @@
             <div class="card-header begin">태초 획득량 TOP10</div>
             <ul class="list-group list-group-flush"></ul>
           </div>
-          <div id="beginList" class="accordion">
+          <div id="timeList" class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#timeGet" aria-expanded="false" aria-controls="timeGet">
+                  시간대별 통계
+                </button>
+              </h2>
+              <div id="timeGet" class="accordion-collapse collapse" data-bs-parent="#timeList">
+                <div class="chart">
+                  <canvas id="chart_timeMap"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="beginList" class="accordion" style="margin-top: 0.5rem;">
             <div class="accordion-item">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#beginGet" aria-expanded="false" aria-controls="beginGet">
@@ -72,7 +86,6 @@
               <div id="beginGet" class="accordion-collapse collapse" data-bs-parent="#beginList"></div>
             </div>
           </div>
-
         </div>
         <div class="card-g-2">
           <div class="card">

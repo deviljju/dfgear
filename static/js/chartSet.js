@@ -13,7 +13,7 @@ function makeChart(chartId,type,label,labels,data,backgroundColor,chart=undefine
     chart.update();
     return chart;
   } else {
-    chart = new Chart(document.getElementById(chartId), {
+    const ctxOpt = {
       type: type,
       data: chartSet,
       options: {
@@ -26,11 +26,30 @@ function makeChart(chartId,type,label,labels,data,backgroundColor,chart=undefine
         },
         plugins:{
           legend:{
-            position:"right",
+            position: type == 'bar' ? "top" : "right",
           }
         },
       }
-    });
+    }
+    if(type=='bar'){
+      ctxOpt.options.scales = {
+        x: {
+            grid: {
+                display: false // x축 그리드 숨기기
+            },
+            ticks: {
+                display: true // x축 값은 표시
+            },
+            border: {
+                display: false // x축 선 숨기기
+            }
+        },
+        y: {
+            beginAtZero: true // y축 0부터 시작
+        }
+    }
+    }
+    chart = new Chart(document.getElementById(chartId), ctxOpt);
     return chart;
   }
 }
