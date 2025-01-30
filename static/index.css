@@ -483,3 +483,6 @@ h6.rptz7{
 #expectedDate.show {
   display: block !important;
 }
+#agre_link {
+  text-align: center; font-size: 0.8rem; text-decoration: underline; text-underline-offset: 0.25rem; border: 0 !important; cursor: pointer;
+}
