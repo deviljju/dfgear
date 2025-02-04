@@ -276,6 +276,13 @@ body::-webkit-scrollbar-thumb {
 #searchError.show {
   display: block;
 }
+#searchErrorDetail {
+  display: none;
+  text-align: center;
+}
+#searchErrorDetail.show {
+  display: block;
+}
 #btn_lightmode {
   font-size: 0.75rem;
   padding: 0.2rem;
@@ -305,4 +312,17 @@ body::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-clip: padding-box;
     border: 2px solid transparent;
+}
+#moreCh {
+  text-align: center;
+  font-size: 0.8rem;
+  border: 0 !important;
+  cursor: pointer;
+  text-decoration: underline; text-underline-offset: 0.25rem;
+}
+li.chName.more{
+  display: none !important;
+}
+li.chName.more.show{
+  display: flex !important;
 }
