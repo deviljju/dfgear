@@ -49,7 +49,7 @@
     <div class="container">
       <div class="row title" onClick="window.location.href='https://dfgear.xyz'">DFGEAR</div>
       <div class="recentBox active">
-        <div class="r-header ndrag">집계 기간 : 2025.01.09 12:00 ~ 02.06 10:00<hr>이후 데이터는 갱신되지 않습니다</div>
+        <div class="r-header ndrag">집계 기간 : 2025.01.09 12:00 ~ <span id="updateDate">02.06 10:00</span><hr>이후 데이터는 갱신되지 않습니다</div>
       </div>
       <div id="advenResult" class="show">
         <div class="row adventure">
@@ -93,18 +93,7 @@
               <li class="list-group-item"><div class="card-header">태초 획득량</div><h5 id="beginCnt" class="card-subtitle mb-2 text-muted">77,814 개</h5></li>
               <li class="list-group-item"><div class="card-header">레거시 획득량</div><h5 id="legacyCnt" class="card-subtitle mb-2 text-muted">6,879 개</h5></li>
               <li class="list-group-item"><div class="card-header">착용 가능 레거시 획득량</div><h5 id="kirinCount" class="card-subtitle mb-2 text-muted">3,866 개</h5></li>
-              <li class="list-group-item"><div class="card-header">태초가 많이 나온 채널</div><ul class="list-group list-group-flush">
-                <li class="list-group-item side somepd chName">TOP 1 <h6 id="top1c">마계_7 - 2,136개</h6></li>
-                <li class="list-group-item side somepd chName">TOP 2 <h6 id="top2c">벨 마이어 공국_1 - 1,623개</h6></li>
-                <li class="list-group-item side somepd chName">TOP 3 <h6 id="top3c">마계_10 - 1,478개</h6></li>
-                <li class="list-group-item side somepd chName">TOP 4 <h6 id="top4c">중천_50 - 1,207개</h6></li>
-                <li class="list-group-item side somepd chName">TOP 5 <h6 id="top5c">중천_74 - 1,195개</h6></li>
-                <li class="list-group-item side somepd chName">TOP 6 <h6 id="top6c">중천_47 - 1,191개</h6></li>
-                <li class="list-group-item side somepd chName">TOP 7 <h6 id="top7c">중천_40 - 1,181개</h6></li>
-                <li class="list-group-item side somepd chName">TOP 8 <h6 id="top8c">중천_45 - 1,153개</h6></li>
-                <li class="list-group-item side somepd chName">TOP 9 <h6 id="top9c">중천_44 - 1,074개</h6></li>
-                <li class="list-group-item side somepd chName">TOP 10 <h6 id="top10c">중천_41 - 947개</h6></li>
-              </ul></li>
+              <li class="list-group-item"><div class="card-header">태초가 많이 나온 채널</div><ul id="chList" class="list-group list-group-flush"></ul></li>
               <li class="list-group-item"><div class="card-header">태초 획득 유형<h6 class="rptz7">(단위:태초개수)</h6></div>
                 <div class="chart">
                   <canvas id="chart_beginMap"></canvas>

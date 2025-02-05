@@ -1,3 +1,4 @@
+const updateDate = '02.06 10:00';
 const userCnt = 447001;
 const beginCnt = 229451;
 const legacyCnt = 19259;
