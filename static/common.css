@@ -263,6 +263,7 @@ body::-webkit-scrollbar-thumb {
   height: auto !important;
   position: absolute;
   top: 1rem;
+  z-index: 9999999;
 }
 .dfToast > div {
   margin-right: 1.75rem;
@@ -274,6 +275,13 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 #searchError.show {
+  display: block;
+}
+#searchErrorDetail {
+  display: none;
+  text-align: center;
+}
+#searchErrorDetail.show {
   display: block;
 }
 #btn_lightmode {
@@ -305,4 +313,17 @@ body::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-clip: padding-box;
     border: 2px solid transparent;
+}
+#moreCh {
+  text-align: center;
+  font-size: 0.8rem;
+  border: 0 !important;
+  cursor: pointer;
+  text-decoration: underline; text-underline-offset: 0.25rem;
+}
+li.chName.more{
+  display: none !important;
+}
+li.chName.more.show{
+  display: flex !important;
 }
