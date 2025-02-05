@@ -454,3 +454,16 @@
     border-radius: 100%;
     font-size: 0.725em;
   }
+  .btn-hide {
+    display: flex;
+    justify-content: flex-end;
+  }
+  #openHide { color: rgba(33, 37, 41, 0.75); font-size: 0.8rem;}
+  #openHide:hover{
+    cursor: pointer;
+    text-decoration: underline; text-underline-offset: 0.25rem;
+  }
+
+  #emptySlot { font-size: 1.3rem; align-self: center; }
+  .emptyItems { display: flex; justify-content: center; }
+  #btn_chracterHide { width: 9rem; }
