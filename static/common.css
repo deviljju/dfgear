@@ -327,3 +327,24 @@ li.chName.more{
 li.chName.more.show{
   display: flex !important;
 }
+.cardArrow {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: auto;
+  content: "";
+  background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiAxNicgZmlsbD0nbm9uZScgc3Ryb2tlPScjMjEyNTI5JyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnPjxwYXRoIGQ9J00yIDVMOCAxMUwxNCA1Jy8+PC9zdmc+);
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  /* transition: transform 0.2s ease-in-out; */
+  transition: none;
+}
+.cardArrow.show {
+  transform: rotate(-180deg);
+}
+#setList {
+  display: none;
+}
+#setList.show {
+  display: block;
+}

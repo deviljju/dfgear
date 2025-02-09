@@ -153,7 +153,7 @@
   }
   #mistList > ul {
     width: fit-content;
-    max-height: 55vh;
+    max-height: 35vh;
     overflow-y: auto;
     overflow-x: hidden;
     max-width: 40rem;
@@ -442,7 +442,8 @@
     flex-wrap: wrap;
     width: max-content;
     min-width: 100%;
-    max-width: 24rem;
+    max-width: 20rem;
+    padding: 0.5rem;
   }
   .itemCount {
     position: absolute;
@@ -467,3 +468,34 @@
   #emptySlot { font-size: 1.3rem; align-self: center; }
   .emptyItems { display: flex; justify-content: center; }
   #btn_chracterHide { width: 9rem; }
+  .potList {
+    display: flex;
+    cursor: pointer;
+    background-color: #ffe5cd5c !important;
+  }
+  ul.pots {
+    display: none;
+  }
+  ul.pots.show {
+    display: block;
+  }
+  .potList::after {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: auto;
+    content: "";
+    background-image: url(data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxNiAxNicgZmlsbD0nbm9uZScgc3Ryb2tlPScjMjEyNTI5JyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnPjxwYXRoIGQ9J00yIDVMOCAxMUwxNCA1Jy8+PC9zdmc+);
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    transition: none;
+  }
+  .potList.open::after {
+    transform: rotate(-180deg);
+  }
+  h6.rptz7{
+    float: right;
+    font-size: 0.7rem;
+    font-family: 'DNFForgedBlade';
+    padding-top: 0.7rem;
+  }
