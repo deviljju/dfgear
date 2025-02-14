@@ -338,15 +338,6 @@
   .rank {
     font-size: 0.85rem;
   }
-  .r_legnd {
-    color: #FF7800;
-  }
-  .r_epic {
-    color: #FFB400;
-  }
-  .r_begin {
-    color:#6fc2ac
-  }
   #equipList {
     display: none;
     align-items: center;

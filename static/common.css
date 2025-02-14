@@ -348,3 +348,21 @@ li.chName.more.show{
 #setList.show {
   display: block;
 }
+.r_legnd {
+  color: #FF7800;
+}
+.r_epic {
+  color: #FFB400;
+}
+.r_begin {
+  color:#6fc2ac
+}
+.potCount {
+  display: none !important;
+}
+.potCount.show {
+  display: block !important;
+}
+span.potCount > span {
+  font-weight: bold;
+}
