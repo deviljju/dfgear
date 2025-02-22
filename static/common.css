@@ -92,6 +92,7 @@
 }
 [data-bs-theme=dark] .card-header {
   background-color: var(--bs-dk-l2) !important;
+  background: var(--bs-dk-l2) !important;
 }
 [data-bs-theme=dark] .card-body {
   background-color: var(--bs-dk-l1) !important;
@@ -348,21 +349,56 @@ li.chName.more.show{
 #setList.show {
   display: block;
 }
-.r_legnd {
-  color: #FF7800;
+.flex {
+  display: flex;
 }
-.r_epic {
-  color: #FFB400;
+.flex-col {
+  flex-direction: column;
 }
-.r_begin {
-  color:#6fc2ac
+.flex-row {
+  flex-direction: row;
 }
-.potCount {
-  display: none !important;
+.items-center {
+  align-items: center;
 }
-.potCount.show {
-  display: block !important;
+.ho-c {
+  justify-content: center;
 }
-span.potCount > span {
-  font-weight: bold;
+.hidden {
+  display: none;
+}
+.inline {
+  display: inline;
+}
+.height-auto {
+  height: auto !important;
+}
+.min-w-8 {
+  min-width: 2rem;
+}
+.relative {
+  position: relative;
+}
+div.infoArea {
+  display: flex;
+  justify-content: flex-end;
+  height: max-content !important;
+}
+.infoArea ol.breadcrumb {
+  font-family: 'DNFBitBitv2', sans-serif;
+  font-weight: 400;
+  margin-bottom: 0.2rem !important;
+}
+.infoArea .breadcrumb-item > a{
+  text-decoration: none !important;
+  color: black;
+  cursor: pointer;
+}
+a:hover{
+  color: #62abfa !important;
+}
+.fameNumber {
+  font-weight: 400;
+  color: #3392ff;
+  font-size: 0.8em;
 }

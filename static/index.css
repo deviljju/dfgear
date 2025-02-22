@@ -67,7 +67,7 @@
 .container > div.title {
   font-weight:700;
   font-size: 2.5rem;
-  margin-top: 5vh !important;
+  margin-top: 2.5vh !important;
   font-family: 'DNFForgedBlade', sans-serif;
   align-items: center;
   justify-content: center;
@@ -485,4 +485,11 @@ h6.rptz7{
 }
 #agre_link {
   text-align: center; font-size: 0.8rem; text-decoration: underline; text-underline-offset: 0.25rem; border: 0 !important; cursor: pointer;
+}
+#gearMenu > li {
+  font-size: 0.8rem; cursor: pointer;
+  font-family: 'DNFBitBitv2'; font-size: 0.95rem;
+}
+#gearMenu > li:hover {
+  text-decoration: underline; text-underline-offset: 0.45rem;
 }

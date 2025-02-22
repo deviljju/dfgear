@@ -3,15 +3,14 @@
   <head>
     <title>DFGEAR - 던파기어 던전앤파이터 중천 태초 탐색기</title>
     <link rel="icon" href="./static/images/favicon.ico" type="image/x-icon">
-    <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!--Bootstrap-->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous" ></script> -->
     <link rel="stylesheet" href="./static/bootstrap.min.css">
     <script src="./static/js/bootstrap.bundle.js"></script>
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> -->    
     <script src="./static/js/moment.min.js"></script>
+    <script src="./static/js/tui-grid.min.js"></script>
+    <script src="./static/js/gridClass.js"></script>
+    <link rel="stylesheet" href="./static/tui-grid.min.css" />
+    <link rel="stylesheet" href="./static/tui-fix.css" />
      <!-- GOOGLE AD -->
      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5735118798197779"
      crossorigin="anonymous"></script>
@@ -36,6 +35,7 @@
     <meta property="twitter:image" content="https://dfgear.xyz/static/images/banner.png">
     <link rel="stylesheet" href="./static/common.css">
     <link rel="stylesheet" href="./static/index.css">
+    <link rel="stylesheet" href="./static/streamer.css">
   </head>
   <body>
     <div id="loadingScreen">
@@ -45,114 +45,35 @@
     </div>
     <div class="container">
       <div class="row title">DFGEAR</div>
-      <div class="row">
-        <select id="serverId" class="form-select" name="server">
-          <option value="all" selected>전체</option>
-          <option value="adventure">모험단</option>
-          <option value="anton">안톤</option>
-          <option value="bakal">바칼</option>
-          <option value="cain">카인</option>
-          <option value="casillas">카시야스</option>
-          <option value="diregie">디레지에</option>
-          <option value="hilder">힐더</option>
-          <option value="prey">프레이</option>
-          <option value="siroco">시로코</option>
-        </select>
-        <input id="characterName" type="text" class="form-control" name="name" placeholder="캐릭터명을 입력하세요" autocomplete="off">
-        <button id="btn_search" class="btn btn-primary">조회</button>
+      <div class="infoArea">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./">홈</a></li>
+            <li class="breadcrumb-item active" aria-current="page">스트리머</li>
+          </ol>
+        </nav>
       </div>
-      <div class="recentBox">
-        <div class="r-header ndrag">최근 검색 기록</div>
-        <div class="r-list">
+      <div class="mb-1 mt-2 flex flex-col height-auto">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <h1 class="hidden">던파 스트리머 태초 비율</h1>
+          <h1 class="pageDscp">스트리머 태초 획득 비율 랭킹</h1>
         </div>
+        <p class="page-subDscp">제작자가 임의로 등록한 채널만 표시됩니다. 스트리머의 요청이 있는 경우 수정될 수 있습니다.</p>
+        <p class="page-subDscp">에픽, 레전더리는 항아리를 제외한 카드, 드랍 개수 입니다.</p>
       </div>
-      <h5 id="searchError" class="uselct sError"></h5>
-      <div id="searchErrorDetail" class="sError">캐릭터명을 정확히 입력해주세요. 특문,한자는 던담 등에서 복사 붙여넣기 해보세요</div>
-      <div id="advenResult">
-        <div class="row adventure">
-          <h5 id="advenTotal" class="uselct"></h5>
-        </div>
-        <div id="characterList"></div>
+      <div id="streamerList">
+        <div id="table"></div>
       </div>
-      <div class="row aggregate">
-        <div class="card-g-2">
-          <div class="card">
-            <div class="card-header begin">자잘한 기능</div>
-            <ul id="gearMenu" class="list-group list-group-flush">
-              <li class="list-group-item somepd" onclick="window.location.href='https://dfgear.xyz/streamer'">스트리머 태초 통계</li>
-              <li class="list-group-item somepd" onclick="window.location.href='https://dfgear.xyz/week'">누적 통계</li>
-            </ul>
-          </div>
-          <div id="topThreeMist" class="card">
-            <div class="card-header begin">태초 획득량 TOP5</div>
-            <ul id="beginList" class="list-group list-group-flush">
-              <li id="top1" class="list-group-item somepd"></li>
-              <li id="top2" class="list-group-item somepd"></li>
-              <li id="top3" class="list-group-item somepd"></li>
-              <li id="top4" class="list-group-item somepd"></li>
-              <li id="top5" class="list-group-item somepd"></li>
-              <li class="list-group-item">
-                <div id="agre_link" class="card-header" onClick="window.location.href='https://dfgear.xyz/week'">누적 통계 바로가기</div>
-              </li>
-            </ul>
-          </div>          
-        </div>
-        <div class="card-g-2">
-          <div class="card">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <div class="card-header">오늘 태초가 많이 나온 채널</div>
-                <ul id="channelList" class="list-group list-group-flush"></ul>
-                <li class="list-group-item">
-                  <div id="moreCh" class="card-header">펼치기</div>
-                </li>
-              </li>
-              <li class="list-group-item"><div class="card-header">태초 획득량</div><h5 id="dailyCount" class="card-subtitle mb-2 text-muted">- 개</h5></li>
-              <li class="list-group-item"><div class="card-header">태초 획득분포<h6 class="rptz7">(단위:캐릭터)</h6></div>
-                <div class="chart">
-                  <canvas id="chart_beginMap"></canvas>
-                </div>
-              </li>
-              <li class="list-group-item pd7">
-                <div ><h5 class="card-title">어느 캐릭터는 태초를</h5><h5 id="maxCount" class="card-subtitle mb-2">- 개 획득했습니다.</h5></div>                
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="accordion" id="accordionNotice">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseQnA" aria-expanded="true" aria-controls="collapseQnA">
-              자주 묻는 질문
-            </button>
-          </h2>
-          <div id="collapseQnA" class="accordion-collapse collapse" data-bs-parent="#accordionNotice">
-            <div class="accordion-body">
-              <span>Q. 캐릭터 검색이 안되요</span>
-              <p>특수문자,한문의 경우 검색이 안될 수 있으니 던파 홈페이지, 던담의 캐릭터명을 복붙하여 검색해보시고 안될 시 문의 주세요</p>              
-              <p>- 던파기어</p>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              2025.02.05 수정내역
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionNotice">
-            <div class="accordion-body">
-              <p>* 캐릭터 조회 페이지에서 모험단 검색 시 캐릭터 숨김 기능 추가</p>
-              <p>* 채널 10개까지 볼 수 있게 변경, 74 88 채널 알박기 나와주세요 제발</p>
-              <p>* 전체 조회 시 데이터가 없을 시 캐릭터명을 정확히 입력한 경우 던파 서버에서 조회 되게끔 변경</p>
-              <p>* 캐릭터 삭제 기능 테스트 중</p>
-              <p>* 오류 발생 시 하단에 문의 오픈카카오톡으로 문의 부탁드립니다.</p>
-              <p>* 태거시 주세요. 주세요. 주세요. 제발 오우 갓종민~ 감사합니다!</p>
-              <p>- 던파기어</p>
-            </div>
-          </div>
-        </div>
+      <div class="adshorizonfixed">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5735118798197779"
+          crossorigin="anonymous"></script>
+          <ins class="adsbygoogle"
+          style="display:inline-block;width:760px;height:180px"
+          data-ad-client="ca-pub-5735118798197779"
+          data-ad-slot="1242810811"></ins>
+          <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
       </div>
     </div>
     <div class="neopleThk">
@@ -164,9 +85,6 @@
     </div>
     <div class="privacy"><a href="https://open.kakao.com/o/shxSboVf" target="_blank" title="오류/건의사항 문의" style="margin-right: 1rem;">오류/건의사항 문의</a><a href="./privacy">개인정보 처리방침</a><button id="btn_lightmode" class="btn btn-light">조회</button></div>
     <script src="./static/js/common.js"></script>
-    <script src="./static/js/item.js"></script>
-    <script src="./static/js/chart.min.js"></script>
-    <script src="./static/js/chartSet.js"></script>
-	  <script src="./static/js/index.js"></script>
+	  <script src="./static/js/streamer.js"></script>
   </body>
 </html>

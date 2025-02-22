@@ -1,0 +1,156 @@
+.pageDscp {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+.page-subDscp {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / 1);
+  font-size: .875rem;
+  line-height: 1.25rem;
+  margin: 0;
+}
+
+#streamerList {
+  height: 60vh;
+  margin-top: 0.8rem;
+  max-height: 700px;
+}
+
+@media (min-width: 992px) {
+  #table {
+    width: calc(100% - 1.5rem);
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+  }
+}
+
+.g-chdiv {
+  min-width: 2rem;
+  position: relative;
+  margin-left: 0.5rem;
+}
+
+#stmImg {
+  object-fit: cover;
+  border-radius: 9999px;
+  width: 3rem;
+  height: 3rem;
+  vertical-align: middle;
+}
+
+.chType {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+#chName {
+  display: flex;
+  font-family: 'DNFBitBitv2', sans-serif;
+  font-size: 1.5rem;
+}
+
+#chName:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+.detailParent {
+  display: flex;
+  margin-top: 1em;
+  gap: 0.8em;
+  flex-wrap: wrap;
+  width: 21em;
+}
+
+.detailCard {
+  background: rgba(255, 255, 255, 0.05);
+  flex: 1 1 0%;
+  padding: 1em;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 0.5em;
+}
+
+.detailCard h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.detailCard>h5 {
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+
+.detailCard>div {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.detailCard>div>h2 {
+  font-weight: 600;
+  font-size: 1.5em;
+}
+
+.detailCard>div>h5 {
+  opacity: 0.5;
+  font-size: 0.8em;
+}
+
+#detailTable {
+  max-width: 40rem;
+  margin: 0.3rem;
+  padding: 0.7rem;
+}
+
+.detailCard.mw-0 {
+  min-width: none;
+  background: inherit;
+}
+
+.detailCard.mw-1 {
+  min-width: 21em;
+}
+
+.detailCard.mw-2-1 {
+  min-width: 8em;
+}
+
+.detailCard.mw-2-2 {
+  min-width: 11em;
+}
+
+#b_rate {
+  font-size: 1rem;
+}
+#lucky,#unlucky {
+  display: flex;
+  align-items: center;
+  padding: 0.3rem 0.5rem;
+  width: max-content;
+  min-width: 100%;
+  font-size: 0.7rem;
+}
+#lucky:hover,#unlucky:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
+
+#stmTitle {
+  min-width: 20rem;
+  max-width: 41rem;
+  margin: auto;
+  width: 100vw;
+}
