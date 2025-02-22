@@ -496,3 +496,12 @@ h6.rptz7{
 #gearMenu > li:hover {
   text-decoration: underline; text-underline-offset: 0.45rem;
 }
+span.r_legnd {
+  color: #FF7800;
+  font-weight: 600;
+}
+
+span.r_epic {
+  color: #FFB400;
+  font-weight: 600;
+}

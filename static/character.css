@@ -420,6 +420,13 @@
   .r_begin {
     color: #6fc2ac
   }
+  span.r_legnd {
+    font-weight: 600;
+  }
+  
+  span.r_epic {
+    font-weight: 600;
+  }
 
   #equipList {
     display: none;
