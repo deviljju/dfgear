@@ -144,6 +144,9 @@
   font-family: 'DNFBitBitv2';
   /* background-color: rgb(70 255 4 / 3%); */
 }
+.card > .card-header.menu {
+  background-color: var(--bs-card-cap-bg);
+}
 .card > .card-header.begin {
   background-color: #4eef565c;
 }
