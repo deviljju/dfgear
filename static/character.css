@@ -517,6 +517,9 @@
   #setList .list-group-item>div:last-child {
     margin-right: 0 !important;
   }
+  #setList button.accordion-button {
+    font-family: 'DNFBitBitv2';
+  }
 
   #setItem>.card-header {
     padding: 0.4rem;
@@ -554,6 +557,8 @@
     z-index: 99;
     border-radius: 100%;
     font-size: 0.725em;
+    height: 1.4em;
+    transform: translateY(-0.16em);
   }
 
   .btn-hide {
@@ -687,4 +692,40 @@
 
   .smallIcon.ac {
     background-position: -78px -100px
+  }
+
+  img.b-legnd {
+    outline: 2px solid #ff7800ee;
+    border-radius: 0.25rem;
+  }
+  img.b-epic {
+    outline: 2px solid #FFB400ee;
+    border-radius: 0.25rem;
+  }
+  img.b-begin {
+    outline: 2px solid #28d931ee;
+    border-radius: 0.25rem;
+  }
+  img.b-레전더리 {
+    border: 2px solid #ff7800ee;
+    border-radius: 0.25rem;
+  }
+  img.b-에픽 {
+    border: 2px solid #FFB400ee;
+    border-radius: 0.25rem;
+  }
+  img.b-태초 {
+    border: 2px solid #28d931ee;
+    border-radius: 0.25rem;
+  }
+
+  #filter_legnd {
+    border-bottom: 1px solid #d2d2d2;
+  }
+  #filter_legnd > div.form-switch {
+    justify-self: right;
+  }
+  #filter_legnd .form-check-input:checked {
+    background-color: #ff7800;
+    border-color: #ff7800;
   }
