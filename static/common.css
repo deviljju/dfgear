@@ -365,7 +365,7 @@ li.chName.more.show{
   justify-content: center;
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
 .inline {
   display: inline;
