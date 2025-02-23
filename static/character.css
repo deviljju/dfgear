@@ -557,8 +557,8 @@
     z-index: 99;
     border-radius: 100%;
     font-size: 0.725em;
-    height: 1.4em;
-    transform: translateY(-0.16em);
+    /* height: 1.4em;
+    transform: translateY(-0.16em); */
   }
 
   .btn-hide {
@@ -706,12 +706,33 @@
     outline: 2px solid #28d931ee;
     border-radius: 0.25rem;
   }
+  #setItem div.b-레전더리 {
+    position: relative;
+    border: 2px solid transparent;
+    background-color: #ff7800ee;
+    background-origin: border-box;
+    border-radius: 0.25rem;
+  }
   img.b-레전더리 {
     border: 2px solid #ff7800ee;
     border-radius: 0.25rem;
   }
+  #setItem div.b-에픽 {
+    position: relative;
+    border: 2px solid transparent;
+    background-color: #FFB400ee;
+    background-origin: border-box;
+    border-radius: 0.25rem;
+  }
   img.b-에픽 {
     border: 2px solid #FFB400ee;
+    border-radius: 0.25rem;
+  }
+  #setItem div.b-태초 {
+    position: relative;
+    border: 2px solid transparent;
+    background-image: linear-gradient(rgb(40, 217, 49), rgb(51, 172, 234));
+    background-origin: border-box;
     border-radius: 0.25rem;
   }
   img.b-태초 {
@@ -728,4 +749,7 @@
   #filter_legnd .form-check-input:checked {
     background-color: #ff7800;
     border-color: #ff7800;
+  }
+  .form-check-input,.form-check-label { 
+    cursor: pointer;
   }
