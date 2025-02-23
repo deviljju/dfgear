@@ -32,3 +32,11 @@
   text-underline-offset: 0.25rem;
   cursor: pointer;
 }
+.tui-grid-cell.tui-grid-cell-summary {
+  text-align: center;
+}
+
+/* 배경색을 어두운 색으로 */
+/* [data-bs-theme=dark] .tui-grid-container {
+  background-color: #2c2f38;
+} */
