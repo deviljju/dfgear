@@ -1,48 +1,119 @@
 @media all and (max-width: 320px) {
-  html { font-size: 11px; } 
-  :root { font-size: 11px;}
-  #characterList { justify-content: center; }
-  .card.characterView { min-width: 10.5rem; }
-  .row.adventure > * { margin-bottom: 0.5rem !important; }
-}
-@media all and (min-width: 320px) and (max-width: 380px){
-  html { font-size: 11.5px; }
-  :root { font-size: 11.5px;} 
-  #characterList { justify-content: center; }
-  .card.characterView { min-width: 11rem; }
-  .row.adventure > * { margin-bottom: 0.5rem !important; }
-}
-@media all and (min-width: 380px) and (max-width: 415px){
-  html { font-size: 12.5px; }
-  :root { font-size: 12.5px;} 
-  #characterList { justify-content: center; }
-  .card.characterView { min-width: 11rem; }
-  .row.adventure > * { margin-bottom: 0.5rem !important; }
-}
-@media all and (min-width: 415px) and (max-width: 768px){
-  html { font-size: 13px; }
-  :root { font-size: 13px;} 
-  #characterList { justify-content: center; }
-  .row.adventure > * { margin-bottom: 0.5rem !important; }
-}
-@media all and (min-width: 768px) and (max-width: 1024px) {
-  html { font-size: 14px; }
-  :root { font-size: 14px;} 
+  html {
+    font-size: 11px;
+  }
+
+  :root {
+    font-size: 11px;
+  }
+
+  #characterList {
+    justify-content: center;
+  }
+
+  .card.characterView {
+    min-width: 10.5rem;
+  }
+
+  .row.adventure>* {
+    margin-bottom: 0.5rem !important;
+  }
 }
 
-@media all and (min-width: 353px) and (max-width: 353px){
-  .card.characterView { min-width: 12rem !important; }
+@media all and (min-width: 320px) and (max-width: 380px) {
+  html {
+    font-size: 11.5px;
+  }
+
+  :root {
+    font-size: 11.5px;
+  }
+
+  #characterList {
+    justify-content: center;
+  }
+
+  .card.characterView {
+    min-width: 11rem;
+  }
+
+  .row.adventure>* {
+    margin-bottom: 0.5rem !important;
+  }
 }
-@media all and (min-width: 354px) and (max-width: 379px){
-  .card.characterView { min-width: 13rem !important; }
+
+@media all and (min-width: 380px) and (max-width: 415px) {
+  html {
+    font-size: 12.5px;
+  }
+
+  :root {
+    font-size: 12.5px;
+  }
+
+  #characterList {
+    justify-content: center;
+  }
+
+  .card.characterView {
+    min-width: 11rem;
+  }
+
+  .row.adventure>* {
+    margin-bottom: 0.5rem !important;
+  }
 }
-@media all and (min-width: 550px){
-  .aggregate > div:nth-child(1) {
+
+@media all and (min-width: 415px) and (max-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+
+  :root {
+    font-size: 13px;
+  }
+
+  #characterList {
+    justify-content: center;
+  }
+
+  .row.adventure>* {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {
+  html {
+    font-size: 14px;
+  }
+
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media all and (min-width: 353px) and (max-width: 353px) {
+  .card.characterView {
+    min-width: 12rem !important;
+  }
+}
+
+@media all and (min-width: 354px) and (max-width: 379px) {
+  .card.characterView {
+    min-width: 13rem !important;
+  }
+}
+
+@media all and (min-width: 550px) {
+  .aggregate>div:nth-child(1) {
     margin-right: 1rem;
   }
 }
-@media all and (max-width: 552px){
-  #notice { max-width: 20rem !important; }
+
+@media all and (max-width: 552px) {
+  #notice {
+    max-width: 20rem !important;
+  }
 }
 
 .container {
@@ -59,13 +130,15 @@
   margin-right: auto;
   margin-bottom: 1rem;
 }
-.container > div {
+
+.container>div {
   width: 100%;
   /* width:calc(500px - 1.5rem); */
   height: 50px;
 }
-.container > div.title {
-  font-weight:700;
+
+.container>div.title {
+  font-weight: 700;
   font-size: 2.5rem;
   margin-top: 2.5vh !important;
   font-family: 'DNFForgedBlade', sans-serif;
@@ -74,177 +147,220 @@
   cursor: pointer;
   width: max-content;
 }
+
 /* .container > div.title:hover {
   background: linear-gradient(to right,#000000, #000000,#f9c41bc9, #f9c41bc9,#f9c41bc9,#f9c41bc9,#000000);
   color: transparent;
   -webkit-background-clip: text;
 } */
-.container > .row {
-  margin:0.5rem 0;
+.container>.row {
+  margin: 0.5rem 0;
   justify-content: center;
 }
-.row > #serverId {
+
+.row>#serverId {
   max-width: 8rem;
   width: calc(25% - 0.3rem) !important;
   margin-right: 0.3rem;
 }
-.row > #characterName {
+
+.row>#characterName {
   max-width: 16rem;
   width: calc(60% - 0.3rem) !important;
   margin-right: 0.3rem;
 }
-.row > #btn_search {
+
+.row>#btn_search {
   max-width: 4rem !important;
   width: 15%;
 }
+
 /* #btn_share.extend {
   max-width: 6rem !important;
   width: max-content;
 } */
-.row > .resultData {
+.row>.resultData {
   display: flex;
   justify-content: space-between;
 }
-.container > .row.result {
+
+.container>.row.result {
   height: auto !important;
 }
+
 #btn_mistList {
   width: max-content;
   display: none;
 }
+
 #btn_mistList.show {
   display: block;
 }
-.resultData{
+
+.resultData {
   display: none;
 }
+
 .row.resultData.show {
   display: flex;
   flex-direction: column;
 }
+
 #loading {
   display: none;
 }
+
 .aggregate {
   width: 100% !important;
   height: auto !important;
 }
+
 .aggregate .text-muted {
   float: right;
   margin: 0.5rem;
 }
-.aggregate > div {
+
+.aggregate>div {
   width: 20rem;
   margin-bottom: 1rem;
   height: min-content;
   padding: 0;
 }
-.card > .card-header {
+
+.card>.card-header {
   background-color: #fff3cd5c;
   font-family: 'DNFBitBitv2';
   /* background-color: rgb(70 255 4 / 3%); */
 }
-.card > .card-header.menu {
+
+.card>.card-header.menu {
   background-color: var(--bs-card-cap-bg);
 }
-.card > .card-header.begin {
+
+.card>.card-header.begin {
   background-color: #4eef565c;
 }
-.aggregate > div:nth-child(1) {
+
+.aggregate>div:nth-child(1) {
   width: 25rem !important;
 }
-.aggregate > div > div:nth-child(2){
-  margin-top:1rem;
+
+.aggregate>div>div:nth-child(2) {
+  margin-top: 1rem;
 }
-.aggregate .card > .remain {
+
+.aggregate .card>.remain {
   padding: 0 !important;
 }
-.remain > .card-header {
+
+.remain>.card-header {
   background-color: #ddffcd5c;
   font-family: 'DNFBitBitv2';
 }
-.aggregate .card > ul li.list-group-item {
+
+.aggregate .card>ul li.list-group-item {
   padding: 0 !important;
 }
-.aggregate .card > ul li.list-group-item.somepd {
- padding: 0.5rem 1rem !important;
+
+.aggregate .card>ul li.list-group-item.somepd {
+  padding: 0.5rem 1rem !important;
 }
-.aggregate .card > ul li.list-group-item.pd7{
+
+.aggregate .card>ul li.list-group-item.pd7 {
   padding: 0.7rem !important;
 }
-.aggregate .card > ul li.list-group-item.somepd > div {
+
+.aggregate .card>ul li.list-group-item.somepd>div {
   height: max-content;
   min-height: 3.5rem;
 }
+
 .rotate {
   display: none;
   min-height: 3.75rem;
 }
-.rotate.show{
+
+.rotate.show {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 #minCount {
-  font-family:'DNFForgedBlade';
+  font-family: 'DNFForgedBlade';
   font-size: 1.015rem;
 }
-.aggregate .card > ul li.list-group-item > .card-header {
+
+.aggregate .card>ul li.list-group-item>.card-header {
   font-family: 'DNFBitBitv2';
 }
-.aggregate .card > ul li.list-group-item.side{
+
+.aggregate .card>ul li.list-group-item.side {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.remain > p {
+
+.remain>p {
   margin: 0.5rem 1rem;
 }
-.remain > .progress {
+
+.remain>.progress {
   margin: 0.5rem 1rem;
 }
-.aggregate > div > .card img{
+
+.aggregate>div>.card img {
   margin-right: 0.5rem;
 }
-.aggregate > div .card-title{
+
+.aggregate>div .card-title {
   font-family: 'DNFBitBitv2';
 }
+
 .chName {
   font-family: 'DNFBitBitv2';
 }
-.chName > h6{
+
+.chName>h6 {
   font-family: var(--bs-font-sans-serif);
-  margin:0;
-  color:#6c757d!important;
+  margin: 0;
+  color: #6c757d !important;
 }
+
 #remainWeek {
   font-family: 'DNFBitBitv2';
 }
+
 #maxCount {
   font-family: 'DNFBitBitv2';
   /* float: right; */
   text-align: right;
 }
-.list-group-item > span {
-  color:black !important;
+
+.list-group-item>span {
+  color: black !important;
   margin-left: 0.3rem;
 }
 
 .card.characterView {
   min-width: 12.3rem;
-  width:calc(20% - 0.4rem);
+  width: calc(20% - 0.4rem);
   margin: 0.2rem;
   cursor: pointer;
 }
+
 .aggregate .card {
   box-shadow: 1px 1px 5px 0px rgba(17, 17, 17, 0.2);
 }
+
 span.card-text {
   display: block;
 }
+
 span.card-text.small {
   font-size: 0.6rem;
 }
+
 #advenTotal {
   font-weight: bold;
   text-align: center;
@@ -252,22 +368,36 @@ span.card-text.small {
   margin-bottom: 0;
   cursor: pointer;
 }
+
 #advenRefresh {
   width: 2rem;
   height: 2rem;
   padding: 0;
   cursor: pointer;
 }
+
 #advenRefresh:hover {
   filter: contrast(2.2);
 }
 
+#advenDetail {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  margin-left: 0.5rem;
+}
+#advenDetail:hover {
+  filter: contrast(2.2);
+}
 .row.adventure {
   width: 100%;
   align-items: center;
   justify-content: center;
 }
-#advenResult{
+
+#advenResult {
   width: 100% !important;
   height: auto !important;
   display: none;
@@ -276,11 +406,13 @@ span.card-text.small {
   --bs-gutter-y: 0;
   justify-content: center;
 }
-#advenResult.show{
-display: flex;
+
+#advenResult.show {
+  display: flex;
 }
+
 #characterList {
-  margin-top:0.5rem;
+  margin-top: 0.5rem;
   width: auto !important;
   height: auto !important;
   display: flex;
@@ -288,18 +420,21 @@ display: flex;
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
 }
+
 .cName {
   font-weight: bold;
   font-size: 1.2rem;
   text-align: center;
 }
-.jobserver{
+
+.jobserver {
   font-weight: 500;
   font-size: 0.8rem;
   text-align: center;
   color: #898c92;
 }
-.jobserver > span {
+
+.jobserver>span {
   display: inline-block;
   vertical-align: middle;
   margin: -2px 5px 0 5px;
@@ -308,14 +443,16 @@ display: flex;
   background: #898c9250;
 }
 
-.container > .accordion {
+.container>.accordion {
   max-width: 47.5rem;
   height: max-content;
 }
-.accordion > div > h2 {
+
+.accordion>div>h2 {
   font-family: 'DNFBitBitv2';
 }
-.accordion-body > span {
+
+.accordion-body>span {
   display: block;
 }
 
@@ -324,56 +461,70 @@ display: flex;
   max-width: 41rem;
   margin-top: 0.8rem;
 }
+
 #notice.active {
   display: block;
 }
+
 #notice dd {
   margin-bottom: 0.3rem;
 }
-#mistList{
+
+#mistList {
   height: max-content;
   margin: 0.3rem;
 }
+
 #mistList.card {
   height: min-content;
   padding: 0;
 }
-#mistList.card > .card-header {
+
+#mistList.card>.card-header {
   background-color: #fff3cd5c;
   font-family: 'DNFBitBitv2';
 }
-#mistList.card img{
+
+#mistList.card img {
   margin-right: 0.5rem;
 }
-.modal-title{
+
+.modal-title {
   font-family: 'DNFBitBitv2';
 }
+
 .modal-body {
   max-height: 60vh;
   overflow-y: auto;
 }
+
 .modal-body::-webkit-scrollbar {
   width: 10px;
 }
+
 .modal-body::-webkit-scrollbar-thumb {
   background-color: lightgrey;
   border-radius: 5px;
   background-clip: padding-box;
   border: 1px solid transparent;
 }
-h6.rptz7{
+
+h6.rptz7 {
   float: right;
   font-size: 0.7rem;
   font-family: 'DNFForgedBlade';
   padding-top: 0.7rem;
 }
+
 .chart {
   max-height: 15rem;
 }
+
 .chart canvas {
   max-height: 15rem;
 }
-#loadingScreen.active > .center {
+
+#loadingScreen.active>.center {
   width: 65rem;
   max-width: 100%;
   height: 100vh;
@@ -394,36 +545,41 @@ h6.rptz7{
   border-bottom-right-radius: 6px;
   overflow: hidden;
   border: 1px solid rgb(204, 204, 204);
-  
+
   font-size: 14px;
   color: rgb(0, 0, 0);
   /* box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 3px 2px; */
   box-shadow: 1px 1px 5px 0px rgba(17, 17, 17, 0.2);
 }
+
 .recentBox.active {
   display: block;
   padding: 0 !important;
   height: 100% !important;
 }
+
 .r-header {
   color: rgb(85, 85, 85);
   padding: 8px 12px;
   text-align: center;
   background-color: #e4ecf9;
 }
+
 .r-list {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  height: 100%;  
+  height: 100%;
 }
+
 .r-element {
   display: flex;
   width: 50%;
   height: 30px;
   padding: 0 0.8rem;
 }
-.r-element > div {
+
+.r-element>div {
   flex: 1 1 0%;
   display: flex;
   -webkit-box-align: center;
@@ -433,9 +589,10 @@ h6.rptz7{
   height: 100%;
   color: rgb(51, 51, 51);
 }
-.r-element > div > span {
-  border-radius: 50rem!important;
-  background-color: #5d5d5dbf!important;
+
+.r-element>div>span {
+  border-radius: 50rem !important;
+  background-color: #5d5d5dbf !important;
   display: inline-block;
   padding: 0.35rem 0.65rem;
   font-size: 0.7rem;
@@ -448,10 +605,12 @@ h6.rptz7{
   border-radius: 0.25rem;
   margin-right: 0.25rem;
 }
-.r-element > div > div {
+
+.r-element>div>div {
   cursor: pointer;
 }
-.r-element > label {
+
+.r-element>label {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
@@ -460,6 +619,7 @@ h6.rptz7{
   font-weight: 700;
   cursor: pointer;
 }
+
 .ndrag {
   -webkit-touch-callout: none;
   -webkit-user-drag: none;
@@ -470,6 +630,7 @@ h6.rptz7{
   -ms-user-select: none;
   user-select: none;
 }
+
 /*
 #stoneCalc .accordion-button{
   border-radius: 0 !important;
@@ -483,19 +644,32 @@ h6.rptz7{
   display: none;
   margin: 0.5rem 0;
 }
+
 #expectedDate.show {
   display: block !important;
 }
+
 #agre_link {
-  text-align: center; font-size: 0.8rem; text-decoration: underline; text-underline-offset: 0.25rem; border: 0 !important; cursor: pointer;
+  text-align: center;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+  border: 0 !important;
+  cursor: pointer;
 }
-#gearMenu > li {
-  font-size: 0.8rem; cursor: pointer;
-  font-family: 'DNFBitBitv2'; font-size: 0.95rem;
+
+#gearMenu>li {
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-family: 'DNFBitBitv2';
+  font-size: 0.95rem;
 }
-#gearMenu > li:hover {
-  text-decoration: underline; text-underline-offset: 0.45rem;
+
+#gearMenu>li:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.45rem;
 }
+
 span.r_legnd {
   color: #FF7800;
   font-weight: 600;
