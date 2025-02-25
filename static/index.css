@@ -682,11 +682,14 @@ span.r_epic {
 #advenTotal > span.badge {
   margin-left: 0.6rem;
   line-height: 1.35;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  user-select: none !important;
 }
 #advenTotal > span.badge:hover {
-  color: var(--bs-btn-hover-color) !important;
-  background-color: var(--bs-btn-hover-bg) !important;
-  border-color: var(--bs-btn-hover-border-color);
+  color: #fff !important;
+  background-color: #0b5ed7 !important;
+  border-color: #0a58ca;
 }
 [data-bs-theme=dark] #advenTotal > span.badge {
   color: #000000 !important;
