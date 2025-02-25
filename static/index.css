@@ -679,3 +679,22 @@ span.r_epic {
   color: #FFB400;
   font-weight: 600;
 }
+#advenTotal > span.badge {
+  margin-left: 0.6rem;
+  line-height: 1.35;
+}
+#advenTotal > span.badge:hover {
+  color: var(--bs-btn-hover-color) !important;
+  background-color: var(--bs-btn-hover-bg) !important;
+  border-color: var(--bs-btn-hover-border-color);
+}
+[data-bs-theme=dark] #advenTotal > span.badge {
+  color: #000000 !important;
+  background-color: #BB86FC !important;
+  border-color: #a772e7;
+}
+[data-bs-theme=dark] #advenTotal > span.badge:hover {
+  color: #000000 !important;
+  background-color: #a772e7 !important;
+  border-color: #a772e7;
+}
