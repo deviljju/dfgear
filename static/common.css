@@ -262,7 +262,7 @@ body::-webkit-scrollbar-thumb {
 .dfToast{
   width: max-content !important;
   height: auto !important;
-  position: absolute;
+  position: fixed;
   top: 1rem;
   z-index: 9999999;
 }

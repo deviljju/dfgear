@@ -571,6 +571,9 @@
     color: rgba(33, 37, 41, 0.75);
     font-size: 0.8rem;
   }
+  [data-bs-theme=dark] #openHide {
+    color: var(--bs-card-color);
+  }
 
   #openHide:hover {
     cursor: pointer;
@@ -750,6 +753,10 @@
   #filter_legnd .form-check-input:checked {
     background-color: #ff7800;
     border-color: #ff7800;
+  }
+  [data-bs-theme=dark] #filter_legnd .form-check-input:checked {
+    background-color: #B5651D !important;
+    border-color: #B5651D;
   }
   .form-check-input,.form-check-label { 
     cursor: pointer;
