@@ -30,6 +30,7 @@
   min-width: 2rem;
   position: relative;
   margin-left: 0.5rem;
+  order:0;
 }
 
 #stmImg {
@@ -49,6 +50,7 @@
   display: flex;
   font-family: 'DNFBitBitv2', sans-serif;
   font-size: 1.5rem;
+  order:1;
 }
 
 #chName:hover {
@@ -153,4 +155,7 @@ h6 {
   max-width: 41rem;
   margin: auto;
   width: 100vw;
+}
+.stIcon {
+  order:6;
 }

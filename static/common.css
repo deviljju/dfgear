@@ -402,3 +402,6 @@ a:hover{
   color: #3392ff;
   font-size: 0.8em;
 }
+.click-pointer {
+  cursor: pointer;
+}
