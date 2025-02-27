@@ -523,7 +523,7 @@
   }
 
   #setItem>.card-header {
-    padding: 0.4rem;
+    padding: 0.2rem 0.4rem 0 0.4rem;
   }
 
   #setItem>.list-group.list-group-flush {
@@ -547,7 +547,17 @@
     min-width: 100%;
     max-width: 20rem;
     padding: 0.5rem;
+    padding-top:0;
+    border-bottom-width: 0 !important;
   }
+  #setItem li.list-group-item.armory {
+    padding-bottom: 0.1rem;
+    border-top-width: 1px;
+  }
+  #setItem li.list-group-item.armory > div {
+    background-color: #838181 !important;
+  }
+  
 
   .itemCount {
     position: absolute;
@@ -744,20 +754,31 @@
     border-radius: 0.25rem;
   }
 
-  #filter_legnd {
+  #filter_item {
     border-bottom: 1px solid #d2d2d2;
+    display: flex;
+    justify-content: flex-end;
   }
-  #filter_legnd > div.form-switch {
-    justify-self: right;
-  }
-  #filter_legnd .form-check-input:checked {
+  #filter_item #ft_legnd.form-check-input:checked {
     background-color: #ff7800;
     border-color: #ff7800;
   }
-  [data-bs-theme=dark] #filter_legnd .form-check-input:checked {
+  [data-bs-theme=dark] #filter_item #ft_legnd.form-check-input:checked {
     background-color: #B5651D !important;
     border-color: #B5651D;
   }
+  #filter_item #ft_armory.form-check-input:checked {
+    background-color: #5d5a5a;
+    border-color: #5d5a5a;
+  }
+  [data-bs-theme=dark] #filter_item #ft_armory.form-check-input:checked {
+    background-color: #838181 !important;
+    border-color: #838181;
+  }
+  div.form-switch:first-child {
+    margin-right: 0.5rem;
+  }
+
   .form-check-input,.form-check-label { 
     cursor: pointer;
   }
@@ -779,4 +800,7 @@
   }
   .detailCard.b-shadow{
     box-shadow: 0px 0.5px 4px 0px rgb(0 0 0 / 25%);
+  }
+  [data-bs-theme=dark] .list-group-item {
+    background-color: #212529 !important;
   }
