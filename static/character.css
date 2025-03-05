@@ -431,6 +431,34 @@
     font-weight: 600;
   }
 
+  div.set_rair > span {
+    color: #B36BFF;
+  }
+
+  div.set_uniq > span {
+    color: #FF00FF;
+  }
+
+  div.set_legnd > span {
+    color: #FF7800;
+  }
+  div.set_epic > span {
+    color: #FFB400;
+  }
+  div.set_begin > span {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(to top, rgb(40, 217, 49), rgb(51, 172, 234)) text;
+  }
+  #setInfo {
+    font-family: 'DNFBitBitv2';
+    margin: 0.3rem 0;
+    font-weight: 500;
+  }
+  .setPt {
+    margin-left: 0.2rem;
+    font-size: 0.7em;
+  }
+
   #equipList {
     display: none;
     align-items: center;
@@ -439,6 +467,7 @@
 
   #equipList.show {
     display: flex !important;
+    flex-direction: column;
   }
 
   #equipment {
