@@ -751,6 +751,17 @@
     outline: 2px solid #28d931ee;
     border-radius: 0.25rem;
   }
+  #setItem div.b-유니크 {
+    position: relative;
+    border: 2px solid transparent;
+    background-color: #FF00FF;
+    background-origin: border-box;
+    border-radius: 0.25rem;
+  }
+  img.b-유니크 {
+    border: 2px solid #FF00FF;
+    border-radius: 0.25rem;
+  }
   #setItem div.b-레전더리 {
     position: relative;
     border: 2px solid transparent;
@@ -834,4 +845,69 @@
   }
   [data-bs-theme=dark] .list-group-item {
     background-color: #212529 !important;
+  }
+  .list-group-item.setPoint {
+    height: 108px;
+  }
+
+  .list-group-item.setPoint>.l1 {
+    width: 60px;
+    display: flex;
+    position: relative;
+  }
+  .list-group-item.setPoint>.l1>div{
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .list-group-item.setPoint>.l2 {
+    width: 60px;
+  }
+
+  .list-group-item.setPoint>.l2 {
+    position: relative;
+    display: flex;
+    margin-top: 4px;
+  }
+  .list-group-item.setPoint>.l2>div{
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .list-group-item.setPoint>div img {
+    width: 28px;
+    height: 28px;
+    background-color: black;
+  }
+
+  .list-group-item.setPoint>div img[src=""] {
+    background-color: black;
+  }
+  li.setPoint .p0_1 {
+    position: absolute !important;
+    left: 35px;
+  }
+
+  li.setPoint .p1_0 {
+    position: absolute !important;
+    top: 35px;
+    left: 0;
+  }
+
+  li.setPoint .p1_1 {
+    position: absolute !important;
+    top: 35px;
+    left: 35px;
+  }
+
+  li.setPoint .p2_0 {
+    position: absolute !important;
+    top: 67px;
+    left: 0;
+  }
+
+  li.setPoint .p2_1 {
+    position: absolute !important;
+    top: 67px;
+    left: 35px;
   }
