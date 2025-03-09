@@ -576,7 +576,7 @@
     flex-wrap: wrap;
     width: max-content;
     min-width: 100%;
-    max-width: 25.5rem;
+    max-width: 21rem;
     padding: 0.5rem;
     padding-top:0;
     border-bottom-width: 0 !important;
@@ -847,11 +847,11 @@
     background-color: #212529 !important;
   }
   .list-group-item.setPoint {
-    height: 108px;
+    justify-content: center;
   }
-
   .list-group-item.setPoint>.l1 {
-    width: 60px;
+    width: 67px;
+    height: 102px;
     display: flex;
     position: relative;
   }
@@ -861,7 +861,8 @@
   }
 
   .list-group-item.setPoint>.l2 {
-    width: 60px;
+    width: 67px;
+    height: 102px;
   }
 
   .list-group-item.setPoint>.l2 {
@@ -883,6 +884,7 @@
   .list-group-item.setPoint>div img[src=""] {
     background-color: black;
   }
+
   li.setPoint .p0_1 {
     position: absolute !important;
     left: 35px;
@@ -902,12 +904,12 @@
 
   li.setPoint .p2_0 {
     position: absolute !important;
-    top: 67px;
+    top: 70px;
     left: 0;
   }
 
   li.setPoint .p2_1 {
     position: absolute !important;
-    top: 67px;
+    top: 70px;
     left: 35px;
   }

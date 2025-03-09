@@ -405,3 +405,6 @@ a:hover{
 .click-pointer {
   cursor: pointer;
 }
+.jc-unset {
+  justify-content: unset !important;
+}
