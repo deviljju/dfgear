@@ -54,7 +54,8 @@
           </ol>
         </nav>
       </div>
-      <div class="mb-1 mt-2 flex flex-col height-auto">
+      <div id="topGrid" class="mb-1 mt-2 flex height-auto">
+        <div style="width: 70%;">
         <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <h1 class="hidden">던파 스트리머 태초 비율</h1>
           <h1 class="hidden">던던미 던파기어</h1>
@@ -63,6 +64,11 @@
         <p class="page-subDscp">제작자가 임의로 등록한 채널만 표시됩니다. 스트리머의 요청이 있는 경우 수정될 수 있습니다.</p>
         <p class="page-subDscp">에픽, 레전더리는 항아리를 제외한 카드, 드랍 개수 입니다.</p>
         <p class="page-subDscp">스트리머명, 모험단명 클릭 시 상세 페이지로 이동됩니다.</p>
+        </div>
+        <div style="width: 30%; align-items: flex-end;" class="flex gap-2">
+          <input id="streamerName" type="text" class="form-control" name="name" placeholder="스트리머명을 입력하세요" autocomplete="off">
+          <button id="btn_search" class="btn btn-primary">이동</button>
+        </div>
       </div>
       <div id="streamerList">
         <div id="table"></div>
