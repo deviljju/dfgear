@@ -913,3 +913,10 @@
     top: 70px;
     left: 35px;
   }
+  .bgImg::before {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background-color: black;
+  }
