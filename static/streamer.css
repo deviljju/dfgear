@@ -17,6 +17,11 @@
   margin-top: 0.8rem;
   max-height: 700px;
 }
+#unluckyList {
+  height: 60vh;
+  margin-top: 0.8rem;
+  max-height: 700px;
+}
 
 @media (min-width: 992px) {
   #table {

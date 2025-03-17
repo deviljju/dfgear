@@ -36,6 +36,46 @@
   text-align: center;
 }
 
+#pagination {
+  margin-top: 1rem;
+  height: auto;
+}
+#pagination ul.list-number {
+  display: flex;
+  justify-content: center;
+}
+ul.list-number li {
+  border: 1px solid #eee;
+  border-radius: 0.5em;
+  cursor: pointer;
+  font-size: 0.8em;
+  height: 2em;
+  margin-right: 0.65em;
+  position: relative;
+  text-align: center;
+  width: 5%;
+  min-width: 1.5rem;
+  place-content: center;
+}
+ul.list-number li.back, li.next{
+  min-width: 2rem !important;
+}
+ul.list-number li:hover {
+  background-color: #eee;
+}
+[data-bs-theme=dark] ul.list-number li:hover {
+  background-color: #535353;
+}
+li {
+  list-style: none;
+}
+li.current {
+  font-weight: 700;
+  color: #0d6efd;
+}
+[data-bs-theme=dark] li.current {
+  color: #a772e7;
+}
 /* 배경색을 어두운 색으로 */
 /* [data-bs-theme=dark] .tui-grid-container {
   background-color: #2c2f38;
