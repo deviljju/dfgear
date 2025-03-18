@@ -649,7 +649,18 @@
   ul.pots.show {
     display: block;
   }
-
+  div.abyss::after {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(to top, rgb(146, 2, 248), #2386be) text;
+    content: "*";
+    margin-left: 0.25em;
+  }
+  li.abyss::after {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(to top, rgb(146, 2, 248), #2386be) text;
+    content: "*";
+    margin-left: 0.25em;
+  }
   .potList::after {
     flex-shrink: 0;
     width: 1.25rem;

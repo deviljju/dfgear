@@ -15,6 +15,7 @@
 #streamerList {
   height: 60vh;
   margin-top: 0.8rem;
+  min-height: 300px;
   max-height: 700px;
 }
 #unluckyList {
@@ -136,6 +137,17 @@ h6 {
 
 .detailCard.mw-2-2 {
   min-width: 11em;
+}
+.detailCard.mw-2-3 {
+  min-width: 11em;
+}
+@media (min-width: 620px) {
+  .detailCard.mw-2-2.variable {
+    min-width: 9.5em;
+  }
+  .detailCard.mw-2-3 {
+    min-width: 10em;
+  }
 }
 
 #b_rate {
