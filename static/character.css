@@ -879,7 +879,12 @@
     min-width: 20em;
     max-width: 23rem;
     margin-bottom: 0.35rem;
+    display: none;
   }
+  table#abyss.show {
+    display: block !important;
+  }
+  
   table#abyss td,th {
     text-align: center;
     font-weight: 500;
