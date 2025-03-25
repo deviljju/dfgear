@@ -653,7 +653,7 @@
   div.abyss::after {
     -webkit-text-fill-color: transparent;
     background: linear-gradient(to top, rgb(146, 2, 248), #2386be) text;
-    content: "심연의숭배자";
+    content: "심연";
     margin-left: 0.35em;
   }
   li.abyss::after {
