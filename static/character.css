@@ -272,6 +272,7 @@
     height: min-content;
     padding: 0;
     width: auto;
+    margin-bottom: 0.8rem;
   }
 
   #mistList.card>.card-header {
@@ -652,14 +653,23 @@
   div.abyss::after {
     -webkit-text-fill-color: transparent;
     background: linear-gradient(to top, rgb(146, 2, 248), #2386be) text;
-    content: "*";
-    margin-left: 0.25em;
+    content: "심연의숭배자";
+    margin-left: 0.35em;
   }
   li.abyss::after {
-    -webkit-text-fill-color: transparent;
-    background: linear-gradient(to top, rgb(146, 2, 248), #2386be) text;
-    content: "*";
+    background: linear-gradient(to top, rgb(146, 2, 248), #0076b9);
+    content: "심연";
     margin-left: 0.25em;
+    border-radius: 50rem !important;
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: 0.75em;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
   }
   .potList::after {
     flex-shrink: 0;
@@ -865,3 +875,31 @@
     height: 28px;
     background-color: black;
   }
+  table#abyss {
+    min-width: 20em;
+    max-width: 23rem;
+    margin-bottom: 0.35rem;
+  }
+  table#abyss td,th {
+    text-align: center;
+    font-weight: 500;
+    font-size: 1em;
+  }
+  table#abyss th.guess::after {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(to top, rgb(146, 2, 248), #2386be) text;
+    content: "(추정)";
+    margin-left: 0.25em;
+    font-size: 0.8em;
+  }
+  #mistList li.list-group-item > p:focus::after {
+    content: attr(data-title);
+    position: absolute;
+    right: 0.3rem;
+    transform: translateY(0.1rem);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+}
