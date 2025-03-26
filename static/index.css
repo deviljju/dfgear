@@ -701,3 +701,7 @@ span.r_epic {
   background-color: #a772e7 !important;
   border-color: #a772e7;
 }
+.aggregate .card>ul li.list-group-item.list-inner-li {
+  font-size: 0.9rem;
+  padding: 0 1rem !important;
+}

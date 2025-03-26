@@ -92,9 +92,26 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><div class="card-header">태초 평균 비율<span style="font-size: 0.65em; float: right;">(태초 : 에픽 : 레전더리)</span></div><h5 id="beginRate" class="card-subtitle mb-2 text-muted">-</h5></li>
               <li class="list-group-item"><div class="card-header">태초 획득량</div><h5 id="beginCnt" class="card-subtitle mb-2 text-muted">- 개</h5></li>
-              <li class="list-group-item"><div class="card-header">레거시 획득량</div><h5 id="legacyCnt" class="card-subtitle mb-2 text-muted">- 개</h5></li>
-              <li class="list-group-item"><div class="card-header">착용 가능 태초 레거시 획득량</div><h5 id="kirinCount" class="card-subtitle mb-2 text-muted">- 개</h5></li>
-              <li class="list-group-item"><div class="card-header">착용 가능 태초의별 획득량</div><h5 id="starCount" class="card-subtitle mb-2 text-muted">* 개</h5></li>
+              <li class="list-group-item">
+                <div class="card-header">태초 레거시 획득량</div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item side somepd chName list-inner-li">전체
+                    <h6 id="legacyCnt" class="card-subtitle mb-2 text-muted">-개</h6>
+                  </li>
+                  <li class="list-group-item side somepd chName list-inner-li">착용 가능
+                    <h6 id="kirinCount" class="card-subtitle mb-2 text-muted">-개</h6></li>
+                </ul>
+              </li>
+              <li class="list-group-item">
+                <div class="card-header">태초의 별 획득량</div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item side somepd chName list-inner-li">전체
+                    <h6 id="starCnt" class="card-subtitle mb-2 text-muted">-개</h6>
+                  </li>
+                  <li class="list-group-item side somepd chName list-inner-li">착용 가능
+                    <h6 id="starCount" class="card-subtitle mb-2 text-muted">-개</h6></li>
+                </ul>
+              </li>
               <li class="list-group-item"><div class="card-header">태초가 많이 나온 채널</div><ul id="chList" class="list-group list-group-flush"></ul></li>
               <li class="list-group-item"><div class="card-header">태초 획득 유형<h6 class="rptz7">(단위:태초개수)</h6></div>
                 <div class="chart">
@@ -129,7 +146,7 @@
     </div>
     <div class="privacy"><a href="https://open.kakao.com/o/shxSboVf" target="_blank" title="오류/건의사항 문의" style="margin-right: 1rem;">오류/건의사항 문의</a><a href="./privacy">개인정보 처리방침</a><button id="btn_lightmode" class="btn btn-light">조회</button></div>
     <script src="./static/js/common.js"></script>
-    <script src="./static/js/weekData.js?ver=250227"></script>
+    <script src="./static/js/weekData.js?ver=250326"></script>
     <script src="./static/js/chart.min.js"></script>
     <script src="./static/js/chartSet.js"></script>
 	  <script src="./static/js/week.js"></script>
