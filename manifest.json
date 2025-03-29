@@ -4,8 +4,7 @@
     "description": "던파기어 Dungeon & Fighters TimeLine App. 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.",
     "start_url": "/", 
     "display": "standalone", 
-    "background_color": "#0d0e1e", 
-    "theme_color": "#000000",
+    "background_color": "#0d0d1c", 
     "icons": [
         {
           "src": "/static/images/logo_192.png",
