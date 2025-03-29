@@ -159,8 +159,18 @@
     display: flex;
     justify-content: space-between;
   }
-
+  .row.resultData > div >.card.characterView {
+    display: none;
+  }
+  #rightSide {
+    display: none;
+  }
+  .row.resultData.show > div >.card.characterView {
+    display: flex !important;
+  }
   .row.resultData.show>.row.result {
+    display: flex !important;
+    flex-direction: column !important; 
     height: auto !important;
     width: max-content;
     /* margin-top: 0.5rem; */
@@ -171,10 +181,6 @@
   }
 
   .resultData {
-    display: none;
-  }
-
-  .row.resultData.show {
     display: flex;
     flex-direction: row;
     height: auto !important;
