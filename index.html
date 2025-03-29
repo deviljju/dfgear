@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>DFGEAR - 던파기어 던전앤파이터 중천 태초 탐색기</title>
+    <link rel="manifest" href="./manifest.json">
     <link rel="icon" href="./static/images/favicon.ico" type="image/x-icon">
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -36,6 +37,9 @@
     <meta property="twitter:image" content="https://dfgear.xyz/static/images/banner.png">
     <link rel="stylesheet" href="./static/common.css">
     <link rel="stylesheet" href="./static/index.css">
+    <script>
+      if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/service-worker.js')}).catch(err => console.error('Service Worker Error:', err)); }
+    </script>
   </head>
   <body>
     <div id="loadingScreen">
