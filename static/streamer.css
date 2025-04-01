@@ -18,9 +18,10 @@
   min-height: 300px;
   max-height: 700px;
 }
-#unluckyList {
+#unluckyList,#luckyList {
   height: 60vh;
   margin-top: 0.8rem;
+  min-height: 300px;
   max-height: 700px;
 }
 
