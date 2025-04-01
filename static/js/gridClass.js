@@ -68,8 +68,6 @@ class cIdIcon {
   constructor(props) {
     let value = props.value;
     const propId = `${props.columnInfo.name}${props.rowKey}`;
-    let cId = props.grid.store.data.rawData[props.rowKey].cId;
-    let sId = props.grid.store.data.rawData[props.rowKey].sId;
     let jc = props.grid.store.data.rawData[props.rowKey].jobCss;
 		const el = document.createElement('div');
     const el1 = document.createElement('div');
@@ -80,10 +78,8 @@ class cIdIcon {
     el2.className = 'g-chName';
     chIcon.id = `img_${propId}`;
     chIcon.className = `g-chimg smallIcon ${jc}`;
-    if(characterMap[value]){
-      chIcon.style = `display: ; background-image: url('${characterMap[cId]}?zoom=1')`;
-    } else if(cId && props.grid.store.data.rawData[props.rowKey].cId == cId){
-      chIcon.style = `display: ; background-image: url('https://img-api.neople.co.kr/df/servers/${sId}/characters/${cId}?zoom=1')`;
+    if(jc && props.grid.store.data.rawData[props.rowKey].jobCss == jc){
+      chIcon.style = `display: ; background-image: url('./static/images/anonymous/${jc}.png')`;
     } else {
       chIcon.style = 'display: none;'
     }
