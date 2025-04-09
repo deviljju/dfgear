@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="./static/common.css">
     <link rel="stylesheet" href="./static/index.css">
     <script>
-      if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/service-worker.js')}).catch(err => console.error('Service Worker Error:', err)); }
+      if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/service-worker.js').catch(err => console.error('Service Worker Error:', err)); }) }
     </script>
   </head>
   <body>
