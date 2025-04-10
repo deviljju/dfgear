@@ -907,7 +907,7 @@
     margin-left: 0.25em;
     font-size: 0.8em;
   }
-  #mistList li.list-group-item > p:focus::after {
+  #mistList li.list-group-item > p.focus::after {
     content: attr(data-title);
     position: absolute;
     right: 0.3rem;
