@@ -108,4 +108,26 @@ class colHover {
 	getElement() {
 	  return this.el;
 	}
+}
+class wpRender {
+  constructor(props) {
+    let value = props.value;
+    const div = document.createElement('div');
+	  const span = document.createElement('span');
+	  div.className = 'tui-grid-cell-content';
+    if(value=="1"){
+      span.innerText = "태초의별";  
+    } else if(value=="2"){
+      span.innerText = "태거시";
+    } else if(value=="3"){
+      span.innerText = "태별+태거시";
+    } else {
+      span.innerText = "-";
+    }
+	  div.append(span);
+	  this.el = div;
+	}
+  getElement() {
+    return this.el;
   }
+}
