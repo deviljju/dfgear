@@ -159,18 +159,22 @@
     display: flex;
     justify-content: space-between;
   }
-  .row.resultData > div >.card.characterView {
+
+  .row.resultData>div>.card.characterView {
     display: none;
   }
+
   #rightSide {
     display: none;
   }
-  .row.resultData.show > div >.card.characterView {
+
+  .row.resultData.show>div>.card.characterView {
     display: flex !important;
   }
+
   .row.resultData.show>.row.result {
     display: flex !important;
-    flex-direction: column !important; 
+    flex-direction: column !important;
     height: auto !important;
     width: max-content;
     /* margin-top: 0.5rem; */
@@ -196,14 +200,14 @@
     margin: 0.2rem;
   }
 
-  #mistList {
+  .gear-list {
     height: max-content;
     margin: 0.3rem;
     max-width: 39.6rem;
     min-width: calc(15rem + var(--bs-gutter-x));
   }
 
-  #mistList>ul {
+  .gear-list>ul {
     width: fit-content;
     max-height: 400px;
     overflow-y: auto;
@@ -274,32 +278,32 @@
     display: block;
   }
 
-  #mistList.card {
+  .gear-list.card {
     height: min-content;
     padding: 0;
     width: auto;
     margin-bottom: 0.8rem;
   }
 
-  #mistList.card>.card-header {
+  .gear-list.card>.card-header {
     background-color: #fff3cd5c;
     font-family: 'DNFBitBitv2';
   }
 
-  #mistList.card>.card-header.legacy {
+  .gear-list.card>.card-header.legacy {
     /* background: linear-gradient(to right, #5aff62d8, #3f70d7); */
     background: linear-gradient(to right, #5aff62d8, rgb(51, 172, 234));
   }
 
-  #mistList.card>.card-header.begin {
+  .gear-list.card>.card-header.begin {
     background-color: #4eef565c;
   }
 
-  #mistList.card img {
+  .gear-list.card img {
     margin-right: 0.5rem;
   }
 
-  #mistList.card li {
+  .gear-list.card li {
     display: flex;
     align-items: center;
     padding: 0.3rem 0.5rem;
@@ -327,13 +331,13 @@
     justify-content: center;
   }
 
-  #mistList .list-group-item>p {
+  .gear-list .list-group-item>p {
     margin: 0 !important;
     align-items: center;
     display: flex;
   }
 
-  #mistList .list-group-item>dd {
+  .gear-list .list-group-item>dd {
     margin: 0 0.5rem 0 0 !important;
     width: 1.5rem;
     font-size: 0.75rem;
@@ -430,37 +434,42 @@
   .r_begin {
     color: #6fc2ac
   }
+
   span.r_legnd {
     font-weight: 600;
   }
-  
+
   span.r_epic {
     font-weight: 600;
   }
 
-  div.set_rair > span {
+  div.set_rair>span {
     color: #B36BFF;
   }
 
-  div.set_uniq > span {
+  div.set_uniq>span {
     color: #FF00FF;
   }
 
-  div.set_legnd > span {
+  div.set_legnd>span {
     color: #FF7800;
   }
-  div.set_epic > span {
+
+  div.set_epic>span {
     color: #FFB400;
   }
-  div.set_begin > span {
+
+  div.set_begin>span {
     -webkit-text-fill-color: transparent;
     background: linear-gradient(to top, rgb(40, 217, 49), rgb(51, 172, 234)) text;
   }
+
   #setInfo {
     font-family: 'DNFBitBitv2';
     margin: 0.3rem 0;
     font-weight: 500;
   }
+
   .setPt {
     margin-left: 0.2rem;
     font-size: 0.7em;
@@ -543,8 +552,9 @@
   }
 
   #setList {
-    margin: 0.3rem;
     padding: 0;
+    border: 1px solid var(--bs-border-color-translucent);
+    border-radius: 0.375rem;
   }
 
   #setList .list-group-item>div {
@@ -556,8 +566,13 @@
   #setList .list-group-item>div:last-child {
     margin-right: 0 !important;
   }
+
   #setList button.accordion-button {
     font-family: 'DNFBitBitv2';
+  }
+
+  #setItem {
+    width: 100%;
   }
 
   #setItem>.card-header {
@@ -585,17 +600,19 @@
     min-width: 100%;
     max-width: 21rem;
     padding: 0.5rem;
-    padding-top:0;
+    padding-top: 0;
     border-bottom-width: 0 !important;
   }
+
   #setItem li.list-group-item.armory {
     padding-bottom: 0.1rem;
     border-top-width: 1px;
   }
-  #setItem li.list-group-item.armory > div {
+
+  #setItem li.list-group-item.armory>div {
     background-color: #838181 !important;
   }
-  
+
 
   .itemCount {
     position: absolute;
@@ -619,6 +636,7 @@
     color: rgba(33, 37, 41, 0.75);
     font-size: 0.8rem;
   }
+
   [data-bs-theme=dark] #openHide {
     color: var(--bs-card-color);
   }
@@ -642,13 +660,20 @@
   #btn_chracterHide {
     width: 9rem;
   }
-
-  .potList {
+  .fold {
     display: flex;
     cursor: pointer;
+  }
+  .potList {
     background-color: #ffe5cd5c !important;
   }
+  ul.epics {
+    display: none;
+  }
 
+  ul.epics.show {
+    display: block;
+  }
   ul.pots {
     display: none;
   }
@@ -656,6 +681,7 @@
   ul.pots.show {
     display: block;
   }
+
   div.abyss::after {
     -webkit-text-fill-color: transparent;
     background: linear-gradient(to top, rgb(146, 2, 248), #2386be) text;
@@ -663,6 +689,7 @@
     margin-left: 0.35em;
     font-size: 0.75em;
   }
+
   li.abyss::after {
     background: linear-gradient(to top, rgb(146, 2, 248), #0076b9);
     content: "심연";
@@ -678,7 +705,8 @@
     white-space: nowrap;
     vertical-align: baseline;
   }
-  .potList::after {
+
+  .fold::after {
     flex-shrink: 0;
     width: 1.25rem;
     height: 1.25rem;
@@ -689,11 +717,12 @@
     background-size: 1.25rem;
     transition: none;
   }
-  [data-bs-theme=dark] .potList::after {
+
+  [data-bs-theme=dark] .fold::after {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236ea8fe'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   }
 
-  .potList.open::after {
+  .fold.open::after {
     transform: rotate(-180deg);
   }
 
@@ -708,14 +737,25 @@
     outline: 2px solid #ff7800ee;
     border-radius: 0.25rem;
   }
+
   img.b-epic {
     outline: 2px solid #FFB400ee;
     border-radius: 0.25rem;
   }
+
   img.b-begin {
     outline: 2px solid #28d931ee;
     border-radius: 0.25rem;
   }
+
+  #setItem div.b-레어 {
+    position: relative;
+    border: 2px solid transparent;
+    background-color: #B36BFF;
+    background-origin: border-box;
+    border-radius: 0.25rem;
+  }
+
   #setItem div.b-유니크 {
     position: relative;
     border: 2px solid transparent;
@@ -723,10 +763,12 @@
     background-origin: border-box;
     border-radius: 0.25rem;
   }
+
   img.b-유니크 {
     border: 2px solid #FF00FF;
     border-radius: 0.25rem;
   }
+
   #setItem div.b-레전더리 {
     position: relative;
     border: 2px solid transparent;
@@ -734,10 +776,12 @@
     background-origin: border-box;
     border-radius: 0.25rem;
   }
+
   img.b-레전더리 {
     border: 2px solid #ff7800ee;
     border-radius: 0.25rem;
   }
+
   #setItem div.b-에픽 {
     position: relative;
     border: 2px solid transparent;
@@ -745,10 +789,12 @@
     background-origin: border-box;
     border-radius: 0.25rem;
   }
+
   img.b-에픽 {
     border: 2px solid #FFB400ee;
     border-radius: 0.25rem;
   }
+
   #setItem div.b-태초 {
     position: relative;
     border: 2px solid transparent;
@@ -756,6 +802,7 @@
     background-origin: border-box;
     border-radius: 0.25rem;
   }
+
   img.b-태초 {
     border: 2px solid #28d931ee;
     border-radius: 0.25rem;
@@ -766,61 +813,76 @@
     display: flex;
     justify-content: flex-end;
   }
+
   #filter_item #ft_legnd.form-check-input:checked {
     background-color: #ff7800;
     border-color: #ff7800;
   }
+
   [data-bs-theme=dark] #filter_item #ft_legnd.form-check-input:checked {
     background-color: #B5651D !important;
     border-color: #B5651D;
   }
+
   #filter_item #ft_armory.form-check-input:checked {
     background-color: #5d5a5a;
     border-color: #5d5a5a;
   }
+
   [data-bs-theme=dark] #filter_item #ft_armory.form-check-input:checked {
     background-color: #838181 !important;
     border-color: #838181;
   }
+
   div.form-switch:first-child {
     margin-right: 0.5rem;
   }
 
-  .form-check-input,.form-check-label { 
+  .form-check-input,
+  .form-check-label {
     cursor: pointer;
   }
+
   .famehigh {
     margin: 0.2rem 0;
     text-align: center;
     font-family: 'DNFBitBitv2', sans-serif;
   }
-  #channels.detailCard > h5 {
-    margin:0 !important;
+
+  #channels.detailCard>h5 {
+    margin: 0 !important;
   }
-  #channels.detailCard > div > h4 {
+
+  #channels.detailCard>div>h4 {
     font-family: var(--bs-font-sans-serif);
     margin: 0 !important;
     font-size: 1.2rem;
   }
-  #channels.detailCard > div > h5 {
+
+  #channels.detailCard>div>h5 {
     margin: 0 !important;
   }
-  .detailCard.b-shadow{
+
+  .detailCard.b-shadow {
     box-shadow: 0px 0.5px 4px 0px rgb(0 0 0 / 25%);
   }
+
   [data-bs-theme=dark] .list-group-item {
     background-color: #212529 !important;
   }
+
   .list-group-item.setPoint {
     justify-content: center;
   }
+
   .list-group-item.setPoint>.l1 {
     width: 67px;
     height: 102px;
     display: flex;
     position: relative;
   }
-  .list-group-item.setPoint>.l1>div{
+
+  .list-group-item.setPoint>.l1>div {
     width: fit-content;
     height: fit-content;
   }
@@ -835,7 +897,8 @@
     display: flex;
     margin-top: 4px;
   }
-  .list-group-item.setPoint>.l2>div{
+
+  .list-group-item.setPoint>.l2>div {
     width: fit-content;
     height: fit-content;
   }
@@ -844,6 +907,13 @@
     width: 28px;
     height: 28px;
     background-color: black;
+  }
+  .setPoint .rairitySummary {
+    flex-direction: column !important;
+    width: fit-content !important;
+    position: absolute !important;
+    right: 0;
+    font-size: 0.8rem;
   }
 
   .list-group-item.setPoint>div img[src=""] {
@@ -878,6 +948,7 @@
     top: 70px;
     left: 35px;
   }
+
   .bgImg::before {
     content: "";
     position: absolute;
@@ -885,21 +956,30 @@
     height: 28px;
     background-color: black;
   }
-  table#abyss {
+
+  table.summary {
+    width: 100%;
     min-width: 20em;
-    max-width: 23rem;
     margin-bottom: 0.35rem;
-    display: none;
+    max-width: 23rem;
   }
-  table#abyss.show {
+
+  table#abyss {
+    display: none;    
+  }
+
+  table.summary.show {
     display: table !important;
   }
-  
-  table#abyss td,th {
+
+  table.summary td,
+  th {
     text-align: center;
     font-weight: 500;
     font-size: 1em;
+    padding: .2rem .2rem !important;
   }
+
   table#abyss th.guess::after {
     -webkit-text-fill-color: transparent;
     background: linear-gradient(to top, rgb(146, 2, 248), #2386be) text;
@@ -907,7 +987,8 @@
     margin-left: 0.25em;
     font-size: 0.8em;
   }
-  #mistList li.list-group-item > p.focus::after {
+
+  .gear-list li.list-group-item>p.focus::after {
     content: attr(data-title);
     position: absolute;
     right: 0.3rem;
@@ -917,4 +998,95 @@
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 1000;
-}
+  }
+
+  #equipment img::before {
+    content: attr(data-title);
+    position: absolute;
+    right: 0.3rem;
+    transform: translateY(0.1rem);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+  }
+  #summary {
+    border: none;
+    padding: 0.75rem;
+  }
+  #equipSpecDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #equipSpecDiv td {
+    font-size: 0.8rem;
+  }
+  #h_specTime {
+    font-family: 'DNFBitBitv2';
+    font-size: small;
+  }
+  #timeline {
+    align-items: flex-start;
+    width: fit-content;
+  }
+  #pot {
+    align-items: flex-start;
+    /* width: fit-content; */
+  }
+  #timelineList {
+    max-height: 60vh;
+    overflow-y: auto;
+    width: fit-content;
+    max-width: 40rem;
+  }
+  #timelineList > div {
+    padding-right: 0.5rem;
+  }
+  #potList {
+    max-height: 60vh;
+    overflow-y: auto;
+    width: fit-content;
+    max-width: 40rem;
+  }
+  #potList > div {
+    padding-right: 0.8rem;
+  }
+  #potList td,th {
+    font-size: 0.88em;
+  }
+  .filter-div {
+    width: 100%;
+    display: flex;
+    gap: .5rem;
+  }
+  .filter-div > * {
+    margin: 0.4rem 0;
+  }
+  .filter-rarity {
+    width: 7.5rem;
+  }
+  .filter-item {
+    width: calc(100% - 8.5rem);
+    max-width: 15rem;
+  }
+  .pot-success {
+    color: #2ecc71 !important;
+  }  
+  .pot-fail {
+    color: #e74c3c !important;
+  }
+
+  .r_legnd > td.rare {
+    color: #FF7800 !important;
+  }
+
+  .r_epic > td.rare {
+    color: #FFB400 !important;
+  }
+
+  .r_begin > td.rare {
+    color: #6fc2ac !important;
+  }
