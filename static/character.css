@@ -1104,4 +1104,11 @@
     #potList tbody{
       font-size: 0.93rem;
     }
+    #setItem li.list-group-item.setPoint  {
+      justify-content: space-between;
+    }
+    .setPoint .rairitySummary {
+      position: relative !important;
+      min-width: 4.9rem;
+    }
   }
