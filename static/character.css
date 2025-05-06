@@ -1077,15 +1077,15 @@
     color: #e74c3c !important;
   }
 
-  .r_legnd > td.rare {
+  .r_legnd > td.rare, td.r_legnd {
     color: #FF7800 !important;
   }
 
-  .r_epic > td.rare {
+  .r_epic > td.rare, td.r_epic {
     color: #FFB400 !important;
   }
 
-  .r_begin > td.rare {
+  .r_begin > td.rare, td.r_begin {
     color: #6fc2ac !important;
   }
 
