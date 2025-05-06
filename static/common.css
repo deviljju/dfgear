@@ -45,6 +45,11 @@
     justify-content: flex-start !important;
   }
 }
+@media (max-width: 775px) {
+  .tab-content {
+    min-width: auto !important;
+  }
+}
 /* grid thema
 @media (min-width: 1300px){
   body {

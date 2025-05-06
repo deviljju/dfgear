@@ -962,10 +962,7 @@
     min-width: 20em;
     margin-bottom: 0.35rem;
     max-width: 23rem;
-  }
-
-  table#abyss {
-    display: none;    
+    display: none;
   }
 
   table.summary.show {
@@ -1034,7 +1031,8 @@
   }
   #pot {
     align-items: flex-start;
-    /* width: fit-content; */
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
   }
   #timelineList {
     max-height: 60vh;
@@ -1089,4 +1087,21 @@
 
   .r_begin > td.rare {
     color: #6fc2ac !important;
+  }
+
+  @media (min-width: 715px) {
+    .tabs {
+      justify-content: flex-start !important;
+    }
+  }
+  @media (max-width: 775px) {
+    .filter-div > .filter-item {
+      max-width: 13rem !important;
+    }
+    #timelineList {
+      max-width: 32.5rem !important;
+    }
+    #potList tbody{
+      font-size: 0.93rem;
+    }
   }
