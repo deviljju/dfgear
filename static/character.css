@@ -95,7 +95,7 @@
     position: relative;
     align-items: center;
     width: 100%;
-    max-width: 58.6rem;
+    max-width: 60rem;
     min-height: calc(90vh - 1rem);
     /* max-height: calc(100vh - 37px - 0.5rem); */
     flex-direction: column;
@@ -1038,7 +1038,7 @@
     max-height: 60vh;
     overflow-y: auto;
     width: fit-content;
-    max-width: 40rem;
+    max-width: 38.5rem;
   }
   #timelineList > div {
     padding-right: 0.5rem;
@@ -1047,7 +1047,7 @@
     max-height: 60vh;
     overflow-y: auto;
     width: fit-content;
-    max-width: 40rem;
+    max-width: 38.5rem;
   }
   #potList > div {
     padding-right: 0.8rem;
@@ -1088,7 +1088,13 @@
   .r_begin > td.rare, td.r_begin {
     color: #6fc2ac !important;
   }
-
+  img.advt-in {
+    filter: grayscale(100%);
+  }
+  div.advt-in, p.advt-in {
+    text-decoration: line-through;
+    color: #d2d2d2;
+  }
   @media (min-width: 715px) {
     .tabs {
       justify-content: flex-start !important;
