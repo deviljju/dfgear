@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
-<url>
-<loc>https://dfgear.xyz/</loc>
-<lastmod>2025-05-13T08:00:00+00:00</lastmod>
-<priority>1.00</priority>
-</url>
-<url>
-<loc>https://dfgear.xyz/streamer</loc>
-<lastmod>2025-05-13T08:00:00+00:00</lastmod>
-<priority>0.90</priority>
-</url>
-<url>
-<loc>https://dfgear.xyz/adventure</loc>
-<lastmod>2025-05-13T08:00:00+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://dfgear.xyz/character</loc>
-<lastmod>2025-05-13T08:00:00+00:00</lastmod>
-<priority>0.70</priority>
-</url>
-<url>
-<loc>https://dfgear.xyz/advtDetail</loc>
-<lastmod>2025-05-13T08:00:00+00:00</lastmod>
-<priority>0.60</priority>
-</url>
-<url>
-<loc>https://dfgear.xyz/strmDetail</loc>
-<lastmod>2025-05-13T08:00:00+00:00</lastmod>
-<priority>0.50</priority>
-</url>
-<url>
-<loc>https://dfgear.xyz/unlucky</loc>
-<lastmod>2025-05-13T08:00:00+00:00</lastmod>
-<priority>0.40</priority>
-</url>
-<url>
-<loc>https://dfgear.xyz/lucky</loc>
-<lastmod>2025-05-13T08:00:00+00:00</lastmod>
-<priority>0.30</priority>
-</url>
-<url>
-<loc>https://dfgear.xyz/week</loc>
-<lastmod>2025-05-13T08:00:00+00:00</lastmod>
-<priority>0.20</priority>
-</url>
-<url>
-<loc>https://dfgear.xyz/privacy</loc>
-<lastmod>2025-05-13T08:00:00+00:00</lastmod>
-<priority>0.10</priority>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://dfgear.xyz/</loc>
+    <lastmod>2025-05-13</lastmod>
+    <changefreq>never</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://dfgear.xyz/streamer</loc>
+    <lastmod>2025-05-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dfgear.xyz/adventure</loc>
+    <lastmod>2025-05-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dfgear.xyz/character</loc>
+    <lastmod>2025-05-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dfgear.xyz/advtDetail</loc>
+    <lastmod>2025-05-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dfgear.xyz/strmDetail</loc>
+    <lastmod>2025-05-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dfgear.xyz/unlucky</loc>
+    <lastmod>2025-05-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dfgear.xyz/lucky</loc>
+    <lastmod>2025-05-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dfgear.xyz/week</loc>
+    <lastmod>2025-05-13</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://dfgear.xyz/privacy</loc>
+    <lastmod>2025-05-13</lastmod>
+    <priority>0.8</priority>
+  </url>
 </urlset>
