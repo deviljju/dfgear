@@ -282,6 +282,7 @@
     height: min-content;
     padding: 0;
     width: auto;
+    min-width: 20rem;
     margin-bottom: 0.8rem;
   }
 
@@ -1036,6 +1037,7 @@
   }
   #timelineList {
     max-height: 60vh;
+    min-height: 14.5rem;
     overflow-y: auto;
     width: fit-content;
     max-width: 38.5rem;
@@ -1046,8 +1048,9 @@
   }
   #potList {
     max-height: 60vh;
+    min-height: 14.5rem;
     overflow-y: auto;
-    width: fit-content;
+    width: 100%;
     max-width: 38.5rem;
     min-width: 26rem;
   }
