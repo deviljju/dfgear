@@ -16,9 +16,6 @@
     <!--Bootstrap-->
     <link rel="stylesheet" href="./static/bootstrap.min.css">
     <script src="./static/js/bootstrap.bundle.js"></script>
-     <!-- GOOGLE AD -->
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5735118798197779"
-     crossorigin="anonymous"></script>
     <meta name="google-site-verification" content="7pZKkUKIWjAwO5AVHUNjhSds00fERltbyj5hD5l3Xd0" />
     <meta name="naver-site-verification" content="e1d874db17357f1f91ffe4d641a038dd6d6825e0" />
     <!-- meta -->
@@ -47,6 +44,23 @@
       #beginGet > li > img { margin-right: 0.5rem; }
       .recentBox hr { margin:0; opacity: 0; }
     </style>
+    <!-- vnts AD -->
+    <link rel="stylesheet" href="./static/vntsAd.css">
+    <script src="https://hb.vntsm.com/v4/live/vms/sites/dfgear.xyz/index.js" data-disable-placements="video_slider"></script>
+    <script>
+      self.__VM = self.__VM || [];
+      self.__VM.push(function (admanager, scope) {
+        scope.Config.setBreakPoint("mobile", "max-width:800px");
+        scope.Config.buildPlacement((configBuilder) => {
+          configBuilder.add("billboard");
+          configBuilder.addDefaultOrUnique("double_mpu").setBreakPoint("mobile");
+        }).display("slot-2");
+        scope.Config.buildPlacement((configBuilder) => {
+          configBuilder.add("video");
+          configBuilder.addDefaultOrUnique("mobile_takeover").setBreakPoint("mobile");
+        }).display("slot-7");
+      });
+    </script>
   </head>
   <body>
     <div id="loadingScreen">
@@ -54,8 +68,12 @@
         <div class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>
       </div>
     </div>
+    <div id="top-container"> <!-- header -->
+      <div class="row title">DFGEAR</div>
+      <h1 class="hidden">던파기어 DFGEAR 던기어 던던미</h1>
+    </div>
+    <div id="content-container">
     <div class="container">
-      <div class="row title" onClick="window.location.href='https://dfgear.xyz'">DFGEAR</div>
       <div class="recentBox active">
         <div class="r-header ndrag">집계 기간 : 2025.01.09 12:00 ~ <span id="updateDate">02.06 10:00</span><hr>이후 데이터는 갱신되지 않습니다</div>
       </div>
@@ -133,18 +151,9 @@
           </div>
         </div>
       </div>
-      <div class="adshorizonfixed">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5735118798197779"
-          crossorigin="anonymous"></script>
-          <ins class="adsbygoogle"
-          style="display:inline-block;width:760px;height:180px"
-          data-ad-client="ca-pub-5735118798197779"
-          data-ad-slot="1242810811"></ins>
-          <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
       </div>
-    </div>
+      <div class="ad-container"><div id="slot-2"></div></div>
+      <div class="help-container">
     <div class="neopleThk">
       <div></div>
       <div class="footer-main">
@@ -153,6 +162,9 @@
       <div></div>
     </div>
     <div class="privacy"><a href="https://open.kakao.com/o/shxSboVf" target="_blank" title="오류/건의사항 문의" style="margin-right: 1rem;">오류/건의사항 문의</a><a href="./privacy">개인정보 처리방침</a><button id="btn_lightmode" class="btn btn-light">조회</button></div>
+      </div>
+    </div>
+    <div id="bottom-container"></div>
     <script src="./static/js/common.js"></script>
     <script src="./static/js/weekData.js?ver=250326"></script>
     <script src="./static/js/chart.min.js"></script>

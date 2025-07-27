@@ -1,3 +1,25 @@
+#top-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 65rem;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin-bottom: 1rem; */
+  justify-content: center;
+}
+.container {
+  background-color: var(--bgcolor);
+  padding: .5rem;
+  border-radius: .2rem;
+}
+.help-container {
+  margin: 1rem auto .25rem auto;
+  max-width: 65rem;
+  width: 100%;
+  height: max-content !important;
+  background-color: var(--bgcolor);
+}
 @font-face{
   font-family:'DNFForgedBlade'; font-style:normal; font-weight:300;font-display:swap;
   src:url('./fonts/DNFForgedBlade-Light.ttf')format('truetype')}
@@ -180,11 +202,12 @@
   --bs-btn-hover-bg: #a772e7;
   --bs-btn-border-color: #a772e7;
   --bs-btn-hover-border-color: #a772e7;
+  --bgcolor: #121214 !important;
 }
 :root {
   --bs-body-font-family: "Malgun Gothic", "맑은 고딕","NanumGothic",system-ui, -apple-system,"Noto Sans";
   --bs-font-sans-serif: "Malgun Gothic", "맑은 고딕","NanumGothic",system-ui, -apple-system,"Noto Sans";
-  
+  --bgcolor: #fff;
   --bs-dk-bg:#121214;
   --bs-dk-l1:#1d1d1d;
   --bs-dk-l2:#2d2d2d;

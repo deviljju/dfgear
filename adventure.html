@@ -14,17 +14,10 @@
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!--Bootstrap-->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous" ></script> -->
     <link rel="stylesheet" href="./static/bootstrap.min.css">
     <script src="./static/js/bootstrap.bundle.js"></script>
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> -->    
     <script src="./static/js/moment.min.js"></script>
-     <!-- GOOGLE AD -->
-     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5735118798197779"
-     crossorigin="anonymous"></script>
-    <meta name="google-site-verification" content="7pZKkUKIWjAwO5AVHUNjhSds00fERltbyj5hD5l3Xd0" />
-    <meta name="naver-site-verification" content="e1d874db17357f1f91ffe4d641a038dd6d6825e0" />
     <!-- meta -->
     <link rel="canonical" href="https://dfgear.xyz">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,8 +35,28 @@
     <meta property="twitter:title" content="DFGEAR - 던파기어">
     <meta property="twitter:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.">
     <meta property="twitter:image" content="https://dfgear.xyz/static/images/banner.png">
+    <meta name="google-site-verification" content="7pZKkUKIWjAwO5AVHUNjhSds00fERltbyj5hD5l3Xd0" />
+    <meta name="naver-site-verification" content="e1d874db17357f1f91ffe4d641a038dd6d6825e0" />
     <link rel="stylesheet" href="./static/common.css">
     <link rel="stylesheet" href="./static/index.css">
+    <!-- vnts AD -->
+    <link rel="stylesheet" href="./static/vntsAd.css">
+    <script src="https://hb.vntsm.com/v4/live/vms/sites/dfgear.xyz/index.js" data-disable-placements="video_slider"></script>
+    <script>
+      self.__VM = self.__VM || [];
+      self.__VM.push(function (admanager, scope) {
+        scope.Config.setBreakPoint("mobile", "max-width:800px");
+        scope.Config.buildPlacement((configBuilder) => {
+          configBuilder.add("desktop_takeover"); // 250px
+          configBuilder.addDefaultOrUnique("mobile_banner").setBreakPoint("mobile"); // 100px
+        }).display("slot-3");
+        scope.Config.buildPlacement((configBuilder) => {
+          configBuilder.add("billboard"); // 250px
+          configBuilder.addDefaultOrUnique("double_mpu").setBreakPoint("mobile"); // 250px
+          configBuilder.addDefaultOrUnique('mobile_banner').setBreakPoint({mediaQuery: 'max-width:500px'}); //100px
+        }).display("slot-2");
+      });
+    </script>
   </head>
   <body>
     <div id="loadingScreen">
@@ -51,54 +64,53 @@
         <div class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>
       </div>
     </div>
-    <div class="container">
+    <div id="top-container"> <!-- header -->
       <div class="row title">DFGEAR</div>
       <h1 class="hidden">던파기어 DFGEAR 던기어 던던미</h1>
-      <div class="row">
-        <select id="serverId" class="form-select" name="server">
-          <option value="all">전체</option>
-          <option value="adventure" selected>모험단</option>
-          <option value="anton">안톤</option>
-          <option value="bakal">바칼</option>
-          <option value="cain">카인</option>
-          <option value="casillas">카시야스</option>
-          <option value="diregie">디레지에</option>
-          <option value="hilder">힐더</option>
-          <option value="prey">프레이</option>
-          <option value="siroco">시로코</option>
-        </select>
-        <input id="characterName" type="text" class="form-control" name="name" placeholder="캐릭터명을 입력하세요" autocomplete="off">
-        <button id="btn_search" class="btn btn-primary">조회</button>
-      </div>
-      <h5 id="searchError" class="uselct"></h5>
-      <div id="advenResult">
-        <div class="row adventure">
-          <h5 id="advenTotal" class="uselct"><text>-</text><span class="badge text-bg-primary">모험단 통계</span></h5>
-          <img id="advenRefresh" src="./static/images/refresh.png" alt="모험단 전체 갱신" title="모험단 전체 갱신"/>
-          <div id="raidCntTotal" style="width:5rem" class="flex flex-row items-center gap-1"><img src="./static/images/raid.png"><div></div></div>
+    </div>
+    <div class="ad-container"><div id="slot-3"></div></div>
+    <div id="content-container">
+      <div class="container">
+        <div class="row">
+          <select id="serverId" class="form-select" name="server">
+            <option value="all">전체</option>
+            <option value="adventure" selected>모험단</option>
+            <option value="anton">안톤</option>
+            <option value="bakal">바칼</option>
+            <option value="cain">카인</option>
+            <option value="casillas">카시야스</option>
+            <option value="diregie">디레지에</option>
+            <option value="hilder">힐더</option>
+            <option value="prey">프레이</option>
+            <option value="siroco">시로코</option>
+          </select>
+          <input id="characterName" type="text" class="form-control" name="name" placeholder="캐릭터명을 입력하세요" autocomplete="off">
+          <button id="btn_search" class="btn btn-primary">조회</button>
         </div>
-        <div id="characterList"></div>
-      </div>
-      <div class="adshorizonfixed">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5735118798197779"
-          crossorigin="anonymous"></script>
-          <ins class="adsbygoogle"
-          style="display:inline-block;width:760px;height:180px"
-          data-ad-client="ca-pub-5735118798197779"
-          data-ad-slot="1242810811"></ins>
-          <script>
-              (adsbygoogle = window.adsbygoogle || []).push({});
-          </script>
+        <h5 id="searchError" class="uselct"></h5>
+        <div id="advenResult">
+          <div class="row adventure">
+            <h5 id="advenTotal" class="uselct"><text>-</text><span class="badge text-bg-primary">모험단 통계</span></h5>
+            <img id="advenRefresh" src="./static/images/refresh.png" alt="모험단 전체 갱신" title="모험단 전체 갱신"/>
+            <div id="raidCntTotal" style="width:5rem" class="flex flex-row items-center gap-1"><img src="./static/images/raid.png"><div></div></div>
+          </div>
+          <div id="characterList"></div>
+        </div>
       </div>
     </div>
-    <div class="neopleThk">
-      <div></div>
-      <div class="footer-main">
-        <a href="http://developers.neople.co.kr" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAL8AAAAkCAYAAADYS+uGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjBEOTQyOThCODI2NDExRTc5MEJDRUEzMjNCNzhGRjkzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjBEOTQyOThDODI2NDExRTc5MEJDRUEzMjNCNzhGRjkzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MEQ5NDI5ODk4MjY0MTFFNzkwQkNFQTMyM0I3OEZGOTMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MEQ5NDI5OEE4MjY0MTFFNzkwQkNFQTMyM0I3OEZGOTMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz75QNjfAAAOM0lEQVR42uxc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" alt="Powered by Neople OpenAPI" /> </a></a>
-      </div>
-      <div></div>
+    <div class="ad-container"><div id="slot-2"></div></div>
+    <div class="help-container">
+      <div class="neopleThk">
+        <div></div>
+        <div class="footer-main">
+          <a href="http://developers.neople.co.kr" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAL8AAAAkCAYAAADYS+uGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjBEOTQyOThCODI2NDExRTc5MEJDRUEzMjNCNzhGRjkzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjBEOTQyOThDODI2NDExRTc5MEJDRUEzMjNCNzhGRjkzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MEQ5NDI5ODk4MjY0MTFFNzkwQkNFQTMyM0I3OEZGOTMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MEQ5NDI5OEE4MjY0MTFFNzkwQkNFQTMyM0I3OEZGOTMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz75QNjfAAAOM0lEQVR42uxc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" alt="Powered by Neople OpenAPI" /> </a></a>
+        </div>
+        <div></div>
+        </div>
+        <div class="privacy"><a href="https://open.kakao.com/o/shxSboVf" target="_blank" title="오류/건의사항 문의" style="margin-right: 1rem;">오류/건의사항 문의</a><a href="./privacy">개인정보 처리방침</a><button id="btn_lightmode" class="btn btn-light">조회</button></div>
     </div>
-    <div class="privacy"><a href="https://open.kakao.com/o/shxSboVf" target="_blank" title="오류/건의사항 문의" style="margin-right: 1rem;">오류/건의사항 문의</a><a href="./privacy">개인정보 처리방침</a><button id="btn_lightmode" class="btn btn-light">조회</button></div>
+    <!-- footer -->
+    <div id="bottom-container"></div>
     <script src="./static/js/common.js"></script>
 	  <script src="./static/js/adventure.js"></script>
   </body>
