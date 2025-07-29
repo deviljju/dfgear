@@ -51,9 +51,14 @@
           configBuilder.addDefaultOrUnique("mobile_banner").setBreakPoint("mobile"); // 100px
         }).display("slot-3");
         scope.Config.buildPlacement((configBuilder) => {
+          scope.Config.setBreakPoint("desktop", "not (max-width:800px)");
           configBuilder.add("billboard"); // 250px
-          configBuilder.addDefaultOrUnique("double_mpu").setBreakPoint("mobile"); // 250px
-          configBuilder.addDefaultOrUnique('mobile_banner').setBreakPoint({mediaQuery: 'max-width:500px'}); //100px
+          configBuilder.addDefaultOrUnique("double_mpu").setBreakPoint({ // 250px
+            mediaQuery: "(min-width:500px) and (max-width:800px)",
+          });
+          configBuilder.addDefaultOrUnique("mobile_banner").setBreakPoint({ //100px
+            mediaQuery: "max-width: 500px",
+          });
         }).display("slot-2");
       });
     </script>
