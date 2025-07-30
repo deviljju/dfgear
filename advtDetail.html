@@ -44,6 +44,7 @@
       self.__VM = self.__VM || [];
       self.__VM.push(function (admanager, scope) {
         scope.Config.setBreakPoint("mobile", "max-width:800px");
+        scope.Config.setBreakPoint("desktop", "not (max-width:800px)");
         scope.Config.buildPlacement((configBuilder) => {
           configBuilder.add("desktop_takeover");
           configBuilder.addDefaultOrUnique("mobile_banner").setBreakPoint("mobile");
