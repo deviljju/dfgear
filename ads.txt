@@ -1,7 +1,6 @@
-google.com, pub-5735118798197779, DIRECT, f08c47fec0942fa0
 ownerdomain=dfgear.xyz
 managerdomain=venatus.com
-#V 18.07.2025 VH
+#V 29.07.2025 VH
 #V
 
 
@@ -171,4 +170,6 @@ criteo.com, B-068503, DIRECT
 appnexus.com, 806, DIRECT, f5ab79cb980f11d1                                  
 appnexus.com,1908,RESELLER,f5ab79cb980f11d1                               
 adinplay.com, FTB, DIRECT
+# Google Adsense
+google.com, pub-5735118798197779, DIRECT, f08c47fec0942fa0
 venatus.com, 6822ea35f763a989a399b4ff, DIRECT
