@@ -41,9 +41,6 @@
     min-height: 250px;
     align-items: center;
   }
-  #bottom-container {
-    margin-bottom: 0.25rem;
-  }
 }
 @media (max-width: 500px) {
   #slot-2 {
