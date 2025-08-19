@@ -721,3 +721,11 @@ span.r_epic {
 .raidCnt > img {
   width: 1.25rem;
 }
+#errSearch {
+  display: none;
+  font-size: 0.75rem;
+  text-align: center;
+}
+#errSearch.show {
+  display: block;
+}

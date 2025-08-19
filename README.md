@@ -6,6 +6,8 @@
 
 [사이트바로가기](https://dfgear.xyz/)
 
+vmd : https://adstxt.venatusmedia.com/dfgear.xyz/ads.txt
+
 ### 단순 타임라인 API
 * 서버명, 캐릭터명을 입력하면 2023-09-14 ~ 현재날짜 까지의 중재자 획득 에픽 수, n번째 때 미스트기어를 먹었는지 출력하는 단순한 기능
 ---
