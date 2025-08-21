@@ -705,13 +705,13 @@ span.r_epic {
   font-size: 0.9rem;
   padding: 0 1rem !important;
 }
-#raidCntTotal {
+#raidCntTotal, #nabelCntTotal {
   width: 4.25rem;
 }
-#raidCntTotal > img {
+#raidCntTotal > img, #nabelCntTotal > img {
   width: 1.25rem;
 }
-#raidCntTotal > div {
+#raidCntTotal > div, #nabelCntTotal > div {
   font-weight: bold;
 }
 .raidCnt {
@@ -719,6 +719,14 @@ span.r_epic {
   position: absolute;
 }
 .raidCnt > img {
+  width: 1.25rem;
+}
+.nabelCnt {
+  padding: 0 .5rem;
+  position: absolute;
+  top: 2rem;
+}
+.nabelCnt > img {
   width: 1.25rem;
 }
 #errSearch {
