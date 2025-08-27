@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TMRQ27849R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TMRQ27849R');
+    </script>
+    <title>DFGEAR - 던파기어 던전앤파이터 중천 태초 탐색기</title>
+    <link rel="icon" href="./static/images/favicon.ico" type="image/x-icon">
+    <!--JQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="./static/bootstrap.min.css">
+    <script src="./static/js/bootstrap.bundle.js"></script>
+    <script src="./static/js/moment.min.js"></script>
+    <!-- meta -->
+    <link rel="canonical" href="https://dfgear.xyz">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="DFGEAR">
+    <meta name="keyword" content="던파기어 던전앤파이터 던파 중천 태초사이트 타임라인 에픽 미기 던기어 dfgear">
+    <meta name="description" content="던파기어 Dungeon & Fighters TimeLine App. 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.">
+    <meta property="og:url" content="https://dfgear.xyz">
+    <meta property="al:web:url" content="https://dfgear.xyz">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DFGEAR - 던파기어">
+    <meta property="og:site_name" content="DFGEAR - 던파기어">
+    <meta property="og:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.">
+    <meta property="og:image" content="https://dfgear.xyz/static/images/banner.png">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="twitter:title" content="DFGEAR - 던파기어">
+    <meta property="twitter:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.">
+    <meta property="twitter:image" content="https://dfgear.xyz/static/images/banner.png">
+    <meta name="google-site-verification" content="7pZKkUKIWjAwO5AVHUNjhSds00fERltbyj5hD5l3Xd0" />
+    <meta name="naver-site-verification" content="e1d874db17357f1f91ffe4d641a038dd6d6825e0" />
+    <link rel="stylesheet" href="./static/common.css">
+    <link rel="stylesheet" href="./static/index.css">
+    <link rel="stylesheet" href="./static/chase.css">
+    <!-- vnts AD -->
+    <link rel="stylesheet" href="./static/vntsAd.css">
+    <script src="https://hb.vntsm.com/v4/live/vms/sites/dfgear.xyz/index.js" data-disable-placements="video_slider"></script>
+    <script>
+      self.__VM = self.__VM || [];
+      self.__VM.push(function (admanager, scope) {
+        scope.Config.setBreakPoint("mobile", "max-width:800px");
+        scope.Config.setBreakPoint("desktop", "not (max-width:800px)");
+        scope.Config.buildPlacement((configBuilder) => {
+          configBuilder.add("desktop_takeover"); // 250px
+          configBuilder.addDefaultOrUnique("mobile_banner").setBreakPoint("mobile"); // 100px
+        }).display("slot-3");
+        scope.Config.buildPlacement((configBuilder) => {
+          configBuilder.add("billboard"); // 250px
+          configBuilder.addDefaultOrUnique("double_mpu").setBreakPoint({ // 250px
+            mediaQuery: "(min-width:500px) and (max-width:800px)",
+          });
+          configBuilder.addDefaultOrUnique("mobile_banner").setBreakPoint({ //100px
+            mediaQuery: "max-width: 500px",
+          });
+        }).display("slot-2");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="loadingScreen">
+      <div class="center row d-flex justify-content-center result">
+        <div class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>
+      </div>
+    </div>
+    <div id="top-container"> <!-- header -->
+      <div class="row title">DFGEAR</div>
+      <h1 class="hidden">던파기어 DFGEAR 던기어 던던미</h1>
+    </div>
+    <div class="ad-container"><div id="slot-3"></div></div>
+    <div id="content-container">
+      <div class="container">
+        <div class="infoArea">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="./">홈</a></li>
+              <li class="breadcrumb-item active" aria-current="page">태초 좌표</li>
+            </ol>
+          </nav>
+        </div>
+        <div id="topGrid" class="mb-1 mt-2 flex height-auto">
+          <div style="width: 70%;">
+            <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <h1 class="hidden">던파 헬 태초 채널 추천</h1>
+              <h1 class="pageDscp">태초 최근 획득 채널 조회</h1>
+            </div>
+            <p class="page-subDscp">최근에 던파기어에 등록된 태초 아이템의 획득 채널 조회</p>
+          </div>
+        </div>
+        <div class="row tabArea" style="height: 3em;">
+          <button id="btn_wp" class="custom-btn col-3">레거시</button>
+          <button id="btn_set" class="custom-btn col-3">악세서리</button>
+        </div>
+        <div class="row tabContent">
+          <div id="tab_wp" class="row">
+            <div id="tab_job" class="tabButtonArea row">
+              <div class="fwdt"><button class="custom-btn" data-cd="gs">귀검사 / 나이트</button></div>
+              <div class="fwdt"><button class="custom-btn" data-cd="fi">격투가</button></div>
+              <div class="fwdt"><button class="custom-btn" data-cd="gn">거너</button></div>
+              <div class="fwdt"><button class="custom-btn" data-cd="ma">마법사</button></div>
+              <div class="fwdt"><button class="custom-btn" data-cd="pr">프리스트</button></div>
+              <div class="fwdt"><button class="custom-btn" data-cd="th">도적</button></div>
+              <div class="fwdt"><button class="custom-btn" data-cd="ra">마창사</button></div>
+              <div class="fwdt"><button class="custom-btn" data-cd="gw">총검사</button></div>
+              <div class="fwdt"><button class="custom-btn" data-cd="ar">아처</button>
+            </div>
+           </div>
+           <div id=content_wp>
+            <div class="col-md-3 mb-2">
+              <div id="wp_gs" class="flgap">
+                <div class="b-태초" title="무형검 - 생사경" data-id="ecc073371c23fbac58ce6a055a131ad3"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/ecc073371c23fbac58ce6a055a131ad3" /></div>
+                <div class="b-태초" title="역작 금인필살도" data-id="88d17cd5fc3fb1e5c474d6780035a492"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/88d17cd5fc3fb1e5c474d6780035a492" /></div>
+                <div class="b-태초" title="양얼의 나뭇가지 : 초" data-id="53569c0a2863a602cf130d6abbe64e0b"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/53569c0a2863a602cf130d6abbe64e0b" /></div>
+                <div class="b-태초" title="특형 - 호위무신의 운검" data-id="f4ebda346ccd4281a9c37de9cb8936a5"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/f4ebda346ccd4281a9c37de9cb8936a5" /></div>
+                <div class="b-태초" title="멸룡검 발뭉" data-id="74bfcf0bd8b6998fc1e5a896d5a90fd7"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/74bfcf0bd8b6998fc1e5a896d5a90fd7" /></div>
+              </div>
+              <div id="wp_fi" class="flgap">
+                <div class="b-태초" title="넨 아스트론" data-id="52e014d425c5900fb2691c91aa8891f5"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/52e014d425c5900fb2691c91aa8891f5" /></div>                
+                <div class="b-태초" title="미완성 코스믹 건틀릿" data-id="23c3a32b8c83337313f03ac82881e04f"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/23c3a32b8c83337313f03ac82881e04f" /></div>
+                <div class="b-태초" title="리리스, 디 이블" data-id="8cd53eed89da72eb94486e0676a7194f"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/8cd53eed89da72eb94486e0676a7194f" /></div>
+                <div class="b-태초" title="파운더 오브 마나" data-id="9a72569c4bff3e862ebcbf4edc9d9f99"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/9a72569c4bff3e862ebcbf4edc9d9f99" /></div>
+                <div class="b-태초" title="엠프레스 벳즈" data-id="bbc3a1e0b819042979df672995a84d04"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/bbc3a1e0b819042979df672995a84d04" /></div>
+              </div>
+              <div id="wp_gn" class="flgap">
+                <div class="b-태초" title="노블레스 오브 레인저" data-id="d4f64370ea0e4436a988d8935fbba365"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/d4f64370ea0e4436a988d8935fbba365" /></div>
+                <div class="b-태초" title="에볼루션 오토매틱 건" data-id="f6746b73578df106b51df7907ecf05e9"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/f6746b73578df106b51df7907ecf05e9" /></div>
+                <div class="b-태초" title="리턴드 스나이퍼 오브 블랙 로즈" data-id="7b406b9951564c6485d209c90d71cb4e"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/7b406b9951564c6485d209c90d71cb4e" /></div>
+                <div class="b-태초" title="우르반의 걸작" data-id="9173c5067d0e368b18bf2e87500f9ac0"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/9173c5067d0e368b18bf2e87500f9ac0" /></div>
+                <div class="b-태초" title="얼어붙은 불꽃의 살" data-id="3d1e831cdf674892355cca45d35541ee"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/3d1e831cdf674892355cca45d35541ee" /></div>
+              </div>
+              <div id="wp_ma" class="flgap">
+                <div class="b-태초" title="앱솔루트 제로" data-id="f52dae0b1e77c293f2ebf095557dc9f0"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/f52dae0b1e77c293f2ebf095557dc9f0" /></div>
+                <div class="b-태초" title="하쿠나마타타 : 원더풀" data-id="2c5f996a25418be71b288c22fa2f9193"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/2c5f996a25418be71b288c22fa2f9193" /></div>
+                <div class="b-태초" title="양치기의 마지막 진실" data-id="f46fe4c07fda3827871b6bb8d52a28b4"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/f46fe4c07fda3827871b6bb8d52a28b4" /></div>
+                <div class="b-태초" title="해방된 지식" data-id="66f7d8714fa7810df4ffdf36e8c97557"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/66f7d8714fa7810df4ffdf36e8c97557" /></div>
+                <div class="b-태초" title="칠흑의 저주" data-id="ed9e38706cb74cd8dc22344ac0672189"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/ed9e38706cb74cd8dc22344ac0672189" /></div>
+              </div>
+              <div id="wp_pr" class="flgap">
+                <div class="b-태초" title="영원한 올리브 나무 십자가" data-id="7fbc76b53ea0b985ef63b4a53a2e8aeb"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/7fbc76b53ea0b985ef63b4a53a2e8aeb" /></div>
+                <div class="b-태초" title="폴링 스타 로저리" data-id="4bb4e84551335ec0b22368859b502d96"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/4bb4e84551335ec0b22368859b502d96" /></div>
+                <div class="b-태초" title="폭군의 본의" data-id="64fb6109df6a1d62f45c2049faacf3cb"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/64fb6109df6a1d62f45c2049faacf3cb" /></div>
+                <div class="b-태초" title="소울 프레데터" data-id="413aebce4d4cc7c7346aa6e32e27a6dd"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/413aebce4d4cc7c7346aa6e32e27a6dd" /></div>
+                <div class="b-태초" title="멸망의 근원" data-id="3838f6fa8a6f5c44a84e101715169bb4"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/3838f6fa8a6f5c44a84e101715169bb4" /></div>
+              </div>
+              <div id="wp_th" class="flgap">
+                <div class="b-태초" title="여제의 영롱한 은장도" data-id="1bc8070a97e40822a8acf944587172ac"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/1bc8070a97e40822a8acf944587172ac" /></div>
+                <div class="b-태초" title="샤이닝 인페르노" data-id="f6818a1fd4d3499b995ade1fe5ac76ed"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/f6818a1fd4d3499b995ade1fe5ac76ed" /></div>
+                <div class="b-태초" title="로드 오브 호러" data-id="bbbd88f7ee3d443bca540b6c4d5ae1d9"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/bbbd88f7ee3d443bca540b6c4d5ae1d9" /></div>
+                <div class="b-태초" title="육도의 수레바퀴" data-id="af2e8519f6b1684f2fb41de6fdb95d18"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/af2e8519f6b1684f2fb41de6fdb95d18" /></div>
+              </div>
+              <div id="wp_ra" class="flgap">
+                <div class="b-태초" title="전장의 투신" data-id="e47c02a78bfcd7d1bde959d9e3beac50"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/e47c02a78bfcd7d1bde959d9e3beac50" /></div>
+                <div class="b-태초" title="眞 : 흑룡언월도" data-id="7ad9b001664f685f438ceae50444bf09"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/7ad9b001664f685f438ceae50444bf09" /></div>
+                <div class="b-태초" title="성장군 : 유성계" data-id="d3760db625f3bd4bcde3ac5904fecac5"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/d3760db625f3bd4bcde3ac5904fecac5" /></div>
+                <div class="b-태초" title="무영흑단살" data-id="a326005c0d5de7e94b0cb95511ebebd2"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/a326005c0d5de7e94b0cb95511ebebd2" /></div>
+              </div>
+              <div id="wp_gw" class="flgap">
+                <div class="b-태초" title="만월 : 월광야천도" data-id="cee3d65f9b96bc9356a38f8fe37222bc"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/cee3d65f9b96bc9356a38f8fe37222bc" /></div>
+                <div class="b-태초" title="나스카 : 영혼의 심판" data-id="08e41c036b44ff5f407a874b5bfc91c1"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/08e41c036b44ff5f407a874b5bfc91c1" /></div>
+                <div class="b-태초" title="Brutal-Saw" data-id="717aaaf49d09b8e2cbb7fecf56d0f3e8"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/717aaaf49d09b8e2cbb7fecf56d0f3e8" /></div>
+                <div class="b-태초" title="코어 오리진" data-id="c36d82d0beb38c2bb576d9389a0320db"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/c36d82d0beb38c2bb576d9389a0320db" /></div>
+              </div>
+              <div id="wp_ar" class="flgap">
+                <div class="b-태초" title="시크릿 콘서트" data-id="34c4ba7289d9d0dea8ce3880bc6f8352"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/34c4ba7289d9d0dea8ce3880bc6f8352" /></div>
+                <div class="b-태초" title="미스트 파이오니어" data-id="102b6df1d79cfc6e77ea2718dafec309"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/102b6df1d79cfc6e77ea2718dafec309" /></div>
+                <div class="b-태초" title="패밀리 팔케" data-id="a3e557056061811337aa67eb0ef4a704"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/a3e557056061811337aa67eb0ef4a704" /></div>
+                <div class="b-태초" title="인요의 황혼" data-id="ec942349c845957a8ed9c6ad1db18475"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/ec942349c845957a8ed9c6ad1db18475" /></div>
+                <div class="b-태초" title="레디언트 윙, 이카루스" data-id="67fc555fe01cafaf2bc20557be53a7bb"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/67fc555fe01cafaf2bc20557be53a7bb" /></div>
+              </div>
+            </div>
+           </div>
+          </div>
+          <div id="tab_set" class="row">
+            <div class="col-md-3 mb-2">
+              영원히 이어지는 황금향
+              <div class="flgap">
+                <div class="b-태초" title="영롱한 황금향의 영광 - 팔찌" data-id="128a14815b5e02e63c8cba53ce2ac19e"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/128a14815b5e02e63c8cba53ce2ac19e"></div>
+                <div class="b-태초" title="영롱한 황금향의 축복 - 목걸이" data-id="4ed2acf74d5cfa69947535f6a8af7c5d"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/4ed2acf74d5cfa69947535f6a8af7c5d"></div>
+                <div class="b-태초" title="영롱한 황금향의 꿈 - 반지" data-id="8b38fd1925f030abf9154f9ef448d41a"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/8b38fd1925f030abf9154f9ef448d41a"></div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-2">
+              칠흑의 정화
+              <div class="flgap">
+                <div class="b-태초" title="혼돈의 정화 팔찌" data-id="8cda0e4d867c18bcc1f91fcd4d8493e0"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/8cda0e4d867c18bcc1f91fcd4d8493e0"></div>
+                <div class="b-태초" title="혼돈의 정화 목걸이" data-id="634efedb77439c30128b6560278281f8"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/634efedb77439c30128b6560278281f8"></div>
+                <div class="b-태초" title="혼돈의 정화 반지" data-id="0801473c91a3bcc11f9ea84571034f69"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/0801473c91a3bcc11f9ea84571034f69"></div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-2">
+              소울 페어리
+              <div class="flgap">
+                <div class="b-태초" title="로열 페어리 팔찌" data-id="38649c2d1efd86613624653fe835c190"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/38649c2d1efd86613624653fe835c190"></div>
+                <div class="b-태초" title="로열 페어리 목걸이" data-id="8683263b76f6822e92e46d4e080cd3f6"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/8683263b76f6822e92e46d4e080cd3f6"></div>
+                <div class="b-태초" title="로열 페어리 반지" data-id="dc1167f78aae7c8f6ed6b29c14dd29e5"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/dc1167f78aae7c8f6ed6b29c14dd29e5"></div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-2">
+              그림자에 숨은 죽음
+              <div class="flgap">
+                <div class="b-태초" title="칠흑같은 그림자 속 팔찌 - 화" data-id="0f1556d74a133bf1f32cc414e8c44001"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/0f1556d74a133bf1f32cc414e8c44001"></div>
+                <div class="b-태초" title="칠흑같은 그림자 속 목걸이 - 혈" data-id="ce90fd8107a2dec651b9f7c41a84888c"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/ce90fd8107a2dec651b9f7c41a84888c"></div>
+                <div class="b-태초" title="칠흑같은 그림자 속 반지 - 독" data-id="cb015bdb6ca83dae7ccd7604ca558064"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/cb015bdb6ca83dae7ccd7604ca558064"></div>
+              </div>
+            </div>
+            <!-- 5 -->
+            <div class="col-md-3 mb-2">
+              용투장의 난
+              <div class="flgap">
+                <div class="b-태초" title="용제의 피를 머금은 흉아" data-id="b56711cb913ec3e76c3932b59ffd98af"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/b56711cb913ec3e76c3932b59ffd98af"></div>
+                <div class="b-태초" title="용제의 공포를 심는 포효" data-id="44350fa45d2c52776aa5ee1bcb623a1f"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/44350fa45d2c52776aa5ee1bcb623a1f"></div>
+                <div class="b-태초" title="용제의 재해를 막는 비늘" data-id="bd066206710390f3e6353ab82eaab1a1"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/bd066206710390f3e6353ab82eaab1a1"></div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-2">
+              한계를 넘어선 에너지
+              <div class="flgap">
+                <div class="b-태초" title="과충전 - 한계를 가리키는 지침 팔찌" data-id="35cfcfdef4a58f38cc291db0b005db57"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/35cfcfdef4a58f38cc291db0b005db57"></div>
+                <div class="b-태초" title="과충전 - 한계를 여는 열쇠 목걸이" data-id="02003739f9c1d138bc25b4e5fcc60a7c"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/02003739f9c1d138bc25b4e5fcc60a7c"></div>
+                <div class="b-태초" title="과충전 - 한계를 돌파하는 균열 반지" data-id="b10c3f4fd74d0886b9f15c1162ae7462"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/b10c3f4fd74d0886b9f15c1162ae7462"></div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-2">
+              고대 전장의 발키리
+              <div class="flgap">
+                <div class="b-태초" title="발할라의 여신 발키리 수호 팔찌" data-id="1696417c6db6398ea0ef00f8084184dc"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/1696417c6db6398ea0ef00f8084184dc"></div>
+                <div class="b-태초" title="발할라의 여신 발키리 천상 목걸이" data-id="28fc8eb2f6cd1cde8fefe8aca6a9ceaa"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/28fc8eb2f6cd1cde8fefe8aca6a9ceaa"></div>
+                <div class="b-태초" title="발할라의 여신 발키리 축복 반지" data-id="e776eab981b7daac85f8faa28c2eaeb4"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/e776eab981b7daac85f8faa28c2eaeb4"></div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-2">
+              압도적인 자연
+              <div class="flgap">
+                <div class="b-태초" title="자연 - 천재지변 팔찌" data-id="50752f1905af83563e5e2f5b746c8cc4"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/50752f1905af83563e5e2f5b746c8cc4"></div>
+                <div class="b-태초" title="자연 - 천재지변 목걸이" data-id="18bef43afc834d281b4e189218cb97fd"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/18bef43afc834d281b4e189218cb97fd"></div>
+                <div class="b-태초" title="자연 - 천재지변 반지" data-id="e15a039ef16cb42914a88ef74f2eef4e"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/e15a039ef16cb42914a88ef74f2eef4e"></div>
+              </div>
+            </div>
+            <!-- 9 -->
+            <div class="col-md-3 mb-2">
+              세렌디피티
+              <div class="flgap">
+                <div class="b-태초" title="견고한 행운이 깃든 팔찌" data-id="1714a46bd51c67510c0cd4f30ae3242f"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/1714a46bd51c67510c0cd4f30ae3242f"></div>
+                <div class="b-태초" title="견고한 행운이 깃든 목걸이" data-id="8177da9883506b6ef60bf0296b71dbde"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/8177da9883506b6ef60bf0296b71dbde"></div>
+                <div class="b-태초" title="견고한 행운이 깃든 반지" data-id="127f30148084de5339713769683e2d67"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/127f30148084de5339713769683e2d67"></div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-2">
+              마력의 영역
+              <div class="flgap">
+                <div class="b-태초" title="넘치는 마력의 영역 팔찌" data-id="bf5b1734fcea32d436095a357dae3038"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/bf5b1734fcea32d436095a357dae3038"></div>
+                <div class="b-태초" title="넘치는 마력의 영역 목걸이" data-id="4ae668f4ebd3ac277ed63348d3dcad8f"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/4ae668f4ebd3ac277ed63348d3dcad8f"></div>
+                <div class="b-태초" title="넘치는 마력의 영역 반지" data-id="7dfd210d865f3b98b4521ed97bf0a472"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/7dfd210d865f3b98b4521ed97bf0a472"></div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-2">
+              에테리얼 오브 아츠
+              <div class="flgap">
+                <div class="b-태초" title="대 여우의 지혜 팔찌" data-id="ab2e3267be4d5589118013d117276ba4"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/ab2e3267be4d5589118013d117276ba4"></div>
+                <div class="b-태초" title="대 여우의 영혼 목걸이" data-id="e468101e457344d9824a0f1588152f06"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/e468101e457344d9824a0f1588152f06"></div>
+                <div class="b-태초" title="대 여우의 매혹 반지" data-id="d3202f05592d04bb3b1ff144ef6c273d"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/d3202f05592d04bb3b1ff144ef6c273d"></div>
+              </div>
+            </div>
+            <div class="col-md-3 mb-2">
+              무리 사냥의 길잡이
+              <div class="flgap">                
+                <div class="b-태초" title="무리의 길잡이 팔목 보호대" data-id="5f0746d290ec872e9d4e66741130bafc"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/5f0746d290ec872e9d4e66741130bafc"></div>
+                <div class="b-태초" title="무리의 길잡이 목걸이" data-id="6aa0978e051611de538b83176ed3026a"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/6aa0978e051611de538b83176ed3026a"></div>
+                <div class="b-태초" title="무리의 길잡이 반지" data-id="60f2ce1a8ef8b2cf4dbf60b9f77b6148"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/60f2ce1a8ef8b2cf4dbf60b9f77b6148"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="txt_itemName" class="flgap jcc-alc">
+          <div id="txt_searchItem"></div>
+          <img id="locationRefresh" src="./static/images/refresh.png" alt="아이템 좌표 갱신" title="아이템 좌표 갱신"/>
+        </div>        
+        <div id="contentRecent" class="row">
+          <div class="card">
+            <div class="card-header item-drop">🧭 최근 드랍 아이템 좌표</div>
+            <ul id="dropRecent" class="list-group list-group-flush"></ul>
+          </div>
+          <div class="card">
+            <div class="card-header item-pot">🏺 최근 항아리 획득 좌표</div>
+            <ul id="potRecent" class="list-group list-group-flush"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ad-container"><div id="slot-2"></div></div>
+    <div class="help-container">
+      <div class="neopleThk">
+        <div></div>
+        <div class="footer-main">
+          <a href="http://developers.neople.co.kr" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAL8AAAAkCAYAAADYS+uGAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjBEOTQyOThCODI2NDExRTc5MEJDRUEzMjNCNzhGRjkzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjBEOTQyOThDODI2NDExRTc5MEJDRUEzMjNCNzhGRjkzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MEQ5NDI5ODk4MjY0MTFFNzkwQkNFQTMyM0I3OEZGOTMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MEQ5NDI5OEE4MjY0MTFFNzkwQkNFQTMyM0I3OEZGOTMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz75QNjfAAAOM0lEQVR42uxcCXwXxRV+uS8TAiQckSsgcimoiGDAgqAICEHCIYcnIHKIpbWtWLSCIFKLWJWiVuVSFFAj4EVaQVJULoEIiASphMQQIOFISAIkJun3/vkWxu0GYkDOfb/f+83OzNv5z85+75i3k3iJS9KgRmQDFJ3AARfIlH8Cr/nvnswN7turOHm5wI/0RZEJDr/Apl6k04cC7HJhXDHyudQXoMplIbVRjNVrPz9/adSksezPypLQsDCpWTNKOnS6Rby9vSQrM1Mur1VLDufkSLUaNSQvN9dTLy4ulpDgELn2+lYSFBTk4c5du0lGerpEVq8uPj4+UnDsmNSNjpaCggLp1Pk2CYSMj4+vHD16VBo2aiQBAYHSpm1bCQwM8rTdHttTjhzJlxva3OiZR+bevdK+YycJDgkRX18/yT18WKfrDV58MDc/xYVxxcjXXYIT3s8/wF+mvjRDvt28SXKysz0g6ztwoIwZMdzTP3X6DFmWsFS69oiV3t26yLinJsnejAxZ+PY8GT/5GQD2iCyY95bE9oqTz5YulVu7dPMoSERkpNSrX1++375ddiRvw30T5c2ZMz1KsmdPhnyyZJHcdd9gCQoOlrdmzZRhox6S0cOGyrgJE8XL21vemTtbOne7XRKXLZO1q1dJxu50962dAfJ2l+AEqTX/eu0aqRoRIbFxveUjgFItdGhoqNRvcIWUwMrfPXiox/oPGT5SGjVuIt1gpRs3aypFRcWw3IHi4+0jASjVSscvmC939O0rlcLD5YvERAkMCDhu8f38/CRpw3pp1bqN5OflS3jlKlJYUChpqakeDxQaGuYZR63+9uRkqVW7juTkZEvaLtfQuzH/mYv566HYadVr1akj+xHiRFSrJln79km79h0kFYDbBxBWqVLVExJVqhyO8CZYDh08iBAm0APaiGqRUJ48ADlPml19tUeJDh44IFc2biy7EQL5+/vLkfx8adu+vWzftk38EL4cPpyDN+AlRYWFEg3l2pS00QP4NjFtJXnbd1Knbj1JT0uD9feCGOxUSYns27fXo3ykmxHzr3Bh7IK/ouDXDM8hcOAFOP3GAH+yC2MX/KejAP1QPAEOLYd4ELgar7OpOKdDIeAIXh8E55TjnqPg1wD859y354L/bCrKqyjuBz8PngQAHj7N8fxQjAGPB28Cx2DMEnelXTrfgH8NOAHc+FcYuw54EXiwu9IunY/gr3UWfuMGd6VdcsklN+Y/BxZew5p0jedxrZvgqHORVTm2XCqjuDygo2xhvQmKfajvt8lFqhyrO9Cf677FU5P7kctGN7dp9cLTU6d916f/gDQAv2lcvztTJz83bVunmNYzzjLwq0tkv5TcqBmbC76s9cKxlZGP59V8cWtJ9fvT0BdtEx8E3ki+3n2L5aNL9ngDgP0eilvs7fWi64etX7tGz9pUem/+O6tax7QL+2plon7N7Zvyww9j4AEKzjDIG6FYCfa3dfmlHO0RPP2lRJk28qrR8tOBwmkzUyW22y1BLWRWD/S/+Gusy20gFHeCdV75VKh/JiQk7DjX7wxTuxXF7VJ6qvUxzKnQ1v8XFFWMJs3EfQ/+BLJZlBmIQvdVs877sOeD+Pg+KL7oFRe3h3UFiT7Ae2jLPQ3w67P3Ar9jAk8PonXv2Uu+SdogALvnQNq1La+XDz+Il6KiIv0S3OdMHyWGAmho9TIt+ImYNKSZeIXdKMV7ZouUFIl3jXulJG+TlBz2/LymXEcjxCnE/Zoqfd5yXmhbUQFg6Rrgh2SAQ7eCbAQA9MY5Bn8SihasDsB85tv6U1DUdbhVcdIf8h9DRp/xXnBfX4BpLi5iKaQAmweeBGCdL7nmqeD7ODelYNVa8Ao+VIWIufR4KMErKB+22gFwWRyvTsHzG4t27dwZCx7Cbg03PKlO3L/fUCT9SKYAvE5K/ybgB/BM8BTIFVGmDorJ4M5gjdH1Y9bn4CcDOmZ+AwA/gOs7pPSjl4dK8r5V1lNsjyoAoQR6fwN2PyilR7GfKEOhQtinc6tHAK8Fj4dyLHO4ZZoB/PfBC8GXgX8PbgZ+DcD5EQBKQHkF+/SdHAG3ltIPdOvRXeygVC2l9Mj4VvTvMvqultKTxWpUKoGbgpMhs9MB+DcZwFcaBZ5fxutNAK8G11CQ0xu8jjFq28MeXaQJfBEtaFG+AS+BYuiiteNDLucDtINiLKEVVvlA1Newri5zC+rpuNb79IWvRX0H6pU41pfghmhbh7aauO6om0t1/WgrMsZtDv7PSfAbAjl9sfs5t7oc998cQzeL7cEfWuOWQVsc2lYDtFa+fQmAqxvNGNYjqIzPEdR6HPoZ9q2X0mMSCpZJUvrFeCxkogi86pTLA4eBe6oyoL8tFGAjAJvCe00aCbAuIaB1nb4w+kajbZID8HUOywjKfIZVTbn+S9EfgzHXGcBShRrJ6ssA30ijbwGKNZzXswTW61zbVWwPo/g6yN+B+3cbYYpa2ijbeEMgk8d5KS4SwTdxD1oCGQ1p/mp7rIeMtVPMtoPcNZBLcnh/S9H+d/6ert3HVIQmThvenQBIEngOrr9TEAE8GhJsldKvmbP40GotF6CvJe9T6/YB6t7gKP6ID671gd+m1m1EfSCt5kIuWB+0dUC5jSGMWt8EtOm9j3CxBxH8VcsA7SJdRGr/uxoj60Pj/vrsHwH+8ymAb7l0O31tq6+374sJfH3mp9j2JBRGN5tqzf5lgRMyavnGGsAfDDm1mh24nnpcwnrRPznMZZNx/a2trxKNhJ2GEPhKLQH09pQroMF72CZ/KzN/ulaP/8yEloJ0MqvNAaYaRveN9D4fcexWljWGnCrbEgJfAbqAXuJOvm+T2jHiWMZ5TMH9TQyF0UxWHKtj5cRBxNHlcPJmZizECfzVAJpocE9qcgo3VGMAnk7UGE3/dQEvBvdWeS6ohiFtOLlV9A59aBlUccYpCI2QZRzGfJQLOoUg78iFU1BNBN8FmS78vZAyHmoiZG7j5iWWrk2t4lDMTRdwML1YRciuMMW2en1DCfysd6RfaNUYGP3B9EidLaMMnsOwK5HGRakD9yAVoWiHtm4sFZBTYOkXcU9hPVdTm7wF6N0A+wGH8bY6yArDu+a4p4cRMt0EsLakpQ6kV74OMv2JB6X+kAkyxpmM/ntQdmX4ZCmEGCGeL0PF2XwWpYEYp4rDfIPQXhncjCHj8WjXCfyvskPTeS9RY2sxRBFuLDdzod8l0OOoqRof9ubmcSFfdiDDqCTGjMWGZVvM6yjGySrzFR86gpZwJX9XvdCBMl76asrsZNikIdQbBL0qRbWTxISnS8EsI422FrTmHdieTQ6UE38imQXQm4qUZWV2pHyH6k42F5OqGuN2MLiAc8q3yVuAqw7AOJ1uvdy4zjau4wHafHqIeKOviRFiqGErxrglxvvwNTyhEAPC7E2qaaW5Z3iQbT+C/wC2Yned61CH+U4mbrYQl0pzMX6mU6qzF0C0yJZlUdc/CqW6yKsYk02ldZ8jJw5jpTP80Rd+Nzcw+hB9GdfHMN2kC5hnhCH6wBl0XcHMT6/gxms07nuCSlVW2DMcMroQPbi30H3KXvB0KsFb+K28coDHvwKAs2LcvWZMCmDPLiOztJcvO1IPskHOCrVqWnEs2nIqCH4npck0PFZthD2nOnyXaKzFKGs/Q/B50YAp7dLNaGk21EPhto2tZc2P0MsJ3/1Wh9/MP4lnNamfnDhFqx7rSfueCL891b7R5piqjDsYcr34S/L86obiOckSZoCWUzEWM7R5nxsQP25Yd7NfAb0cZREXYpCDBR/DuP0AMyRv6Pi4ZxC9yx9152+L2UxqyrF1bg/TA+hva+pymOamywme6yoAuMoAsXrBz7g+qrxPo02PN6+jRVKEPApQ12VM3Jzgmgi5f6DsDr7S2lSfhhfyKWM/1J19CxD2KGDS6M3VQNWEQvQz4vokbgw1fHwW15fRi1diyNqRohNsvzMIsnNpeCbz+QoZMVzJNVBs/Am/sR2yGqJei+tXqTDleT5ro5tseXtDUQcw0uhhRBRKv7M2vKf6yHUP3eHPiCFHE4BJLfYhmxXV0GIE2nIIuGgzTkb762h7kxq7W629bmbNHCzadF9xDcfPtnL2KD9nFqg6vUqozUqoNldm/Kfx3lHrXtzXkN5knW7gT5HnD2S+94EKgm4+sz7D6fmiGO870RSCsTljUDMO1Wd87AyHZbMZ98cxju5q61/scM99TGq0okcfb0+FAlCzbG0BDhk5tcJ7AOwZHFOVIBn1XKZHFfQ7ILOsHHn9VsbG/RHN09v61eO3ZfSw+Jcuku+pQgNNWzq0HTPcmjh9bKJMmlEvssWLJxu/kPGdiO2PO/j94ZAtZlbgK7A20PJ0LydA2phzNOiAQ93+L0JUOT/VzRu9xzACJ5wx9A7LovOMkL6k3xKIVbkWnjAP/ftOA+jF/N5hze8orHoRrH0fZtu0bEhvlMHM1bz/S4wnJBwEmH7DLNlAbtoLKT8d/Z86/PYrDHe78JnVo/2N42VjvBgmMGK5LpvpkZfz/lSGkKZx203ZHCrvLs7b6fefpzdrQEVwxIyNsjhm3kV1sA0KoKAqgoIcuhDnD8Am2T7keLI5AHMK+8ONzelxi43+OWdzngDaCmbzJgDk4y9UvFxUZ3sA+v1y6dFBcckF/0VK1ncXpUYO/dvPwZys/VTKhbyw7nn+8z/sSWVmrJDxtPknlJsR8jR3V861/Bcr6UYu3qE9gxtTl1zwX/SkGRHNVOiRgk/Ar8HqH3KXxQX/xUzHsz0unVly/4zx/KIwdwlc8F+Km139IBTtroQb9lxKoNcjGnpwbLS7GmeX3FTnuQe/GqAqJxHZr8cV3JU68/Q/AQYAbtgdDLm2sIwAAAAASUVORK5CYII=" alt="Powered by Neople OpenAPI" /> </a></a>
+        </div>
+        <div></div>
+        </div>
+        <div class="privacy"><a href="https://open.kakao.com/o/shxSboVf" target="_blank" title="오류/건의사항 문의" style="margin-right: 1rem;">오류/건의사항 문의</a><a href="./privacy">개인정보 처리방침</a><button id="btn_lightmode" class="btn btn-light">조회</button></div>
+    </div>
+    <!-- footer -->
+    <div id="bottom-container"></div>
+    <script src="./static/js/common.min.js"></script>
+	  <script src="./static/js/chase.min.js"></script>
+  </body>
+</html>
