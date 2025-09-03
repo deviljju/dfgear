@@ -592,3 +592,10 @@ a:hover{
   min-width: 4.55em;
   text-align: center;
 }
+.w100 { width: 100%; }
+.w60 { width: 60%;}
+.w55 { width: 55%;}
+.w25 { width: 25%;}
+.w20 { width: 20%;}
+.w15 { width: 15%;}
+.ta-center { text-align: center; }

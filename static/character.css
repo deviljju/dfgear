@@ -669,6 +669,10 @@
     display: flex;
     cursor: pointer;
   }
+  .fold-reinforce {
+    display: flex;
+    cursor: pointer;
+  }
   .potList {
     background-color: #ffe5cd5c !important;
   }
@@ -711,7 +715,7 @@
     vertical-align: baseline;
   }
 
-  .fold::after {
+  .fold::after, .fold-reinforce::after {
     flex-shrink: 0;
     width: 1.25rem;
     height: 1.25rem;
@@ -723,11 +727,14 @@
     transition: none;
   }
 
-  [data-bs-theme=dark] .fold::after {
+  [data-bs-theme=dark] .fold::after, .fold-reinforce::after {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236ea8fe'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   }
 
   .fold.open::after {
+    transform: rotate(-180deg);
+  }
+  .fold-reinforce.open::after {
     transform: rotate(-180deg);
   }
 
@@ -1142,4 +1149,73 @@
       position: relative !important;
       min-width: 4.9rem;
     }
+  }
+  #reinforce > span.main {
+    border-radius: 0.375rem 0.375rem 0 0;
+    background-color: rgb(25 29 34 / 84%);
+    padding: 0.5em 0.75em;
+    width: calc(1.5rem + 100%);
+  }
+  [data-bs-theme=dark] #reinforce > span.main {
+    background-color: var(--bs-dk-l2);
+  }
+  #reTotal, #amTotal {
+    padding: 0.5em 0.75em;
+    width: calc(1.5rem + 100%);
+  }
+
+  #reinforce > div.w100.main {
+    max-height: 60vh;
+    min-height: 1.5rem;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 38.5rem;
+    min-width: 26rem;
+  }
+  #reinforce > div:last-child {
+    margin-top: 0.5rem;
+  }
+  #reinforce img.setImg {
+    margin-right: 0.3em; 
+  }
+  #reinforce .card-body {
+    display: flex;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+  }
+  #reinforce .r-card-list {
+    display: flex;
+    flex: 1 1 auto;
+    padding: 0.2em var(--bs-card-spacer-x);
+    color: var(--bs-card-color);
+  }
+  #reinforce .r-card-list > div {
+    text-align: center;
+  }
+  #reinforce .card-header.fold-reinforce {
+    align-items: center;
+  }
+  #reinforce ul.list-group {
+    display: none;
+    padding: 0.2em var(--bs-card-spacer-x);
+  }
+  #reinforce ul.list-group.show {
+    display: block;
+  }
+
+  #reinforce ul.list-group > li {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 26rem;
+  }
+  #reinforce ul.list-group > li > .w100 {
+    padding-left: 0.55em;
+    color: #6c757d;
+  }
+  .color-success {
+    color: #2ecc71 !important;
+  }  
+  .color-fail {
+    color: #e74c3c !important;
   }
