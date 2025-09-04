@@ -4,8 +4,8 @@ const urlsToCache = [
   '/index.html',
   '/static/common.css',
   '/static/index.css',
-  '/static/common.js',
-  '/static/index.js',
+  '/static/js/common.min.js',
+  '/static/js/index.min.js',
   '/static/images/logo_192.png',
   '/static/images/logo_512.png',
 ];
