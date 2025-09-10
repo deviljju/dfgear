@@ -1,6 +1,6 @@
 ownerdomain=dfgear.xyz
 managerdomain=venatus.com
-#V 29.07.2025 VH
+#V 08.09.2025 VH
 #V
 
 
@@ -58,10 +58,11 @@ freewheel.tv, 211129-169843, DIRECT
 google.com, pub-5781531207509232, DIRECT, f08c47fec0942fa0                   
 google.com, pub-5781531207509232, RESELLER, f08c47fec0942fa0                 
 google.com, pub-2553634189837243, RESELLER, f08c47fec0942fa0                  
-gumgum.com, 13385, RESELLER, ffdef49475d318a9                              
-gumgum.com, 14302, RESELLER, ffdef49475d318a9                               
-rubiconproject.com, 23434, RESELLER, 0bfd66d529a55807                       
-pubmatic.com, 157897, RESELLER, 5d62403b186f2ace                              
+gumgum.com, 16134, RESELLER, ffdef49475d318a9
+rubiconproject.com, 23434, RESELLER, 0bfd66d529a55807
+pubmatic.com, 157897, RESELLER, 5d62403b186f2ace
+contextweb.com, 558355, RESELLER, 89ff185a4c4e857c
+openx.com, 537149485, RESELLER, 6a698e2ec38604c6
 indexexchange.com, 183921, DIRECT, 50b1c356f2c5c8fc                   
 indexexchange.com, 193067, DIRECT, 50b1c356f2c5c8fc                       
 indexexchange.com, 194127, DIRECT, 50b1c356f2c5c8fc                          
@@ -102,8 +103,8 @@ ogury.com, 086233d2-e8a8-44fc-907b-f0752e1c85de, DIRECT
 appnexus.com, 11470, RESELLER                                                
 openx.com, 542378302, RESELLER, 6a698e2ec38604c6
 openx.com, 540134228, RESELLER, 6a698e2ec38604c6
-openx.com, 560557013, RESELLER, 6a698e2ec38604c6
 openx.com, 537144009, RESELLER, 6a698e2ec38604c6
+openx.com, 560557013, RESELLER, 6a698e2ec38604c6
 optidigital.com,p230,DIRECT
 pubmatic.com,158939,RESELLER,5d62403b186f2ace
 rubiconproject.com,20336,RESELLER,0bfd66d529a55807
@@ -131,7 +132,7 @@ sharethrough.com, 5926d422, RESELLER, d53b998a7bd4ecd2
 yieldmo.com, 2754490424016969782, RESELLER                                 
 media.net, 8CUQ6928Q, RESELLER                                             
 onetag.com, 69f48c2160c8113, RESELLER                                       
-gumgum.com, 16112, RESELLER, ffdef49475d318a9                                            
+gumgum.com, 16112, RESELLER, ffdef49475d318a9
 openx.com, 537140488, RESELLER, 6a698e2ec38604c6
 video.unrulymedia.com, 335119963, RESELLER                                 
 seedtag.com, 68011633bc1ec10007f62708, DIRECT
@@ -148,13 +149,19 @@ pubmatic.com, 156177, RESELLER, 5d62403b186f2ace
 smartadserver.com, 3490, DIRECT                                            
 smartadserver.com, 4016, DIRECT                                             
 smartadserver.com, 4074, DIRECT                                       
+smilewanted.com, 474, RESELLER
+smilewanted.com, 474, DIRECT
+rubiconproject.com, 19814, RESELLER, 0bfd66d529a55807
+appnexus.com, 10040, RESELLER
+pubmatic.com, 158810, RESELLER, 5d62403b186f2ace
+openx.com, 557083110, RESELLER, 6a698e2ec38604c6
 sovrn.com, 237754, DIRECT, fafdf38b16bf6b2b                                
 lijit.com, 237754, DIRECT, fafdf38b16bf6b2b                                  
 lijit.com, 506352, DIRECT, fafdf38b16bf6b2b                             
 teads.tv, 23348, DIRECT, 15a9c44f6d26cbe1
 venatus.com, 1, DIRECT
-triplelift.com, 6059, RESELLER, 6c33edb13117fd86
-themediagrid.com, GODNC4, RESELLER, 35d5010d7789b49d                     
+triplelift.com, 6059, RESELLER, 6c33edb13117fd86                     
+themediagrid.com, GODNC4, RESELLER, 35d5010d7789b49d
 video.unrulymedia.com, 985572675, DIRECT                                      
 video.unrulymedia.com, 985572675, RESELLER                                 
 sharethrough.com, 6qlnf8SY, RESELLER, d53b998a7bd4ecd2                     
