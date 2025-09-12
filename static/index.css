@@ -368,6 +368,9 @@ span.card-text.small {
   margin-bottom: 0;
   cursor: pointer;
 }
+#advtPot {
+  font-size: 0.8em;
+}
 
 #advenRefresh {
   width: 2rem;
@@ -677,6 +680,10 @@ span.r_legnd {
 
 span.r_epic {
   color: #FFB400;
+  font-weight: 600;
+}
+span.r_begin {
+  color: #6fc2ac;
   font-weight: 600;
 }
 #advenTotal > span.badge {
