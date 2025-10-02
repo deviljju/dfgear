@@ -408,6 +408,9 @@ li.chName.more.show{
 .flex-row {
   flex-direction: row;
 }
+.jc-end {
+  justify-content: flex-end;
+}
 .items-center {
   align-items: center;
 }

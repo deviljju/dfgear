@@ -822,6 +822,13 @@
     border-radius: 0.25rem;
   }
 
+  .filter-section {
+    border-bottom: 1px solid #d2d2d2;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.25em;
+  }
+
   #filter_item {
     border-bottom: 1px solid #d2d2d2;
     display: flex;
@@ -846,6 +853,16 @@
   [data-bs-theme=dark] #filter_item #ft_armory.form-check-input:checked {
     background-color: #838181 !important;
     border-color: #838181;
+  }
+  
+  #ft_pot.form-check-input:checked {
+    background-color: #ffe5cd;
+    border-color: #ffe5cd;
+  }
+
+  [data-bs-theme=dark] #ft_pot.form-check-input:checked {
+    background-color: #FFA76C !important;
+    border-color: #FFA76C;
   }
 
   div.form-switch:first-child {
@@ -1224,4 +1241,9 @@
   }  
   .color-fail {
     color: #e74c3c !important;
+  }
+  .pot-section {
+    font-size: 0.85em;
+    justify-content: center;
+    padding: 0.2em;
   }
