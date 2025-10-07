@@ -102,8 +102,12 @@ div.b-isk.get::after {
   height: auto !important;
   max-width: 850px;
 }
-
-#oName {
+.title-header {
+  font-size: 1.5rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+.txt-header {
   font-size: 1.1rem;
   font-weight: 700;
 }
@@ -161,6 +165,18 @@ div.b-isk {
 .custom-link:hover {
   text-decoration: none;
 }
+#reqMeterial {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+#reqMeterial>div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  max-width: 28px;
+}
 
 #oMeterial {
   display: flex;
@@ -174,4 +190,8 @@ div.b-isk {
   align-items: center;
   width: fit-content;
   max-width: 28px;
+}
+.init-area {
+  justify-content: flex-start !important;
+  margin-top: 1rem !important;
 }
