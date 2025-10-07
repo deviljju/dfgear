@@ -39,6 +39,7 @@
   justify-content: center;
   margin: .5rem 0;
 }
+
 #oopartDetail {
   width: 18.75rem;
   max-width: 300px;
@@ -80,6 +81,7 @@ div.b-isk.on::after {
   left: 50%;
   transform: translate(-50%, -25%);
 }
+
 div.b-isk.on.get::after {
   opacity: 1;
   background-color: transparent;
@@ -101,6 +103,7 @@ div.b-isk.on.get::after {
   font-size: 1.1rem;
   font-weight: 700;
 }
+
 #oDescript {
   margin-top: 0.5rem;
   font-size: 0.8rem;
@@ -153,4 +156,18 @@ div.b-isk {
 
 .custom-link:hover {
   text-decoration: none;
+}
+
+#oMeterial {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#oMeterial>div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  max-width: 28px;
 }
