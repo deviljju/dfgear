@@ -17,6 +17,9 @@
   width: 100%;
   max-width: 850px;
 }
+.b-isk > img {
+  width: 38px;
+}
 
 #ooparts {
   max-width: calc(850px + 1.5rem);
@@ -74,8 +77,6 @@ div.b-isk::after {
 div.b-isk.on::after {
   opacity: 0;
   content: "";
-  width: 38px;
-  height: 38px;
   position: absolute;
   top: 25%;
   left: 50%;
@@ -85,8 +86,6 @@ div.b-isk.on::after {
 div.b-isk.get::after {
   opacity: 1;
   content: "";
-  width: 38px;
-  height: 38px;
   position: absolute;
   top: 20%;
   background-color: transparent;
@@ -119,6 +118,7 @@ div.b-isk.get::after {
 
 div.b-isk {
   width: fit-content;
+  height: fit-content;
   position: relative;
   border: 2px solid transparent;
   background-image: linear-gradient(#CF994D, #A67B38);
@@ -144,6 +144,15 @@ div.b-isk {
 @media (max-width: 775px) {
   #topGrid>div {
     width: 100% !important;
+  }
+}
+@media (max-width: 500px) {
+  .b-isk > img {
+    width: 2.375rem !important;
+  }
+  div.b-isk::after {
+    width: 2.375rem;
+    height: 2.375rem;
   }
 }
 
