@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dfgear-cache-v1';
+const CACHE_NAME = 'dfgear-cache-v2';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -17,6 +17,7 @@ self.addEventListener('install', (event) => {
         console.error('Failed to cache', err);
     })
   );
+  self.skipWaiting();
 });
 self.addEventListener('activate', (event) => {
   const cacheWhitelist = [CACHE_NAME];
@@ -32,11 +33,20 @@ self.addEventListener('activate', (event) => {
       );
     })
   );
+  self.clients.claim();
 });
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      return cachedResponse || fetch(event.request);
-    })
+    fetch(event.request)
+      .then((response) => {
+        const clone = response.clone();
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, clone);
+        });
+        return response;
+      })
+      .catch(() => {
+        return caches.match(event.request);
+      })
   );
 });
