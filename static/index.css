@@ -752,7 +752,7 @@ span.r_begin {
   max-width: 400px;
   height: 8.75rem;
   max-height: 140px;
-  background-image: url('./images/chz_banner_pc.png');
+  background-image: url('https://dfgear.xyz/static/images/chz_banner_pc.png');
   background-size: cover;
   background-position: center;
   border-radius: 0.375rem;

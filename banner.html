@@ -39,6 +39,9 @@
     <meta property="twitter:image" content="https://dfgear.xyz/static/images/banner.png">
     <link rel="stylesheet" href="./static/common.css">
     <link rel="stylesheet" href="./static/index.css">
+    <script>
+      if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/service-worker.js?v=251010').then(reg => { reg.onupdatefound = () => { const newSW = reg.installing; newSW.onstatechange = () => { if (newSW.state === 'installed' && navigator.serviceWorker.controller) { window.location.reload(); } }; }; }).catch(err=>{ console.error('Service Worker Error:', err); }); }) } 
+    </script>
     <!-- vnts AD -->
     <link rel="stylesheet" href="./static/vntsAd.css">
     <script src="https://hb.vntsm.com/v4/live/vms/sites/dfgear.xyz/index.js" data-disable-placements="video_slider"></script>
