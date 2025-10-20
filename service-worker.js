@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dfgear-cache-v2.21';
+const CACHE_NAME = 'dfgear-cache-v2.22';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -8,6 +8,10 @@ const urlsToCache = [
   '/static/js/index.min.js',
   '/static/images/logo_192.png',
   '/static/images/logo_512.png',
+  '/advtDetail.html',
+  '/static/js/advtDetail.min.js',
+  '/character.html',
+  '/static/js/character.min.js'
 ];
 self.addEventListener('install', (event) => {
   event.waitUntil(

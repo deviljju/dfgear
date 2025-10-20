@@ -149,7 +149,123 @@
                 </div>
               </div>
             </div>
-            <div id="mistList" class="card gear-list"></div>
+            <div class="tabs">
+              <div class="tab active" onclick="openTab('beginList')">요약</div>
+              <div class="tab" onclick="openTab('setList')">무기고</div>
+            </div>
+            <div id="beginList" class="tab-content active">
+              <div class="filter-section">
+                <input id="itemFilter" type="text" class="form-control filter-item" placeholder="아이템명을 입력하세요">
+                <div class="form-check form-switch" title="태초 항아리 필터링"><input class="form-check-input" type="checkbox" role="switch" id="ft_pot"><label class="form-check-label" for="ft_pot">항아리만 표시</label></div>
+              </div>
+              <div id="mistList" class="card gear-list"></div>
+            </div>
+            <div id="setList" class="tab-content">
+              <div id="setItem" class="row">
+                <div class="col-md-4 mb-2">
+                  영원히 이어지는 황금향
+                  <div class="flgap">
+                    <div class="b-태초" title="영롱한 황금향의 영광 - 팔찌" data-id="128a14815b5e02e63c8cba53ce2ac19e"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/128a14815b5e02e63c8cba53ce2ac19e"></div>
+                    <div class="b-태초" title="영롱한 황금향의 축복 - 목걸이" data-id="4ed2acf74d5cfa69947535f6a8af7c5d"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/4ed2acf74d5cfa69947535f6a8af7c5d"></div>
+                    <div class="b-태초" title="영롱한 황금향의 꿈 - 반지" data-id="8b38fd1925f030abf9154f9ef448d41a"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/8b38fd1925f030abf9154f9ef448d41a"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  용투장의 난
+                  <div class="flgap">
+                    <div class="b-태초" title="용제의 피를 머금은 흉아" data-id="b56711cb913ec3e76c3932b59ffd98af"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/b56711cb913ec3e76c3932b59ffd98af"></div>
+                    <div class="b-태초" title="용제의 공포를 심는 포효" data-id="44350fa45d2c52776aa5ee1bcb623a1f"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/44350fa45d2c52776aa5ee1bcb623a1f"></div>
+                    <div class="b-태초" title="용제의 재해를 막는 비늘" data-id="bd066206710390f3e6353ab82eaab1a1"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/bd066206710390f3e6353ab82eaab1a1"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  세렌디피티
+                  <div class="flgap">
+                    <div class="b-태초" title="견고한 행운이 깃든 팔찌" data-id="1714a46bd51c67510c0cd4f30ae3242f"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/1714a46bd51c67510c0cd4f30ae3242f"></div>
+                    <div class="b-태초" title="견고한 행운이 깃든 목걸이" data-id="8177da9883506b6ef60bf0296b71dbde"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/8177da9883506b6ef60bf0296b71dbde"></div>
+                    <div class="b-태초" title="견고한 행운이 깃든 반지" data-id="127f30148084de5339713769683e2d67"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/127f30148084de5339713769683e2d67"></div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                  칠흑의 정화
+                  <div class="flgap">
+                    <div class="b-태초" title="혼돈의 정화 팔찌" data-id="8cda0e4d867c18bcc1f91fcd4d8493e0"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/8cda0e4d867c18bcc1f91fcd4d8493e0"></div>
+                    <div class="b-태초" title="혼돈의 정화 목걸이" data-id="634efedb77439c30128b6560278281f8"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/634efedb77439c30128b6560278281f8"></div>
+                    <div class="b-태초" title="혼돈의 정화 반지" data-id="0801473c91a3bcc11f9ea84571034f69"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/0801473c91a3bcc11f9ea84571034f69"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  한계를 넘어선 에너지
+                  <div class="flgap">
+                    <div class="b-태초" title="과충전 - 한계를 가리키는 지침 팔찌" data-id="35cfcfdef4a58f38cc291db0b005db57"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/35cfcfdef4a58f38cc291db0b005db57"></div>
+                    <div class="b-태초" title="과충전 - 한계를 여는 열쇠 목걸이" data-id="02003739f9c1d138bc25b4e5fcc60a7c"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/02003739f9c1d138bc25b4e5fcc60a7c"></div>
+                    <div class="b-태초" title="과충전 - 한계를 돌파하는 균열 반지" data-id="b10c3f4fd74d0886b9f15c1162ae7462"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/b10c3f4fd74d0886b9f15c1162ae7462"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  마력의 영역
+                  <div class="flgap">
+                    <div class="b-태초" title="넘치는 마력의 영역 팔찌" data-id="bf5b1734fcea32d436095a357dae3038"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/bf5b1734fcea32d436095a357dae3038"></div>
+                    <div class="b-태초" title="넘치는 마력의 영역 목걸이" data-id="4ae668f4ebd3ac277ed63348d3dcad8f"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/4ae668f4ebd3ac277ed63348d3dcad8f"></div>
+                    <div class="b-태초" title="넘치는 마력의 영역 반지" data-id="7dfd210d865f3b98b4521ed97bf0a472"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/7dfd210d865f3b98b4521ed97bf0a472"></div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                  소울 페어리
+                  <div class="flgap">
+                    <div class="b-태초" title="로열 페어리 팔찌" data-id="38649c2d1efd86613624653fe835c190"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/38649c2d1efd86613624653fe835c190"></div>
+                    <div class="b-태초" title="로열 페어리 목걸이" data-id="8683263b76f6822e92e46d4e080cd3f6"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/8683263b76f6822e92e46d4e080cd3f6"></div>
+                    <div class="b-태초" title="로열 페어리 반지" data-id="dc1167f78aae7c8f6ed6b29c14dd29e5"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/dc1167f78aae7c8f6ed6b29c14dd29e5"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  고대 전장의 발키리
+                  <div class="flgap">
+                    <div class="b-태초" title="발할라의 여신 발키리 수호 팔찌" data-id="1696417c6db6398ea0ef00f8084184dc"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/1696417c6db6398ea0ef00f8084184dc"></div>
+                    <div class="b-태초" title="발할라의 여신 발키리 천상 목걸이" data-id="28fc8eb2f6cd1cde8fefe8aca6a9ceaa"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/28fc8eb2f6cd1cde8fefe8aca6a9ceaa"></div>
+                    <div class="b-태초" title="발할라의 여신 발키리 축복 반지" data-id="e776eab981b7daac85f8faa28c2eaeb4"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/e776eab981b7daac85f8faa28c2eaeb4"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  에테리얼 오브 아츠
+                  <div class="flgap">
+                    <div class="b-태초" title="대 여우의 지혜 팔찌" data-id="ab2e3267be4d5589118013d117276ba4"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/ab2e3267be4d5589118013d117276ba4"></div>
+                    <div class="b-태초" title="대 여우의 영혼 목걸이" data-id="e468101e457344d9824a0f1588152f06"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/e468101e457344d9824a0f1588152f06"></div>
+                    <div class="b-태초" title="대 여우의 매혹 반지" data-id="d3202f05592d04bb3b1ff144ef6c273d"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/d3202f05592d04bb3b1ff144ef6c273d"></div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                  그림자에 숨은 죽음
+                  <div class="flgap">
+                    <div class="b-태초" title="칠흑같은 그림자 속 팔찌 - 화" data-id="0f1556d74a133bf1f32cc414e8c44001"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/0f1556d74a133bf1f32cc414e8c44001"></div>
+                    <div class="b-태초" title="칠흑같은 그림자 속 목걸이 - 혈" data-id="ce90fd8107a2dec651b9f7c41a84888c"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/ce90fd8107a2dec651b9f7c41a84888c"></div>
+                    <div class="b-태초" title="칠흑같은 그림자 속 반지 - 독" data-id="cb015bdb6ca83dae7ccd7604ca558064"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/cb015bdb6ca83dae7ccd7604ca558064"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  압도적인 자연
+                  <div class="flgap">
+                    <div class="b-태초" title="자연 - 천재지변 팔찌" data-id="50752f1905af83563e5e2f5b746c8cc4"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/50752f1905af83563e5e2f5b746c8cc4"></div>
+                    <div class="b-태초" title="자연 - 천재지변 목걸이" data-id="18bef43afc834d281b4e189218cb97fd"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/18bef43afc834d281b4e189218cb97fd"></div>
+                    <div class="b-태초" title="자연 - 천재지변 반지" data-id="e15a039ef16cb42914a88ef74f2eef4e"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/e15a039ef16cb42914a88ef74f2eef4e"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  무리 사냥의 길잡이
+                  <div class="flgap">                
+                    <div class="b-태초" title="무리의 길잡이 팔목 보호대" data-id="5f0746d290ec872e9d4e66741130bafc"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/5f0746d290ec872e9d4e66741130bafc"></div>
+                    <div class="b-태초" title="무리의 길잡이 목걸이" data-id="6aa0978e051611de538b83176ed3026a"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/6aa0978e051611de538b83176ed3026a"></div>
+                    <div class="b-태초" title="무리의 길잡이 반지" data-id="60f2ce1a8ef8b2cf4dbf60b9f77b6148"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/60f2ce1a8ef8b2cf4dbf60b9f77b6148"></div>
+                  </div>
+                </div>
+              </div>
+              <div id="itemGetList" class="card gear-list">
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
