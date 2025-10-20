@@ -257,6 +257,7 @@ img.setImg {
   width: 33.33333333%;
   font-size: .85em;
 }
-.smallword {
+.list-group-item>span.smallword {
   font-size: 0.8em;
+  color: inherit !important;
 }
