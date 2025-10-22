@@ -200,3 +200,64 @@ h6 {
     height: 2.5rem !important;
   }
 }
+/* advtDetail */
+
+.filter-section {
+  border-bottom: none !important;
+  justify-content: space-between !important;
+  padding: 0.5rem 0.3rem 0.3rem 0.3rem;
+  width: 100%;
+  min-width: 25rem;
+  align-items: center;
+}
+.gear-list.card{
+  min-width: calc(100% - var(--bs-gutter-x)) !important;
+  width: auto;
+}
+.tab-content {
+  border: none !important;
+  max-width: 40rem;
+}
+
+/* chase */
+.flgap {
+  display: flex;
+  gap: .5em;
+}
+div.b-태초 {
+  width: fit-content;
+  position: relative;
+  border: 2px solid transparent;
+  background-image: linear-gradient(rgb(40, 217, 49), rgb(51, 172, 234));
+  background-origin: border-box;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+#setItem {
+  max-width: 35.5rem;
+}
+#setItem .flgap > div::after {
+  background-color: #353434;
+  opacity: 0.5;
+  content: "";
+  width: 2.375rem !important;
+  height: 2.375rem !important;
+  position: absolute;
+  top: 25%;
+  left: 50%;  
+  transform: translate(-50%, -25%);  
+}
+#setItem .flgap > div.on::after {
+  opacity: 0 !important;
+}
+img.setImg {
+  width: 2.375rem;
+}
+.col-md-4 {
+  width: 33.33333333%;
+  font-size: .85em;
+}
+.list-group-item>span.smallword {
+  font-size: 0.8em;
+  color: inherit !important;
+}
