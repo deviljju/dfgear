@@ -1,17 +1,16 @@
-const CACHE_NAME = 'dfgear-cache-v2.22';
+const CACHE_NAME = 'dfgear-cache-v2.23';
 const urlsToCache = [
   '/',
-  '/index.html',
-  '/static/common.css',
-  '/static/index.css',
-  '/static/js/common.min.js',
-  '/static/js/index.min.js',
   '/static/images/logo_192.png',
   '/static/images/logo_512.png',
-  '/advtDetail.html',
-  '/static/js/advtDetail.min.js',
-  '/character.html',
-  '/static/js/character.min.js'
+  '/static/fonts/DNFForgedBlade-Light.ttf',
+  '/static/fonts/DNFForgedBlade-Medium.ttf',
+  '/static/fonts/DNFForgedBlade-Bold.ttf',
+  '/static/fonts/DNFBitBitv2.ttf',
+  '/static/fonts/NanumGothicLight.ttf',
+  '/static/fonts/NanumGothic.ttf',
+  '/static/fonts/NanumGothicBold.ttf',
+  '/static/fonts/NanumGothicExtraBold.ttf',
 ];
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -40,17 +39,32 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        const clone = response.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, clone);
-        });
-        return response;
-      })
-      .catch(() => {
-        return caches.match(event.request);
-      })
-  );
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put('/index.html', clone);
+          });
+          return response;
+        })
+        .catch(() => caches.match('/index.html')) // 오프라인 시 캐시 사용
+    );
+    return;
+  } else {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, clone);
+          });
+          return response;
+        })
+        .catch(() => {
+          return caches.match(event.request);
+        })
+    );
+  }
 });

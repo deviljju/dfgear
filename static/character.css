@@ -48,48 +48,6 @@
     }
   }
 
-  /* grid thema 
-  @media (min-width: 1300px){
-    body {
-      display: grid;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-      justify-items: center;
-      grid-template-columns: 250px minmax(800px,calc(100% - 500px)) 250px;
-      grid-template-rows: auto auto auto;
-      grid-template-areas: "adAreaL container adAreaR" "neopleThk neopleThk neopleThk" "privacy privacy privacy";
-    }
-    .adAreaL {
-      width: 100%;
-      display: block !important;
-      grid-area: adAreaL;
-    }
-    .adAreaR {
-      width: 100%;
-      display: block !important;
-      grid-area: adAreaR;
-    }
-    .neopleThk{
-      padding-top: 0.5rem;
-      grid-area: neopleThk;
-    }
-    .privacy {
-      grid-area: privacy;
-    }
-  }
-  @media (min-width: 1840px){
-    body {
-      grid-template-columns: 400px calc(100% - 800px) 400px !important;
-    }
-  }
-  .adAreaL {
-    display: none;
-  }
-  .adAreaR {
-    display: none;
-  }
-  */
   .container {
     display: flex;
     position: relative;
@@ -494,8 +452,8 @@
   }
 
   #equipment {
-    width: 164px;
-    height: 142px;
+    width: 200px;
+    height: 175px;
     display: flex;
     background-image: url(https://bbscdn.df.nexon.com/data7/showroom/static/img/bg3.jpg);
     background-repeat: no-repeat;
@@ -505,13 +463,41 @@
     border-radius: 0.5rem;
   }
 
+  #equipment span.erf {
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+    background-color: rgb(0 0 0 / 60%);
+    color: #68D5ED;
+    z-index: 99;
+    border-radius: 0.25rem;
+    font-size: 0.6em;
+    padding: 0 2px;
+    pointer-events: none;
+  }
+  span.erf.amp {
+    color: #FF00FF !important
+  }
+  
+  span.eqp {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    background-color: rgb(0 0 0 / 45%);
+    color: white;
+    z-index: 1000;
+    font-size: 0.65em;
+    padding: 0 1px;
+    pointer-events: none;
+  }
+
   #equipment>.l1 {
-    width: 60px;
+    width: 80px;
     position: relative;
   }
 
   #equipment>.l2 {
-    width: 60px;
+    width: 80px;
   }
 
   #equipment>.l2>.rightEquip {
@@ -520,8 +506,8 @@
   }
 
   #equipment>div img {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     background-color: black;
   }
 
@@ -529,33 +515,33 @@
     background-color: black;
   }
 
-  img.p0_1 {
+  div.p0_1 {
     position: absolute;
-    left: 32px;
+    left: 40px;
   }
 
-  img.p1_0 {
+  div.p1_0 {
     position: absolute;
-    top: 32px;
+    top: 40px;
     left: 0;
   }
 
-  img.p1_1 {
+  div.p1_1 {
     position: absolute;
-    top: 32px;
-    left: 32px;
+    top: 40px;
+    left: 40px;
   }
 
-  img.p2_0 {
+  div.p2_0 {
     position: absolute;
-    top: 64px;
+    top: 80px;
     left: 0;
   }
 
-  img.p2_1 {
+  div.p2_1 {
     position: absolute;
-    top: 64px;
-    left: 32px;
+    top: 80px;
+    left: 40px;
   }
 
   #setList {
@@ -623,15 +609,20 @@
 
   .itemCount {
     position: absolute;
-    right: 15%;
-    bottom: 0;
-    background-color: rgb(0 0 0 / 50%);
+    right: 1px;
+    bottom: 1px;
+    background-color: rgb(0 0 0 / 53%);
     color: white;
     z-index: 99;
-    border-radius: 100%;
-    font-size: 0.725em;
-    /* height: 1.4em;
-    transform: translateY(-0.16em); */
+    border-radius: 0.25rem;
+    font-size: 0.65em;
+    padding: 0 2px;
+    pointer-events: none;
+
+    /* right: 15%; */
+    /* bottom: 0; */
+    /* border-radius: 100%; */
+    /* font-size: 0.725em; */
   }
 
   .btn-hide {
@@ -762,7 +753,15 @@
     border-radius: 0.25rem;
   }
 
-  #setItem div.b-레어 {
+  #equipment div.equipSlot {
+    width: fit-content;
+    position: absolute;
+  }
+  #equipment div.weapon {
+    width: fit-content;
+  }
+
+  div.b-레어 {
     position: relative;
     border: 2px solid transparent;
     background-color: #B36BFF;
@@ -770,7 +769,7 @@
     border-radius: 0.25rem;
   }
 
-  #setItem div.b-유니크 {
+  div.b-유니크 {
     position: relative;
     border: 2px solid transparent;
     background-color: #FF00FF;
@@ -783,7 +782,7 @@
     border-radius: 0.25rem;
   }
 
-  #setItem div.b-레전더리 {
+  div.b-레전더리 {
     position: relative;
     border: 2px solid transparent;
     background-color: #ff7800ee;
@@ -796,7 +795,7 @@
     border-radius: 0.25rem;
   }
 
-  #setItem div.b-에픽 {
+  div.b-에픽 {
     position: relative;
     border: 2px solid transparent;
     background-color: #FFB400ee;
@@ -809,7 +808,7 @@
     border-radius: 0.25rem;
   }
 
-  #setItem div.b-태초 {
+  div.b-태초 {
     position: relative;
     border: 2px solid transparent;
     background-image: linear-gradient(rgb(40, 217, 49), rgb(51, 172, 234));
@@ -1028,7 +1027,7 @@
     z-index: 1000;
   }
 
-  #equipment img::before {
+  /* #equipment img::before {
     content: attr(data-title);
     position: absolute;
     right: 0.3rem;
@@ -1038,7 +1037,7 @@
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0.75);
     z-index: 1000;
-  }
+  } */
   #summary {
     border: none;
     padding: 0.75rem;
@@ -1167,6 +1166,9 @@
     .setPoint .rairitySummary {
       position: relative !important;
       min-width: 4.9rem;
+    }
+    #equipment span.erf {
+      font-size: 0.7em;
     }
   }
   #reinforce > span.main {

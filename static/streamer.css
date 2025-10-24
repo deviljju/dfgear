@@ -261,3 +261,6 @@ img.setImg {
   font-size: 0.8em;
   color: inherit !important;
 }
+span.itemCount {
+  font-size: 0.88em;
+}
