@@ -325,6 +325,9 @@ body::-webkit-scrollbar-thumb {
 .dfToast > div {
   margin-right: 1.75rem;
 }
+.dfToast > div > span {
+  font-size: 0.8em;
+}
 .uselct {
   user-select: text;
 }

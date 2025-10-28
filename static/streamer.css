@@ -199,7 +199,8 @@ h6 {
   #topGrid > div:last-child > * {
     height: 2.5rem !important;
   }
-}
+} 
+
 /* advtDetail */
 
 .filter-section {
@@ -233,10 +234,25 @@ div.b-태초 {
   border-radius: 0.25rem;
   cursor: pointer;
 }
+
+@media (max-width: 500px){
+  .tab-content > div {
+    font-size: 0.85em;
+  }
+}
+
+#wpItme > div {
+  min-width: 210px;
+}
+#wpItem {
+  max-width: 35.5rem;
+  /* justify-content: center; */
+}
+
 #setItem {
   max-width: 35.5rem;
 }
-#setItem .flgap > div::after {
+.tab-content > div.row .flgap > div::after {
   background-color: #353434;
   opacity: 0.5;
   content: "";
@@ -247,7 +263,7 @@ div.b-태초 {
   left: 50%;  
   transform: translate(-50%, -25%);  
 }
-#setItem .flgap > div.on::after {
+.tab-content > div.row .flgap > div.on::after {
   opacity: 0 !important;
 }
 img.setImg {
