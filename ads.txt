@@ -1,6 +1,6 @@
 ownerdomain=dfgear.xyz
 managerdomain=venatus.com
-#V 22.10.2025 VH
+#V 04.11.2025 VH
 #V
 
 
@@ -28,7 +28,9 @@ amxrtb.com, 105199778, DIRECT
 sharethrough.com, a6a34444, RESELLER, d53b998a7bd4ecd2
 pubmatic.com, 158355, RESELLER, 5d62403b186f2ace                            
 rubiconproject.com, 23844, RESELLER, 0bfd66d529a55807                         
-openx.com, 559680764, RESELLER, 6a698e2ec38604c6                              
+openx.com, 559680764, RESELLER, 6a698e2ec38604c6
+triplelift.com, 12507, RESELLER
+adform.com, 2767, RESELLER                                                                           
 aps.amazon.com,70247b00-ff8f-4016-b3ab-8344daf96e09,DIRECT     
 aniview.com, 5f2063121d82c82557194737, RESELLER, 78b21b97965ec3f8
 aniview.com, 643f8e74688b10f72307cc24, DIRECT, 78b21b97965ec3f8 
