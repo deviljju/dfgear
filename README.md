@@ -2,21 +2,29 @@
 
 작성자 : deviljju
 
-최종수정일자 : 25.10.17
+최종수정일자 : 25.11.05
 
-# Git Commit Convention
+<h2>
+  <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" width="20" />
+  Git Commit Convention
+</h2>
+
 | 제목 | 설명 |
 |-----|-----|
-| init | 프로젝트 생성 |
-| feat | 기능 추가, UI/UX 기능 변경 |
-| fix | 기능 수정 |
-| style | 코드 포맷팅, 세미콜론 누락, 코드 변경이 없는 경우 |
-| chore | 이미지 등 리소스 추가 및 변경 |
-| docs | md 및 문서 수정 |
-| perf | 성능 개선 |
-| refactor | 코드 리팩토링 |
-| ci | CI 설정 관련 수정 |
-| test | 테스트 코드, 리팩토링 테스트 코드 추가 |
+| feat | ✨ 기능 추가, UI/UX 기능 변경 |
+| fix | 🔨 기능 수정 |
+| !hotfix | 🚑 급하게 치명적인 버그 수정 |
+| design | 💄 CSS 등 사용자 UI 디자인 변경 |
+| style | 🎨 코드 포맷팅, 세미콜론 누락, 코드 변경이 없는 경우 |
+| refactor | ♻️ 코드 리팩토링, 구조나 명명 개선 |
+| comment | 💡 필요한 주석 추가 및 변경 |
+| docs | 📝 md 및 문서 수정 |
+| test | ✅ 테스트 코드, 리팩토링 테스트 코드 추가 |
+| chore | 🍱 이미지 등 리소스 추가 및 변경 |
+| rename | 🚚 파일 혹은 폴더명을 수정 옮기는 작업만 수행한 경우 |
+| remove | 🔥 파일을 삭제하는 작업만 수행한 경우 |
+| perf | ⚡️ 성능 개선 |
+| ci | 👷 CI 설정 관련 수정 |
 
 [사이트바로가기](https://dfgear.xyz/)
 
