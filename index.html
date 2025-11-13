@@ -13,32 +13,39 @@
     <link rel="manifest" href="./manifest.json">
     <link rel="icon" href="./static/images/favicon.ico" type="image/x-icon">
     <!--JQuery-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!--Bootstrap-->
     <link rel="stylesheet" href="./static/bootstrap.min.css">
-    <script src="./static/js/bootstrap.bundle.js"></script>
-    <script src="./static/js/moment.min.js"></script>
+    <script defer src="./static/js/bootstrap.bundle.js"></script>
+    <script defer src="./static/js/moment.min.js"></script>
+    
+    <link rel="preload" href="./static/common.css" as="style" />
+    <link rel="stylesheet" href="./static/common.css">
+    <link rel="preload" href="./static/index.css" as="style" />
+    <link rel="stylesheet" href="./static/index.css">
+    
     <meta name="google-site-verification" content="7pZKkUKIWjAwO5AVHUNjhSds00fERltbyj5hD5l3Xd0" />
     <meta name="naver-site-verification" content="e1d874db17357f1f91ffe4d641a038dd6d6825e0" />
     <!-- meta -->
     <link rel="canonical" href="https://dfgear.xyz">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="DFGEAR">
-    <meta name="keyword" content="던파기어 던전앤파이터 던파 중천 태초사이트 타임라인 에픽 미기 던기어 dfgear">
-    <meta name="description" content="던파기어 Dungeon & Fighters TimeLine App. 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.">
+    <meta name="keyword" content="던파기어 던전앤파이터 던파 중천 태초사이트 타임라인 태초 태거시 태초의별 에픽 던기어 dfgear, 던전앤파이터, 던파, 모험단, 캐릭터, 분석, 게임">
+    <meta name="description" content="던파기어 Dungeon & Fighters TimeLine App. 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다. 던파 모험단 관리, 캐릭터 정보 조회, 던파 타임라인 서비스">
+    <meta name="revisit-after" content="7 days">
+    
     <meta property="og:url" content="https://dfgear.xyz">
     <meta property="al:web:url" content="https://dfgear.xyz">
     <meta property="og:type" content="website">
     <meta property="og:title" content="DFGEAR - 던파기어">
     <meta property="og:site_name" content="DFGEAR - 던파기어">
-    <meta property="og:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.">
+    <meta property="og:description" content="던파기어 Dungeon & Fighters TimeLine App. 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다. 던파 모험단 관리, 캐릭터 정보 조회, 던파 타임라인 서비스">
     <meta property="og:image" content="https://dfgear.xyz/static/images/banner.png?v=1">
     <meta property="og:locale" content="ko_KR">
+
     <meta property="twitter:title" content="DFGEAR - 던파기어">
     <meta property="twitter:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.">
     <meta property="twitter:image" content="https://dfgear.xyz/static/images/banner.png?v=1">
-    <link rel="stylesheet" href="./static/common.css">
-    <link rel="stylesheet" href="./static/index.css">
     <script>
       if ('serviceWorker' in navigator) { window.addEventListener('load', () => { navigator.serviceWorker.register('/service-worker.js?v=251024').then(reg => { reg.onupdatefound = () => { const newSW = reg.installing; newSW.onstatechange = () => { if (newSW.state === 'installed' && navigator.serviceWorker.controller) { window.location.reload(); } }; }; }).catch(err=>{ console.error('Service Worker Error:', err); }); }) } 
     </script>
@@ -187,7 +194,6 @@
             <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionNotice">
               <div class="accordion-body">
                 <p>*** 모험단 상세보기 태거시, 태초 악세서리 별 획득 이력 조회 탭 추가 ***</p>
-                <p>* 이세계 용사 요일별 최적 루트 지도 확인 기능 추가</p>
                 <p>* 태초 항아리 랭킹 집계에서 제외하도록 변경 항아리 따로 집계하도록 수정</p>
                 <p>* 매월 초마다 태초 무기 항아리깡 현황 조회 페이지 표시(1일 6시 ~ 3일 오전 6시전까지)</p>
                 <p>* 이내 황혼전 카운팅 시작, 캐릭터 카드에 태초 무기 유무 표시</p>
@@ -222,9 +228,9 @@
     </div>
     <!-- footer -->
     <div id="bottom-container"></div>
-    <script src="./static/js/common.min.js"></script>
-    <script src="./static/js/chart.min.js"></script>
-    <script src="./static/js/chartSet.js"></script>
-	  <script src="./static/js/index.min.js"></script>
+    <script defer src="./static/js/common.min.js"></script>
+    <script defer src="./static/js/chart.min.js"></script>
+    <script defer src="./static/js/chartSet.js"></script>
+	  <script defer src="./static/js/index.min.js"></script>
   </body>
 </html>

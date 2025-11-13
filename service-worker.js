@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dfgear-cache-v2.23';
+const CACHE_NAME = 'dfgear-cache-v2.24';
 const urlsToCache = [
   '/',
   '/static/images/logo_192.png',
@@ -11,6 +11,12 @@ const urlsToCache = [
   '/static/fonts/NanumGothic.ttf',
   '/static/fonts/NanumGothicBold.ttf',
   '/static/fonts/NanumGothicExtraBold.ttf',
+  '/static/bootstrap.min.css',
+  '/static/js/bootstrap.bundle.js',
+  '/static/js/moment.min.js',
+  'https://code.jquery.com/jquery-3.6.0.min.js',
+  '/static/js/chart.min.js',
+  '/static/js/chartSet.js'
 ];
 self.addEventListener('install', (event) => {
   event.waitUntil(
