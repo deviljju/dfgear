@@ -8,7 +8,7 @@
   height: fit-content !important;
   min-height: 10em;
 }
-.tabContent > div { display: none;}
+.tabContent > div { display: none; max-width: 50rem; }
 .tabContent > div.show { display: flex; justify-content: center; }
 .tabButtonArea {
   display: flex;
