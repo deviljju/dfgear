@@ -735,6 +735,12 @@ a:hover {
   min-width: 4.55em;
   text-align: center;
 }
+.owner-acc.black {
+  background-color: #f4797ec7;
+}
+.owner-acc.enough {
+  background-color: #6abf9fc7;
+}
 
 .w100 {
   width: 100%;
