@@ -1,6 +1,6 @@
 ownerdomain=dfgear.xyz
 managerdomain=venatus.com
-#V 04.11.2025 VH
+#V 19.11.2025 VH
 #V
 
 
@@ -28,9 +28,9 @@ amxrtb.com, 105199778, DIRECT
 sharethrough.com, a6a34444, RESELLER, d53b998a7bd4ecd2
 pubmatic.com, 158355, RESELLER, 5d62403b186f2ace                            
 rubiconproject.com, 23844, RESELLER, 0bfd66d529a55807                         
-openx.com, 559680764, RESELLER, 6a698e2ec38604c6
+openx.com, 559680764, RESELLER, 6a698e2ec38604c6                              
 triplelift.com, 12507, RESELLER
-adform.com, 2767, RESELLER                                                                           
+adform.com, 2767, RESELLER                                             
 aps.amazon.com,70247b00-ff8f-4016-b3ab-8344daf96e09,DIRECT     
 aniview.com, 5f2063121d82c82557194737, RESELLER, 78b21b97965ec3f8
 aniview.com, 643f8e74688b10f72307cc24, DIRECT, 78b21b97965ec3f8 
@@ -40,19 +40,11 @@ rubiconproject.com, 13918, RESELLER, 0bfd66d529a55807
 google.com, pub-5717092533913515, RESELLER, f08c47fec0942fa0      
 gannett.com, 22652678936, RESELLER                                         
 richaudience.com, 1ru8dKmJJV, RESELLER                                    
-flashb.id, c295d1a2-ea6d-54bb-b1b4-dd4b46eb1ed9, DIRECT
 aps.amazon.com, 1ad7261b-91ea-4b6f-b9e9-b83522205b75, RESELLER        
 pubmatic.com, 161335, RESELLER, 5d62403b186f2ace                           
 blockthrough.com, 5643766199222272, DIRECT                                 
 criteo.com, B-062405, DIRECT, 9fac4a4a87c2a44f                             
 themediagrid.com, CVQXOH, DIRECT, 35d5010d7789b49d                           
-freewheel.tv, 211121, DIRECT
-freewheel.tv, 211129-524565, DIRECT
-freewheel.tv, 211129-169843, DIRECT
-freewheel.tv, 196129, RESELLER
-freewheel.tv, 211121, RESELLER
-freewheel.tv, 196145, RESELLER
-freewheel.tv, 211129, RESELLER
 freewheel.tv, sg1258593, RESELLER
 freewheel.tv, sg1274564, RESELLER
 freewheel.tv, 536175-r-524565, RESELLER
@@ -79,15 +71,15 @@ inmobi.com, cdfd74ce1cdd4a67b1c4794c072324ff, DIRECT, 83e75a7ae333ca9d
 Blis.com,33,RESELLER,61453ae19a4b73f4
 verve.com, 5897, RESELLER, 0c8f5958fc2d6270
 insticator.com,843c9a44-60ea-4342-8ad4-68f894283b3e,DIRECT,b3511ffcafb23a32
-rubiconproject.com,17062,DIRECT,0bfd66d529a55807
-lijit.com,257618,DIRECT,fafdf38b16bf6b2b
-sharethrough.com,Q9IzHdvp,DIRECT,d53b998a7bd4ecd2
-themediagrid.com,DQ6AMB,DIRECT,35d5010d7789b49d
-triplelift.com,6998,DIRECT,6c33edb13117fd86
-risecodes.com,6124caed9c7adb0001c028d8,DIRECT
-pubmatic.com,95054,DIRECT,5d62403b186f2ace
-video.unrulymedia.com,136898039,DIRECT
-smartadserver.com,3262,DIRECT,060d053dcf45cbf3
+rubiconproject.com,17062,RESELLER,0bfd66d529a55807
+lijit.com,257618,RESELLER,fafdf38b16bf6b2b
+sharethrough.com,Q9IzHdvp,RESELLER,d53b998a7bd4ecd2
+themediagrid.com,DQ6AMB,RESELLER,35d5010d7789b49d
+triplelift.com,6998,RESELLER,6c33edb13117fd86
+risecodes.com,6124caed9c7adb0001c028d8,RESELLER
+pubmatic.com,95054,RESELLER,5d62403b186f2ace
+video.unrulymedia.com,136898039,RESELLER
+smartadserver.com,3262,RESELLER,060d053dcf45cbf3
 rubiconproject.com,  13762, RESELLER, 0bfd66d529a55807                   
 media.net, 8CU8ARTF8, DIRECT                                                
 Media.net, 8CU198XI2, DIRECT                                               
@@ -113,10 +105,10 @@ pubmatic.com, 159234, RESELLER, 5d62403b186f2ace
 pubmatic.com, 159401, RESELLER, 5d62403b186f2ace                           
 pubmatic.com, 165533, RESELLER, 5d62403b186f2ace                         
 richaudience.com, 1XvIoD5o0S, DIRECT                                       
-pubmatic.com, 81564, DIRECT, 5d62403b186f2ace                             
-pubmatic.com, 156538, DIRECT, 5d62403b186f2ace                           
-appnexus.com, 8233, DIRECT                                                  
-rubiconproject.com, 13510, DIRECT                                       
+pubmatic.com, 81564, RESELLER, 5d62403b186f2ace
+pubmatic.com, 156538, RESELLER, 5d62403b186f2ace
+appnexus.com, 8233, RESELLER
+rubiconproject.com, 13510, RESELLER
 risecodes.com, 5fa94677b2db6a00015b22a9, DIRECT                       
 pubmatic.com, 160295, RESELLER, 5d62403b186f2ace                          
 xandr.com, 14082, RESELLER                                                 
@@ -128,10 +120,10 @@ onetag.com, 69f48c2160c8113, RESELLER
 gumgum.com, 16112, RESELLER, ffdef49475d318a9
 video.unrulymedia.com, 335119963, RESELLER                                 
 seedtag.com, 68011633bc1ec10007f62708, DIRECT
-xandr.com, 4009, DIRECT, f5ab79cb980f11d1                                     
-rubiconproject.com, 17280, DIRECT, 0bfd66d529a55807                          
-smartadserver.com, 3050, DIRECT
-lijit.com, 397546, DIRECT, fafdf38b16bf6b2b
+xandr.com, 4009, RESELLER, f5ab79cb980f11d1
+rubiconproject.com, 17280, RESELLER, 0bfd66d529a55807
+smartadserver.com, 3050, RESELLER
+lijit.com, 397546, RESELLER, fafdf38b16bf6b2b
 sharethrough.com, 31c129df, DIRECT, d53b998a7bd4ecd2                       
 smartadserver.com, 3490, DIRECT                                            
 smartadserver.com, 4016, DIRECT                                             
@@ -158,11 +150,11 @@ adwmg.com, 101261, DIRECT, c9688a22012618e7
 google.com, pub-8622186303703569, DIRECT, f08c47fec0942fa0
 freewheel.tv, 1604590, DIRECT
 freewheel.tv, 1604595, DIRECT
-pubmatic.com, 156512, DIRECT                                                  
-indexexchange.com, 183753, DIRECT                                            
-wunderkind.co, 6438, DIRECT                                            
-wunderkind.co, 6449, DIRECT                                                   
-criteo.com, B-068503, DIRECT                                               
+wunderkind.co, 8471, DIRECT
+themediagrid.com, N71MIF, DIRECT, 35d5010d7789b49d
+rubiconproject.com, 20986, RESELLER, 0bfd66d529a55807
+pubmatic.com, 156512, RESELLER
+indexexchange.com, 183753, RESELLER
 appnexus.com, 806, DIRECT, f5ab79cb980f11d1                                  
 appnexus.com,1908,RESELLER,f5ab79cb980f11d1                               
 adinplay.com, FTB, DIRECT
