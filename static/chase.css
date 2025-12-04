@@ -118,7 +118,19 @@ div.b-태초 {
   justify-content: center;
 }
 #content_wp > div > div { display: none; }
-#content_wp > div > div.show { display: flex; }
+#content_wp > div > div.show { 
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap; */
+  justify-content: center;
+  justify-items: center;
+  /* max-width: calc(210px + 2rem) */
+}
+#content_wp>div>div.cole4.show {
+  grid-template-columns: repeat(4, 1fr);
+}
 #content_wp .flgap.show > div.on::after {
   background-color: #f0f0f0;
   opacity: 0.5;
