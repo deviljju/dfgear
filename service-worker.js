@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dfgear-cache-v2.25';
+const CACHE_NAME = 'dfgear-cache-v2.26';
 const urlsToCache = [
   '/',
   '/static/images/logo_192.png',

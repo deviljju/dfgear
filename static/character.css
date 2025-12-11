@@ -261,6 +261,9 @@
   .gear-list.card>.card-header.begin {
     background-color: #4eef565c;
   }
+  .card>.card-header.diregie {
+    background-color: #ef4ed95c;
+  }
 
   .gear-list.card img {
     margin-right: 0.5rem;

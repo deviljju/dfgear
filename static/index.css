@@ -240,6 +240,9 @@ div.title {
 .card>.card-header.begin {
   background-color: #4eef565c;
 }
+.card>.card-header.diregie {
+  background-color: #ef4ed95c;
+}
 
 .aggregate>div:nth-child(1) {
   width: 25rem !important;
