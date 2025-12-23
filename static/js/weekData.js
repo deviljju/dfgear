@@ -920,8 +920,8 @@ const digacy = [
   },
   {
     "itemName": "부패한 심장검",
-    "cnt": 0,
-    "itemId": "cf40c472350b52ae7e4f510b48d261ba"
+    "cnt": 1,
+    "itemId": "da11b64832b23bded2aadd1e41319fdc"
   }
 ];
 
