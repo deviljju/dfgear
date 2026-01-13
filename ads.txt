@@ -1,6 +1,6 @@
 ownerdomain=dfgear.xyz
 managerdomain=venatus.com
-#V 10.12.2025 VH
+#V 07.01.2026 VH
 #V
 
 
@@ -44,7 +44,7 @@ aps.amazon.com, 1ad7261b-91ea-4b6f-b9e9-b83522205b75, RESELLER
 pubmatic.com, 161335, RESELLER, 5d62403b186f2ace                           
 blockthrough.com, 5643766199222272, DIRECT                                 
 criteo.com, B-062405, DIRECT, 9fac4a4a87c2a44f                             
-themediagrid.com, CVQXOH, DIRECT, 35d5010d7789b49d                           
+themediagrid.com, CVQXOH, RESELLER, 35d5010d7789b49d                           
 freewheel.tv, sg1258593, RESELLER
 freewheel.tv, sg1274564, RESELLER
 freewheel.tv, 536175-r-524565, RESELLER
@@ -119,7 +119,8 @@ yieldmo.com, 2754490424016969782, RESELLER
 media.net, 8CUQ6928Q, RESELLER                                             
 onetag.com, 69f48c2160c8113, RESELLER                                       
 gumgum.com, 16112, RESELLER, ffdef49475d318a9
-video.unrulymedia.com, 335119963, RESELLER                                 
+video.unrulymedia.com, 335119963, RESELLER 
+sharethrough.com, 4284, RESELLER, d53b998a7bd4ecd2                                
 seedtag.com, 68011633bc1ec10007f62708, DIRECT
 xandr.com, 4009, RESELLER, f5ab79cb980f11d1
 rubiconproject.com, 17280, RESELLER, 0bfd66d529a55807
