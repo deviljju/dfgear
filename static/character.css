@@ -1138,19 +1138,19 @@
     text-decoration: line-through;
     color: #d2d2d2;
   }
-  .raidCnt {
+  .hardCnt {
     padding: .5rem .5rem 0 .5rem;
     position: absolute;
   }
-  .raidCnt > img {
+  .hardCnt > img {
     width: 1.25rem;
   }
-  .nabelCnt {
+  .raidCnt {
     padding: 0 .5rem;
     position: absolute;
     top: 2rem;
   }
-  .nabelCnt > img {
+  .raidCnt  > img {
     width: 1.25rem;
   }
 
