@@ -1,6 +1,6 @@
 ownerdomain=dfgear.xyz
 managerdomain=venatus.com
-#V 06.02.2026 VH
+#V 19.02.2026 VH
 #V
 
 
@@ -42,7 +42,8 @@ gannett.com, 22652678936, RESELLER
 richaudience.com, 1ru8dKmJJV, RESELLER                                    
 aps.amazon.com, 1ad7261b-91ea-4b6f-b9e9-b83522205b75, RESELLER        
 pubmatic.com, 161335, RESELLER, 5d62403b186f2ace                           
-blockthrough.com, 5643766199222272, DIRECT                                 
+blockthrough.com, 5643766199222272, DIRECT  
+blis.com, 1269, DIRECT, 61453ae19a4b73f4                               
 criteo.com, B-062405, DIRECT, 9fac4a4a87c2a44f                             
 themediagrid.com, CVQXOH, RESELLER, 35d5010d7789b49d                           
 google.com, pub-5781531207509232, DIRECT, f08c47fec0942fa0                   
