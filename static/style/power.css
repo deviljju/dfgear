@@ -1,0 +1,42 @@
+    .main-content {
+        height: fit-content !important;
+        min-height: 10em;
+    }
+    table {
+        margin: auto;
+        border-collapse: collapse;
+    }
+
+    td,
+    th {
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+    }
+
+    input[type="number"] {
+        width: 80px;
+        padding: 5px;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .resultTable {
+        margin-top: 30px;
+        border-collapse: collapse;
+        width: 600px;
+    }
+
+    .resultTable th {
+        background: #333;
+        color: white;
+    }
+
+    .sumRow {
+        background: #f2f2f2;
+        font-weight: bold;
+    }

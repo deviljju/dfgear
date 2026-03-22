@@ -213,6 +213,9 @@ div.title {
 .aggregate {
   width: 100% !important;
   height: auto !important;
+  --bs-gutter-x: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .aggregate .text-muted {
@@ -450,6 +453,7 @@ span.card-text.small {
 }
 
 .container>.accordion {
+  width: 100%;
   max-width: 47.5rem;
   height: max-content;
 }

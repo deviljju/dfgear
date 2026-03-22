@@ -20,57 +20,64 @@ const urlsToCache = [
 ];
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(urlsToCache);
-    }).catch((err) => {
-        console.error('Failed to cache', err);
-    })
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(urlsToCache))
+      .then(() => self.skipWaiting()) // 캐싱 완료 후 skipWaiting
+      .catch((err) => console.error('Failed to cache', err))
   );
-  self.skipWaiting();
 });
+
 self.addEventListener('activate', (event) => {
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (!cacheWhitelist.includes(cacheName)) {
-            console.log('불필요한 캐시 삭제 중...', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
+    caches.keys()
+      .then((cacheNames) =>
+        Promise.all(
+          cacheNames
+            .filter((name) => !cacheWhitelist.includes(name))
+            .map((name) => {
+              console.log('불필요한 캐시 삭제 중...', name);
+              return caches.delete(name);
+            })
+        )
+      )
+      .then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
+
 self.addEventListener('fetch', (event) => {
+  // navigate 요청 - Network First
   if (event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request)
         .then((response) => {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put('/index.html', clone);
-          });
+          if (response.status === 200) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, clone);
+            });
+          }
           return response;
         })
-        .catch(() => caches.match('/index.html')) // 오프라인 시 캐시 사용
+        .catch(() => caches.match('/index.html'))
     );
     return;
-  } else {
+  }
+  if (event.request.method === 'GET') { 
     event.respondWith(
-      fetch(event.request)
-        .then((response) => {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, clone);
-          });
+      caches.match(event.request).then((cached) => {
+        if (cached) return cached;
+
+        return fetch(event.request).then((response) => {
+          if (response.status === 200) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, clone);
+            });
+          }
           return response;
-        })
-        .catch(() => {
-          return caches.match(event.request);
-        })
+        });
+      }).catch(() => caches.match(event.request))
     );
   }
 });

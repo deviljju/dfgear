@@ -69,9 +69,53 @@
         <div class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>
       </div>
     </div>
-    <div id="top-container"> <!-- header -->
-      <div class="row title">DFGEAR</div>
-      <h1 class="hidden">던파기어 DFGEAR 던기어 던던미</h1>
+    <div id="top-container">
+    <nav class="df-nav">
+    <div class="df-nav-inner">
+        <a class="df-logo" href="./index.html">DFGEAR</a>
+
+        <div class="df-nav-links">
+            <a href="./character.html">캐릭터 검색</a>
+            <a href="./adventure.html">모험단 검색</a>
+            <div class="df-nav-drop">
+                <a class="df-nav-drop-toggle" href="#">랭킹</a>
+                <div class="df-nav-drop-menu">
+                    <a href="./streamer.html">
+                        <strong>스트리머 랭킹</strong>
+                        <span>스트리머 태초 획득 현황</span>
+                    </a>
+                    <a href="./lucky.html">
+                        <strong>태초 획득 랭킹</strong>
+                        <span>전체 태초 획득 통계</span>
+                    </a>
+                    <a href="./unlucky.html">
+                        <strong>태없찐 랭킹</strong>
+                        <span>태초 획득 실패 통계</span>
+                    </a>
+                </div>
+            </div>
+            <a href="./chase.html" class="active">태초 좌표 조회</a>
+            <a href="./week.html">누적 통계</a>
+        </div>
+
+        <div class="df-nav-right">
+            
+                <button class="df-hamburger" id="df-btn-menu" aria-label="메뉴">☰</button>
+        </div>
+    </div>
+</nav>
+
+<!-- 모바일 드롭다운 -->
+<div class="df-mobile-menu" id="df-mobile-menu">
+    <a href="./index.html">홈</a>
+    <a href="./character.html">캐릭터 검색</a>
+    <a href="./adventure.html">모험단 검색</a>
+    <a href="./streamer.html">스트리머 랭킹</a>
+    <a href="./lucky.html">태초 획득 랭킹</a>
+    <a href="./unlucky.html">태없찐 랭킹</a>
+    <a href="./chase.html">태초 좌표 조회</a>
+    <a href="./week.html">누적 통계</a>
+</div>
     </div>
     <div class="ad-container"><div id="slot-3"></div></div>
     <div id="content-container">
@@ -357,7 +401,7 @@
     </div>
     <!-- footer -->
     <div id="bottom-container"></div>
-    <script src="./static/js/common.min.js"></script>
-	  <script src="./static/js/chase.min.js"></script>
+    <script src="./static/js_origin/common.js"></script>
+	  <script src="./static/js_origin/chase.js"></script>
   </body>
 </html>

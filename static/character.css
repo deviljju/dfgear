@@ -232,10 +232,6 @@
     width: 24rem;
   }
 
-  a:hover {
-    color: #62abfa !important;
-  }
-
   span.card-text {
     display: block;
   }

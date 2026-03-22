@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:dnf-power.com)",
+      "WebFetch(domain:dfgear.xyz)",
+      "Bash(python -:*)"
+    ]
+  }
+}
