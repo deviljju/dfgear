@@ -992,6 +992,64 @@
     background-color: black;
   }
 
+  /* ── 장비 그리드 레이아웃 ─────────────────────── */
+  .equip-layout {
+    display: flex;
+    gap: 6px;
+    align-items: stretch;
+    width: fit-content;
+  }
+
+  .plg1, .plg3 {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .plg2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .plg2-top {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .plg2-bottom {
+    display: flex;
+    gap: 4px;
+  }
+
+  .eq-slot {
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .eq-slot.eq-empty {
+    background-color: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  [data-bs-theme=dark] .eq-slot.eq-empty {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .eq-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
   table.summary {
     width: 100%;
     min-width: 20em;
