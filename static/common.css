@@ -595,6 +595,9 @@ li.chName.more.show {
 .min-w-8 {
   min-width: 2rem;
 }
+.flex-gap-5 {
+  gap: 0.5rem;
+}
 
 .relative {
   position: relative;
