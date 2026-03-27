@@ -69,9 +69,70 @@
         <div class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>
       </div>
     </div>
-    <div id="top-container"> <!-- header -->
-      <div class="row title">DFGEAR</div>
-      <h1 class="hidden">던파기어 DFGEAR 던기어 던던미</h1>
+    <div id="top-container">
+    <nav class="df-nav">
+    <div class="df-nav-inner">
+        <a class="df-logo" href="./index">DFGEAR</a>
+
+        <div class="df-nav-links">
+            <a href="./character">캐릭터 검색</a>
+            <a href="./adventure">모험단 검색</a>
+            <div class="df-nav-drop">
+                <a class="df-nav-drop-toggle" href="#">랭킹</a>
+                <div class="df-nav-drop-menu">
+                    <a href="./streamer">
+                        <strong>스트리머 랭킹</strong>
+                        <span>스트리머 태초 획득 현황</span>
+                    </a>
+                    <a href="./lucky">
+                        <strong>태초 획득 랭킹</strong>
+                        <span>전체 태초 획득 통계</span>
+                    </a>
+                    <a href="./unlucky">
+                        <strong>태없찐 랭킹</strong>
+                        <span>태초 획득 실패 통계</span>
+                    </a>
+                </div>
+            </div>
+            <a href="./week">누적 통계</a>
+            <div class="df-nav-drop">
+                <a class="df-nav-drop-toggle" href="#">도구</a>
+                <div class="df-nav-drop-menu">
+                    <a href="#" onclick="channelPick(); return false;">
+                        <strong>채널 추천</strong>
+                        <span>추천 채널을 알려드려요</span>
+                    </a>
+                    <a href="./chase">
+                        <strong>태초 좌표 조회</strong>
+                        <span>최근 획득한 아이템 위치 조회</span>
+                    </a>
+                    <a href="./powerBalance">
+                        <strong>파티 조합기</strong>
+                        <span>최적 파워밸런스 파티 조합</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="df-nav-right">
+            
+                <button class="df-hamburger" id="df-btn-menu" aria-label="메뉴">☰</button>
+        </div>
+    </div>
+</nav>
+
+<!-- 모바일 드롭다운 -->
+<div class="df-mobile-menu" id="df-mobile-menu">
+    <a href="./character">캐릭터 검색</a>
+    <a href="./adventure">모험단 검색</a>
+    <a href="./streamer">스트리머 랭킹</a>
+    <a href="./lucky">태초 획득 랭킹</a>
+    <a href="./unlucky">태없찐 랭킹</a>
+    <a href="./week">누적 통계</a>
+    <a href="#" onclick="channelPick(); return false;">채널 추천</a>
+    <a href="./chase">태초 좌표 조회</a>
+    <a href="./powerBalance">파티 조합기</a>
+</div>
     </div>
     <div class="ad-container"><div id="slot-3"></div></div>
     <div id="content-container">
@@ -353,7 +414,7 @@
         </div>
         <div></div>
         </div>
-        <div class="privacy"><a href="https://open.kakao.com/o/shxSboVf" target="_blank" title="오류/건의사항 문의" style="margin-right: 1rem;">오류/건의사항 문의</a><a href="./privacy">개인정보 처리방침</a><button id="btn_lightmode" class="btn btn-light">조회</button></div>
+        <div class="privacy"><a href="https://open.kakao.com/o/shxSboVf" target="_blank" title="오류/건의사항 문의" style="margin-right: 1rem;">오류/건의사항 문의</a><a href="./privacy">개인정보 처리방침</a><button id="btn_lightmode" class="btn btn-light">모드</button></div>
     </div>
     <!-- footer -->
     <div id="bottom-container"></div>

@@ -1,0 +1,148 @@
+.pageDscp {
+    font-size: 1.3rem;
+    font-family: 'DNFBitBitv2', sans-serif;
+    margin-bottom: 0.25rem;
+}
+
+.page-subDscp {
+    font-size: 0.85rem;
+    color: var(--df-text-muted);
+    margin-bottom: 1rem;
+}
+
+.main-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    height: fit-content !important;
+}
+
+.pw-input-panel {
+    flex: 0 0 auto;
+}
+
+.pw-output-panel {
+    flex: 1;
+    min-width: 14rem;
+}
+
+/* ── 입력 테이블 ── */
+#playerTable {
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+#playerTable th,
+#playerTable td {
+    padding: 6px 8px;
+    border: 1px solid var(--df-border);
+    text-align: center;
+    color: var(--df-text);
+    background-color: var(--df-surface);
+}
+
+#playerTable thead th {
+    background-color: var(--df-surface2);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.party-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    min-width: 4.5rem;
+}
+
+.power-input {
+    width: 5rem;
+    padding: 4px 6px;
+    text-align: center;
+    border: 1px solid var(--df-border);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background-color: var(--df-surface2);
+    color: var(--df-text);
+    transition: border-color 0.15s;
+}
+
+.power-input.is-ppyok {
+    border-color: var(--df-accent);
+    font-weight: bold;
+    color: var(--df-accent);
+}
+
+.pw-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+/* ── 결과 ── */
+.pw-hint {
+    font-size: 0.85rem;
+    color: var(--df-text-muted);
+}
+
+.result-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.result-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--df-border);
+    border-radius: 6px;
+    background: var(--df-surface);
+}
+
+.result-idx {
+    font-weight: bold;
+    min-width: 1rem;
+    color: var(--df-text-muted);
+    font-size: 0.9rem;
+}
+
+.result-dealers {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.result-dealer {
+    font-size: 0.9rem;
+    padding: 2px 7px;
+    border-radius: 4px;
+    background: var(--df-surface2);
+    color: var(--df-text);
+    white-space: nowrap;
+}
+
+.result-dealer.is-ppyok {
+    background: var(--df-accent);
+    color: #fff;
+    font-weight: bold;
+}
+
+[data-bs-theme=dark] .result-dealer.is-ppyok {
+    color: #000;
+}
+
+.result-dealer small {
+    margin-left: 2px;
+    font-size: 0.7rem;
+    opacity: 0.75;
+}
+
+.result-total {
+    margin-left: auto;
+    font-weight: bold;
+    color: var(--df-text-muted);
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
