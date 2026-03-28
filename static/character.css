@@ -248,6 +248,10 @@
     background-color: #fff3cd5c;
     font-family: 'DNFBitBitv2';
   }
+  .gear-list.card>.card-header.oath {
+    background: linear-gradient(135deg, #6B4CF6, #C8A2FF);
+    color: #F5F5F5 !important;
+  }
 
   .gear-list.card>.card-header.legacy {
     /* background: linear-gradient(to right, #5aff62d8, #3f70d7); */
@@ -903,7 +907,7 @@
   }
 
   #ft_pot.form-check-input:checked {
-    background-color: #ffe5cd;
+    background-color: #ffe5cd !important;
     border-color: #ffe5cd;
   }
 
