@@ -724,11 +724,11 @@
     display: block;
   }
 
-  ul.pots {
+  ul.begins {
     display: none;
   }
 
-  ul.pots.show {
+  ul.begins.show {
     display: block;
   }
 
