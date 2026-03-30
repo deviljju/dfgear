@@ -317,6 +317,8 @@ div.title {
 
 .aggregate>div>.card img {
   margin-right: 0.5rem;
+  outline: 2px solid #28d931ee;
+  border-radius: 0.25rem;
 }
 
 .aggregate>div .card-title {
