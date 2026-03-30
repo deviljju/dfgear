@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dfgear-cache-v3.28.4';
+const CACHE_NAME = 'dfgear-cache-v3.29';
 
 const CACHE_LIMIT = 80; // 최대 캐시 항목 수
 
@@ -93,18 +93,18 @@ self.addEventListener('fetch', (event) => {
 
 
 async function networkFirst(request) {
-  const cacheKey = buildCacheKey(request); // ✅ Fix 4
+  const cacheKey = buildCacheKey(request);
   try {
     const response = await fetch(request);
     if (response.ok) {
       const cache = await caches.open(CACHE_NAME);
       cache.put(cacheKey, response.clone());
-      trimCache(CACHE_NAME, CACHE_LIMIT); // ✅ Fix 5
+      trimCache(CACHE_NAME, CACHE_LIMIT);
     }
     return response;
   } catch {
     const cached = await caches.match(cacheKey);
-    return cached || await caches.match('/index.html'); // ✅ Fix 1
+    return cached || await caches.match('/index.html');
   }
 }
 
