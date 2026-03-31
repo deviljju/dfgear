@@ -1,32 +1,16 @@
-const CACHE_NAME = 'dfgear-cache-v3.31';
+const CACHE_NAME = 'dfgear-cache-v3.31.1';
+const FONT_CACHE_NAME = 'dfgear-fonts'; // 폰트 전용 영구 캐시 (CACHE_NAME 변경과 무관)
 
 const CACHE_LIMIT = 80; // 최대 캐시 항목 수
 
-const STATIC_ASSETS = [
-  '/static/images/logo_192.png',
-  '/static/images/logo_512.png',
-  '/static/fonts/DNFForgedBlade-Light.ttf',
-  '/static/fonts/DNFForgedBlade-Medium.ttf',
-  '/static/fonts/DNFForgedBlade-Bold.ttf',
-  '/static/fonts/DNFBitBitv2.ttf',
-  '/static/fonts/NanumGothicLight.ttf',
-  '/static/fonts/NanumGothic.ttf',
-  '/static/fonts/NanumGothicBold.ttf',
-  '/static/fonts/NanumGothicExtraBold.ttf',
-  '/static/bootstrap.min.css',
-  '/static/js/bootstrap.bundle.js',
-  '/static/js/moment.min.js',
-  '/static/js/jquery-3.6.0.min.js',
-  '/static/js/chart.min.js',
-  '/static/js/chartSet.js'
-];
+const FONT_EXTENSIONS = ['.ttf', '.woff', '.woff2', '.png', '.jpg', '.svg', '.ico' ];
 
-// 정적 자산 판별
-const STATIC_EXTENSIONS = ['.ttf', '.woff', '.woff2', '.png', '.jpg', '.svg', '.ico', '.css'];
+function isFont(url) {
+  return FONT_EXTENSIONS.some(ext => url.pathname.endsWith(ext));
+}
 
 function isStaticAsset(url) {
-  return STATIC_EXTENSIONS.some(ext => url.pathname.endsWith(ext))
-    || url.pathname.startsWith('/static/');
+  return url.pathname.startsWith('/static/');
 }
 
 function buildCacheKey(request) {
@@ -46,12 +30,7 @@ async function trimCache(cacheName, maxItems) {
 }
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(STATIC_ASSETS))
-      .then(() => self.skipWaiting())
-      .catch((err) => console.error('[SW] 프리캐시 실패:', err))
-  );
+  event.waitUntil(self.skipWaiting());
 });
 
 self.addEventListener('activate', (event) => {
@@ -60,7 +39,7 @@ self.addEventListener('activate', (event) => {
       .then((keys) =>
         Promise.all(
           keys
-            .filter((key) => key !== CACHE_NAME)
+            .filter((key) => key !== CACHE_NAME && key !== FONT_CACHE_NAME)
             .map((key) => {
               console.log('[SW] 구버전 캐시 삭제:', key);
               return caches.delete(key);
@@ -71,12 +50,10 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
   if (event.request.method !== 'GET') return;
-
   if (!url.protocol.startsWith('http')) return;
 
   if (event.request.mode === 'navigate') {
@@ -84,11 +61,15 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  if (isStaticAsset(url)) {
-    event.respondWith(cacheFirst(event.request));
+  if (isFont(url)) {
+    event.respondWith(cacheFirst(event.request, FONT_CACHE_NAME));
     return;
   }
 
+  if (isStaticAsset(url)) {
+    event.respondWith(cacheFirst(event.request, CACHE_NAME));
+    return;
+  }
 });
 
 
@@ -108,17 +89,19 @@ async function networkFirst(request) {
   }
 }
 
-async function cacheFirst(request) {
-  const cacheKey = buildCacheKey(request); // ✅ Fix 4
+async function cacheFirst(request, cacheName) {
+  const cacheKey = buildCacheKey(request);
   const cached = await caches.match(cacheKey);
   if (cached) return cached;
 
   try {
     const response = await fetch(request);
     if (response.ok) {
-      const cache = await caches.open(CACHE_NAME);
+      const cache = await caches.open(cacheName);
       cache.put(cacheKey, response.clone());
-      trimCache(CACHE_NAME, CACHE_LIMIT); // ✅ Fix 5
+      if (cacheName !== FONT_CACHE_NAME) {
+        trimCache(cacheName, CACHE_LIMIT);
+      }
     }
     return response;
   } catch {
