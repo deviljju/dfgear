@@ -248,7 +248,9 @@ div.b-태초 {
   max-width: 35.5rem;
   /* justify-content: center; */
 }
-
+#oaplList {
+  max-width: 27rem;
+}
 #setItem {
   max-width: 35.5rem;
 }

@@ -157,7 +157,7 @@
                 </div>
               </div>
               <div class="detailParent">
-                <div class="detailCard mw-1 b-shadow">
+                <!-- <div class="detailCard mw-1 b-shadow">
                   <h5>태초</h5>
                   <div>
                     <h2 id="totalB">-</h2><h5>개</h5><h2 id="b_rate">(0.00)</h2>
@@ -165,44 +165,57 @@
                   <div>
                     <h5 id="dropB">0개</h5><h5 id="cardB">0개</h5><h5 id="potB">0개</h5><h5 id="transB">0개</h5>
                   </div>
-                </div>
-                <div class="detailCard mw-2-1 b-shadow">
-                  <h5>에픽 획득(항아리x)</h5>
+                </div> -->
+                <div class="detailCard mw-1 b-shadow">
+                  <h5>태초 서약</h5>
                   <div>
-                    <h2 id="totalE">-</h2><h5>개</h5>
+                    <h2 id="totalOathBegin">-</h2><h5>개</h5>
+                  </div>
+                  <div>
+                    <h5 id="dropOB">0개</h5><h5 id="cardOB">0개</h5><h5 id="potOB">0개</h5>
                   </div>
                 </div>
-                <div class="detailCard mw-2-2 b-shadow">
-                  <h5>레전더리 획득(항아리x)</h5>
+                <div class="detailCard mw-1 b-shadow">
+                  <h5>태초 결정</h5>
                   <div>
                     <h2 id="totalL">-</h2><h5>개</h5>
                   </div>
-                </div>
-                <div class="detailCard mw-2-1 b-shadow">
-                  <h5>항아리 에픽 획득</h5>
                   <div>
-                    <h2 id="totalPe">-</h2><h5>개</h5>
+                    <h5 id="dropPB">0개</h5><h5 id="cardPB">0개</h5><h5 id="potPB">0개</h5><h5 id="transPB">0개</h5>
                   </div>
                 </div>
                 <div class="detailCard mw-2-1 b-shadow">
-                  <h5>항아리 레전더리 획득</h5>
+                  <h5>에픽 서약</h5>
                   <div>
-                    <h2 id="totalPl">-</h2><h5>개</h5>
+                    <h2 id="totalOE">-</h2><h5>개</h5>
                   </div>
                 </div>
-                <div class="detailCard mw-2-3 b-shadow variable">
+                <div class="detailCard mw-2-1 b-shadow">
+                  <h5>에픽 결정</h5>
+                  <div>
+                    <h2 id="totalPE">-</h2><h5>개</h5>
+                  </div>
+                </div>
+                <div class="detailCard mw-2-1 b-shadow">
+                  <h5>레전더리 서약</h5>
+                  <div>
+                    <h2 id="totalOL">-</h2><h5>개</h5>
+                  </div>
+                </div>
+                <div class="detailCard mw-2-1 b-shadow">
+                  <h5>레전더리 결정</h5>
+                  <div>
+                    <h2 id="totalPL">-</h2><h5>개</h5>
+                  </div>
+                </div>
+
+                <div class="detailCard mw-1 b-shadow variable">
                   <h5>가장 많이 먹은 캐릭터</h5>
                   <div>
                     <div id="lucky">
                       <div class="smallIcon"></div>
                       <span id="lk_name">-</span>
                     </div>
-                  </div>
-                </div>
-                <div class="detailCard mw-2-2 b-shadow variable">
-                  <h5>심연 : 종말의 숭배자</h5>
-                  <div>
-                    <h2 id="totalAbyss">-</h2><h5>판(추정)</h5>
                   </div>
                 </div>
                 <div id="channels" class="detailCard mw-1 hidden b-shadow">
@@ -212,15 +225,109 @@
             </div>
             <div class="tabs">
               <div class="tab active" onclick="openTab('beginList')">요약</div>
+              <div class="tab" onclick="openTab('oaplList')">서약결정</div>
               <div class="tab" onclick="openTab('wpList')">태거시</div>
               <div class="tab" onclick="openTab('setList')">악세서리</div>
             </div>
             <div id="beginList" class="tab-content active">
               <div class="filter-section">
-                <input id="itemFilter" type="text" class="form-control filter-item" placeholder="아이템명을 입력하세요">
-                <div class="form-check form-switch" title="태초 항아리 필터링"><input class="form-check-input" type="checkbox" role="switch" id="ft_pot"><label class="form-check-label" for="ft_pot">항아리만 표시</label></div>
+                <input id="itemFilter" type="text" class="form-control filter-item" placeholder="아이템명을 입력하세요" style="margin: 0 0.3rem;">
               </div>
-              <div id="mistList" class="card gear-list"></div>
+              <div id="pledgeList" class="card gear-list"></div>
+            </div>
+            <div id="oaplList" class="tab-content">
+              <div id="oathPledgeItem" class="row">
+                <div class="col-md-4 mb-2">
+                  이상이 담긴 황금
+                  <div class="flgap">
+                    <div class="b-태초" title="현실이 된 이상 속 황금 서약" data-id="a41a6666654f4d5b4a29bde4a767a368"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/a41a6666654f4d5b4a29bde4a767a368" onerror="handleOathImgError(this, 'a41a6666654f4d5b4a29bde4a767a368')"></div>
+                    <div class="b-태초" title="황금 : 태초의 광휘 결정" data-id="b0c80cc630ca0d458eb9608774d47cd0"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/b0c80cc630ca0d458eb9608774d47cd0"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  야망의 용투
+                  <div class="flgap">
+                    <div class="b-태초" title="세계를 태우는 용투 서약" data-id="97edf2846698bad4055330d5f7fe90b4"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/97edf2846698bad4055330d5f7fe90b4" onerror="handleOathImgError(this, '97edf2846698bad4055330d5f7fe90b4')"></div>
+                    <div class="b-태초" title="용투 : 태초의 광휘 결정" data-id="5573cd49fa3b6248104b8b1319ef5671"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/5573cd49fa3b6248104b8b1319ef5671"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  운명의 행운
+                  <div class="flgap">
+                    <div class="b-태초" title="영원불변의 행운 서약" data-id="a6e5b36dea755a4eea867623ea31083b"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/a6e5b36dea755a4eea867623ea31083b" onerror="handleOathImgError(this, 'a6e5b36dea755a4eea867623ea31083b')"></div>
+                    <div class="b-태초" title="행운 : 태초의 광휘 결정" data-id="4f1a14f1124369922fa22bc45b768f74"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/4f1a14f1124369922fa22bc45b768f74"></div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                  완전무결한 정화
+                  <div class="flgap">
+                    <div class="b-태초" title="찬란한 신념의 정화 서약" data-id="d2dc93ebab431b6edd1680f87d118b59"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/d2dc93ebab431b6edd1680f87d118b59" onerror="handleOathImgError(this, 'd2dc93ebab431b6edd1680f87d118b59')"></div>
+                    <div class="b-태초" title="정화 : 태초의 광휘 결정" data-id="155b20fbde6a0e9590293d4babf27ef8"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/155b20fbde6a0e9590293d4babf27ef8"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  극복의 한계
+                  <div class="flgap">
+                    <div class="b-태초" title="초월하는 한계 서약" data-id="4b2e60a6f302a35f6fe2c2c8f01181c2"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/4b2e60a6f302a35f6fe2c2c8f01181c2" onerror="handleOathImgError(this, '4b2e60a6f302a35f6fe2c2c8f01181c2')"></div>
+                    <div class="b-태초" title="한계 : 태초의 광휘 결정" data-id="9d7dece7ad3213817be4d371c86f488c"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/9d7dece7ad3213817be4d371c86f488c"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  경계의 마력
+                  <div class="flgap">
+                    <div class="b-태초" title="태초에 고동치는 마력 서약" data-id="b5031dbb3e68f781441515ae6d5889b5"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/b5031dbb3e68f781441515ae6d5889b5" onerror="handleOathImgError(this, 'b5031dbb3e68f781441515ae6d5889b5')"></div>
+                    <div class="b-태초" title="마력 : 태초의 광휘 결정" data-id="0b991785c50799890f4b1821c309d39c"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/0b991785c50799890f4b1821c309d39c"></div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                  태고의 페어리
+                  <div class="flgap">
+                    <div class="b-태초" title="태초로 인도하는 페어리 서약" data-id="668569e5ec21cde2c90c573364ea167b"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/668569e5ec21cde2c90c573364ea167b" onerror="handleOathImgError(this, '668569e5ec21cde2c90c573364ea167b')"></div>
+                    <div class="b-태초" title="페어리 : 태초의 광휘 결정" data-id="aa2ff87fb95331f8c728f398d0e13ccd"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/aa2ff87fb95331f8c728f398d0e13ccd"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  영전의 발키리
+                  <div class="flgap">
+                    <div class="b-태초" title="태초에서 현신한 발키리 서약" data-id="db5930dcaf3723eae9189222eb94b124"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/db5930dcaf3723eae9189222eb94b124" onerror="handleOathImgError(this, 'db5930dcaf3723eae9189222eb94b124')"></div>
+                    <div class="b-태초" title="발키리 : 태초의 광휘 결정" data-id="e5d4086fb45b43861155b291e3c02a47"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/e5d4086fb45b43861155b291e3c02a47"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  조화의 여우
+                  <div class="flgap">
+                    <div class="b-태초" title="강림한 여우 서약" data-id="15a42c9cfd0709f609b22bb590f0a1e8"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/15a42c9cfd0709f609b22bb590f0a1e8" onerror="handleOathImgError(this, '15a42c9cfd0709f609b22bb590f0a1e8')"></div>
+                    <div class="b-태초" title="여우 : 태초의 광휘 결정" data-id="c78cae5798f4b3d8991323d6e9274463"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/c78cae5798f4b3d8991323d6e9274463"></div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 mb-2">
+                  어둠에 잠긴 그림자
+                  <div class="flgap">
+                    <div class="b-태초" title="태초의 어둠 속 그림자 서약" data-id="72adf78e645d9a821b9adcc98ef00044"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/72adf78e645d9a821b9adcc98ef00044" onerror="handleOathImgError(this, '72adf78e645d9a821b9adcc98ef00044')"></div>
+                    <div class="b-태초" title="그림자 : 태초의 광휘 결정" data-id="5fe3c29985f15b1fdafd4c4d6a247839"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/5fe3c29985f15b1fdafd4c4d6a247839"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  근원에 닿은 자연
+                  <div class="flgap">
+                    <div class="b-태초" title="근원에 닿은 자연 서약" data-id="249bbdca841dbd7609887cd1051c5d32"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/249bbdca841dbd7609887cd1051c5d32" onerror="handleOathImgError(this, '249bbdca841dbd7609887cd1051c5d32')"></div>
+                    <div class="b-태초" title="자연 : 태초의 광휘 결정" data-id="e48760bf96b6b9da793f5ee38733f523"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/e48760bf96b6b9da793f5ee38733f523"></div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-2">
+                  결속된 무리
+                  <div class="flgap">                
+                    <div class="b-태초" title="태동하는 울림의 무리 서약" data-id="20103b50a325efab69497427d864aad8"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/20103b50a325efab69497427d864aad8" onerror="handleOathImgError(this, '20103b50a325efab69497427d864aad8')"></div>
+                    <div class="b-태초" title="무리 : 태초의 광휘 결정" data-id="04702c73a373a5f5c9a504f2123dc80b"><img class="setImg" width="38" src="https://img-api.neople.co.kr/df/items/04702c73a373a5f5c9a504f2123dc80b"></div>
+                  </div>
+                </div>
+              </div>
+              <div id="itemGetList" class="card gear-list">
+
+              </div>
             </div>
             <div id="setList" class="tab-content">
               <div id="setItem" class="row">
@@ -324,7 +431,7 @@
                   </div>
                 </div>
               </div>
-              <div id="itemGetList" class="card gear-list">
+              <div id="setItemGetList" class="card gear-list">
 
               </div>
             </div>
@@ -443,6 +550,7 @@
     <div id="bottom-container"></div>
     <script src="./static/js/common.min.js"></script>
     <script src="./static/js/gearClass.min.js"></script>
+    <script src="./static/js/detailBase.min.js"></script>
 	  <script defer src="./static/js/advtDetail.min.js"></script>
   </body>
 </html>
