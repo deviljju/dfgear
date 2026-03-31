@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dfgear-cache-v3.29';
+const CACHE_NAME = 'dfgear-cache-v3.31';
 
 const CACHE_LIMIT = 80; // 최대 캐시 항목 수
 
