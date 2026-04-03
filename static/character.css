@@ -992,6 +992,7 @@
 
   #pledgeItem .list-group-item.setPoint>.l2 {
     height: 5.25rem;
+    right: 0.5rem;
   }
 
   .list-group-item.setPoint>.l2>div {
@@ -1328,6 +1329,9 @@
     .setPoint .rairitySummary {
       position: relative !important;
       min-width: 4.9rem;
+    }
+    #pledgeItem .setPoint .rairitySummary {
+      position: absolute !important;
     }
 
     #equipment span.erf {

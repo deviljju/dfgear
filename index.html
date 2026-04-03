@@ -59,8 +59,8 @@
               const newSW = reg.installing;
               newSW.onstatechange = () => { 
                 if (newSW.state === 'activated' && navigator.serviceWorker.controller) {
-                  console.log('[SW] localStorage clear');
-                  localStorage.clear();
+                  localStorage.removeItem("aggregate");
+                  localStorage.removeItem("streamer");
                   window.location.reload(); 
                 } 
               }; 
