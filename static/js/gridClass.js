@@ -121,6 +121,8 @@ class wpRender {
       span.innerText = "태거시";
     } else if(value=="3"){
       span.innerText = "태별+태거시";
+    } else if (value == "6") {
+      span.innerText = "디거시";
     } else {
       span.innerText = "-";
     }

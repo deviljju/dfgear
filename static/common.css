@@ -1096,3 +1096,32 @@ div.infoArea {
     display: block;
   }
 }
+
+.card-body > p.setInfo {
+  font-family: 'DNFBitBitv2';
+  font-size: 0.75em;
+  justify-self: center;
+  margin-top: 0.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.card-body > p.setInfo.set_rair {
+  color: #B36BFF;
+}
+
+.card-body > p.setInfo.set_uniq {
+  color: #FF00FF;
+}
+
+.card-body > p.setInfo.set_legnd {
+  color: #FF7800;
+}
+
+.card-body > p.setInfo.set_epic {
+  color: #FFB400;
+}
+
+.card-body > p.setInfo.set_begin {
+  -webkit-text-fill-color: transparent;
+  background: linear-gradient(to top, rgb(40, 217, 49), rgb(51, 172, 234)) text;
+}

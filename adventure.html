@@ -9,7 +9,7 @@
       gtag('js', new Date());
       gtag('config', 'G-TMRQ27849R');
     </script>
-    <title>DFGEAR - 던파기어 던전앤파이터 중천 태초 탐색기</title>
+    <title>DFGEAR - 던파기어 던전앤파이터 천해천 태초 탐색기</title>
     <link rel="icon" href="./static/images/favicon.ico" type="image/x-icon">
     <!--JQuery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -22,18 +22,18 @@
     <link rel="canonical" href="https://dfgear.xyz">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="DFGEAR">
-    <meta name="keyword" content="던파기어 던전앤파이터 던파 중천 태초사이트 타임라인 에픽 미기 던기어 dfgear">
-    <meta name="description" content="던파기어 Dungeon & Fighters TimeLine App. 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.">
+    <meta name="keyword" content="던파기어 던전앤파이터 던파 천해천 태초사이트 타임라인 에픽 던기어 dfgear">
+    <meta name="description" content="던파기어 Dungeon & Fighters TimeLine App. 던전앤파이터의 내 캐릭터가 먹은 태초 서약/장비에 대한 정보를 알 수 있습니다.">
     <meta property="og:url" content="https://dfgear.xyz">
     <meta property="al:web:url" content="https://dfgear.xyz">
     <meta property="og:type" content="website">
     <meta property="og:title" content="DFGEAR - 던파기어">
     <meta property="og:site_name" content="DFGEAR - 던파기어">
-    <meta property="og:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.">
+    <meta property="og:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 태초 서약/장비에 대한 정보를 알 수 있습니다.">
     <meta property="og:image" content="https://dfgear.xyz/static/images/banner.png">
     <meta property="og:locale" content="ko_KR">
     <meta property="twitter:title" content="DFGEAR - 던파기어">
-    <meta property="twitter:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 태초 장비에 대한 정보를 알 수 있습니다.">
+    <meta property="twitter:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 태초 서약/장비에 대한 정보를 알 수 있습니다.">
     <meta property="twitter:image" content="https://dfgear.xyz/static/images/banner.png">
     <meta name="google-site-verification" content="7pZKkUKIWjAwO5AVHUNjhSds00fERltbyj5hD5l3Xd0" />
     <meta name="naver-site-verification" content="e1d874db17357f1f91ffe4d641a038dd6d6825e0" />
@@ -159,11 +159,13 @@
             <h5 id="advenTotal" class="uselct d-flex align-items-center flex-wrap gap-2">
               <span id="advtStats"></span>
               <span id="advtPot" class="small text-muted"></span>
-              <span class="badge text-bg-primary">모험단 통계</span>
+              <span class="adven-actions d-flex align-items-center gap-2">
+                <span class="badge text-bg-primary">모험단 통계</span>
+                <img id="advenRefresh" src="./static/images/refresh.png" alt="모험단 전체 갱신" title="모험단 전체 갱신"/>
+              </span>
             </h5>
-            <img id="advenRefresh" src="./static/images/refresh.png" alt="모험단 전체 갱신" title="모험단 전체 갱신"/>
           </div>
-          <div class="row">
+          <div class="row adventure">
             <div id="hardCntTotal" style="width:5rem" class="flex flex-row items-center gap-1"><img src="./static/images/dire.png"><div></div></div>
             <div id="raidCntTotal" style="width:5rem" class="flex flex-row items-center gap-1"><img src="./static/images/raid.png"><div></div></div>            
           </div>
@@ -185,7 +187,7 @@
     <!-- footer -->
     <div id="bottom-container"></div>
     <script src="./static/js/common.min.js"></script>
-    <script src="./static/js/gearClass.min.js?ver=260329"></script>
+    <script src="./static/js/gearClass.min.js?ver=260407"></script>
 	  <script src="./static/js/adventure.min.js"></script>
   </body>
 </html>

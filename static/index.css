@@ -243,8 +243,10 @@ div.title {
 .card>.card-header.begin {
   background-color: #4eef565c;
 }
-.card>.card-header.diregie {
-  background-color: #ef4ed95c;
+.card>.card-header.oath {
+  /* background-color: #ef4ed95c; */
+  background: linear-gradient(135deg, #6B4CF6, #C8A2FF);
+  color: #F5F5F5 !important;
 }
 
 .aggregate>div:nth-child(1) {
@@ -319,7 +321,6 @@ div.title {
   margin-right: 0.5rem;
   outline: 2px solid #28d931ee;
   border-radius: 0.25rem;
-  max-width: 32px;
 }
 
 .aggregate>div .card-title {
@@ -358,6 +359,19 @@ div.title {
   cursor: pointer;
 }
 
+@media all and (min-width: 768px) {
+  #characterList {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  #characterList>.card.characterView {
+    width: 100%;
+    max-width: calc(25% - 0.4rem);
+    justify-self: center;
+  }
+}
+
 .aggregate .card {
   box-shadow: 1px 1px 5px 0px rgba(17, 17, 17, 0.2);
 }
@@ -373,9 +387,11 @@ span.card-text.small {
 #advenTotal {
   font-weight: bold;
   text-align: center;
-  width: max-content;
+  max-width: 100%;
+  width: auto;
   margin-bottom: 0;
   cursor: pointer;
+  justify-content: center;
 }
 #advtPot {
   font-size: 0.8em;
@@ -386,6 +402,7 @@ span.card-text.small {
   height: 2rem;
   padding: 0;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 #advenRefresh:hover {
@@ -402,6 +419,9 @@ span.card-text.small {
 }
 #advenDetail:hover {
   filter: contrast(2.2);
+}
+.adven-actions {
+  flex-shrink: 0;
 }
 .row.adventure {
   width: 100%;
@@ -696,24 +716,23 @@ span.r_begin {
   color: #6fc2ac;
   font-weight: 600;
 }
-#advenTotal > span.badge {
-  margin-left: 0.6rem;
+#advenTotal span.badge {
   line-height: 1.35;
   -webkit-user-select: none !important;
   -moz-user-select: none !important;
   user-select: none !important;
 }
-#advenTotal > span.badge:hover {
+#advenTotal span.badge:hover {
   color: #fff !important;
   background-color: #0b5ed7 !important;
   border-color: #0a58ca;
 }
-[data-bs-theme=dark] #advenTotal > span.badge {
+[data-bs-theme=dark] #advenTotal span.badge {
   color: #000000 !important;
   background-color: #BB86FC !important;
   border-color: #a772e7;
 }
-[data-bs-theme=dark] #advenTotal > span.badge:hover {
+[data-bs-theme=dark] #advenTotal span.badge:hover {
   color: #000000 !important;
   background-color: #a772e7 !important;
   border-color: #a772e7;
