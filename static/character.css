@@ -336,6 +336,10 @@
   .list-group-item>span.badge.advt {
     background-color: #df6689e0 !important;
   }
+  
+  .list-group-item>span.badge.fragment {
+    background-color: #8bc0ff !important;
+  }
 
   .card {
     box-shadow: 1px 1px 5px 0px rgba(17, 17, 17, 0.2);
