@@ -95,6 +95,7 @@
 #contentRecent .card-header.item-pot {
     background-color: var(--bs-pot-card-bg);
 }
+#tab_op > div,
 #tab_set > div {
   gap: 0.5em;
   display: flex;
@@ -142,6 +143,7 @@ div.b-태초 {
   left: 50%;  
   transform: translate(-50%, -25%);  
 }
+#tab_op.show div.flgap > div.on::after,
 #tab_set.show div.flgap > div.on::after {
   background-color: #f0f0f0;
   opacity: 0.5;
@@ -152,6 +154,12 @@ div.b-태초 {
   top: 25%;
   left: 50%;  
   transform: translate(-50%, -25%);
+}
+#tab_op.show div.flgap > img.on {
+  opacity: 0.5;
+  outline: 2px solid #f0f0f0;
+  outline-offset: -2px;
+  border-radius: 0.25rem;
 }
 #txt_searchItem {
   display: flex;
