@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dfgear-cache-v4.8';
+const CACHE_NAME = 'dfgear-cache-v4.11';
 const FONT_CACHE_NAME = 'dfgear-fonts'; // 폰트 전용 영구 캐시 (CACHE_NAME 변경과 무관)
 
 const CACHE_LIMIT = 80; // 최대 캐시 항목 수
@@ -55,6 +55,7 @@ self.addEventListener('fetch', (event) => {
 
   if (event.request.method !== 'GET') return;
   if (!url.protocol.startsWith('http')) return;
+  if (url.origin !== self.location.origin) return; // 다른 오리진(api.dfgear.xyz 등) 요청은 SW 처리 제외
 
   if (event.request.mode === 'navigate') {
     event.respondWith(networkFirst(event.request));
