@@ -1398,10 +1398,34 @@
     text-align: center;
   }
 
+  #reinforce .r-card-list>div.col-2 {
+    text-align: right;
+    font-size: 0.9em;
+  }
+
   #reinforce .card-header.fold-reinforce {
     align-items: center;
     font-size: 0.8em;
     padding: 0.25em 0.85em;
+  }
+
+  #amListToggle::after,
+  #reListToggle::after {
+    margin-left: 0.4em;
+  }
+
+  #amList,
+  #reList {
+    display: none;
+  }
+
+  #amList.show,
+  #reList.show {
+    display: block;
+  }
+
+  #amListToggle,#reListToggle {
+    background: none !important;
   }
 
   #reinforce ul.list-group {
