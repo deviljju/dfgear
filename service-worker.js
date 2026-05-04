@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dfgear-cache-v5.02';
+const CACHE_NAME = 'dfgear-cache-v5.04';
 const FONT_CACHE_NAME = 'dfgear-fonts'; // 폰트 전용 영구 캐시 (CACHE_NAME 변경과 무관)
 
 const CACHE_LIMIT = 80; // 최대 캐시 항목 수
