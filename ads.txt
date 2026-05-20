@@ -1,6 +1,6 @@
 ownerdomain=dfgear.xyz
 managerdomain=venatus.com
-#V 30.04.2026 VH
+#V 18.05.2026 VH
 #V
 
 
@@ -148,11 +148,11 @@ smartadserver.com,3379,RESELLER,060d053dcf45cbf3
 triplelift.com,8183,RESELLER,6c33edb13117fd86
 
 #Ozone
-the-ozone-project.com, ozoneven0005, DIRECT                                  
-openx.com, 540731760, RESELLER, 6a698e2ec38604c6                              
-pubmatic.com, 160557, RESELLER, 5d62403b186f2ace                           
-themediagrid.com, WF71T3, DIRECT, 35d5010d7789b49d                          
-Yahoo.com, 60170, DIRECT, e1a5b5b6e3255540                                   
+the-ozone-project.com, OZONEVEN0005, DIRECT
+appnexus.com, 9979, RESELLER
+openx.com, 540731760, RESELLER, 6a698e2ec38604c6
+pubmatic.com, 160557, RESELLER, 5d62403b186f2ace
+indexexchange.com, 206233, RESELLER, 50b1c356f2c5c8fc                               
 
 #PubMatic
 pubmatic.com, 159234, RESELLER, 5d62403b186f2ace                        
