@@ -39,6 +39,7 @@
     <meta name="naver-site-verification" content="e1d874db17357f1f91ffe4d641a038dd6d6825e0" />
     <link rel="stylesheet" href="./static/common.css">
     <link rel="stylesheet" href="./static/index.css">
+    <link rel="stylesheet" href="./static/style/advt.css">
     <!-- vnts AD -->
     <link rel="stylesheet" href="./static/vntsAd.css">
     <script src="https://hb.vntsm.com/v4/live/vms/sites/dfgear.xyz/index.js" data-disable-placements="video_slider"></script>
@@ -169,6 +170,11 @@
             <div id="hardCntTotal" style="width:5rem" class="flex flex-row items-center gap-1"><img src="./static/images/dire.png"><div></div></div>
             <div id="raidCntTotal" style="width:5rem" class="flex flex-row items-center gap-1"><img src="./static/images/raid.png"><div></div></div>            
           </div>
+          <div id="sortBar" style="display:none;">
+            <button id="btn_sort_toggle" class="btn btn-sm btn-outline-primary">모험단 정렬</button>
+            <button id="btn_sort_save"   class="btn btn-sm btn-success"          style="display:none;">저장</button>
+            <button id="btn_sort_cancel" class="btn btn-sm btn-outline-secondary" style="display:none;">취소</button>
+          </div>
           <div id="characterList"></div>
         </div>
       </div>
@@ -186,8 +192,29 @@
     </div>
     <!-- footer -->
     <div id="bottom-container"></div>
-    <script src="./static/js/common.min.js"></script>
-    <script src="./static/js/gearClass.min.js?ver=2604071"></script>
-	  <script src="./static/js/adventure.min.js?ver=2604071"></script>
+    <!-- 모험단 정렬 인증 모달 -->
+    <div class="modal fade" id="sortAuthModal" tabindex="-1" aria-labelledby="sortAuthModalLabel" aria-hidden="true" data-bs-backdrop="static">
+      <div class="modal-dialog modal-dialog-centered" style="max-width:480px">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="sortAuthModalLabel">모험단 인증</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div>모험단 소유자 인증이 필요합니다.</div>
+            <span>* 아래 표시된 캐릭터의 해당 부위 장비를 해제한 뒤,
+            캐릭터 선택창으로 이동해주세요.</span>
+            <div id="authCharDesc" style="margin-bottom:0.5rem; font-weight:600;"></div>
+            <div id="authEmptySlot" style="font-size:1.05rem; font-weight:bold; margin:0.5rem 0;"></div>
+            <div class="btn-hide" style="margin-top:0.75rem;">
+              <button id="btn_auth_confirm" class="btn btn-primary">인증 확인</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./static/js/common.min.js?ver=260601"></script>
+    <script src="./static/js/gearClass.min.js?ver=260601"></script>
+    <script src="./static/js/adventure.min.js?ver=260601"></script>
   </body>
 </html>

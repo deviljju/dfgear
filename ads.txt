@@ -1,6 +1,6 @@
 ownerdomain=dfgear.xyz
 managerdomain=venatus.com
-#V 18.05.2026 VH
+#V 22.05.2026 VH
 #V
 
 
@@ -108,7 +108,7 @@ video.unrulymedia.com,136898039,RESELLER
 smartadserver.com,3262,RESELLER,060d053dcf45cbf3
 
 #LoopMe
-loopme.com, 20550, RESELLER, 6c8d5f95897a5a3b
+loopme.com, 20550, DIRECT, 6c8d5f95897a5a3b
 rubiconproject.com, 20744, RESELLER, 0bfd66d529a55807
 xandr.com, 13799, RESELLER
 smartadserver.com, 4625, RESELLER, 060d053dcf45cbf3
