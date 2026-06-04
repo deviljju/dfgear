@@ -703,6 +703,10 @@ div.infoArea {
   background-position: -78px -100px
 }
 
+.smallIcon.ek {
+  background-position: -85px -90px
+}
+
 .tabs {
   display: flex;
   margin: 0.4rem 0;
