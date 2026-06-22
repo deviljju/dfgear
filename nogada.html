@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="ko">
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TMRQ27849R"></script>
@@ -10,46 +9,36 @@
     gtag('js', new Date());
     gtag('config', 'G-TMRQ27849R');
   </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>DFGEAR - 던파기어 던전앤파이터 천해천 태초 탐색기</title>
-  <link rel="manifest" href="./manifest.json">
   <link rel="icon" href="./static/images/favicon.ico" type="image/x-icon">
-  <!--JQuery-->
-  <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <!--Bootstrap-->
   <link rel="stylesheet" href="./static/bootstrap.min.css">
-  <script defer src="./static/js/bootstrap.bundle.js"></script>
-  <script defer src="./static/js/moment.min.js"></script>
-
-  <link rel="preload" href="./static/common.css" as="style" />
-  <link rel="stylesheet" href="./static/common.css">
-  <link rel="preload" href="./static/index.css" as="style" />
-  <link rel="stylesheet" href="./static/index.css">
-
+  <script src="./static/js/bootstrap.bundle.js"></script>
+  <script src="./static/js/moment.min.js"></script>
   <meta name="google-site-verification" content="7pZKkUKIWjAwO5AVHUNjhSds00fERltbyj5hD5l3Xd0" />
   <meta name="naver-site-verification" content="e1d874db17357f1f91ffe4d641a038dd6d6825e0" />
   <!-- meta -->
   <link rel="canonical" href="https://dfgear.xyz">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="DFGEAR">
-  <meta name="keyword" content="던파기어 던전앤파이터 던파 천해천 태초사이트 타임라인 태초 태거시 태초의별 에픽 던기어 dfgear, 던전앤파이터, 던파, 모험단, 캐릭터, 분석, 게임">
-  <meta name="description"
-    content="던파기어 Dungeon & Fighters TimeLine App. 던전앤파이터의 내 캐릭터가 먹은 태초 서약/장비에 대한 정보를 알 수 있습니다. 던파 모험단 관리, 캐릭터 정보 조회, 던파 타임라인 서비스">
-  <meta name="revisit-after" content="7 days">
-
+  <meta name="keyword" content="던파기어 던전앤파이터 던파 천해천 태초사이트 타임라인 에픽 미기 던기어 dfgear">
+  <meta name="description" content="던파기어 Dungeon & Fighters TimeLine App. 던전앤파이터의 내 캐릭터가 먹은 태초 서약/장비에 대한 정보를 알 수 있습니다.">
   <meta property="og:url" content="https://dfgear.xyz">
   <meta property="al:web:url" content="https://dfgear.xyz">
   <meta property="og:type" content="website">
   <meta property="og:title" content="DFGEAR - 던파기어">
   <meta property="og:site_name" content="DFGEAR - 던파기어">
-  <meta property="og:description"
-    content="던파기어 Dungeon & Fighters TimeLine App. 던전앤파이터의 내 캐릭터가 먹은 태초 서약/장비에 대한 정보를 알 수 있습니다. 던파 모험단 관리, 캐릭터 정보 조회, 던파 타임라인 서비스">
-  <meta property="og:image" content="https://dfgear.xyz/static/images/banner.png?v=1">
+  <meta property="og:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 태초 서약/장비에 대한 정보를 알 수 있습니다.">
+  <meta property="og:image" content="https://dfgear.xyz/static/images/banner.png">
   <meta property="og:locale" content="ko_KR">
-
   <meta property="twitter:title" content="DFGEAR - 던파기어">
   <meta property="twitter:description" content="던파기어 던전앤파이터의 내 캐릭터가 먹은 태초 서약/장비에 대한 정보를 알 수 있습니다.">
-  <meta property="twitter:image" content="https://dfgear.xyz/static/images/banner.png?v=1">
+  <meta property="twitter:image" content="https://dfgear.xyz/static/images/banner.png">
+  <link rel="stylesheet" href="./static/common.css">
+  <link rel="stylesheet" href="./static/index.css">
+  <link rel="stylesheet" href="./static/style/nogada.css">
   <!-- vnts AD -->
   <link rel="stylesheet" href="./static/vntsAd.css">
   <script src="https://hb.vntsm.com/v4/live/vms/sites/dfgear.xyz/index.js"
@@ -60,28 +49,22 @@
       scope.Config.setBreakPoint("mobile", "max-width:800px");
       scope.Config.setBreakPoint("desktop", "not (max-width:800px)");
       scope.Config.buildPlacement((configBuilder) => {
+        configBuilder.add("desktop_takeover");
+        configBuilder.addDefaultOrUnique("mobile_banner").setBreakPoint("mobile");
+      }).display("slot-3");
+      scope.Config.buildPlacement((configBuilder) => {
         configBuilder.add("billboard");
         configBuilder.addDefaultOrUnique("double_mpu").setBreakPoint("mobile");
       }).display("slot-2");
-      scope.Config.buildPlacement((configBuilder) => {
-        configBuilder.add("video");
-        configBuilder.addDefaultOrUnique("mobile_takeover").setBreakPoint("mobile");
-      }).display("slot-7");
     });
   </script>
 </head>
-
 <body>
-  <div id="loadingScreen">
-    <div class="center row d-flex justify-content-center result">
-      <div class="spinner-border text-primary" role="status"> <span class="visually-hidden">Loading...</span> </div>
-    </div>
-  </div>
   <div id="top-container">
     <nav class="df-nav">
       <div class="df-nav-inner">
         <a class="df-logo" href="/">DFGEAR</a>
-
+  
         <div class="df-nav-links">
           <a href="./character">캐릭터 검색</a>
           <a href="./adventure">모험단 검색</a>
@@ -125,14 +108,14 @@
             </div>
           </div>
         </div>
-
+  
         <div class="df-nav-right">
-
+  
           <button class="df-hamburger" id="df-btn-menu" aria-label="메뉴">☰</button>
         </div>
       </div>
     </nav>
-
+  
     <!-- 모바일 드롭다운 -->
     <div class="df-mobile-menu" id="df-mobile-menu">
       <a href="./character">캐릭터 검색</a>
@@ -147,149 +130,111 @@
       <a href="./powerBalance">파티 조합기</a>
     </div>
   </div>
-
+  <div class="ad-container"> <div id="slot-3"></div> </div>
   <div id="content-container">
     <div class="container">
-      <div class="row">
-        <select id="serverId" class="form-select" name="server">
-          <option value="all" selected>전체</option>
-          <option value="adventure">모험단</option>
-          <option value="anton">안톤</option>
-          <option value="bakal">바칼</option>
-          <option value="cain">카인</option>
-          <option value="casillas">카시야스</option>
-          <option value="diregie">디레지에</option>
-          <option value="hilder">힐더</option>
-          <option value="prey">프레이</option>
-          <option value="siroco">시로코</option>
-        </select>
-        <input id="characterName" type="text" class="form-control" name="name" placeholder="캐릭터명을 입력하세요"
-          autocomplete="off">
-        <button id="btn_search" class="btn btn-primary">조회</button>
+      <div class="infoArea">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./">홈</a></li>
+            <li class="breadcrumb-item active" aria-current="page">순례 수익 계산</li>
+          </ol>
+        </nav>
       </div>
-      <div class="recentBox">
-        <div class="r-header ndrag">최근 검색 기록</div>
-        <div class="r-list">
-        </div>
+
+      <div id="topGrid" class="mb-1 mt-2 height-auto">
+        <h1 class="pageDscp">🪙 광휘의 순례 수익 계산기</h1>
+        <p class="page-subDscp">증표 구매로 던전 클리어 시 소득을 기록하고 실제 수익을 계산합니다.</p>
       </div>
-      <h5 id="searchError" class="uselct sError"></h5>
-      <div id="searchErrorDetail" class="sError">캐릭터명을 정확히 입력해주세요. 특문,한자는 던담 등에서 복사 붙여넣기 해보세요</div>
-      <div id="advenResult">
-        <div class="row adventure">
-          <h5 id="advenTotal" class="uselct"></h5>
-          <h5 id="errSearch" class="uselct">✅ 최초 검색 시 서버를 선택하고 검색해주세요.</h5>
-        </div>
-        <div id="characterList"></div>
-      </div>
-      <div class="row aggregate">
-        <div class="card-g-2">
-          <div id="topThreeMist" class="card">
-            <div class="card-header begin">오늘 태초 획득량 TOP5</div>
-            <ul id="beginList" class="list-group list-group-flush">
-              <li class="list-group-item somepd">아직 집계되지 않았어요</li>
-            </ul>
-          </div>
-          <div id="slot-7"></div>
-          <div class="card">
-            <div class="card-header">자잘한 기능</div>
-            <ul id="gearMenu" class="list-group list-group-flush">
-              <li class="list-group-item somepd" onclick="window.location.href='https://dfgear.xyz/streamer'">스트리머 태초 랭킹
-              </li>
-              <li class="list-group-item somepd" onclick="window.location.href='https://dfgear.xyz/unlucky'">태없찐 랭킹</li>
-              <li class="list-group-item somepd" onclick="window.location.href='https://dfgear.xyz/lucky'">태초 획득 랭킹</li>
-              <li class="list-group-item somepd" onclick="window.location.href='https://dfgear.xyz/nogada'">광휘의 순례 수익 계산기</li>
-              <li id="li_channelPick" class="list-group-item somepd">채널 추천 해줘</li>
-              <li class="list-group-item somepd" onclick="window.location.href='https://dfgear.xyz/chase'">태초 좌표 조회</li>
-              <li class="list-group-item somepd" onclick="window.location.href='https://dfgear.xyz/week'">누적 통계</li>
-            </ul>
-          </div>
-        </div>
-        <div class="card-g-2">
-          <div class="card">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <div id="dailyBeginTitle" class="card-header">오늘 태초가 많이 나온 채널</div>
-                <ul id="channelList" class="list-group list-group-flush"></ul>
-              <li class="list-group-item">
-                <div id="moreCh" class="card-header">펼치기</div>
-              </li>
-              </li>
-              <li class="list-group-item">
-                <div class="card-header">태초 서약 획득량</div>
-                <h5 id="dailyCount" class="card-subtitle mb-2 text-muted">- 개</h5>
-              </li>
-              <li class="list-group-item">
-                <div class="card-header">태초 서약 획득분포<h6 class="rptz7">(단위:캐릭터)</h6>
-                </div>
-                <div class="chart">
-                  <canvas id="chart_beginMap"></canvas>
-                </div>
-              </li>
-              <li class="list-group-item pd7">
-                <div>
-                  <h5 class="card-title">어느 캐릭터는 태초 서약을</h5>
-                  <h5 id="maxCount" class="card-subtitle mb-2">- 개 획득했습니다.</h5>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="accordion" id="accordionNotice">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseQnA" aria-expanded="true" aria-controls="collapseQnA">
-              자주 묻는 질문
-            </button>
-          </h2>
-          <div id="collapseQnA" class="accordion-collapse collapse" data-bs-parent="#accordionNotice">
-            <div class="accordion-body">
-              <span>Q. 캐릭터 검색이 안되요</span>
-              <p>특수문자,한문의 경우 검색이 안될 수 있으니 던파 홈페이지, 던담의 캐릭터명을 복붙하여 검색해보시고 안될 시 문의 주세요</p>
-              <p> 또는 숨김 처리 된 캐릭터들은 전체, 모험단명 검색으로 조회되지 않습니다. 서버-캐릭명으로 조회 해주세요</p>
-              <span>Q. 레이드 카드 보상, 팅김 보상으로 얻은 태초가 표시가 안됩니다.</span>
-              <p>던파 타임라인을 기반으로 데이터를 가져옵니다. 공홈 타임라인에도 표기가 안되었을 것이고 만약 있다면 문의 주세요.</p>
-              <span>Q. 유니크는 안보여주나요</span>
-              <p>던파 타임라인이 레전더리 등급 이상부터 데이터를 전달해줍니다. 세트포인트 계산 시 빈 부분은 모두 유니크라 가정하고 계산처리했습니다.</p>
-              <span>Q. 숨긴 캐릭터를 다시 보고 싶어요</span>
-              <p>서버를 선택하고 캐릭터명을 입력하면 숨겨진 캐릭터도 볼 수 있고 표시하기 버튼을 눌러 표시상태로 변경가능합니다.</p>
-              <span>Q. 헬 판수도 알려주세요</span>
-              <p>던파 API에서 제공해주지 않습니다. 던파온의 주간 타임라인으로 확인하세요.</p>
-              <p>- 던파기어</p>
+
+      <section class="ng-card" aria-labelledby="priceTitle">
+        <form class="ng-price-panel" id="priceForm">
+          <div class="ng-price-main">
+            <div class="ng-price-item-name">
+              <img class="setImg" width="28" height="28" src="https://img-api.neople.co.kr/df/items/f9941d3fa0b8253bb0b2567a29b1299f" alt="증표(입장권)">
+              <strong id="priceTitle">증표(입장권) 가격</strong>
+            </div>
+            <div class="ng-ticket-prices">
+              <label>평균 <span class="ng-price-with-unit"><input id="priceTicketAverage" class="ng-price-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" required>골드</span></label>
+              <label class="ng-muted">(최저: <span class="ng-price-with-unit"><input id="priceTicketMinimum" class="ng-price-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" required>골드</span>)</label>
             </div>
           </div>
+          <div class="ng-material-prices">
+            <label><span class="ng-price-item-name"><img class="setImg" width="28" height="28" src="https://img-api.neople.co.kr/df/items/d7e9443a19fe81a9cc8364c201f6ab55" alt="교가 인장">교가 인장: 최저</span><span class="ng-price-with-unit"><input id="priceTradeSeal" class="ng-price-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" required>골드</span></label>
+            <label><span class="ng-price-item-name"><img class="setImg" width="28" height="28" src="https://img-api.neople.co.kr/df/items/1f575027600618cabf8a3516601dfd29" alt="무조결">무조결: 최저</span><span class="ng-price-with-unit"><input id="priceMujogyeol" class="ng-price-input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" required>골드</span></label>
+          </div>
+          <button type="submit" class="btn btn-outline-primary btn-sm">갱신</button>
+        </form>
+      </section>
+
+      <section class="ng-card" aria-labelledby="entryTitle">
+        <h2 id="entryTitle" class="ng-section-title">기록 추가</h2>
+        <div class="ng-table-wrap">
+          <table class="ng-table ng-entry-table">
+            <thead>
+              <tr>
+                <th class="ng-extra-col">추가획득</th><th>판수</th><th>골드</th><th>인장</th><th>증표 <span class="ng-help" tabindex="0" data-bs-toggle="tooltip" data-bs-title="배니부와 디그밍 획득 수량을 합산해 입력하세요." aria-label="증표 입력 안내">?</span></th>
+                <th>교가 인장</th><th>무조결</th><th>기타소득</th><th>총수익(교불인장제외)</th><th>총수익(교불인장포함)</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="ng-extra-col" data-label="추가획득">
+                  <div class="ng-checks">
+                    <label><input type="checkbox" name="extraGain" value="85"> 85</label>
+                    <label><input type="checkbox" name="extraGain" value="돼지"> 돼지</label>
+                  </div>
+                </td>
+                <td data-label="판수"><input id="runs" class="ng-number" type="number" min="0" step="1" inputmode="numeric"></td>
+                <td data-label="골드"><input id="gold" class="ng-number" type="number" min="0" max="100000000" step="1" inputmode="numeric"></td>
+                <td data-label="인장"><input id="seal" class="ng-number" type="number" min="0" max="10000" step="1" inputmode="numeric"></td>
+                <td class="ng-token-cell" data-label="증표">
+                  <span class="ng-mobile-token-label">증표 <span class="ng-help" tabindex="0" data-bs-toggle="tooltip" data-bs-title="배니부와 디그밍 획득 수량을 합산해 입력하세요." aria-label="증표 입력 안내">?</span></span>
+                  <input id="token" class="ng-number" type="number" min="0" max="10000" step="1" inputmode="numeric">
+                </td>
+                <td data-label="교가 인장"><input id="tradeSeal" class="ng-number" type="number" min="0" max="10000" step="1" inputmode="numeric"></td>
+                <td data-label="무조결"><input id="mujogyeol" class="ng-number" type="number" min="0" max="10000" step="1" inputmode="numeric"></td>
+                <td data-label="기타소득"><input id="otherIncome" class="ng-number" type="number" min="0" step="1" inputmode="numeric"></td>
+                <td class="ng-profit ng-mobile-wide" id="currentProfit" data-label="총 수익(교불인장제외)">0 골드</td>
+                <td class="ng-profit ng-mobile-wide" id="currentProfitWithSeal" data-label="총 수익(교불인장포함)">0 골드</td>
+                <td class="ng-add-cell ng-mobile-wide" data-label="추가"><button type="button" class="btn btn-primary ng-add-btn" id="btnAdd">추가</button></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-              2026.06.02 수정내역
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionNotice">
-            <div class="accordion-body">
-              <p>* 모험단 캐릭터 정렬 기능 추가 *</p>
-              <p>* 태없찐 랭킹 태초 서약이 없는 캐릭터 기준으로 재갱신 *</p>
-              <p>* 카드 뷰 4개 단위로 끊어 표시 *</p>
-              <p>* 카드 뷰 현재 서약 단계 표시 *</p>
-              <hr>
-              <p>** 확인된 오류 **</p>
-              <p>1. 리롤 시 이전 장비 선택했을 때 이력 남지 않음</p>
-              <p>2. 리롤로 소모한 장비 이력 확인 불가</p>
-              <p>3. 띵스기프트 태별 상자 환불 시 획득 이력에 계속 남은 오류 확인</p>
-              <p>4. 레이드 클리어 시 획득한 서약/결정 장비 일부 데이터가 누락 되어 들어오는 에러 확인 : API에서 제공해주는 itemId가 실제 id와 다름을 확인</p>
-              <hr>
-              <span>* 오류 발생 시 하단에 문의 오픈 카카오톡으로 문의 부탁드립니다.</span>
-              <span>- 던파기어</span>
-            </div>
+        <p class="ng-formula">인장제외: 골드 + (증표 × 증표 평균가) + (교가 인장 × 최저가) + (무조결 × 최저가) + 기타소득 − (증표 평균가 × 판수)<br>인장포함: 인장제외 수익 + (인장 × 5,000골드)</p>
+      </section>
+
+      <section class="ng-card" aria-labelledby="historyTitle">
+        <div class="ng-history-head">
+          <h2 id="historyTitle" class="ng-section-title">기록 테이블</h2>
+          <div class="ng-total-profits">
+            <strong>총 수익(인장제외): <span id="totalProfit">0 골드</span></strong>
+            <strong>총 수익(인장포함): <span id="totalProfitWithSeal">0 골드</span></strong>
           </div>
         </div>
-      </div>
+        <div class="ng-table-wrap">
+          <table class="ng-table ng-history-table">
+            <thead>
+              <tr>
+                <th>날짜</th><th class="ng-extra-col">추가획득</th><th>판수</th><th>골드</th><th>인장</th><th>증표</th>
+                <th>교가 인장</th><th>무조결</th><th>기타소득</th><th>총 수익(인장제외)</th><th>총 수익(인장포함)</th><th>삭제</th>
+              </tr>
+            </thead>
+            <tbody id="historyBody"></tbody>
+          </table>
+        </div>
+        <p id="emptyHistory" class="ng-empty">아직 기록이 없습니다.</p>
+        <div class="ng-actions">
+          <button type="button" class="btn btn-outline-primary" id="btnLoad">불러오기</button>
+          <button type="button" class="btn btn-primary" id="btnSave">내보내기</button>
+          <span class="ng-action-divider" aria-hidden="true"></span>
+          <button type="button" class="btn btn-outline-danger" id="btnReset">초기화</button>
+          <input type="file" id="jsonFile" accept="application/json,.json" hidden>
+        </div>
+      </section>
     </div>
-    <div class="ad-container">
-      <div id="slot-2"></div>
-    </div>
+    <div class="ad-container"><div id="slot-2"></div></div>
     <div class="help-container">
       <div class="neopleThk">
         <div></div>
@@ -303,15 +248,11 @@
       <div class="privacy"><a href="https://open.kakao.com/o/shxSboVf" target="_blank" title="오류/건의사항 문의"
           style="margin-right: 1rem;">오류/건의사항 문의</a><a href="./privacy">개인정보 처리방침</a><button id="btn_lightmode"
           class="btn btn-light">모드</button></div>
-      </div>
     </div>
-    <!-- footer -->
-    <div id="bottom-container"></div>
-    <script defer src="./static/js/common.min.js"></script>
-    <script defer src="./static/js/chart.min.js"></script>
-    <script defer src="./static/js/chartSet.js"></script>
-    <script defer src="./static/js/gearClass.min.js"></script>
-	  <script defer src="./static/js/index.min.js"></script>
-  </body>
-
+  </div>
+  <!-- footer -->
+  <div id="bottom-container"></div>
+  <script src="./static/js/common.min.js"></script>
+  <script src="./static/js/nogada.min.js"></script>
+</body>
 </html>

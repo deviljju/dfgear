@@ -1,0 +1,100 @@
+.pageDscp { font-size: 1.3rem; font-family: 'DNFBitBitv2', sans-serif; margin-bottom: .25rem; }
+.page-subDscp { color: var(--df-text-muted); font-size: .85rem; margin-bottom: 1rem; }
+.ng-card { background: var(--df-surface); border: 1px solid var(--df-border); border-radius: 8px; box-sizing: border-box; color: var(--df-text); margin-bottom: 1rem; padding: 1rem; width: 100%; }
+.ng-price-panel { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem 1.5rem; }
+.ng-price-main { display: flex; align-items: center; flex-wrap: wrap; gap: .25rem; }
+.ng-material-prices { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+.ng-material-prices label, .ng-price-item-name { align-items: center; display: inline-flex; gap: .35rem; }
+.ng-price-item-name img.setImg { flex: 0 0 28px; height: 28px; object-fit: contain; width: 28px; }
+.ng-ticket-prices { display: flex; flex-wrap: wrap; gap: .35rem 1rem; }
+.ng-ticket-prices label, .ng-price-with-unit { align-items: center; display: inline-flex; gap: .25rem; white-space: nowrap; }
+.ng-price-panel .btn { margin-left: auto; }
+.ng-price-input { background: var(--df-surface2); border: 1px solid var(--df-border); border-radius: 4px; color: var(--df-text); padding: .25rem .35rem; text-align: right; width: 5rem; }
+.ng-muted, .ng-formula, .ng-empty { color: var(--df-text-muted); }
+.ng-section-title { font-size: 1rem; font-weight: 700; margin: 0 0 .75rem; }
+.ng-table-wrap { overflow-x: auto; scrollbar-color: lightgrey transparent; scrollbar-width: thin; }
+.ng-table-wrap::-webkit-scrollbar { height: 8px; }
+.ng-table-wrap::-webkit-scrollbar-thumb { background-clip: padding-box; background-color: lightgrey; border: 1px solid transparent; border-radius: 5px; }
+.ng-table-wrap::-webkit-scrollbar-track { background: transparent; }
+.ng-table { border-collapse: collapse; font-size: .85rem; min-width: 100%; width: max-content; }
+.ng-table th, .ng-table td { background: var(--df-surface); border: 1px solid var(--df-border); padding: .35rem .3rem; text-align: center; vertical-align: middle; white-space: nowrap; }
+.ng-table th { background: var(--df-surface2); font-size: .8rem; font-weight: 600; }
+.ng-help { align-items: center; border: 1px solid var(--df-text-muted); border-radius: 50%; color: var(--df-text-muted); cursor: help; display: inline-flex; font-size: .65rem; height: 1rem; justify-content: center; line-height: 1; vertical-align: middle; width: 1rem; }
+.ng-help:focus { outline: 2px solid var(--df-accent); outline-offset: 1px; }
+.ng-mobile-token-label { display: none; }
+.ng-number { background: var(--df-surface2); border: 1px solid var(--df-border); border-radius: 4px; color: var(--df-text); padding: .25rem .3rem; text-align: right; width: 6.5rem; }
+.ng-checks { display: flex; gap: .25rem; justify-content: center; }
+.ng-checks label { align-items: center; cursor: pointer; display: inline-flex; gap: .1rem; }
+.ng-add-btn { font-size: 1.1rem; height: 2rem; line-height: 1; padding: 0 .55rem; }
+.ng-profit { color: var(--df-accent) !important; font-weight: 700; min-width: 7.5rem; }
+.ng-profit.is-positive, #totalProfit.is-positive, #totalProfitWithSeal.is-positive { color: #dc3545 !important; }
+.ng-profit.is-negative, #totalProfit.is-negative, #totalProfitWithSeal.is-negative { color: #0d6efd !important; }
+.ng-formula { font-size: .75rem; margin: .65rem 0 0; text-align: right; }
+.ng-history-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.ng-history-head strong { color: var(--df-accent); }
+.ng-total-profits { display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+.ng-empty { font-size: .85rem; margin: .8rem 0 0; text-align: center; }
+.ng-actions { align-items: center; display: flex; gap: .5rem; margin-top: 1rem; }
+.ng-action-divider { border-left: 1px solid var(--df-border); height: 1.75rem; margin: 0 .2rem; }
+.ng-delete { font-size: .75rem; padding: .2rem .45rem; }
+@media (min-width: 768px) {
+  .ng-extra-col { padding-left: .2rem !important; padding-right: .2rem !important; width: 1%; }
+  .ng-entry-table { font-size: .76rem; }
+  .ng-entry-table th { font-size: .72rem; padding: .3rem .2rem; }
+  .ng-entry-table td { padding: .25rem .2rem; }
+  .ng-entry-table .ng-checks { font-size: .72rem; gap: .15rem; }
+  .ng-entry-table .ng-number { font-size: .76rem; padding: .2rem .25rem; }
+  .ng-entry-table .ng-profit { font-size: .76rem; min-width: 6.5rem; }
+  .ng-entry-table .ng-add-cell { padding: .2rem; width: 1%; }
+  .ng-entry-table .ng-add-btn { font-size: .78rem; height: 1.75rem; padding: 0 .45rem; }
+  #runs { width: 3.25rem; }
+  #gold { width: 6.25rem; }
+  #seal, #token, #tradeSeal, #mujogyeol { width: 3.75rem; }
+  #otherIncome { width: 5.5rem; }
+}
+@media (max-width: 767px) {
+  #content-container > .container { padding-left: .65rem; padding-right: .65rem; }
+  .ng-card { padding: .75rem; }
+  .ng-price-panel { align-items: stretch; flex-direction: column; gap: .65rem; }
+  .ng-price-main, .ng-material-prices { align-items: stretch; flex-direction: column; gap: .5rem; }
+  .ng-price-main label, .ng-material-prices label { align-items: center; display: flex; justify-content: space-between; gap: .5rem; }
+  .ng-price-main .ng-ticket-prices { display: flex; flex-direction: row; flex-wrap: nowrap; gap: .75rem; }
+  .ng-price-main .ng-ticket-prices label { display: inline-flex; gap: .25rem; justify-content: flex-start; }
+  .ng-price-panel .ng-material-prices { display: flex; flex-direction: row; flex-wrap: wrap; gap: .5rem 1rem; }
+  .ng-price-panel .ng-material-prices label { display: inline-flex; gap: .25rem; justify-content: flex-start; }
+  .ng-price-main > strong { margin-bottom: -.25rem; }
+  .ng-price-panel .btn { margin-left: 0; width: 100%; }
+  .ng-price-input { flex: 0 0 5rem; min-width: 0; }
+
+  .ng-table-wrap { overflow: visible; }
+  .ng-table { display: block; min-width: 0; width: 100%; }
+  .ng-table thead { display: none; }
+  .ng-table tbody { display: block; }
+  .ng-table tr { background: var(--df-surface2); border: 1px solid var(--df-border); border-radius: 7px; display: block; overflow: hidden; }
+  .ng-table td { align-items: center; background: transparent; border: 0; border-bottom: 1px solid var(--df-border); display: grid; grid-template-columns: minmax(5.5rem, 38%) minmax(0, 1fr); min-height: 2.75rem; padding: .45rem .6rem; text-align: right; white-space: normal; }
+  .ng-table td::before { color: var(--df-text-muted); content: attr(data-label); font-size: .75rem; font-weight: 600; text-align: left; }
+  .ng-table td:last-child { border-bottom: 0; }
+  .ng-entry-table tbody tr { border: 0; display: grid; gap: .5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: visible; }
+  .ng-entry-table td { align-items: stretch; background: var(--df-surface2); border: 1px solid var(--df-border); border-radius: 6px; display: flex; flex-direction: column; gap: .35rem; min-height: 0; padding: .55rem; text-align: left; }
+  .ng-entry-table td::before { flex: 0 0 auto; }
+  .ng-entry-table .ng-token-cell::before { display: none; }
+  .ng-mobile-token-label { align-items: center; display: inline-flex; font-size: .75rem; font-weight: 600; gap: .25rem; }
+  .ng-entry-table .ng-mobile-wide { grid-column: 1 / -1; }
+  .ng-entry-table .ng-add-cell { display: block; padding: .55rem; }
+  .ng-entry-table .ng-add-cell::before { display: none; }
+  .ng-add-btn { width: 100%; }
+  .ng-number { width: 100%; }
+  .ng-checks { justify-content: center; min-height: 1.8rem; }
+  .ng-formula { line-height: 1.5; text-align: left; }
+
+  .ng-history-head { align-items: flex-start; flex-direction: column; gap: .15rem; margin-bottom: .7rem; }
+  .ng-history-head .ng-section-title { margin-bottom: 0; }
+  .ng-history-table tbody { display: grid; gap: .75rem; }
+  .ng-history-table .ng-history-action { display: block; padding: .55rem; }
+  .ng-history-table .ng-history-action::before { display: none; }
+  .ng-delete { width: 100%; }
+  .ng-actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .ng-actions .btn { width: 100%; }
+  .ng-action-divider { display: none; }
+  .ng-actions #btnReset { grid-column: 1 / -1; }
+}
