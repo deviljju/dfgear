@@ -26,17 +26,31 @@
 .ng-checks { display: flex; gap: .25rem; justify-content: center; }
 .ng-checks label { align-items: center; cursor: pointer; display: inline-flex; gap: .1rem; }
 .ng-add-btn { font-size: 1.1rem; height: 2rem; line-height: 1; padding: 0 .55rem; }
-.ng-profit { color: var(--df-accent) !important; font-weight: 700; min-width: 7.5rem; }
-.ng-profit.is-positive, #totalProfit.is-positive, #totalProfitWithSeal.is-positive { color: #dc3545 !important; }
-.ng-profit.is-negative, #totalProfit.is-negative, #totalProfitWithSeal.is-negative { color: #0d6efd !important; }
+.ng-profit, #totalProfit, #totalProfitWithSeal { color: #ffffff !important; font-weight: 700; }
+.ng-profit { min-width: 7.5rem; }
+[data-bs-theme="light"] .ng-profit,
+[data-bs-theme="light"] #totalProfit,
+[data-bs-theme="light"] #totalProfitWithSeal { color: #000000 !important; }
+.ng-profit.is-positive, #totalProfit.is-positive, #totalProfitWithSeal.is-positive { color: #198754 !important; }
+.ng-profit.is-negative, #totalProfit.is-negative, #totalProfitWithSeal.is-negative { color: #dc3545 !important; }
 .ng-formula { font-size: .75rem; margin: .65rem 0 0; text-align: right; }
 .ng-history-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.ng-history-head strong { color: var(--df-accent); }
+.ng-history-head strong { color: #ffffff; }
+[data-bs-theme="light"] .ng-history-head strong { color: #000000; }
 .ng-total-profits { display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
 .ng-empty { font-size: .85rem; margin: .8rem 0 0; text-align: center; }
 .ng-actions { align-items: center; display: flex; gap: .5rem; margin-top: 1rem; }
 .ng-action-divider { border-left: 1px solid var(--df-border); height: 1.75rem; margin: 0 .2rem; }
 .ng-delete { font-size: .75rem; padding: .2rem .45rem; }
+#btnAdd, #btnSave { background-color: #0d6efd; border-color: #0d6efd; color: #ffffff; }
+#btnAdd:hover, #btnSave:hover { background-color: #0b5ed7; border-color: #0a58ca; color: #ffffff; }
+#btnAdd:focus-visible, #btnSave:focus-visible { box-shadow: 0 0 0 .2rem rgba(13, 110, 253, .25); }
+[data-bs-theme="dark"] #btnAdd,
+[data-bs-theme="dark"] #btnSave { background-color: var(--df-accent); border-color: var(--df-accent); color: #000000; }
+[data-bs-theme="dark"] #btnAdd:hover,
+[data-bs-theme="dark"] #btnSave:hover { background-color: #a772e7; border-color: #a772e7; color: #000000; }
+[data-bs-theme="dark"] #btnAdd:focus-visible,
+[data-bs-theme="dark"] #btnSave:focus-visible { box-shadow: 0 0 0 .2rem rgba(187, 134, 252, .3); }
 @media (min-width: 768px) {
   .ng-extra-col { padding-left: .2rem !important; padding-right: .2rem !important; width: 1%; }
   .ng-entry-table { font-size: .76rem; }
