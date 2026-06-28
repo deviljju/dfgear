@@ -1,6 +1,6 @@
 ownerdomain=dfgear.xyz
 managerdomain=venatus.com
-#V 22.05.2026 VH
+#V 26.06.2026 VH
 #V
 
 
@@ -73,6 +73,9 @@ google.com, pub-2553634189837243, RESELLER, f08c47fec0942fa0
 gumgum.com, 16134, RESELLER, ffdef49475d318a9
 rubiconproject.com, 23434, RESELLER, 0bfd66d529a55807
 pubmatic.com, 157897, RESELLER, 5d62403b186f2ace
+
+#Improve Digital
+improvedigital.com, 1012, RESELLER
 
 #Index Exchange
 indexexchange.com, 183921, DIRECT, 50b1c356f2c5c8fc                   
@@ -148,11 +151,11 @@ smartadserver.com,3379,RESELLER,060d053dcf45cbf3
 triplelift.com,8183,RESELLER,6c33edb13117fd86
 
 #Ozone
-the-ozone-project.com, OZONEVEN0005, DIRECT
+The-ozone-project.com, OZONEVEN0005, DIRECT
 appnexus.com, 9979, RESELLER
 openx.com, 540731760, RESELLER, 6a698e2ec38604c6
 pubmatic.com, 160557, RESELLER, 5d62403b186f2ace
-indexexchange.com, 206233, RESELLER, 50b1c356f2c5c8fc                               
+indexexchange.com, 206233, RESELLER, 50b1c356f2c5c8fc
 
 #PubMatic
 pubmatic.com, 159234, RESELLER, 5d62403b186f2ace                        
@@ -188,13 +191,15 @@ lijit.com, 397546, RESELLER, fafdf38b16bf6b2b
 
 #Sharethrough
 sharethrough.com, 31c129df, DIRECT, d53b998a7bd4ecd2                       
+
+#Smart AdServer
 smartadserver.com, 3490, DIRECT                                            
 smartadserver.com, 4016, DIRECT                                             
 smartadserver.com, 4012, DIRECT
 smartadserver.com, 4071, DIRECT
 smartadserver.com, 4073, DIRECT
 smartadserver.com, 4074, DIRECT
-sharethrough.com, 3490, RESELLER, d53b998a7bd4ecd2
+sharethrough.com, 3490, RESELLER, 060d053dcf45cbf3
 
 #Smile Wanted
 smilewanted.com, 474, RESELLER
@@ -240,9 +245,6 @@ appnexus.com,1908,RESELLER,f5ab79cb980f11d1
 
 #Yahoo
 yahoo.com, 100034, DIRECT, e1a5b5b6e3255540
-
-#AdinPlay - DIRECT
-adinplay.com, FTB, DIRECT
 # Google Adsense
 google.com, pub-5735118798197779, DIRECT, f08c47fec0942fa0
 venatus.com, 6822ea35f763a989a399b4ff, DIRECT
