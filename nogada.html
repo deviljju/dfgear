@@ -202,18 +202,33 @@
             </tbody>
           </table>
         </div>
-        <p class="ng-formula">인장제외: 골드 + (증표 × 증표 평균가) + (교가 인장 × 최저가) + (무조결 × 최저가) + 기타소득 − (증표 평균가 × 판수)<br>인장포함: 인장제외 수익 + (인장 × 5,000골드)</p>
+        <p class="ng-formula">인장제외: 골드 + (증표 × 증표 평균가) + (교가 인장 × 최저가 × 0.97) + (무조결 × 최저가 × 0.97) + 기타소득 − (증표 평균가 × 판수)<br>인장포함: 인장제외 수익 + (인장 × 5,000골드)</p>
       </section>
 
       <section class="ng-card" aria-labelledby="historyTitle">
         <div class="ng-history-head">
           <h2 id="historyTitle" class="ng-section-title">기록 테이블</h2>
-          <div class="ng-total-profits">
-            <strong>총 수익(인장제외): <span id="totalProfit">0 골드</span></strong>
-            <strong>총 수익(인장포함): <span id="totalProfitWithSeal">0 골드</span></strong>
           </div>
+        <div class="ng-table-wrap ng-summary-wrap">
+          <table class="ng-table ng-summary-table">
+            <thead>
+              <tr>
+                <th>판당 평균 골드</th><th>판당 평균 인장</th><th>판당 평균 증표</th><th>총 인장</th><th>총 수익(인장제외)</th><th>총 수익(인장포함)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td id="avgGoldPerRun" data-label="판당 평균 골드">0 골드</td>
+                <td id="avgSealPerRun" data-label="판당 평균 인장">0</td>
+                <td id="avgTokenPerRun" data-label="판당 평균 증표">0</td>
+                <td id="totalSeal" data-label="총 인장">0</td>
+                <td class="ng-profit" id="totalProfit" data-label="총 수익(인장제외)">0 골드</td>
+                <td class="ng-profit" id="totalProfitWithSeal" data-label="총 수익(인장포함)">0 골드</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="ng-table-wrap">
+        <div class="ng-table-wrap ng-history-scroll">
           <table class="ng-table ng-history-table">
             <thead>
               <tr>
@@ -228,6 +243,7 @@
         <div class="ng-actions">
           <button type="button" class="btn btn-outline-primary" id="btnLoad">불러오기</button>
           <button type="button" class="btn btn-primary" id="btnSave">내보내기</button>
+          <button type="button" class="btn btn-primary" id="btnCopy">복사</button>
           <span class="ng-action-divider" aria-hidden="true"></span>
           <button type="button" class="btn btn-outline-danger" id="btnReset">초기화</button>
           <input type="file" id="jsonFile" accept="application/json,.json" hidden>

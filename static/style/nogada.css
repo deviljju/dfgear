@@ -19,6 +19,8 @@
 .ng-table { border-collapse: collapse; font-size: .85rem; min-width: 100%; width: max-content; }
 .ng-table th, .ng-table td { background: var(--df-surface); border: 1px solid var(--df-border); padding: .35rem .3rem; text-align: center; vertical-align: middle; white-space: nowrap; }
 .ng-table th { background: var(--df-surface2); font-size: .8rem; font-weight: 600; }
+.ng-history-scroll { max-height: 24rem; overflow: auto; }
+.ng-history-scroll .ng-history-table th { position: sticky; top: 0; z-index: 1; }
 .ng-help { align-items: center; border: 1px solid var(--df-text-muted); border-radius: 50%; color: var(--df-text-muted); cursor: help; display: inline-flex; font-size: .65rem; height: 1rem; justify-content: center; line-height: 1; vertical-align: middle; width: 1rem; }
 .ng-help:focus { outline: 2px solid var(--df-accent); outline-offset: 1px; }
 .ng-mobile-token-label { display: none; }
@@ -37,20 +39,25 @@
 .ng-history-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .ng-history-head strong { color: #ffffff; }
 [data-bs-theme="light"] .ng-history-head strong { color: #000000; }
-.ng-total-profits { display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+.ng-summary-wrap { margin-bottom: .75rem; }
+.ng-summary-table { width: 100%; }
+.ng-summary-table td { font-weight: 700; }
 .ng-empty { font-size: .85rem; margin: .8rem 0 0; text-align: center; }
 .ng-actions { align-items: center; display: flex; gap: .5rem; margin-top: 1rem; }
 .ng-action-divider { border-left: 1px solid var(--df-border); height: 1.75rem; margin: 0 .2rem; }
 .ng-delete { font-size: .75rem; padding: .2rem .45rem; }
-#btnAdd, #btnSave { background-color: #0d6efd; border-color: #0d6efd; color: #ffffff; }
-#btnAdd:hover, #btnSave:hover { background-color: #0b5ed7; border-color: #0a58ca; color: #ffffff; }
-#btnAdd:focus-visible, #btnSave:focus-visible { box-shadow: 0 0 0 .2rem rgba(13, 110, 253, .25); }
+#btnAdd, #btnSave, #btnCopy { background-color: #0d6efd; border-color: #0d6efd; color: #ffffff; }
+#btnAdd:hover, #btnSave:hover, #btnCopy:hover { background-color: #0b5ed7; border-color: #0a58ca; color: #ffffff; }
+#btnAdd:focus-visible, #btnSave:focus-visible, #btnCopy:focus-visible { box-shadow: 0 0 0 .2rem rgba(13, 110, 253, .25); }
 [data-bs-theme="dark"] #btnAdd,
-[data-bs-theme="dark"] #btnSave { background-color: var(--df-accent); border-color: var(--df-accent); color: #000000; }
+[data-bs-theme="dark"] #btnSave,
+[data-bs-theme="dark"] #btnCopy { background-color: var(--df-accent); border-color: var(--df-accent); color: #000000; }
 [data-bs-theme="dark"] #btnAdd:hover,
-[data-bs-theme="dark"] #btnSave:hover { background-color: #a772e7; border-color: #a772e7; color: #000000; }
+[data-bs-theme="dark"] #btnSave:hover,
+[data-bs-theme="dark"] #btnCopy:hover { background-color: #a772e7; border-color: #a772e7; color: #000000; }
 [data-bs-theme="dark"] #btnAdd:focus-visible,
-[data-bs-theme="dark"] #btnSave:focus-visible { box-shadow: 0 0 0 .2rem rgba(187, 134, 252, .3); }
+[data-bs-theme="dark"] #btnSave:focus-visible,
+[data-bs-theme="dark"] #btnCopy:focus-visible { box-shadow: 0 0 0 .2rem rgba(187, 134, 252, .3); }
 @media (min-width: 768px) {
   .ng-extra-col { padding-left: .2rem !important; padding-right: .2rem !important; width: 1%; }
   .ng-entry-table { font-size: .76rem; }
@@ -103,6 +110,15 @@
 
   .ng-history-head { align-items: flex-start; flex-direction: column; gap: .15rem; margin-bottom: .7rem; }
   .ng-history-head .ng-section-title { margin-bottom: 0; }
+  .ng-summary-wrap { overflow-x: auto; }
+  .ng-summary-table { display: table; min-width: 44rem; width: 100%; }
+  .ng-summary-table thead { display: table-header-group; }
+  .ng-summary-table tbody { display: table-row-group; }
+  .ng-summary-table tr { background: transparent; border: 0; border-radius: 0; display: table-row; overflow: visible; }
+  .ng-summary-table th, .ng-summary-table td { border: 1px solid var(--df-border); display: table-cell; min-height: 0; padding: .45rem .35rem; text-align: center; white-space: nowrap; }
+  .ng-summary-table td::before { display: none; }
+  .ng-history-scroll { max-height: 44rem; overflow-y: auto; }
+  .ng-history-scroll .ng-history-table th { position: static; }
   .ng-history-table tbody { display: grid; gap: .75rem; }
   .ng-history-table .ng-history-action { display: block; padding: .55rem; }
   .ng-history-table .ng-history-action::before { display: none; }
