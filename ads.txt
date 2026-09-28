@@ -1,6 +1,6 @@
 ownerdomain=dfgear.xyz
 managerdomain=venatus.com
-#V 27.08.2026 VH
+#V 25.09.2026 VH
 #V
 
 
@@ -28,6 +28,7 @@ pubmatic.com, 158355, RESELLER, 5d62403b186f2ace
 rubiconproject.com, 23844, RESELLER, 0bfd66d529a55807                         
 openx.com, 559680764, RESELLER, 6a698e2ec38604c6                              
 triplelift.com, 12507, RESELLER
+improvedigital.com, 2942, RESELLER
 
 #Amazon
 aps.amazon.com,70247b00-ff8f-4016-b3ab-8344daf96e09,DIRECT     
@@ -145,7 +146,6 @@ rubiconproject.com, 13510, RESELLER
 #Rise
 risecodes.com, 5fa94677b2db6a00015b22a9, DIRECT                       
 pubmatic.com, 160295, RESELLER, 5d62403b186f2ace                          
-xandr.com, 14082, RESELLER                                                 
 rubiconproject.com, 23876, RESELLER, 0bfd66d529a55807                      
 sharethrough.com, 5926d422, RESELLER, d53b998a7bd4ecd2                     
 yieldmo.com, 2754490424016969782, RESELLER                                 
@@ -154,6 +154,8 @@ onetag.com, 69f48c2160c8113, RESELLER
 gumgum.com, 16112, RESELLER, ffdef49475d318a9
 video.unrulymedia.com, 335119963, RESELLER                                 
 sharethrough.com, 4284, RESELLER, d53b998a7bd4ecd2
+33across.com, 0010b00002Xbn7QAAR, RESELLER, bbea06d9c4d2853c
+smartadserver.com, 4284, RESELLER
 
 #Seedtag
 seedtag.com, 68011633bc1ec10007f62708, DIRECT
@@ -161,6 +163,7 @@ xandr.com, 4009, RESELLER, f5ab79cb980f11d1
 rubiconproject.com, 17280, RESELLER, 0bfd66d529a55807
 smartadserver.com, 3050, RESELLER
 lijit.com, 397546, RESELLER, fafdf38b16bf6b2b
+rubiconproject.com, 28817, DIRECT, 0bfd66d529a55807
 
 #Sharethrough
 sharethrough.com, 31c129df, DIRECT, d53b998a7bd4ecd2                       
